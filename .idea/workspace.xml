@@ -6,7 +6,47 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6341b027-ed84-47f6-8821-d5823b5dd84c" name="Default Changelist" comment="" />
+    <list default="true" id="6341b027-ed84-47f6-8821-d5823b5dd84c" name="Default Changelist" comment="Database connected">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_171.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/JavaRead.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/JavaWrite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/scrapVend_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/scrapVend_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2c9a18ea-c80f-4c92-954d-e397e4029c49.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2c9a18ea-c80f-4c92-954d-e397e4029c49.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_17.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/SVDB_2.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/SV_wireframe.bmpr" beforeDir="false" afterPath="$PROJECT_DIR$/Scrap-Vend docs/SV_wireframe.bmpr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/database.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/database2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/database3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/database4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/database_doc/SVDB_1.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/database_doc/SVDB_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/database_doc/SVDB_2.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/database_doc/Untitled_mysql_create.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/database_doc/database.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/database_doc/database2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/database_doc/database2.png.orig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/database_doc/database3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/database_doc/database4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/database_doc/database_.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/database_doc/db.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/database_doc/db_previous.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/database_doc/mysql_create.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/database_doc/sql  command.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/database_doc/sql  command.txt.orig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/database_doc/svsql.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/download (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/next ppt template.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/sql  command - Copy.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scrap-Vend docs/sql  command.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/SVDB_1.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/database/SVDB_1.mwb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/SVDB_1.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/database/SVDB_1.mwb.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapVend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/scrapVend.iml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,32 +81,77 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="mydb: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="mydb: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="contact_us: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="ErrorTreeViewConfiguration">
+    <option name="hideWarnings" value="true" />
+    <option name="HIDE_WARNINGS" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="65" selection-start-line="7" selection-start-column="65" selection-end-line="7" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/JavaRead.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="50" lean-forward="true" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/JavaWrite.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scrapVend.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="85" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="85" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -78,6 +163,9 @@
         <option value="2c9a18ea-c80f-4c92-954d-e397e4029c49/schema/mydb/table/item_details.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/2c9a18ea-c80f-4c92-954d-e397e4029c49/console.sql" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/JavaRead.java" />
+        <option value="$PROJECT_DIR$/src/JavaWrite.java" />
       </list>
     </option>
   </component>
@@ -88,26 +176,22 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_17.xml" />
-        <option value="$PROJECT_DIR$/.idea/dataSources.xml" />
-      </list>
-    </option>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="54" />
-    <option name="y" value="-8" />
-    <option name="width" value="1234" />
-    <option name="height" value="788" />
+    <option name="x" value="683" />
+    <option name="width" value="683" />
+    <option name="height" value="738" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -115,11 +199,27 @@
               <item name="Scrapvend" type="b2602c69:ProjectViewProjectNode" />
               <item name="scrapVend" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Scrapvend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="scrapVend" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scrapvend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="scrapVend" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scrapvend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -129,13 +229,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.console.LAST_STATE" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Scrap-Vend docs/database_doc/mysql-connector-java-8.0.17/mysql-connector-java-8.0.17.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -149,7 +250,23 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.JavaWrite">
+    <configuration name="JavaRead" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JavaRead" />
+      <module name="scrapVend" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JavaWrite" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Java\jdk1.8.0_221\jre" />
+      <option name="MAIN_CLASS_NAME" value="JavaWrite" />
+      <module name="scrapVend" />
+      <extension name="coverage" track_test_folders="true" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 7.0.56" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.56" ALTERNATIVE_JRE_ENABLED="false">
       <deployment>
         <artifact name="scrapVend:war exploded">
@@ -166,6 +283,39 @@
       <predefined_log_file id="Tomcat Manager" />
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="27366" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
@@ -188,6 +338,17 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.JavaRead" />
+      <item itemvalue="Application.JavaWrite" />
+      <item itemvalue="Tomcat Server.Tomcat 7.0.56" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.JavaWrite" />
+        <item itemvalue="Application.JavaRead" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -200,7 +361,16 @@
       <option name="presentableId" value="Default" />
       <updated>1563736391789</updated>
       <workItem from="1563736398756" duration="1082000" />
-      <workItem from="1563792653911" duration="9431000" />
+      <workItem from="1563792653911" duration="14863000" />
+      <workItem from="1563962682217" duration="6292000" />
+      <workItem from="1564340815956" duration="3073000" />
+      <workItem from="1564480670904" duration="160000" />
+      <workItem from="1565032288102" duration="1803000" />
+      <workItem from="1565194571115" duration="718000" />
+      <workItem from="1566631795043" duration="1451000" />
+      <workItem from="1566847040648" duration="721000" />
+      <workItem from="1566939779705" duration="3984000" />
+      <workItem from="1567607261151" duration="618000" />
     </task>
     <task id="LOCAL-00001" summary="Database connected">
       <created>1563880508764</created>
@@ -209,16 +379,24 @@
       <option name="project" value="LOCAL" />
       <updated>1563880508764</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Database connected">
+      <created>1563880675766</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1563880675766</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10513000" />
+    <option name="totallyTimeSpent" value="34950000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18003026" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20347957" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -226,9 +404,8 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Database Console" weight="0.3296" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3296" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3296" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -237,15 +414,17 @@
       <window_info anchor="bottom" id="Application Servers" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3296" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3296" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="14" visible="true" weight="0.3296" />
+      <window_info anchor="bottom" id="Version Control" order="14" weight="0.3296" />
+      <window_info anchor="bottom" id="Database Console" order="15" weight="0.3296" />
+      <window_info anchor="bottom" id="Duplicates" order="16" weight="0.3296" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.32980332" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Database" order="6" weight="0.32980332" />
@@ -255,6 +434,46 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Database connected" />
@@ -270,20 +489,7 @@
     <entry file="file://$PROJECT_DIR$/out/artifacts/scrapVend_war_exploded/index.jsp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="das://2c9a18ea-c80f-4c92-954d-e397e4029c49/schema/information_schema/view/INNODB_METRICS">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="7ac3eb57-bd7c-444b-ba2f-0448588010ca">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scrapVend.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14" />
-      </provider>
-    </entry>
+    <entry file="das://2c9a18ea-c80f-4c92-954d-e397e4029c49/schema/information_schema/view/INNODB_METRICS" />
     <entry file="das://2c9a18ea-c80f-4c92-954d-e397e4029c49/schema/mydb/table/booked_item_list">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state projectRestartId="7ac3eb57-bd7c-444b-ba2f-0448588010ca">
@@ -293,15 +499,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://2c9a18ea-c80f-4c92-954d-e397e4029c49/schema/information_schema/view/CHARACTER_SETS">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="7ac3eb57-bd7c-444b-ba2f-0448588010ca">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://2c9a18ea-c80f-4c92-954d-e397e4029c49/schema/information_schema/view/CHARACTER_SETS" />
     <entry file="das://2c9a18ea-c80f-4c92-954d-e397e4029c49/schema/mydb/table/contact_us">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state projectRestartId="7ac3eb57-bd7c-444b-ba2f-0448588010ca">
@@ -318,13 +516,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://2c9a18ea-c80f-4c92-954d-e397e4029c49/schema/mydb/table/item_details">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state projectRestartId="7ac3eb57-bd7c-444b-ba2f-0448588010ca">
@@ -337,10 +528,93 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/2c9a18ea-c80f-4c92-954d-e397e4029c49/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="das://2c9a18ea-c80f-4c92-954d-e397e4029c49/schema/mydb/table/user_details">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="3dd8d878-906f-48b7-816c-fa42a8eb126d">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://2c9a18ea-c80f-4c92-954d-e397e4029c49/schema/mydb/table/booking_details">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="3dd8d878-906f-48b7-816c-fa42a8eb126d">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/2c9a18ea-c80f-4c92-954d-e397e4029c49.SCHEMA:mydb">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>2c9a18ea-c80f-4c92-954d-e397e4029c49.SCHEMA:mydb</OriginalElement>
+          <nodes>
+            <node x="" y="">2c9a18ea-c80f-4c92-954d-e397e4029c49.TABLE:mydb.pickup_person_details</node>
+            <node x="" y="">2c9a18ea-c80f-4c92-954d-e397e4029c49.TABLE:mydb.company_sale_details</node>
+            <node x="" y="">2c9a18ea-c80f-4c92-954d-e397e4029c49.TABLE:mydb.contact_us</node>
+            <node x="" y="">2c9a18ea-c80f-4c92-954d-e397e4029c49.TABLE:mydb.company_details</node>
+            <node x="" y="">2c9a18ea-c80f-4c92-954d-e397e4029c49.TABLE:mydb.pickup_person_record</node>
+            <node x="" y="">2c9a18ea-c80f-4c92-954d-e397e4029c49.TABLE:mydb.booked_item_list</node>
+            <node x="" y="">2c9a18ea-c80f-4c92-954d-e397e4029c49.TABLE:mydb.order_cancel</node>
+            <node x="" y="">2c9a18ea-c80f-4c92-954d-e397e4029c49.TABLE:mydb.admin</node>
+            <node x="" y="">2c9a18ea-c80f-4c92-954d-e397e4029c49.TABLE:mydb.payment_details</node>
+            <node x="" y="">2c9a18ea-c80f-4c92-954d-e397e4029c49.TABLE:mydb.booking_details</node>
+            <node x="" y="">2c9a18ea-c80f-4c92-954d-e397e4029c49.TABLE:mydb.user_details</node>
+            <node x="" y="">2c9a18ea-c80f-4c92-954d-e397e4029c49.TABLE:mydb.item_details</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.5268935236004391" x="1001.0" y="475.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="65" selection-start-line="7" selection-start-column="65" selection-end-line="7" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JavaWrite.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapVend.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="85" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JavaRead.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="50" lean-forward="true" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -400,7 +674,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -420,7 +693,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>mysql-connector-java-8.0.17</last-edited>
+          <last-edited>mysql-connector-java-8.0.171</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

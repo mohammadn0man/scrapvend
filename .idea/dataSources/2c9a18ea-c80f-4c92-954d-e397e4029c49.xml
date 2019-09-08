@@ -1118,496 +1118,706 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="281" parent="3" name="booked_item_list"/>
-    <table id="282" parent="3" name="booking_details"/>
-    <table id="283" parent="3" name="company_details"/>
-    <table id="284" parent="3" name="company_sale_details"/>
-    <table id="285" parent="3" name="contact_us"/>
-    <table id="286" parent="3" name="item_details"/>
-    <table id="287" parent="3" name="order_cancel"/>
-    <table id="288" parent="3" name="payment_details"/>
-    <table id="289" parent="3" name="pickup_person_details"/>
-    <table id="290" parent="3" name="pickup_person_record"/>
-    <table id="291" parent="3" name="user_details"/>
-    <column id="292" parent="281" name="Item_id">
+    <table id="281" parent="3" name="admin_details"/>
+    <table id="282" parent="3" name="booked_item_list"/>
+    <table id="283" parent="3" name="booking_details"/>
+    <table id="284" parent="3" name="company_details"/>
+    <table id="285" parent="3" name="company_sale_details"/>
+    <table id="286" parent="3" name="contact_us"/>
+    <table id="287" parent="3" name="item_details"/>
+    <table id="288" parent="3" name="login_info">
+      <Comment>role 0 - user 1 - pickuPerson 2 - admin</Comment>
+    </table>
+    <table id="289" parent="3" name="order_cancel"/>
+    <table id="290" parent="3" name="payment_details"/>
+    <table id="291" parent="3" name="pickup_person_details"/>
+    <table id="292" parent="3" name="pickup_person_record"/>
+    <table id="293" parent="3" name="user_details"/>
+    <column id="294" parent="281" name="name">
+      <Position>1</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="295" parent="281" name="admin_id">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="296" parent="281" name="Username">
+      <Position>3</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="297" parent="281" name="admin_admin_id_uindex">
+      <ColNames>admin_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="298" parent="281" name="admin___fk1">
+      <ColNames>Username</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="299" parent="281" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>admin_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="300" parent="281" name="admin_admin_id_uindex">
+      <ColNames>admin_id</ColNames>
+      <UnderlyingIndexName>admin_admin_id_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="301" parent="281" name="admin___fk0">
+      <ColNames>Username</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>login_info</RefTableName>
+      <RefColNames>Username</RefColNames>
+    </foreign-key>
+    <column id="302" parent="282" name="Item_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="281" name="Booking_id">
+    <column id="303" parent="282" name="Booking_id">
       <Position>2</Position>
-      <DataType>varchar(10)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="281" name="Item_qty">
+    <column id="304" parent="282" name="Item_qty">
       <Position>3</Position>
       <DataType>float|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="281" name="Item_amount">
+    <column id="305" parent="282" name="Item_amount">
       <Position>4</Position>
       <DataType>float|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="296" parent="281" name="Pickup_timestamp">
+    <column id="306" parent="282" name="Pickup_timestamp">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="297" parent="281" name="booked_item_list_fk0">
+    <column id="307" parent="282" name="new_column">
+      <Position>6</Position>
+      <DataType>int(11)|0s</DataType>
+      <DefaultExpression>(_utf8mb4&apos;Item_qty&apos; * 10)</DefaultExpression>
+      <ColumnKind>generated-virtual</ColumnKind>
+    </column>
+    <index id="308" parent="282" name="booked_item_list_fk0">
       <ColNames>Item_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="298" parent="281" name="booked_item_list_fk1">
+    <index id="309" parent="282" name="booked_item_list_fk1">
       <ColNames>Booking_id</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="299" parent="281" name="booked_item_list_fk1">
+    <foreign-key id="310" parent="282" name="booked_item_list___fk0">
+      <ColNames>Item_id</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>item_details</RefTableName>
+      <RefColNames>Item_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="311" parent="282" name="booked_item_list___fk1">
       <ColNames>Booking_id</ColNames>
       <RefSchemaName>mydb</RefSchemaName>
       <RefTableName>booking_details</RefTableName>
       <RefColNames>Booking_id</RefColNames>
     </foreign-key>
-    <column id="300" parent="282" name="User_id">
+    <column id="312" parent="283" name="User_id">
       <Position>1</Position>
-      <DataType>varchar(10)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="282" name="Booking_date_time">
+    <column id="313" parent="283" name="Booking_date_time">
       <Position>2</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="282" name="Scheduled_pickup_date_time">
+    <column id="314" parent="283" name="Scheduled_pickup_date_time">
       <Position>3</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="303" parent="282" name="Pickup_date_time">
+    <column id="315" parent="283" name="Pickup_date_time">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="304" parent="282" name="Booking_id">
+    <column id="316" parent="283" name="Booking_id">
       <Position>5</Position>
-      <DataType>varchar(10)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="305" parent="282" name="Pickup_person_id">
+    <column id="317" parent="283" name="Pickup_person_id">
       <Position>6</Position>
-      <DataType>varchar(10)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="306" parent="282" name="Pickup_status">
+    <column id="318" parent="283" name="Pickup_status">
       <Position>7</Position>
-      <DataType>varchar(20)|0s</DataType>
+      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="307" parent="282" name="Pickup_person_rating">
-      <Position>8</Position>
-      <DataType>int(5)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="308" parent="282" name="booking_details_fk0">
+    <index id="319" parent="283" name="booking_details_Booking_id_uindex">
+      <ColNames>Booking_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="320" parent="283" name="booking_details_fk0">
       <ColNames>User_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="309" parent="282" name="booking_details_fk1">
+    <index id="321" parent="283" name="booking_details_fk1">
       <ColNames>Pickup_person_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="310" parent="282" name="PRIMARY">
+    <key id="322" parent="283" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Booking_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="311" parent="282" name="booking_details_fk0">
+    <key id="323" parent="283" name="booking_details_Booking_id_uindex">
+      <ColNames>Booking_id</ColNames>
+      <UnderlyingIndexName>booking_details_Booking_id_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="324" parent="283" name="booking_details___fk0">
       <ColNames>User_id</ColNames>
       <RefSchemaName>mydb</RefSchemaName>
       <RefTableName>user_details</RefTableName>
       <RefColNames>User_id</RefColNames>
     </foreign-key>
-    <foreign-key id="312" parent="282" name="booking_details_fk1">
+    <foreign-key id="325" parent="283" name="booking_details___fk1">
       <ColNames>Pickup_person_id</ColNames>
       <RefSchemaName>mydb</RefSchemaName>
       <RefTableName>pickup_person_details</RefTableName>
       <RefColNames>Pickup_person_id</RefColNames>
     </foreign-key>
-    <column id="313" parent="283" name="Company_id">
+    <column id="326" parent="284" name="Company_id">
       <Position>1</Position>
-      <DataType>varchar(10)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="314" parent="283" name="Company_name">
+    <column id="327" parent="284" name="Company_name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="315" parent="283" name="Address">
+    <column id="328" parent="284" name="Address">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="316" parent="283" name="Contact_no">
+    <column id="329" parent="284" name="Contact_no">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="317" parent="283" name="PRIMARY">
+    <index id="330" parent="284" name="company_details_Company_id_uindex">
+      <ColNames>Company_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="331" parent="284" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Company_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="318" parent="284" name="Company_id">
+    <key id="332" parent="284" name="company_details_Company_id_uindex">
+      <ColNames>Company_id</ColNames>
+      <UnderlyingIndexName>company_details_Company_id_uindex</UnderlyingIndexName>
+    </key>
+    <column id="333" parent="285" name="Company_id">
       <Position>1</Position>
-      <DataType>varchar(10)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="319" parent="284" name="Sales_id">
+    <column id="334" parent="285" name="Sales_id">
       <Position>2</Position>
-      <DataType>varchar(10)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="320" parent="284" name="Sales_amount">
+    <column id="335" parent="285" name="Sales_amount">
       <Position>3</Position>
       <DataType>float|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="321" parent="284" name="Date">
+    <column id="336" parent="285" name="Date">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="322" parent="284" name="Sale_status">
+    <column id="337" parent="285" name="Sale_status">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="323" parent="284" name="company_sale_details_fk0">
+    <index id="338" parent="285" name="company_sale_details_Sales_id_uindex">
+      <ColNames>Sales_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="339" parent="285" name="company_sale_details_fk0">
       <ColNames>Company_id</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="324" parent="284" name="company_sale_details_fk0">
+    <key id="340" parent="285" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Sales_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="341" parent="285" name="company_sale_details_Sales_id_uindex">
+      <ColNames>Sales_id</ColNames>
+      <UnderlyingIndexName>company_sale_details_Sales_id_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="342" parent="285" name="company_sale_details___fk0">
       <ColNames>Company_id</ColNames>
       <RefSchemaName>mydb</RefSchemaName>
       <RefTableName>company_details</RefTableName>
       <RefColNames>Company_id</RefColNames>
     </foreign-key>
-    <column id="325" parent="285" name="Author">
+    <column id="343" parent="286" name="Author">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="326" parent="285" name="Email">
+    <column id="344" parent="286" name="Email">
       <Position>2</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="327" parent="285" name="Contact_no">
+    <column id="345" parent="286" name="Contact_no">
       <Position>3</Position>
       <DataType>int(15)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="328" parent="285" name="Subject">
+    <column id="346" parent="286" name="Subject">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="329" parent="285" name="Message">
+    <column id="347" parent="286" name="Message">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="330" parent="285" name="contact_id">
+    <column id="348" parent="286" name="Contact_id">
       <Position>6</Position>
-      <DataType>int(10) unsigned|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="331" parent="285" name="contact_id_UNIQUE">
-      <ColNames>contact_id</ColNames>
+    <index id="349" parent="286" name="contact_id_UNIQUE">
+      <ColNames>Contact_id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="332" parent="285" name="PRIMARY">
+    <key id="350" parent="286" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>contact_id</ColNames>
+      <ColNames>Contact_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="333" parent="285" name="contact_id_UNIQUE">
-      <ColNames>contact_id</ColNames>
+    <key id="351" parent="286" name="contact_id_UNIQUE">
+      <ColNames>Contact_id</ColNames>
       <UnderlyingIndexName>contact_id_UNIQUE</UnderlyingIndexName>
     </key>
-    <column id="334" parent="286" name="Item_id">
+    <column id="352" parent="287" name="Item_id">
       <Position>1</Position>
-      <DataType>varchar(10)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="335" parent="286" name="Item_name">
+    <column id="353" parent="287" name="Item_name">
       <Position>2</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="336" parent="286" name="Item_rate">
+    <column id="354" parent="287" name="Item_rate">
       <Position>3</Position>
       <DataType>float|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="337" parent="286" name="Item_measure">
+    <column id="355" parent="287" name="Item_measure">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="338" parent="286" name="Item_image">
+    <column id="356" parent="287" name="Item_image">
       <Position>5</Position>
       <DataType>blob|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="339" parent="286" name="PRIMARY">
+    <key id="357" parent="287" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Item_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="340" parent="287" name="Booking_id">
+    <column id="358" parent="288" name="Username">
       <Position>1</Position>
-      <DataType>varchar(10)|0s</DataType>
+      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="341" parent="287" name="Cancellation_id">
+    <column id="359" parent="288" name="Role">
       <Position>2</Position>
-      <DataType>varchar(10)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>2</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="360" parent="288" name="password">
+      <Position>3</Position>
+      <DataType>char(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="342" parent="287" name="Feedback">
+    <column id="361" parent="288" name="email">
+      <Position>4</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="362" parent="288" name="contact_no">
+      <Position>5</Position>
+      <DataType>varchar(12)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="363" parent="288" name="login_info_Username_uindex">
+      <ColNames>Username</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="364" parent="288" name="login_info_email_uindex">
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="365" parent="288" name="login_info_contact_no_uindex">
+      <ColNames>contact_no</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="366" parent="288" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Username</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="367" parent="288" name="login_info_Username_uindex">
+      <ColNames>Username</ColNames>
+      <UnderlyingIndexName>login_info_Username_uindex</UnderlyingIndexName>
+    </key>
+    <key id="368" parent="288" name="login_info_email_uindex">
+      <ColNames>email</ColNames>
+      <UnderlyingIndexName>login_info_email_uindex</UnderlyingIndexName>
+    </key>
+    <key id="369" parent="288" name="login_info_contact_no_uindex">
+      <ColNames>contact_no</ColNames>
+      <UnderlyingIndexName>login_info_contact_no_uindex</UnderlyingIndexName>
+    </key>
+    <column id="370" parent="289" name="Booking_id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="371" parent="289" name="Cancellation_id">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="372" parent="289" name="Feedback">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="343" parent="287" name="order_cancel_fk0">
+    <index id="373" parent="289" name="order_cancel_Cancellation_id_uindex">
+      <ColNames>Cancellation_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="374" parent="289" name="order_cancel___fk0">
       <ColNames>Booking_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="344" parent="287" name="PRIMARY">
+    <key id="375" parent="289" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Cancellation_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="345" parent="287" name="order_cancel_fk0">
+    <key id="376" parent="289" name="order_cancel_Cancellation_id_uindex">
+      <ColNames>Cancellation_id</ColNames>
+      <UnderlyingIndexName>order_cancel_Cancellation_id_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="377" parent="289" name="order_cancel___fk0">
       <ColNames>Booking_id</ColNames>
       <RefSchemaName>mydb</RefSchemaName>
       <RefTableName>booking_details</RefTableName>
       <RefColNames>Booking_id</RefColNames>
     </foreign-key>
-    <column id="346" parent="288" name="Payment_id">
+    <column id="378" parent="290" name="Payment_id">
       <Position>1</Position>
-      <DataType>varchar(10)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="347" parent="288" name="Payment_amount">
+    <column id="379" parent="290" name="Payment_amount">
       <Position>2</Position>
       <DataType>float|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="348" parent="288" name="Booking_id">
+    <column id="380" parent="290" name="Booking_id">
       <Position>3</Position>
-      <DataType>varchar(10)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="349" parent="288" name="Payment_mode">
+    <column id="381" parent="290" name="Payment_mode">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <DefaultExpression>&apos;online&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="350" parent="288" name="Payment_status">
+    <column id="382" parent="290" name="Payment_status">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
       <DefaultExpression>&apos;pending&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="351" parent="288" name="payment_details_fk0">
+    <index id="383" parent="290" name="payment_details_fk0">
       <ColNames>Booking_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="352" parent="288" name="PRIMARY">
+    <key id="384" parent="290" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Payment_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="353" parent="288" name="payment_details_fk0">
+    <foreign-key id="385" parent="290" name="payment_details___fk0">
       <ColNames>Booking_id</ColNames>
       <RefSchemaName>mydb</RefSchemaName>
       <RefTableName>booking_details</RefTableName>
       <RefColNames>Booking_id</RefColNames>
     </foreign-key>
-    <column id="354" parent="289" name="Name">
+    <column id="386" parent="291" name="Name">
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="355" parent="289" name="Contact_no">
+    <column id="387" parent="291" name="Aadhar_no">
       <Position>2</Position>
-      <DataType>int(15)|0s</DataType>
+      <DataType>varchar(12)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="356" parent="289" name="Aadhar_no">
+    <column id="388" parent="291" name="Pickup_person_id">
       <Position>3</Position>
-      <DataType>int(12)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="357" parent="289" name="Pickup_person_id">
+    <column id="389" parent="291" name="Salary">
       <Position>4</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="358" parent="289" name="Salary">
-      <Position>5</Position>
       <DataType>float|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="359" parent="289" name="Rating">
-      <Position>6</Position>
+    <column id="390" parent="291" name="Rating">
+      <Position>5</Position>
       <DataType>int(5)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="360" parent="289" name="Pickup_person_status">
-      <Position>7</Position>
+    <column id="391" parent="291" name="Pickup_person_status">
+      <Position>6</Position>
       <DataType>varchar(25)|0s</DataType>
       <DefaultExpression>&apos;working&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="361" parent="289" name="PRIMARY">
+    <column id="392" parent="291" name="Username">
+      <Position>7</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="393" parent="291" name="pickup_person_details_Aadhar_no_uindex">
+      <ColNames>Aadhar_no</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="394" parent="291" name="pickup_person_details_Pickup_person_id_uindex">
+      <ColNames>Pickup_person_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="395" parent="291" name="pickup_person_details_Username_uindex">
+      <ColNames>Username</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="396" parent="291" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Pickup_person_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="362" parent="290" name="Pickup_person_id">
+    <key id="397" parent="291" name="pickup_person_details_Aadhar_no_uindex">
+      <ColNames>Aadhar_no</ColNames>
+      <UnderlyingIndexName>pickup_person_details_Aadhar_no_uindex</UnderlyingIndexName>
+    </key>
+    <key id="398" parent="291" name="pickup_person_details_Pickup_person_id_uindex">
+      <ColNames>Pickup_person_id</ColNames>
+      <UnderlyingIndexName>pickup_person_details_Pickup_person_id_uindex</UnderlyingIndexName>
+    </key>
+    <key id="399" parent="291" name="pickup_person_details_Username_uindex">
+      <ColNames>Username</ColNames>
+      <UnderlyingIndexName>pickup_person_details_Username_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="400" parent="291" name="pickup_person_details___fk0">
+      <ColNames>Username</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>login_info</RefTableName>
+      <RefColNames>Username</RefColNames>
+    </foreign-key>
+    <column id="401" parent="292" name="Pickup_person_id">
       <Position>1</Position>
-      <DataType>varchar(10)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="363" parent="290" name="Date">
+    <column id="402" parent="292" name="Date">
       <Position>2</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="364" parent="290" name="10:00AM-12:00PM">
+    <column id="403" parent="292" name="10:00AM-12:00PM">
       <Position>3</Position>
       <DataType>tinyint(4)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="365" parent="290" name="12:00PM-02:00PM">
+    <column id="404" parent="292" name="12:00PM-02:00PM">
       <Position>4</Position>
       <DataType>tinyint(4)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="366" parent="290" name="02:00PM-04:00PM">
+    <column id="405" parent="292" name="02:00PM-04:00PM">
       <Position>5</Position>
       <DataType>tinyint(4)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="367" parent="290" name="04:00PM-06:00PM">
+    <column id="406" parent="292" name="04:00PM-06:00PM">
       <Position>6</Position>
       <DataType>tinyint(4)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="368" parent="290" name="pickup_person_record_fk0">
+    <index id="407" parent="292" name="pickup_person_record_fk0">
       <ColNames>Pickup_person_id</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="369" parent="290" name="pickup_person_record_fk0">
+    <foreign-key id="408" parent="292" name="pickup_person_record___fk0">
       <ColNames>Pickup_person_id</ColNames>
       <RefSchemaName>mydb</RefSchemaName>
       <RefTableName>pickup_person_details</RefTableName>
       <RefColNames>Pickup_person_id</RefColNames>
     </foreign-key>
-    <column id="370" parent="291" name="Name">
+    <column id="409" parent="293" name="Name">
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="371" parent="291" name="Address">
+    <column id="410" parent="293" name="Address">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <DefaultExpression>&apos;NULL&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="372" parent="291" name="Contact_no">
+    <column id="411" parent="293" name="User_id">
       <Position>3</Position>
-      <DataType>varchar(15)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="373" parent="291" name="email_id">
+    <column id="412" parent="293" name="Username">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="374" parent="291" name="User_id">
-      <Position>5</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="375" parent="291" name="Password">
-      <Position>6</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="376" parent="291" name="PRIMARY">
+    <index id="413" parent="293" name="user_details_User_id_uindex">
+      <ColNames>User_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="414" parent="293" name="user_details_Username_uindex">
+      <ColNames>Username</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="415" parent="293" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>User_id</ColNames>
       <Primary>1</Primary>
     </key>
+    <key id="416" parent="293" name="user_details_User_id_uindex">
+      <ColNames>User_id</ColNames>
+      <UnderlyingIndexName>user_details_User_id_uindex</UnderlyingIndexName>
+    </key>
+    <key id="417" parent="293" name="user_details_Username_uindex">
+      <ColNames>Username</ColNames>
+      <UnderlyingIndexName>user_details_Username_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="418" parent="293" name="user_details___fk0">
+      <ColNames>Username</ColNames>
+      <RefSchemaName>mydb</RefSchemaName>
+      <RefTableName>login_info</RefTableName>
+      <RefColNames>Username</RefColNames>
+    </foreign-key>
   </database-model>
 </dataSource>

@@ -1,0 +1,3 @@
+INSERT INTO contact_us (Author, Email, Contact_no, Subject, Message, Contact_id) VALUES ('Author one', 'authorone@email.com', 1234412331, 'tiran', 'db rest', 1);
+INSERT INTO contact_us (Author, Email, Contact_no, Subject, Message, Contact_id) VALUES ('Author two', 'any', 12930, 'test', 'afasf', 2);
+INSERT INTO contact_us (Author, Email, Contact_no, Subject, Message, Contact_id) VALUES ('Author three', 'authorone@email.com', 1234412331, 'tiran', 'db rest', 3);
