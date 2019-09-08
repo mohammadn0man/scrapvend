@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.scrapvend.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_pricing"
+        android:name="com.example.scrapvend.ui.gallery.GalleryFragment"
+        android:label="@string/menu_pricing"
+        tools:layout="@layout/fragment_pricing" />
+
+    <fragment
+        android:id="@+id/nav_pickupinfo"
+        android:name="com.example.scrapvend.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_pickupinfo"
+        tools:layout="@layout/fragment_pickupinfo" />
+
+    <fragment
+        android:id="@+id/nav_pickupperson"
+        android:name="com.example.scrapvend.ui.tools.ToolsFragment"
+        android:label="@string/menu_pickupperson"
+        tools:layout="@layout/fragment_pickupperson" />
+
+    <fragment
+        android:id="@+id/nav_contact"
+        android:name="com.example.scrapvend.ui.share.ShareFragment"
+        android:label="@string/menu_contact"
+        tools:layout="@layout/fragment_contact" />
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_send"-->
+<!--        android:name="com.example.scrapvend.ui.send.SendFragment"-->
+<!--        android:label="@string/menu_send"-->
+<!--        tools:layout="@layout/fragment_send" />-->
+</navigation>
