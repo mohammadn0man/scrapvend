@@ -1,30 +1,27 @@
-package com.example.scrapvend.ui.slideshow;
+package com.example.scrapvend.ui.pricing;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.scrapvend.R;
 
-public class SlideshowFragment extends Fragment {
+public class GalleryFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private GalleryViewModel galleryViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                ViewModelProviders.of(this).get(SlideshowViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_pickupinfo, container, false);
-//        final TextView textView = root.findViewById(R.id.text_slideshow);
-//        slideshowViewModel.getText().observe(this, new Observer<String>() {
+        galleryViewModel =
+                ViewModelProviders.of(this).get(GalleryViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_pricing, container, false);
+//        final TextView textView = root.findViewById(R.id.text_gallery);
+//        galleryViewModel.getText().observe(this, new Observer<String>() {
 //            @Override
 //            public void onChanged(@Nullable String s) {
 //                textView.setText(s);

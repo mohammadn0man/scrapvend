@@ -1,6 +1,5 @@
-package com.example.scrapvend.ui.share;
+package com.example.scrapvend.ui.contact;
 
-import android.nfc.Tag;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,14 +9,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.scrapvend.ContactUs;
-import com.example.scrapvend.DatabaseConnectivity.Connect;
 import com.example.scrapvend.R;
 
 import java.sql.Connection;
@@ -64,6 +59,8 @@ public class ContactFragment extends Fragment {
 
         Button button = (Button) rootView.findViewById(R.id.button);
 
+        new MyTask().execute();
+
         Log.d(TAG, "before onClickListener");
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +68,6 @@ public class ContactFragment extends Fragment {
             public void onClick(View view) {
                 Log.d(TAG, "inside onClickListener");
                 new MyTask().execute();
-
             }
         });
         return rootView;
@@ -105,7 +101,7 @@ public class ContactFragment extends Fragment {
 
                 // Get the data from the current row using the column index - column data are in the VARCHAR format
 
-                text1 = results.getString(1);
+                text1 = results.getString("Author");
                 text2 = results.getString(2);
                 text3 = results.getString(3);
                 text4 = results.getString(4);

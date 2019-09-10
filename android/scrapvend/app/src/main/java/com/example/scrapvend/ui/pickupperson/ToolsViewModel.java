@@ -1,4 +1,4 @@
-package com.example.scrapvend.ui.tools;
+package com.example.scrapvend.ui.pickupperson;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

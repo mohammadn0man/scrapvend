@@ -13,25 +13,25 @@
 
     <fragment
         android:id="@+id/nav_pricing"
-        android:name="com.example.scrapvend.ui.gallery.GalleryFragment"
+        android:name="com.example.scrapvend.ui.pricing.GalleryFragment"
         android:label="@string/menu_pricing"
         tools:layout="@layout/fragment_pricing" />
 
     <fragment
         android:id="@+id/nav_pickupinfo"
-        android:name="com.example.scrapvend.ui.slideshow.SlideshowFragment"
+        android:name="com.example.scrapvend.ui.pickupinfo.SlideshowFragment"
         android:label="@string/menu_pickupinfo"
         tools:layout="@layout/fragment_pickupinfo" />
 
     <fragment
         android:id="@+id/nav_pickupperson"
-        android:name="com.example.scrapvend.ui.tools.ToolsFragment"
+        android:name="com.example.scrapvend.ui.pickupperson.ToolsFragment"
         android:label="@string/menu_pickupperson"
         tools:layout="@layout/fragment_pickupperson" />
 
     <fragment
         android:id="@+id/nav_contact"
-        android:name="com.example.scrapvend.ui.share.ContactFragment"
+        android:name="com.example.scrapvend.ui.contact.ContactFragment"
         android:label="@string/menu_contact"
         tools:layout="@layout/fragment_contact" />
 
