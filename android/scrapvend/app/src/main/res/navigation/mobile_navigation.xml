@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/nav_contact"
-        android:name="com.example.scrapvend.ui.share.ShareFragment"
+        android:name="com.example.scrapvend.ui.share.ContactFragment"
         android:label="@string/menu_contact"
         tools:layout="@layout/fragment_contact" />
 
