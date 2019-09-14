@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_pricing"
-        android:name="com.example.scrapvend.ui.pricing.GalleryFragment"
+        android:name="com.example.scrapvend.ui.pricing.PricingFragment"
         android:label="@string/menu_pricing"
         tools:layout="@layout/fragment_pricing" />
 

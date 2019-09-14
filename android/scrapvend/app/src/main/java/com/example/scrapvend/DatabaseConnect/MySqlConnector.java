@@ -24,7 +24,7 @@ public class MySqlConnector {
             Log.d(TAG, "after com.....");
 
             /* Create connection url. */
-            String mysqlConnUrl = "jdbc:mysql://10.0.2.2:3306/mydb";
+            String mysqlConnUrl = "jdbc:mysql://10.0.2.2:3306/test_sv_2";
 
             /* db user name. */
             String mysqlUserName = "root";

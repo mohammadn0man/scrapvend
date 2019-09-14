@@ -12,5 +12,11 @@
     <string name="menu_pickupinfo">Pickups info</string>
     <string name="menu_pickupperson">Pickup Person</string>
     <string name="menu_contact">Contact info</string>
-<!--    <string name="menu_send">Send</string>-->
+    <!--    <string name="menu_send">Send</string>-->
+
+    <string-array name="item_measure">
+        <item>Kilo-grams</item>
+        <item>Pieces</item>
+    </string-array>
+
 </resources>
