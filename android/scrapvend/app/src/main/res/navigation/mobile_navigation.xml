@@ -19,13 +19,13 @@
 
     <fragment
         android:id="@+id/nav_pickupinfo"
-        android:name="com.example.scrapvend.ui.pickupinfo.SlideshowFragment"
+        android:name="com.example.scrapvend.ui.pickupinfo.PickupinfoFragment"
         android:label="@string/menu_pickupinfo"
         tools:layout="@layout/fragment_pickupinfo" />
 
     <fragment
         android:id="@+id/nav_pickupperson"
-        android:name="com.example.scrapvend.ui.pickupperson.ToolsFragment"
+        android:name="com.example.scrapvend.ui.pickupperson.PickuppersonFragment"
         android:label="@string/menu_pickupperson"
         tools:layout="@layout/fragment_pickupperson" />
 

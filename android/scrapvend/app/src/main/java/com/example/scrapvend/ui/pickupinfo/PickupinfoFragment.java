@@ -11,14 +11,14 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.scrapvend.R;
 
-public class SlideshowFragment extends Fragment {
+public class PickupinfoFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private PickupinfoViewModel slideshowViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         slideshowViewModel =
-                ViewModelProviders.of(this).get(SlideshowViewModel.class);
+                ViewModelProviders.of(this).get(PickupinfoViewModel.class);
         View root = inflater.inflate(R.layout.fragment_pickupinfo, container, false);
 //        final TextView textView = root.findViewById(R.id.text_slideshow);
 //        slideshowViewModel.getText().observe(this, new Observer<String>() {

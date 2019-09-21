@@ -22,6 +22,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactFragment extends Fragment {
 
@@ -29,7 +31,10 @@ public class ContactFragment extends Fragment {
 
     public View rootView;
 
-    private TextView textView1, textView2, textView3, textView4;
+    //private TextView textView1, textView2, textView3, textView4;
+
+    TextView stringTextView1,stringTextView2;
+
 
     private static final String TAG = "MyActivity";
 
@@ -53,10 +58,14 @@ public class ContactFragment extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_contact, container,
                 false);
 
-        textView1 = (TextView) rootView.findViewById(R.id.textView1);
-        textView2 = (TextView) rootView.findViewById(R.id.textView2);
-        textView3 = (TextView) rootView.findViewById(R.id.textView3);
-        textView4 = (TextView) rootView.findViewById(R.id.textView4);
+//        textView1 = (TextView) rootView.findViewById(R.id.textView1);
+//        textView2 = (TextView) rootView.findViewById(R.id.textView2);
+//        textView3 = (TextView) rootView.findViewById(R.id.textView3);
+//        textView4 = (TextView) rootView.findViewById(R.id.textView4);
+
+        stringTextView1 = (TextView) rootView.findViewById(R.id.textView1);
+        stringTextView2 = (TextView) rootView.findViewById(R.id.textView2);
+
 
         Button button = (Button) rootView.findViewById(R.id.button);
 
@@ -76,10 +85,15 @@ public class ContactFragment extends Fragment {
 
     private class MyTask extends AsyncTask<Void, Void, Void> {
 
-        private String text1="", text2="", text3="", text4="";
+        //private String text1="", text2="", text3="", text4="";
+        List<String> stringData1 = new ArrayList<String>();
+        List<String> stringData2 = new ArrayList<String>();
+
 
         @Override
         protected Void doInBackground(Void... voids) {
+
+
 
             Log.d(TAG, "inside doInBackground");
 
@@ -98,16 +112,20 @@ public class ContactFragment extends Fragment {
 
                 Log.d(TAG, "query executed");
 
-                results.next();
+                while(results.next()){
+
+                    stringData1.add(results.getString("Author"));
+                    stringData2.add(results.getString(2));
+                }
 
                 // Get the data from the current row using the column index - column data are in the VARCHAR format
 
-                text1 = results.getString("Author");
-                text2 = results.getString(2);
-                text3 = results.getString(3);
-                text4 = results.getString(4);
+//                text1 = results.getString("Author");
+//                text2 = results.getString(2);
+//                text3 = results.getString(3);
+//                text4 = results.getString(4);
 
-                Log.d(TAG, text1);
+//                Log.d(TAG, text1);
 
                 conn.close();
             } catch (SQLException e) {
@@ -122,10 +140,22 @@ public class ContactFragment extends Fragment {
 
             Log.d(TAG,  "onPostExecute");
 
-            textView1.setText(text1);
-            textView2.setText(text2);
-            textView3.setText(text3);
-            textView4.setText(text4);
+            for(int i=0; i < stringData1.size(); i++){
+
+                stringTextView1.setText(stringTextView1.getText() + stringData1.get(i) + " , ");
+            }
+
+
+            for(int i=0; i < stringData2.size(); i++){
+
+                stringTextView2.setText(stringTextView2.getText() + stringData2.get(i) + " , ");
+            }
+
+//
+//            textView1.setText(text1);
+//            textView2.setText(text2);
+//            textView3.setText(text3);
+//            textView4.setText(text4);
 
             super.onPostExecute(aVoid);
         }
