@@ -37,7 +37,7 @@ public class PickuppersonAdapter extends ArrayAdapter<PickupPersonModel> {
         TextView id = v.findViewById(R.id.textView11);
 
         name.setText(pickuppersonModel.getName());
-        adhar.setText(pickuppersonModel.getAdhaar());
+        adhar.setText(pickuppersonModel.getAdhaar_no());
         id.setText(pickuppersonModel.getId());
 
         return v;
