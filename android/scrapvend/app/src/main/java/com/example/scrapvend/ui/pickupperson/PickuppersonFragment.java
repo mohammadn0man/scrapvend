@@ -41,14 +41,6 @@ public class PickuppersonFragment extends Fragment {
         toolsViewModel =
                 ViewModelProviders.of(this).get(PickuppersonViewModel.class);
         View root = inflater.inflate(R.layout.fragment_pickupperson, container, false);
-//        final TextView textView = root.findViewById(R.id.text_tools);
-//        toolsViewModel.getText().observe(this, new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
-
         listview = (ListView) root.findViewById(R.id.list_view);
         t1 = (TextView) root.findViewById(R.id.textView9);
         t2 = (TextView) root.findViewById(R.id.textView10);
@@ -56,8 +48,6 @@ public class PickuppersonFragment extends Fragment {
 
         new task().execute();
         Log.d(TAG, "back to oncreate again");
-//        padapter = new PickuppersonAdapter(this.getContext(), R.layout.add_item_pickupperson, arr);
-//        listview.setAdapter(padapter);
         context = this.getContext();
         return root;
     }
@@ -89,7 +79,6 @@ public class PickuppersonFragment extends Fragment {
         }
         protected void onPostExecute(Void aVoid)
         {
-            //PickuppersonAdapter adpater = new PickuppersonAdapter(PickuppersonFragment. , R.layout.add_item_pickupperson,arr);
             padapter = new PickuppersonAdapter(context, R.layout.add_item_pickupperson, arr);
             listview.setAdapter(padapter);
 
