@@ -7,7 +7,7 @@
     tools:context="com.example.scrapvend.ui.pricing.PricingFragment">
 
     <ListView
-        android:id="@+id/list_view"
+        android:id="@+id/list_view01"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="#000"
