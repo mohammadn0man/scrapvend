@@ -1,18 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="com.example.scrapvend.ui.pricing.PricingFragment">
 
+    <ListView
+        android:id="@+id/list_view01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#000"
+        android:dividerHeight="3dp"
+        android:listSelector="#00FFCC"
+        />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButtonAddItem"
         android:layout_width="69dp"
         android:layout_height="73dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="337dp"
+        android:layout_marginLeft="337dp"
+        android:layout_marginTop="524dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
+        android:layout_marginBottom="23dp"
         android:clickable="true"
         android:foreground="@android:drawable/ic_input_add"
         android:theme="@style/AppTheme"
-        app:backgroundTint="#050505"
+        app:backgroundTint="#0E0606"
         app:fabSize="auto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,4 +43,6 @@
         app:layout_constraintVertical_bias="0.976"
         app:maxImageSize="40dp"
         app:rippleColor="#00BCD4" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

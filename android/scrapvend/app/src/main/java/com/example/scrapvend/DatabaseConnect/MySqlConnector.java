@@ -24,13 +24,13 @@ public class MySqlConnector {
             Log.d(TAG, "after com.....");
 
             /* Create connection url. */
-            String mysqlConnUrl = "jdbc:mysql://10.0.2.2:3306/test_sv_2";
+            String mysqlConnUrl = "jdbc:mysql://192.168.43.164:3306/scrap_vend";
 
             /* db user name. */
-            String mysqlUserName = "root";
+            String mysqlUserName = "admin";
 
             /* db password. */
-            String mysqlPassword = "admin";
+            String mysqlPassword = "root";
 
             /* Get the Connection object. */
             ret = DriverManager.getConnection(mysqlConnUrl, mysqlUserName , mysqlPassword);

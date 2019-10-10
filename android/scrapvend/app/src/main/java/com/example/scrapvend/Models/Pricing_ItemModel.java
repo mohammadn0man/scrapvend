@@ -1,6 +1,6 @@
 package com.example.scrapvend.Models;
 
-public class ItemModel {
+public class Pricing_ItemModel {
     private String itemName = "";
     private String itemImage = "";
     private String itemRate = "";
@@ -45,5 +45,12 @@ public class ItemModel {
 
     public void setItemid(String itemid) {
         this.itemid = itemid;
+    }
+
+    public Pricing_ItemModel(String itemName, String itemRate , String itemMeasure)
+    {
+        this.itemName=itemName;
+        this.itemRate=itemRate;
+        this.itemMeasure=itemMeasure;
     }
 }
