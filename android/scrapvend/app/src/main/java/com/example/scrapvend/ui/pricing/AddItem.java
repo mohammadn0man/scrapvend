@@ -38,6 +38,7 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
     Uri imageUri;
     private static final int PICK_IMAGE = 100;
     private TextView itemNameView, itemRateView;
+    Spinner itemSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,13 +55,20 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
             }
         });
 
-        Spinner itemSpinner = findViewById(R.id.spinner_measure);
+        itemSpinner = findViewById(R.id.spinner_measure);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.item_measure, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         itemSpinner.setAdapter(adapter);
         itemSpinner.setOnItemSelectedListener(this);
 
         itemNameView = (TextView) findViewById(R.id.item_name);
+
+
+//        dikkat wali line
+//        Log.d(TAG, itemNameView.getText().toString());
+
+
+
         itemRateView = (TextView) findViewById(R.id.item_rate);
 
         addItem = (Button) findViewById(R.id.add_item_submit);
@@ -77,11 +85,8 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
     private class InsertIntoDatabaseTask extends AsyncTask<Void, Void, Void> {
 
         ItemModel itemModel = new ItemModel();
-        String name = "", image = "", rate = "", measure = "";
-        Bitmap bitmapImage;
-        byte[] byteImage;
 
-//        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
         protected Void doInBackground(Void... voids) {
 
@@ -96,21 +101,27 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
 
                 Statement statement = conn.createStatement();
 
-                Log.d(TAG, "Statement created");
+                Log.d(TAG, "Statement created : " + itemNameView.getText().toString());
 
                 itemModel.setItemName(itemNameView.getText().toString());
-                name = itemNameView.getText().toString();
-                rate = itemRateView.getText().toString();
-                float floatRate = Float.parseFloat(rate);
-                bitmapImage = ((BitmapDrawable)itemImageView.getDrawable()).getBitmap();
+                itemModel.setItemRate(Float.parseFloat(itemRateView.getText().toString()));
+                itemModel.setItemMeasure(itemSpinner.getSelectedItem().toString());
 
-                statement.executeUpdate("INSERT INTO `item_details`(`Item_name`, `Item_rate`, `Item_measure') VALUES (name, floatRate, ,'Kilo-grams');");
+                Log.d(TAG, itemModel.getItemName());
+
+                statement.executeUpdate("INSERT INTO `item_details`(`Item_name`, `Item_rate`, `Item_measure') VALUES ('" + itemModel.getItemName() + "'," + itemModel.getItemRate() + ", '" + itemModel.getItemMeasure() + "');");
 
                 Log.d(TAG, "query executed");
 
                 conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
+            }catch(Exception e){
+                //Handle errors for Class.forName
+                e.printStackTrace();
+            }finally{
+                //finally block used to close resources
+                Log.d(TAG,"inside finally");
             }
 
             return null;

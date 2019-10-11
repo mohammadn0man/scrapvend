@@ -1,2 +1,3 @@
 *.ini
-MySqlConnector.*
+**/MySqlConnector.java
+android/scrapvend/app/src/main/java/com/example/scrapvend/DatabaseConnect
