@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -37,6 +38,7 @@ public class PricingFragment extends Fragment {
     public View rootView;
     ListView listview;
     TextView t1, t2, t3;
+    ImageView img1;
     PricingAdapter padapter;
     Pricing_ItemModel pmodel;
     ArrayList<Pricing_ItemModel> arr = new ArrayList<>();
@@ -64,14 +66,7 @@ public class PricingFragment extends Fragment {
         t1 = (TextView) root.findViewById(R.id.textView12);
         t2 = (TextView) root.findViewById(R.id.textView13);
         t3 = (TextView) root.findViewById(R.id.textView14);
-
-//        final TextView textView = root.findViewById(R.id.text_gallery);
-//        pricingViewModel.getText().observe(this, new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
+        img1 = (ImageView)root.findViewById(R.id.imageView3);
 
         new task().execute();
         Log.d(TAG, "back to oncreate again");
@@ -98,8 +93,8 @@ public class PricingFragment extends Fragment {
                 ResultSet results = statement.executeQuery("SELECT * FROM `item_details`;");
 
                 while (results.next()) {
-                    Log.d(TAG, results.getString(2)+results.getString(3));
-                    pmodel = new Pricing_ItemModel(results.getString(2),results.getString(3), results.getString(4));
+                    Log.d(TAG, results.getString(2)+results.getString(3)+results.getBlob(5));
+                    pmodel = new Pricing_ItemModel(results.getString(2),results.getString(3), results.getString(4),results.getBlob(5));
                     arr.add(pmodel);
                 }
 

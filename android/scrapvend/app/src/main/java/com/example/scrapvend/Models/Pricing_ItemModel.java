@@ -1,11 +1,26 @@
 package com.example.scrapvend.Models;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
+
+import java.sql.Blob;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class Pricing_ItemModel {
     private String itemName = "";
-    private String itemImage = "";
     private String itemRate = "";
     private String itemMeasure = "";
     private String itemid = "";
+    private Blob itemImage;
+    public Pricing_ItemModel(String itemName, String itemRate , String itemMeasure, Blob itemImage)
+    {
+        this.itemName=itemName;
+        this.itemRate=itemRate;
+        this.itemMeasure=itemMeasure;
+        this.itemImage = itemImage;
+    }
+    public Pricing_ItemModel(){}
 
     public String getItemName() {
         return itemName;
@@ -15,11 +30,11 @@ public class Pricing_ItemModel {
         this.itemName = itemName;
     }
 
-    public String getItemImage() {
+    public Blob getItemImage() {
         return itemImage;
     }
 
-    public void setItemImage(String itemImage) {
+    public void setItemImage(Blob itemImage) {
         this.itemImage = itemImage;
     }
 
@@ -47,10 +62,4 @@ public class Pricing_ItemModel {
         this.itemid = itemid;
     }
 
-    public Pricing_ItemModel(String itemName, String itemRate , String itemMeasure)
-    {
-        this.itemName=itemName;
-        this.itemRate=itemRate;
-        this.itemMeasure=itemMeasure;
-    }
 }
