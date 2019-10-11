@@ -4,8 +4,6 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -22,7 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.scrapvend.DatabaseConnect.MySqlConnector;
-import com.example.scrapvend.Models.ItemModel;
+import com.example.scrapvend.Models.PricingItemModel;
 import com.example.scrapvend.R;
 
 import java.sql.Connection;
@@ -31,7 +29,7 @@ import java.sql.Statement;
 
 public class AddItem extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private final String TAG = "MyActivity";
+    private final String TAG = "MyAddItem";
     ImageView itemImageView;
     Button chooseImage;
     Button addItem;
@@ -84,7 +82,7 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
 
     private class InsertIntoDatabaseTask extends AsyncTask<Void, Void, Void> {
 
-        ItemModel itemModel = new ItemModel();
+        PricingItemModel itemModel = new PricingItemModel();
 
         @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
@@ -104,12 +102,12 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
                 Log.d(TAG, "Statement created : " + itemNameView.getText().toString());
 
                 itemModel.setItemName(itemNameView.getText().toString());
-                itemModel.setItemRate(Float.parseFloat(itemRateView.getText().toString()));
+                itemModel.setItemRate(itemRateView.getText().toString());
                 itemModel.setItemMeasure(itemSpinner.getSelectedItem().toString());
 
                 Log.d(TAG, itemModel.getItemName());
 
-                statement.executeUpdate("INSERT INTO `item_details`(`Item_name`, `Item_rate`, `Item_measure') VALUES ('" + itemModel.getItemName() + "'," + itemModel.getItemRate() + ", '" + itemModel.getItemMeasure() + "');");
+                statement.executeUpdate("INSERT INTO `item_details`(`Item_name`, `Item_rate`, `Item_measure') VALUES (" + itemModel.getItemName() + " ," + itemModel.getItemRate() + ", " + itemModel.getItemMeasure() + ");");
 
                 Log.d(TAG, "query executed");
 

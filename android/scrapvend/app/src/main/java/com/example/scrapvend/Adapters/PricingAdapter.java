@@ -3,7 +3,6 @@ package com.example.scrapvend.Adapters;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,21 +14,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 
-import com.example.scrapvend.Models.Pricing_ItemModel;
+import com.example.scrapvend.Models.PricingItemModel;
 import com.example.scrapvend.R;
 
-import java.io.ByteArrayOutputStream;
 import java.sql.Blob;
 import java.util.ArrayList;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
-public class PricingAdapter extends ArrayAdapter<Pricing_ItemModel> {
+public class PricingAdapter extends ArrayAdapter<PricingItemModel> {
     Context context;
     int resourse;
-    ArrayList<Pricing_ItemModel> pricing;
+    ArrayList<PricingItemModel> pricing;
 
-    public PricingAdapter(@NonNull Context context, int resource, ArrayList<Pricing_ItemModel> pricing) {
+    public PricingAdapter(@NonNull Context context, int resource, ArrayList<PricingItemModel> pricing) {
 
         super(context, resource, pricing);
         this.context = context;
@@ -46,7 +44,7 @@ public class PricingAdapter extends ArrayAdapter<Pricing_ItemModel> {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         v = inflater.inflate(R.layout.pricing_list, null);
 
-        Pricing_ItemModel pricingModel = getItem(position);
+        PricingItemModel pricingModel = getItem(position);
         TextView name = v.findViewById(R.id.textView12);
         TextView rate = v.findViewById(R.id.textView13);
         TextView measure = v.findViewById(R.id.textView14);

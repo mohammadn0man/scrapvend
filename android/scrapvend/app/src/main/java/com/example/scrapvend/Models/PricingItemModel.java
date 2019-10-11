@@ -7,20 +7,20 @@ import java.sql.Blob;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
-public class Pricing_ItemModel {
+public class PricingItemModel {
     private String itemName = "";
     private String itemRate = "";
     private String itemMeasure = "";
     private String itemid = "";
     private Blob itemImage;
-    public Pricing_ItemModel(String itemName, String itemRate , String itemMeasure, Blob itemImage)
+    public PricingItemModel(String itemName, String itemRate , String itemMeasure, Blob itemImage)
     {
         this.itemName=itemName;
         this.itemRate=itemRate;
         this.itemMeasure=itemMeasure;
         this.itemImage = itemImage;
     }
-    public Pricing_ItemModel(){}
+    public PricingItemModel(){}
 
     public String getItemName() {
         return itemName;
