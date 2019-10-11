@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -29,6 +30,7 @@ public class PickuppersonFragment extends Fragment {
     public View rootView;
     ListView listview;
     TextView t1, t2, t3;
+    ImageView img;
     PickuppersonAdapter padapter;
     PickupPersonModel pmodel;
     ArrayList<PickupPersonModel> arr = new ArrayList<>();
@@ -45,6 +47,7 @@ public class PickuppersonFragment extends Fragment {
         t1 = (TextView) root.findViewById(R.id.textView9);
         t2 = (TextView) root.findViewById(R.id.textView10);
         t3 = (TextView) root.findViewById(R.id.textView11);
+        img = (ImageView) root.findViewById(R.id.imageView2);
 
         new task().execute();
         Log.d(TAG, "back to oncreate again");

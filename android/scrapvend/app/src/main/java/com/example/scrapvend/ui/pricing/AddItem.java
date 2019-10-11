@@ -1,6 +1,5 @@
 package com.example.scrapvend.ui.pricing;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,7 +7,6 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -22,7 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.scrapvend.DatabaseConnect.MySqlConnector;
-import com.example.scrapvend.Models.Pricing_ItemModel;
+import com.example.scrapvend.Models.PricingItemModel;
 import com.example.scrapvend.R;
 
 import java.sql.Connection;
@@ -76,7 +74,7 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
 
     private class InsertIntoDatabaseTask extends AsyncTask<Void, Void, Void> {
 
-        Pricing_ItemModel itemModel = new Pricing_ItemModel();
+        PricingItemModel itemModel = new PricingItemModel();
         String name = "", image = "", rate = "", measure = "";
         Bitmap bitmapImage;
         byte[] byteImage;
@@ -142,3 +140,4 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
 
     }
 }
+

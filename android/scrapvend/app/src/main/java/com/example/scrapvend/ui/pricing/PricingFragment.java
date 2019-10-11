@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -17,14 +16,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.scrapvend.Adapters.PickuppersonAdapter;
 import com.example.scrapvend.Adapters.PricingAdapter;
 import com.example.scrapvend.DatabaseConnect.MySqlConnector;
-import com.example.scrapvend.Models.PickupPersonModel;
-import com.example.scrapvend.Models.Pricing_ItemModel;
+import com.example.scrapvend.Models.PricingItemModel;
 import com.example.scrapvend.R;
-import com.example.scrapvend.ui.pickupperson.PickuppersonFragment;
-import com.example.scrapvend.ui.pickupperson.PickuppersonViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.sql.Connection;
@@ -40,8 +35,8 @@ public class PricingFragment extends Fragment {
     TextView t1, t2, t3;
     ImageView img1;
     PricingAdapter padapter;
-    Pricing_ItemModel pmodel;
-    ArrayList<Pricing_ItemModel> arr = new ArrayList<>();
+    PricingItemModel pmodel;
+    ArrayList<PricingItemModel> arr = new ArrayList<>();
     Context context;
     private static final String TAG = "MyActivity";
     private PricingViewModel pricingViewModel;
@@ -94,7 +89,7 @@ public class PricingFragment extends Fragment {
 
                 while (results.next()) {
                     Log.d(TAG, results.getString(2)+results.getString(3)+results.getBlob(5));
-                    pmodel = new Pricing_ItemModel(results.getString(2),results.getString(3), results.getString(4),results.getBlob(5));
+                    pmodel = new PricingItemModel(results.getString(2),results.getString(3), results.getString(4),results.getBlob(5));
                     arr.add(pmodel);
                 }
 
