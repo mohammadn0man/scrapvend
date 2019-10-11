@@ -24,10 +24,10 @@ public class MySqlConnector {
             Log.d(TAG, "after com.....");
 
             /* Create connection url. */
-            String mysqlConnUrl = "jdbc:mysql://192.168.43.164:3306/scrap_vend";
+            String mysqlConnUrl = "jdbc:mysql://192.168.43.197:3306/scrap_vend";
 
             /* db user name. */
-            String mysqlUserName = "admin";
+            String mysqlUserName = "user";
 
             /* db password. */
             String mysqlPassword = "root";

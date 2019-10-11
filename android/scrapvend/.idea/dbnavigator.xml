@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DataExportManager">
@@ -70,11 +70,11 @@
           <driver-library value="" />
           <driver value="" />
           <url-type value="DATABASE" />
-          <host value="192.168.43.164" />
+          <host value="192.168.43.197" />
           <port value="3306" />
           <database value="scrap_vend" />
           <type value="USER_PASSWORD" />
-          <user value="admin" />
+          <user value="user" />
           <deprecated-pwd value="cm9vdA==" />
         </database>
         <properties>

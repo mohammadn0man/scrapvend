@@ -22,7 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.scrapvend.DatabaseConnect.MySqlConnector;
-import com.example.scrapvend.Models.ItemModel;
+import com.example.scrapvend.Models.Pricing_ItemModel;
 import com.example.scrapvend.R;
 
 import java.sql.Connection;
@@ -76,7 +76,7 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
 
     private class InsertIntoDatabaseTask extends AsyncTask<Void, Void, Void> {
 
-        ItemModel itemModel = new ItemModel();
+        Pricing_ItemModel itemModel = new Pricing_ItemModel();
         String name = "", image = "", rate = "", measure = "";
         Bitmap bitmapImage;
         byte[] byteImage;
