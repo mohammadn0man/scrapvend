@@ -14,9 +14,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.scrapvend.DatabaseConnect.MySqlConnector;
@@ -35,14 +35,15 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
     Button addItem;
     Uri imageUri;
     private static final int PICK_IMAGE = 100;
-    private TextView itemNameView, itemRateView;
+    private EditText itemNameEditText, itemRateEditText;
     Spinner itemSpinner;
+    PricingItemModel itemModel = new PricingItemModel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
-
+        Log.d(TAG, "Inside addItem");
         itemImageView = (ImageView) findViewById(R.id.item_image);
         chooseImage = (Button) findViewById(R.id.choose_item_image);
 
@@ -58,19 +59,10 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         itemSpinner.setAdapter(adapter);
         itemSpinner.setOnItemSelectedListener(this);
-
-        itemNameView = (TextView) findViewById(R.id.item_name);
-
-
-//        dikkat wali line
-//        Log.d(TAG, itemNameView.getText().toString());
-
-
-
-        itemRateView = (TextView) findViewById(R.id.item_rate);
+        itemNameEditText = (EditText) findViewById(R.id.item_name);
+        itemRateEditText = (EditText) findViewById(R.id.item_rate);
 
         addItem = (Button) findViewById(R.id.add_item_submit);
-
         addItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,8 +73,6 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
     }
 
     private class InsertIntoDatabaseTask extends AsyncTask<Void, Void, Void> {
-
-        PricingItemModel itemModel = new PricingItemModel();
 
         @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
@@ -99,15 +89,19 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
 
                 Statement statement = conn.createStatement();
 
-                Log.d(TAG, "Statement created : " + itemNameView.getText().toString());
+                String name = itemNameEditText.getText().toString();
 
-                itemModel.setItemName(itemNameView.getText().toString());
-                itemModel.setItemRate(itemRateView.getText().toString());
+                Log.d(TAG, "retrive" + name + itemRateEditText.getText().toString());
+
+                itemModel.setItemRate(itemRateEditText.getText().toString());
                 itemModel.setItemMeasure(itemSpinner.getSelectedItem().toString());
+                itemModel.setItemName(itemNameEditText.getText().toString());
 
-                Log.d(TAG, itemModel.getItemName());
+                String query = "INSERT INTO `item_details`(`Item_name`, `Item_rate`, `Item_measure`) VALUES (\'" + itemModel.getItemName() + "\' ," + itemModel.getItemRate() + ", \'" + itemModel.getItemMeasure() + "\')";
 
-                statement.executeUpdate("INSERT INTO `item_details`(`Item_name`, `Item_rate`, `Item_measure') VALUES (" + itemModel.getItemName() + " ," + itemModel.getItemRate() + ", " + itemModel.getItemMeasure() + ");");
+                Log.d(TAG, "query created : " + query);
+
+                statement.executeUpdate(query);
 
                 Log.d(TAG, "query executed");
 
@@ -138,7 +132,7 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
             imageUri = data.getData();
             itemImageView.setImageURI(imageUri);
         }
-    }  // ###########
+    }
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
