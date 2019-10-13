@@ -1,5 +1,6 @@
 package com.example.scrapvend.ui.pricing;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -140,4 +142,3 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
 
     }
 }
-
