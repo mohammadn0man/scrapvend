@@ -58,8 +58,4 @@ public class PricingItemModel {
         return itemid;
     }
 
-    public void setItemid(String itemid) {
-        this.itemid = itemid;
-    }
-
 }

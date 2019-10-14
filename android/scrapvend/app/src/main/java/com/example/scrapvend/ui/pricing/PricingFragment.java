@@ -34,9 +34,9 @@ public class PricingFragment extends Fragment {
     ListView listview;
     TextView t1, t2, t3;
     ImageView img1;
-    PricingAdapter padapter;
-    PricingItemModel pmodel;
-    ArrayList<PricingItemModel> arr = new ArrayList<>();
+    PricingAdapter pricingAdapter;
+    PricingItemModel pricingItemModel;
+    ArrayList<PricingItemModel> pricingItemModelsArrayList = new ArrayList<>();
     Context context;
     private static final String TAG = "MyActivity";
     private PricingViewModel pricingViewModel;
@@ -88,9 +88,9 @@ public class PricingFragment extends Fragment {
                 ResultSet results = statement.executeQuery("SELECT * FROM `item_details`;");
 
                 while (results.next()) {
-                    Log.d(TAG, results.getString(2)+results.getString(3)+results.getBlob(5));
-                    pmodel = new PricingItemModel(results.getString(2),results.getString(3), results.getString(4),results.getBlob(5));
-                    arr.add(pmodel);
+//                    Log.d(TAG, results.getString(2)+results.getString(3)+results.getBlob(5));
+                    pricingItemModel = new PricingItemModel(results.getString(2),results.getString(3), results.getString(4),results.getBlob(5));
+                    pricingItemModelsArrayList.add(pricingItemModel);
                 }
 
                 conn.close();
@@ -101,8 +101,8 @@ public class PricingFragment extends Fragment {
         }
         protected void onPostExecute(Void aVoid)
         {
-            padapter = new PricingAdapter(context, R.layout.pricing_list, arr);
-            listview.setAdapter(padapter);
+            pricingAdapter = new PricingAdapter(context, R.layout.pricing_list, pricingItemModelsArrayList);
+            listview.setAdapter(pricingAdapter);
 
             super.onPostExecute(aVoid);
         }

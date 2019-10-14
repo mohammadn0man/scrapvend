@@ -55,9 +55,7 @@ public class PricingAdapter extends ArrayAdapter<PricingItemModel> {
         Blob bp = pricingModel.getItemImage();
         Bitmap btm;
         try {
-            Log.d(TAG, "back to hello2" + bp.length());
             int blobLength = (int) bp.length();
-            Log.d(TAG, "poornima" + (int) bp.length());
             byte[] blobAsBytes = bp.getBytes(1, blobLength);
             btm = BitmapFactory.decodeByteArray(blobAsBytes, 0, blobAsBytes.length);
             img.setImageBitmap(btm);
