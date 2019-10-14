@@ -1,2 +1,2 @@
-include ':app'
+include ':Admin', ':pickupperson'
 rootProject.name='scrapvend'
