@@ -4,6 +4,8 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -17,12 +19,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TabHost;
 import android.widget.Toast;
 
 import com.example.scrapvend.DatabaseConnect.MySqlConnector;
+import com.example.scrapvend.MainActivity;
 import com.example.scrapvend.Models.PricingItemModel;
 import com.example.scrapvend.R;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -34,6 +41,7 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
     Button chooseImage;
     Button addItem;
     Uri imageUri;
+    Bitmap bmp;
     private static final int PICK_IMAGE = 100;
     private EditText itemNameEditText, itemRateEditText;
     Spinner itemSpinner;
@@ -70,6 +78,7 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
             }
         });
 
+
     }
 
     private class InsertIntoDatabaseTask extends AsyncTask<Void, Void, Void> {
@@ -91,19 +100,29 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
 
                 String name = itemNameEditText.getText().toString();
 
-                Log.d(TAG, "retrive" + name + itemRateEditText.getText().toString());
+                Log.d(TAG, "retrieve = " + name + itemRateEditText.getText().toString());
 
                 itemModel.setItemRate(itemRateEditText.getText().toString());
                 itemModel.setItemMeasure(itemSpinner.getSelectedItem().toString());
                 itemModel.setItemName(itemNameEditText.getText().toString());
 
-                String query = "INSERT INTO `item_details`(`Item_name`, `Item_rate`, `Item_measure`) VALUES (\'" + itemModel.getItemName() + "\' ," + itemModel.getItemRate() + ", \'" + itemModel.getItemMeasure() + "\')";
+                bmp = ((BitmapDrawable)itemImageView.getDrawable()).getBitmap();
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                bmp.compress(Bitmap.CompressFormat.JPEG, 0, bos);
+                byte[] bArray = bos.toByteArray();
+
+                itemImageView.setImageBitmap(bmp);
+
+                String query = "INSERT INTO `item_details`(`Item_name`, `Item_rate`, `Item_measure`, `Item_image`) VALUES (\'" + itemModel.getItemName() + "\' ," + itemModel.getItemRate() + ", \'" + itemModel.getItemMeasure() + "\' , \'" + bArray + "\')";
 
                 Log.d(TAG, "query created : " + query);
+
 
                 statement.executeUpdate(query);
 
                 Log.d(TAG, "query executed");
+
+//                Toast.makeText(getApplicationContext(),itemModel.getItemName() + " added successfully.",Toast.LENGTH_SHORT).show();
 
                 conn.close();
             } catch (SQLException e) {
@@ -118,6 +137,16 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
 
             return null;
         }
+
+        @Override
+        protected void onPostExecute(Void aVoid){
+
+            Toast.makeText(getApplicationContext(), "Successfully Added.", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(getApplicationContext(), PricingFragment.class);
+            startActivity(intent);
+        }
+
     }
 
     private void openGallery() {
@@ -142,6 +171,7 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
+        Intent intent = new Intent(this.getBaseContext(), PricingFragment.class);
+        startActivity(intent);
     }
 }
