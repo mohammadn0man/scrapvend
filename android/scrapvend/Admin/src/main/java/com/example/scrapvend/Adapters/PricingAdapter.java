@@ -35,6 +35,8 @@ public class PricingAdapter extends ArrayAdapter<PricingItemModel> {
         this.pricing = pricing;
     }
 
+
+
     public int getCount() {
         return super.getCount();
     }
@@ -52,6 +54,7 @@ public class PricingAdapter extends ArrayAdapter<PricingItemModel> {
         name.setText(pricingModel.getItemName());
         rate.setText(pricingModel.getItemRate());
         measure.setText(pricingModel.getItemMeasure());
+
 
         Blob bp = pricingModel.getItemImage();
         // CONVERTING BLOB IMAGE INTO BITMAP IMAGE

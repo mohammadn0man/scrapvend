@@ -42,7 +42,7 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_item);
+        setContentView(R.layout.edit_item_details);
         Log.d(TAG, "Inside addItem");
         itemImageView = (ImageView) findViewById(R.id.item_image);
         chooseImage = (Button) findViewById(R.id.choose_item_image);

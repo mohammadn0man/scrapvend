@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -42,7 +43,7 @@ public class PricingFragment extends Fragment {
     private PricingViewModel pricingViewModel;
     private FloatingActionButton floatingActionButtonAddItem;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
+    public View onCreateView(@NonNull final LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         pricingViewModel =
                 ViewModelProviders.of(this).get(PricingViewModel.class);
@@ -53,9 +54,12 @@ public class PricingFragment extends Fragment {
         floatingActionButtonAddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 openAddItemFragment();
             }
         });
+
+
 
         listview = (ListView) root.findViewById(R.id.list_view01);
         t1 = (TextView) root.findViewById(R.id.textView12);
@@ -64,11 +68,31 @@ public class PricingFragment extends Fragment {
         img1 = (ImageView)root.findViewById(R.id.imageView3);
 
         new task().execute();
+
+
         Log.d(TAG, "back to oncreate again");
+
+
         context = this.getContext();
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d(TAG, "onclick list 1"+position+id);
+                PricingItemModel pricingItemModel = arr.get(position);
+                Log.d(TAG, "id to transfer : "+pricingItemModel.getItemId());
+                Intent intent = new Intent(getActivity(),UpdateItem.class);
+                intent.putExtra("GETName",pricingItemModel.getItemName());
+                intent.putExtra("GETRate",pricingItemModel.getItemRate());
+                intent.putExtra("GETMeasure",pricingItemModel.getItemMeasure());
+                intent.putExtra("GETId",pricingItemModel.getItemId());
+                startActivity(intent);
+
+            }
+        });
+
         return root;
     }
-
     public void openAddItemFragment(){
         Intent intent = new Intent(getActivity(),AddItem.class);
         startActivity(intent);
@@ -89,7 +113,7 @@ public class PricingFragment extends Fragment {
 
                 while (results.next()) {
                     Log.d(TAG, results.getString(2)+results.getString(3)+results.getBlob(5));
-                    pmodel = new PricingItemModel(results.getString(2),results.getString(3), results.getString(4),results.getBlob(5));
+                    pmodel = new PricingItemModel(results.getString(1) ,results.getString(2),results.getString(3), results.getString(4),results.getBlob(5));
                     arr.add(pmodel);
                 }
 
@@ -103,6 +127,8 @@ public class PricingFragment extends Fragment {
         {
             padapter = new PricingAdapter(context, R.layout.pricing_list, arr);
             listview.setAdapter(padapter);
+
+            // finding its location
 
             super.onPostExecute(aVoid);
         }
