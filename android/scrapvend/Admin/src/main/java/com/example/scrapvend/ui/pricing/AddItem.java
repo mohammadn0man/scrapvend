@@ -62,11 +62,14 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
             }
         });
 
+
         itemSpinner = findViewById(R.id.spinner_measure);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.item_measure, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         itemSpinner.setAdapter(adapter);
         itemSpinner.setOnItemSelectedListener(this);
+
+
         itemNameEditText = (EditText) findViewById(R.id.item_name);
         itemRateEditText = (EditText) findViewById(R.id.item_rate);
 

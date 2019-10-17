@@ -91,6 +91,7 @@ public class PricingFragment extends Fragment {
             }
         });
 
+
         return root;
     }
     public void openAddItemFragment(){
