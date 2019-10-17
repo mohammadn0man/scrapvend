@@ -8,6 +8,17 @@ public class PricingItemModel {
     private String itemMeasure = "";
     private String itemId = "";
     private Blob itemImage;
+
+    public byte[] getByteImage() {
+        return byteImage;
+    }
+
+    public void setByteImage(byte[] byteImage) {
+        this.byteImage = byteImage;
+    }
+
+    private byte[] byteImage;
+
     public PricingItemModel(String itemId, String itemName, String itemRate , String itemMeasure, Blob itemImage)
     {
         this.itemId =itemId;
