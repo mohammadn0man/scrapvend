@@ -23,6 +23,7 @@ import com.example.scrapvend.Models.PricingItemModel;
 import com.example.scrapvend.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,7 +32,7 @@ import java.util.ArrayList;
 
 public class PricingFragment extends Fragment {
 
-    public View rootView;
+
     ListView listview;
     TextView t1, t2, t3;
     ImageView img1;
@@ -85,6 +86,7 @@ public class PricingFragment extends Fragment {
                 intent.putExtra("GETName",pricingItemModel.getItemName());
                 intent.putExtra("GETRate",pricingItemModel.getItemRate());
                 intent.putExtra("GETMeasure",pricingItemModel.getItemMeasure());
+                //intent.putExtra("GETImage",pricingItemModel.getItemImage());
                 intent.putExtra("GETId",pricingItemModel.getItemId());
                 startActivity(intent);
 

@@ -14,8 +14,9 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:divider="#000"
-        android:dividerHeight="3dp"
-        android:listSelector="#00FFCC"/>
+        android:dividerHeight="3dp" />
+<!--        android:listSelector="#00FFCC"-->
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButtonAddPickupPerson"

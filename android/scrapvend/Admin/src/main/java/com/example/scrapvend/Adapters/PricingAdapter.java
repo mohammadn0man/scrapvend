@@ -20,7 +20,6 @@ import com.example.scrapvend.R;
 import java.sql.Blob;
 import java.util.ArrayList;
 
-import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class PricingAdapter extends ArrayAdapter<PricingItemModel> {
     Context context;
