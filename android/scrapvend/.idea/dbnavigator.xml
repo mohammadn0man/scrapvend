@@ -29,13 +29,8 @@
     <connection id="7968a7a8-45c1-48d4-b093-5fa73b955113">
       <console name="scrap_vend" type="STANDARD" schema="scrap_vend" session="Main" />
     </connection>
-<<<<<<< HEAD
     <connection id="98e15144-4f28-43f7-bf54-6dc59def14f5">
       <console name="hostalLan" type="STANDARD" schema="test_sv_2" session="Main" />
-=======
-    <connection id="37ff1577-9c42-452d-8619-be67f4a95ca7">
-      <console name="test_sv_2" type="STANDARD" schema="test_sv_2" session="Main" />
->>>>>>> b3320fcad9d6884db9b42296d498ac9d307a756a
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -43,11 +38,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="7968a7a8-45c1-48d4-b093-5fa73b955113" />
-<<<<<<< HEAD
     <connection id="98e15144-4f28-43f7-bf54-6dc59def14f5" />
-=======
-    <connection id="37ff1577-9c42-452d-8619-be67f4a95ca7" />
->>>>>>> b3320fcad9d6884db9b42296d498ac9d307a756a
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -155,15 +146,9 @@
           <object-name-filters />
         </object-filters>
       </connection>
-<<<<<<< HEAD
       <connection id="98e15144-4f28-43f7-bf54-6dc59def14f5" active="true">
         <database>
           <name value="hostalLan" />
-=======
-      <connection id="37ff1577-9c42-452d-8619-be67f4a95ca7" active="true">
-        <database>
-          <name value="test_sv_2" />
->>>>>>> b3320fcad9d6884db9b42296d498ac9d307a756a
           <description value="" />
           <database-type value="MYSQL" />
           <config-type value="BASIC" />
@@ -172,11 +157,7 @@
           <driver-library value="" />
           <driver value="" />
           <url-type value="DATABASE" />
-<<<<<<< HEAD
           <host value="172.17.2.189" />
-=======
-          <host value="192.168.43.115" />
->>>>>>> b3320fcad9d6884db9b42296d498ac9d307a756a
           <port value="3306" />
           <database value="test_sv_2" />
           <type value="USER_PASSWORD" />

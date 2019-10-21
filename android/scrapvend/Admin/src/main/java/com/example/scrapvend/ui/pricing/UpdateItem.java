@@ -3,6 +3,8 @@ package com.example.scrapvend.ui.pricing;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -15,14 +17,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-
+import android.graphics.BitmapFactory;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.scrapvend.DatabaseConnect.MySqlConnector;
 import com.example.scrapvend.Models.PricingItemModel;
 import com.example.scrapvend.R;
 
+import java.io.ByteArrayOutputStream;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Arrays;
@@ -35,6 +39,7 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
     Spinner itemSpinner;
     Uri imageUri;
     Button saveEditItem, deleteItem, editImage;
+    Bitmap getItemImage;
     ImageView itemImageView;
     String getItemName, getItemRate, getItemMeasure, getItemId;
     PricingItemModel itemModel = new PricingItemModel();
@@ -50,7 +55,7 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
         itemSpinner = findViewById(R.id.spinner_measure);
         saveEditItem = findViewById(R.id.button3);
         deleteItem = findViewById(R.id.button4);
-
+        itemImageView = findViewById(R.id.item_image);
         itemSpinner = findViewById(R.id.spinner_measure);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.item_measure, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -58,17 +63,20 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
         itemSpinner.setOnItemSelectedListener(this);
 
         //FETCHING ID OF THE LIST
-        Bundle bundle = new Bundle();
+        Bundle bundle;
         bundle = getIntent().getExtras();
 
         getItemName = bundle.getString("GETName");
         getItemRate = bundle.getString("GETRate");
         getItemMeasure = bundle.getString("GETMeasure");
         getItemId = bundle.getString("GETId");
+        byte[] byteArray = getIntent().getByteArrayExtra("GETImage");
+        getItemImage = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
 
         Log.d(TAG, "Selected Item  = {}, {}, {}" + getItemName + getItemRate + getItemMeasure);
         itemNameEditText.setText(getItemName);
         itemRateEditText.setText(getItemRate);
+        itemImageView.setImageBitmap(getItemImage);
         itemSpinner.post(new Runnable() {
             @Override
             public void run() {
@@ -82,6 +90,15 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
         saveEditItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                itemModel.setItemName(itemNameEditText.getText().toString());
+                itemModel.setItemMeasure(itemSpinner.getSelectedItem().toString());
+                itemModel.setItemRate(itemRateEditText.getText().toString());
+                itemModel.setItemImage(((BitmapDrawable)itemImageView.getDrawable()).getBitmap());
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                itemModel.getItemImage().compress(Bitmap.CompressFormat.JPEG, 0, bos);
+                itemModel.setByteImage(bos.toByteArray());
+                itemModel.setItemId(getItemId);
 
                 new UpdateItemData().execute();
             }
@@ -121,17 +138,16 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
 
                 Statement statement = conn.createStatement();
 
-                String Name, Rate, Measure;
-                Rate = itemRateEditText.getText().toString();
-                Measure = itemSpinner.getSelectedItem().toString();
-                Name = itemNameEditText.getText().toString();
-                Log.d(TAG, "data " + Name + Rate);
+                String query = "UPDATE `item_details` SET `Item_name`=\"" + itemModel.getItemName() +"\" ,`Item_rate`=" + itemModel.getItemRate() + ",`Item_measure`=\"" + itemModel.getItemMeasure() +"\" ,`Item_image`=(?) WHERE Item_id = " + itemModel.getItemId() + " ";
 
-                String query = "UPDATE `item_details` SET `Item_name`=\"" + Name +"\" ,`Item_rate`=" + Rate + ",`Item_measure`=\"" + Measure + "\" WHERE Item_id = " + getItemId + " ";
+                PreparedStatement preparedStatement = conn.prepareStatement(query);
+
+                preparedStatement.setBytes(1, itemModel.getByteImage());
 
                 Log.d(TAG, "query created : " + query);
 
-                statement.executeUpdate(query);
+                preparedStatement.execute();
+//                statement.executeUpdate(query);
 
                 Log.d(TAG, "query executed");
 
@@ -188,7 +204,7 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
                 //finally block used to close resources
 
                 Log.d(TAG, "inside finally");
-                Intent intent = new Intent(getApplicationContext(),PricingFragment.class);
+                Intent intent = new Intent(getBaseContext(),PricingFragment.class);
                 startActivity(intent);
 
             }

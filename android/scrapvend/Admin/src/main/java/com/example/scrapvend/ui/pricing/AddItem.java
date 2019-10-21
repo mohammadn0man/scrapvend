@@ -117,6 +117,7 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
                 itemModel.setItemRate(itemRateEditText.getText().toString());
                 itemModel.setItemMeasure(itemSpinner.getSelectedItem().toString());
                 itemModel.setItemName(itemNameEditText.getText().toString());
+                itemModel.setItemImage(bmp);
                 itemModel.setByteImage(bArray);
 
 

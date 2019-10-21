@@ -12,17 +12,18 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
-
+import java.io.ByteArrayOutputStream;
 import com.example.scrapvend.Adapters.PricingAdapter;
 import com.example.scrapvend.DatabaseConnect.MySqlConnector;
 import com.example.scrapvend.Models.PricingItemModel;
 import com.example.scrapvend.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
+import com.mysql.jdbc.BlobFromLocator;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -79,15 +80,23 @@ public class PricingFragment extends Fragment {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Log.d(TAG, "onclick list 1"+position+id);
+
                 PricingItemModel pricingItemModel = arr.get(position);
                 Log.d(TAG, "id to transfer : "+pricingItemModel.getItemId());
                 Intent intent = new Intent(getActivity(),UpdateItem.class);
                 intent.putExtra("GETName",pricingItemModel.getItemName());
                 intent.putExtra("GETRate",pricingItemModel.getItemRate());
                 intent.putExtra("GETMeasure",pricingItemModel.getItemMeasure());
-                //intent.putExtra("GETImage",pricingItemModel.getItemImage());
                 intent.putExtra("GETId",pricingItemModel.getItemId());
+                //Convert to byte array
+                Log.d(TAG, pricingItemModel.getItemName());
+                Bitmap bitmap = pricingItemModel.getItemImage();
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                byte[] byteArray = stream.toByteArray();
+                intent.putExtra("GETImage",byteArray);
                 startActivity(intent);
 
             }
@@ -116,7 +125,16 @@ public class PricingFragment extends Fragment {
 
                 while (results.next()) {
                     Log.d(TAG, results.getString(2)+results.getString(3)+results.getBlob(5));
-                    pmodel = new PricingItemModel(results.getString(1) ,results.getString(2),results.getString(3), results.getString(4),results.getBlob(5));
+                    Blob bp = results.getBlob(5);
+                    Bitmap btm;
+                    try {
+                        int blobLength = (int) bp.length();
+                        byte[] blobAsBytes = bp.getBytes(1, blobLength);
+                        btm = BitmapFactory.decodeByteArray(blobAsBytes, 0, blobAsBytes.length);
+                        pmodel = new PricingItemModel(results.getString(1) ,results.getString(2),results.getString(3), results.getString(4), btm);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     arr.add(pmodel);
                 }
 
