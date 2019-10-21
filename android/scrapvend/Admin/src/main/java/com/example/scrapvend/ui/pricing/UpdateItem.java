@@ -1,6 +1,7 @@
 package com.example.scrapvend.ui.pricing;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -107,6 +108,7 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
     }
 
     private class UpdateItemData extends AsyncTask<Void, Void, Void> {
+        @SuppressLint("WrongThread")
         protected Void doInBackground(Void... voids) {
             Log.d(TAG, "inside doInBackground");
 
@@ -125,7 +127,7 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
                 Name = itemNameEditText.getText().toString();
                 Log.d(TAG, "data " + Name + Rate);
 
-                String query = "UPDATE `item_details` SET `Item_name`=\"" + Name + "\" ,`Item_rate`=" + Rate + ",`Item_measure`=\"" + Measure + "\" WHERE Item_id = " + getItemId + " ";
+                String query = "UPDATE `item_details` SET `Item_name`=\"" + Name +"\" ,`Item_rate`=" + Rate + ",`Item_measure`=\"" + Measure + "\" WHERE Item_id = " + getItemId + " ";
 
                 Log.d(TAG, "query created : " + query);
 

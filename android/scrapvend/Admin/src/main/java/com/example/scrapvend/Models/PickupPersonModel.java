@@ -1,9 +1,20 @@
 package com.example.scrapvend.Models;
 
+import java.sql.Blob;
+
 public class PickupPersonModel {
     String name, adhaar_no, status, Username;
     String id, rating;
     float salary;
+    Blob itemImage;
+
+    public Blob getItemImage() {
+        return itemImage;
+    }
+
+    public void setItemImage(Blob itemImage) {
+        this.itemImage = itemImage;
+    }
 
     public String getName() {
         return name;
@@ -61,10 +72,11 @@ public class PickupPersonModel {
         this.salary = salary;
     }
 
-    public PickupPersonModel(String name, String id , String adhaar_no)
+    public PickupPersonModel(String name, String id , String adhaar_no , Blob itemImage)
 {
     this.name=name;
     this.id=id;
     this.adhaar_no=adhaar_no;
+    this.itemImage = itemImage;
 }
 }

@@ -59,24 +59,28 @@ public class PickuppersonFragment extends Fragment {
 
         @Override
         protected Void doInBackground(Void... voids) {
-
-
+            MySqlConnector connection = new MySqlConnector();
+            Connection conn = connection.getMySqlConnection();
             try {
-                MySqlConnector connection = new MySqlConnector();
-
-                Connection conn = connection.getMySqlConnection();
                 Statement statement = conn.createStatement();
                 ResultSet results = statement.executeQuery("SELECT * FROM `pickup_person_details`;");
 
                 while (results.next()) {
                     Log.d(TAG, results.getString(1)+results.getString(2));
-                    pmodel = new PickupPersonModel(results.getString(1),results.getString(2), results.getString(3));
+                    pmodel = new PickupPersonModel(results.getString(1),results.getString(2), results.getString(3),results.getBlob(8));
                     arr.add(pmodel);
                 }
 
-                conn.close();
+
             } catch (SQLException e) {
                 e.printStackTrace();
+            }
+            finally {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         return null;
         }

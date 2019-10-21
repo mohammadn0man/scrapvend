@@ -23,6 +23,7 @@ import com.example.scrapvend.Models.PricingItemModel;
 import com.example.scrapvend.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -30,6 +31,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class PricingFragment extends Fragment {
+
 
     ListView listview;
     TextView t1, t2, t3;
@@ -42,8 +44,10 @@ public class PricingFragment extends Fragment {
     private PricingViewModel pricingViewModel;
     private FloatingActionButton floatingActionButtonAddItem;
 
-    public View onCreateView(@NonNull final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        pricingViewModel = ViewModelProviders.of(this).get(PricingViewModel.class);
+    public View onCreateView(@NonNull final LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        pricingViewModel =
+                ViewModelProviders.of(this).get(PricingViewModel.class);
         View root = inflater.inflate(R.layout.fragment_pricing, container, false);
 
         floatingActionButtonAddItem = (FloatingActionButton) root.findViewById(R.id.floatingActionButtonAddItem);
@@ -55,6 +59,7 @@ public class PricingFragment extends Fragment {
                 openAddItemFragment();
             }
         });
+
 
 
         listview = (ListView) root.findViewById(R.id.list_view01);
@@ -75,18 +80,14 @@ public class PricingFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG, "onclick list 1"+position+id);
-
                 PricingItemModel pricingItemModel = arr.get(position);
-
                 Log.d(TAG, "id to transfer : "+pricingItemModel.getItemId());
-
                 Intent intent = new Intent(getActivity(),UpdateItem.class);
-
                 intent.putExtra("GETName",pricingItemModel.getItemName());
                 intent.putExtra("GETRate",pricingItemModel.getItemRate());
                 intent.putExtra("GETMeasure",pricingItemModel.getItemMeasure());
+                //intent.putExtra("GETImage",pricingItemModel.getItemImage());
                 intent.putExtra("GETId",pricingItemModel.getItemId());
-
                 startActivity(intent);
 
             }

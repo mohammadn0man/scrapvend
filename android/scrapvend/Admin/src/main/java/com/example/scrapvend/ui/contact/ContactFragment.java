@@ -1,39 +1,47 @@
 package com.example.scrapvend.ui.contact;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.scrapvend.Adapters.ContactAdapter;
 import com.example.scrapvend.DatabaseConnect.MySqlConnector;
+import com.example.scrapvend.Models.ContactModel;
 import com.example.scrapvend.R;
 
 import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class ContactFragment extends Fragment {
 
-    private ShareViewModel shareViewModel;
-
     public View rootView;
 
-    //private TextView textView1, textView2, textView3, textView4;
+    TextView name, subject;
+    ContactAdapter padapter;
+    ContactModel pmodel;
+    ListView listview;
+    Context context;
+    ArrayList<ContactModel> arr = new ArrayList<>();
 
-    TextView stringTextView1,stringTextView2;
+    ContactViewModel contactViewModel;
 
 
     private static final String TAG = "MyActivity";
@@ -43,31 +51,14 @@ public class ContactFragment extends Fragment {
 
         Log.d(TAG, "inside shareFragment.java");
 
-        shareViewModel =
-                ViewModelProviders.of(this).get(ShareViewModel.class);
-//        View root = inflater.inflate(R.layout.fragment_contact, container, false);
+         contactViewModel=
+                ViewModelProviders.of(this).get(ContactViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_contact, container, false);
+        listview = (ListView) root.findViewById(R.id.list_view02);
+        name = (TextView) root.findViewById(R.id.author_name);
+        subject = (TextView) root.findViewById(R.id.subject);
 
-        //        final TextView textView = root.findViewById(R.id.text_share);
-//        shareViewModel.getText().observe(this, new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
-
-        rootView = inflater.inflate(R.layout.fragment_contact, container,
-                false);
-
-//        textView1 = (TextView) rootView.findViewById(R.id.textView1);
-//        textView2 = (TextView) rootView.findViewById(R.id.textView2);
-//        textView3 = (TextView) rootView.findViewById(R.id.textView3);
-//        textView4 = (TextView) rootView.findViewById(R.id.textView4);
-
-        stringTextView1 = (TextView) rootView.findViewById(R.id.textView1);
-        stringTextView2 = (TextView) rootView.findViewById(R.id.textView2);
-
-
-        Button button = (Button) rootView.findViewById(R.id.button);
+        Button button = (Button) root.findViewById(R.id.button);
 
         new MyTask().execute();
 
@@ -80,84 +71,57 @@ public class ContactFragment extends Fragment {
                 new MyTask().execute();
             }
         });
-        return rootView;
+
+        context = this.getContext();
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d(TAG, "initiating Intent");
+                Intent intent = new Intent(getActivity(),DetailView.class);
+                startActivity(intent);
+            }
+            });
+
+
+        return root;
     }
 
     private class MyTask extends AsyncTask<Void, Void, Void> {
 
-        //private String text1="", text2="", text3="", text4="";
-        List<String> stringData1 = new ArrayList<String>();
-        List<String> stringData2 = new ArrayList<String>();
-
-
         @Override
         protected Void doInBackground(Void... voids) {
-
-
-
-            Log.d(TAG, "inside doInBackground");
-
+            MySqlConnector connection = new MySqlConnector();
+            Connection conn = connection.getMySqlConnection();
             try {
-                MySqlConnector connection = new MySqlConnector();
-
-                Connection conn = connection.getMySqlConnection();
-
-                Log.d(TAG, "Connection established");
-
                 Statement statement = conn.createStatement();
+                ResultSet results = statement.executeQuery("SELECT * FROM `contact_us`;");
 
-                Log.d(TAG, "Statement created");
-
-                ResultSet results = statement.executeQuery("SELECT * FROM contact_us");
-
-                Log.d(TAG, "query executed");
-
-                while(results.next()){
-
-                    stringData1.add(results.getString("Author"));
-                    stringData2.add(results.getString(2));
+                while (results.next()) {
+                    Log.d(TAG, results.getString(1) + results.getString(2));
+                    pmodel = new ContactModel(results.getString(1), results.getString(4));
+                    arr.add(pmodel);
                 }
 
-                // Get the data from the current row using the column index - column data are in the VARCHAR format
 
-//                text1 = results.getString("Author");
-//                text2 = results.getString(2);
-//                text3 = results.getString(3);
-//                text4 = results.getString(4);
-
-//                Log.d(TAG, text1);
-
-                conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
+            } finally {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
-
             return null;
         }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-
-            Log.d(TAG,  "onPostExecute");
-
-            for(int i=0; i < stringData1.size(); i++){
-
-                stringTextView1.setText(stringTextView1.getText() + stringData1.get(i) + " , ");
-            }
-
-
-            for(int i=0; i < stringData2.size(); i++){
-
-                stringTextView2.setText(stringTextView2.getText() + stringData2.get(i) + " , ");
-            }
-
-//
-//            textView1.setText(text1);
-//            textView2.setText(text2);
-//            textView3.setText(text3);
-//            textView4.setText(text4);
+        protected void onPostExecute(Void aVoid)
+        {
+            Log.d(TAG, "inside onpostexecute");
+            padapter = new ContactAdapter(context, R.layout.contact_list, arr);
+            listview.setAdapter(padapter);
 
             super.onPostExecute(aVoid);
         }
     }
+
 }
