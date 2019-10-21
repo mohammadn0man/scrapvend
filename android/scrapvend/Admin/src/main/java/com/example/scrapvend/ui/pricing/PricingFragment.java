@@ -31,7 +31,6 @@ import java.util.ArrayList;
 
 public class PricingFragment extends Fragment {
 
-    public View rootView;
     ListView listview;
     TextView t1, t2, t3;
     ImageView img1;
@@ -43,10 +42,8 @@ public class PricingFragment extends Fragment {
     private PricingViewModel pricingViewModel;
     private FloatingActionButton floatingActionButtonAddItem;
 
-    public View onCreateView(@NonNull final LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        pricingViewModel =
-                ViewModelProviders.of(this).get(PricingViewModel.class);
+    public View onCreateView(@NonNull final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//        pricingViewModel = ViewModelProviders.of(this).get(PricingViewModel.class);
         View root = inflater.inflate(R.layout.fragment_pricing, container, false);
 
         floatingActionButtonAddItem = (FloatingActionButton) root.findViewById(R.id.floatingActionButtonAddItem);
@@ -58,7 +55,6 @@ public class PricingFragment extends Fragment {
                 openAddItemFragment();
             }
         });
-
 
 
         listview = (ListView) root.findViewById(R.id.list_view01);
@@ -79,13 +75,18 @@ public class PricingFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG, "onclick list 1"+position+id);
+
                 PricingItemModel pricingItemModel = arr.get(position);
+
                 Log.d(TAG, "id to transfer : "+pricingItemModel.getItemId());
+
                 Intent intent = new Intent(getActivity(),UpdateItem.class);
+
                 intent.putExtra("GETName",pricingItemModel.getItemName());
                 intent.putExtra("GETRate",pricingItemModel.getItemRate());
                 intent.putExtra("GETMeasure",pricingItemModel.getItemMeasure());
                 intent.putExtra("GETId",pricingItemModel.getItemId());
+
                 startActivity(intent);
 
             }

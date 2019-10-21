@@ -35,8 +35,6 @@ public class PricingAdapter extends ArrayAdapter<PricingItemModel> {
         this.pricing = pricing;
     }
 
-
-
     public int getCount() {
         return super.getCount();
     }

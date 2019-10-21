@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:divider="#000"
         android:dividerHeight="3dp"
-        android:listSelector="#00FFCC" />
+        android:listSelector="#D71D2020" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButtonAddItem"
@@ -31,6 +31,6 @@
         android:theme="@style/AppTheme"
         app:backgroundTint="#0E0606"
         app:fabSize="auto"
-        app:rippleColor="#00BCD4"
+        app:rippleColor="#F00E1013"
         tools:targetApi="m" />
 </RelativeLayout>

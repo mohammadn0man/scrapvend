@@ -24,11 +24,11 @@
         android:layout_height="wrap_content"
         android:text="Edit"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/item_image"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="@+id/item_image"
         app:layout_constraintTop_toBottomOf="@+id/item_image"
-        app:layout_constraintVertical_bias="0.132" />
+        app:layout_constraintVertical_bias="0.03" />
 
     <EditText
         android:id="@+id/editText2"
@@ -37,11 +37,11 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.247"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.136" />
+        app:layout_constraintVertical_bias="0.055" />
 
     <EditText
         android:id="@+id/editText3"
@@ -51,10 +51,10 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.247"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editText2"
         app:layout_constraintTop_toBottomOf="@+id/editText2"
-        app:layout_constraintVertical_bias="0.176" />
+        app:layout_constraintVertical_bias="0.102" />
 
     <Button
         android:id="@+id/button3"
@@ -62,25 +62,23 @@
         android:layout_height="wrap_content"
         android:text="Save  Changes"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.922"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_image"
-        app:layout_constraintVertical_bias="0.959" />
+        app:layout_constraintEnd_toEndOf="@+id/spinner_measure"
+        app:layout_constraintStart_toStartOf="@+id/spinner_measure"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_measure"
+        app:layout_constraintVertical_bias="0.15" />
 
     <Spinner
         android:id="@+id/spinner_measure"
         android:layout_width="211dp"
         android:layout_height="37dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginLeft="96dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/item_rate"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editText3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/editText3"
         app:layout_constraintTop_toBottomOf="@+id/editText3"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.119" />
 
     <Button
         android:id="@+id/button4"
@@ -88,10 +86,10 @@
         android:layout_height="wrap_content"
         android:text="DELETE"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.91"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_measure"
-        app:layout_constraintVertical_bias="0.758" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.917" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
