@@ -1,8 +1,6 @@
 package com.example.scrapvend.Adapters;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,8 +32,6 @@ public class PricingAdapter extends ArrayAdapter<PricingItemModel> {
         this.pricing = pricing;
     }
 
-
-
     public int getCount() {
         return super.getCount();
     }
@@ -53,19 +49,20 @@ public class PricingAdapter extends ArrayAdapter<PricingItemModel> {
         name.setText(pricingModel.getItemName());
         rate.setText(pricingModel.getItemRate());
         measure.setText(pricingModel.getItemMeasure());
+        img.setImageBitmap(pricingModel.getItemImage());
 
 
-        Blob bp = pricingModel.getItemImage();
+//        Blob bp = pricingModel.getItemImage();
         // CONVERTING BLOB IMAGE INTO BITMAP IMAGE
-        Bitmap btm;
-        try {
-            int blobLength = (int) bp.length();
-            byte[] blobAsBytes = bp.getBytes(1, blobLength);
-            btm = BitmapFactory.decodeByteArray(blobAsBytes, 0, blobAsBytes.length);
-            img.setImageBitmap(btm);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        Bitmap btm;
+//        try {
+//            int blobLength = (int) bp.length();
+//            byte[] blobAsBytes = bp.getBytes(1, blobLength);
+//            btm = BitmapFactory.decodeByteArray(blobAsBytes, 0, blobAsBytes.length);
+//            img.setImageBitmap(btm);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
         return v;
     }
 }

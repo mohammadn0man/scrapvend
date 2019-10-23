@@ -3,6 +3,7 @@ package com.example.scrapvend.ui.pricing;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -29,8 +30,12 @@ import com.example.scrapvend.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -42,6 +47,7 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
     Button addItem;
     Uri imageUri;
     Bitmap bmp;
+    byte byteArray[];
     private static final int PICK_IMAGE = 100;
     private EditText itemNameEditText, itemRateEditText;
     Spinner itemSpinner;
@@ -62,14 +68,11 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
             }
         });
 
-
         itemSpinner = findViewById(R.id.spinner_measure);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.item_measure, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         itemSpinner.setAdapter(adapter);
         itemSpinner.setOnItemSelectedListener(this);
-
-
         itemNameEditText = (EditText) findViewById(R.id.item_name);
         itemRateEditText = (EditText) findViewById(R.id.item_rate);
 
@@ -86,16 +89,17 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
 
     private class InsertIntoDatabaseTask extends AsyncTask<Void, Void, Void> {
 
+        @SuppressLint("WrongThread")
         @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
         protected Void doInBackground(Void... voids) {
-
             Log.d(TAG, "inside doInBackground");
 
-            try {
-                MySqlConnector connection = new MySqlConnector();
+            MySqlConnector connection = new MySqlConnector();
 
-                Connection conn = connection.getMySqlConnection();
+            Connection conn = connection.getMySqlConnection();
+
+            try {
 
                 Log.d(TAG, "Connection established");
 
@@ -103,31 +107,35 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
 
                 String name = itemNameEditText.getText().toString();
 
-                Log.d(TAG, "retrieve = " + name + itemRateEditText.getText().toString());
-
-                itemModel.setItemRate(itemRateEditText.getText().toString());
-                itemModel.setItemMeasure(itemSpinner.getSelectedItem().toString());
-                itemModel.setItemName(itemNameEditText.getText().toString());
+                Log.d(TAG, "retrieve = " + name );
 
                 bmp = ((BitmapDrawable)itemImageView.getDrawable()).getBitmap();
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
                 bmp.compress(Bitmap.CompressFormat.JPEG, 0, bos);
                 byte[] bArray = bos.toByteArray();
 
-                itemImageView.setImageBitmap(bmp);
+                itemModel.setItemRate(itemRateEditText.getText().toString());
+                itemModel.setItemMeasure(itemSpinner.getSelectedItem().toString());
+                itemModel.setItemName(itemNameEditText.getText().toString());
+                itemModel.setItemImage(bmp);
+                itemModel.setByteImage(bArray);
 
-                String query = "INSERT INTO `item_details`(`Item_name`, `Item_rate`, `Item_measure`, `Item_image`) VALUES (\'" + itemModel.getItemName() + "\' ," + itemModel.getItemRate() + ", \'" + itemModel.getItemMeasure() + "\' , \'" + bArray + "\')";
+
+                String query = "INSERT INTO `item_details`(`Item_name`, `Item_rate`, `Item_measure`, `Item_image`) VALUES (?,?,?,?)";
+
+                PreparedStatement preparedStatement = conn.prepareStatement(query);
+
+                preparedStatement.setString(1, itemModel.getItemName());
+                preparedStatement.setString(2, itemModel.getItemRate());
+                preparedStatement.setString(3,itemModel.getItemMeasure());
+                preparedStatement.setBytes(4,itemModel.getByteImage());
 
                 Log.d(TAG, "query created : " + query);
 
-
-                statement.executeUpdate(query);
+                preparedStatement.execute();
 
                 Log.d(TAG, "query executed");
 
-//                Toast.makeText(getApplicationContext(),itemModel.getItemName() + " added successfully.",Toast.LENGTH_SHORT).show();
-
-                conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }catch(Exception e){
@@ -135,11 +143,12 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
                 e.printStackTrace();
             }finally{
                 //finally block used to close resources
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 Log.d(TAG,"inside finally");
-                Toast.makeText(getApplicationContext(), "Successfully Added.", Toast.LENGTH_SHORT).show();
-
-                Intent intent = new Intent(getApplicationContext(), PricingFragment.class);
-                startActivity(intent);
             }
 
             return null;
@@ -148,6 +157,10 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
         @Override
         protected void onPostExecute(Void aVoid){
 
+            Toast.makeText(getApplicationContext(),itemModel.getItemName() + " added successfully.",Toast.LENGTH_SHORT).show();
+            Log.d(TAG, "Toast executed");
+            Intent intent = new Intent(getApplicationContext(), PricingFragment.class);
+            startActivity(intent);
 
         }
 
@@ -178,4 +191,5 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
         Intent intent = new Intent(this.getBaseContext(), PricingFragment.class);
         startActivity(intent);
     }
+
 }

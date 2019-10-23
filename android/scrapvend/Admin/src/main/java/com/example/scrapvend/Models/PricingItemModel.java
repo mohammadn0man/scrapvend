@@ -1,14 +1,17 @@
 package com.example.scrapvend.Models;
 
-import java.sql.Blob;
+import android.graphics.Bitmap;
 
 public class PricingItemModel {
     private String itemName = "";
     private String itemRate = "";
     private String itemMeasure = "";
     private String itemId = "";
-    private Blob itemImage;
-    public PricingItemModel(String itemId, String itemName, String itemRate , String itemMeasure, Blob itemImage)
+    private Bitmap itemImage;
+    private byte[] byteImage;
+
+
+    public PricingItemModel(String itemId, String itemName, String itemRate , String itemMeasure, Bitmap itemImage)
     {
         this.itemId =itemId;
         this.itemName=itemName;
@@ -16,6 +19,15 @@ public class PricingItemModel {
         this.itemMeasure=itemMeasure;
         this.itemImage = itemImage;
     }
+
+    public byte[] getByteImage() {
+        return byteImage;
+    }
+
+    public void setByteImage(byte[] byteImage) {
+        this.byteImage = byteImage;
+    }
+
     public PricingItemModel(){}
 
     public String getItemName() {
@@ -26,11 +38,11 @@ public class PricingItemModel {
         this.itemName = itemName;
     }
 
-    public Blob getItemImage() {
+    public Bitmap getItemImage() {
         return itemImage;
     }
 
-    public void setItemImage(Blob itemImage) {
+    public void setItemImage(Bitmap itemImage) {
         this.itemImage = itemImage;
     }
 
