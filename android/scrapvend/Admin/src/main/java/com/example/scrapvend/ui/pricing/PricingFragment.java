@@ -72,8 +72,6 @@ public class PricingFragment extends Fragment {
 
 
         Log.d(TAG, "back to oncreate again");
-
-
         context = this.getContext();
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -86,7 +84,7 @@ public class PricingFragment extends Fragment {
                 intent.putExtra("GETName",pricingItemModel.getItemName());
                 intent.putExtra("GETRate",pricingItemModel.getItemRate());
                 intent.putExtra("GETMeasure",pricingItemModel.getItemMeasure());
-                //intent.putExtra("GETImage",pricingItemModel.getItemImage());
+                intent.putExtra("GETImage",(String.valueOf(pricingItemModel.getItemImage())));
                 intent.putExtra("GETId",pricingItemModel.getItemId());
                 startActivity(intent);
 
