@@ -1,6 +1,7 @@
 package com.example.scrapvend.ui.pickupperson;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,8 @@ import com.example.scrapvend.Adapters.PickuppersonAdapter;
 import com.example.scrapvend.DatabaseConnect.MySqlConnector;
 import com.example.scrapvend.Models.PickupPersonModel;
 import com.example.scrapvend.R;
+import com.example.scrapvend.ui.pricing.AddItem;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -35,6 +38,7 @@ public class PickuppersonFragment extends Fragment {
     PickupPersonModel pmodel;
     ArrayList<PickupPersonModel> arr = new ArrayList<>();
     private PickuppersonViewModel toolsViewModel;
+    private FloatingActionButton floatingActionButtonAddPickupPerson;
     Context context;
     private static final String TAG = "MyActivity";
 
@@ -43,6 +47,18 @@ public class PickuppersonFragment extends Fragment {
         toolsViewModel =
                 ViewModelProviders.of(this).get(PickuppersonViewModel.class);
         View root = inflater.inflate(R.layout.fragment_pickupperson, container, false);
+
+        floatingActionButtonAddPickupPerson = (FloatingActionButton) root.findViewById(R.id.floatingActionButtonAddPickupPerson);
+
+        floatingActionButtonAddPickupPerson.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                openAddItemFragment();
+            }
+        });
+
+
         listview = (ListView) root.findViewById(R.id.list_view);
         t1 = (TextView) root.findViewById(R.id.textView9);
         t2 = (TextView) root.findViewById(R.id.textView10);
@@ -91,6 +107,11 @@ public class PickuppersonFragment extends Fragment {
 
             super.onPostExecute(aVoid);
         }
+    }
+
+    public void openAddItemFragment(){
+        Intent intent = new Intent(getActivity(), AddPickupPerson.class);
+        startActivity(intent);
     }
 }
 

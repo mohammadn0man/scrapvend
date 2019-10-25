@@ -4,6 +4,12 @@ public class ContactModel {
     String name,email,subject,message;
     int contact_no,id;
 
+    public ContactModel(String name, String subject, int id) {
+        this.name = name;
+        this.subject = subject;
+        this.id = id;
+    }
+
     public ContactModel(String name, String subject) {
         this.name=name;
         this.subject=subject;

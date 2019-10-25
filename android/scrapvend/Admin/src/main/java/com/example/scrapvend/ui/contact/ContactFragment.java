@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -21,6 +22,7 @@ import com.example.scrapvend.Adapters.ContactAdapter;
 import com.example.scrapvend.DatabaseConnect.MySqlConnector;
 import com.example.scrapvend.Models.ContactModel;
 import com.example.scrapvend.R;
+import com.example.scrapvend.ui.pricing.AddItem;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -28,9 +30,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class ContactFragment extends Fragment {
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
-    public View rootView;
+public class ContactFragment extends Fragment{
+
 
     TextView name, subject;
     ContactAdapter padapter;
@@ -47,40 +50,43 @@ public class ContactFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        Log.d(TAG, "inside shareFragment.java");
 
-         contactViewModel=
+        contactViewModel=
                 ViewModelProviders.of(this).get(ContactViewModel.class);
         View root = inflater.inflate(R.layout.fragment_contact, container, false);
         listview = (ListView) root.findViewById(R.id.list_view02);
         name = (TextView) root.findViewById(R.id.author_name);
         subject = (TextView) root.findViewById(R.id.subject);
-
-        Button button = (Button) root.findViewById(R.id.button);
-
+        Log.d(TAG, "inside shareFragment.java");
         new MyTask().execute();
 
-        Log.d(TAG, "before onClickListener");
 
+
+        Button button = (Button) root.findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "inside onClickListener");
-                new MyTask().execute();
+
+            }
+        });
+
+
+
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d(TAG, "before onClickListener " + position);
+                ContactModel contactModel = arr.get(position);
+                Intent intent = new Intent(getActivity(), DetailView.class);
+                intent.putExtra("GETId",contactModel.getId());
+                startActivity(intent);
+
             }
         });
 
         context = this.getContext();
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d(TAG, "initiating Intent");
-                Intent intent = new Intent(getActivity(),DetailView.class);
-                startActivity(intent);
-            }
-            });
-
-
         return root;
     }
 
@@ -96,7 +102,7 @@ public class ContactFragment extends Fragment {
 
                 while (results.next()) {
                     Log.d(TAG, results.getString(1) + results.getString(2));
-                    pmodel = new ContactModel(results.getString(1), results.getString(4));
+                    pmodel = new ContactModel(results.getString(1), results.getString(4), results.getInt(6));
                     arr.add(pmodel);
                 }
 
@@ -115,7 +121,7 @@ public class ContactFragment extends Fragment {
         protected void onPostExecute(Void aVoid)
         {
             Log.d(TAG, "inside onpostexecute");
-            padapter = new ContactAdapter(context, R.layout.contact_list_layout, arr);
+            padapter = new ContactAdapter(context, R.layout.contact_list, arr);
             listview.setAdapter(padapter);
 
             super.onPostExecute(aVoid);
