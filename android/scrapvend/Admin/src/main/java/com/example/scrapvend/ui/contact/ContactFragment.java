@@ -28,8 +28,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import static androidx.constraintlayout.widget.Constraints.TAG;
-
 public class ContactFragment extends Fragment {
 
     public View rootView;
@@ -117,7 +115,7 @@ public class ContactFragment extends Fragment {
         protected void onPostExecute(Void aVoid)
         {
             Log.d(TAG, "inside onpostexecute");
-            padapter = new ContactAdapter(context, R.layout.contact_list, arr);
+            padapter = new ContactAdapter(context, R.layout.contact_list_layout, arr);
             listview.setAdapter(padapter);
 
             super.onPostExecute(aVoid);

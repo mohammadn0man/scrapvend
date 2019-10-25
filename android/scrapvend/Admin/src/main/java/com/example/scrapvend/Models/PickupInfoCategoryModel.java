@@ -1,17 +1,19 @@
 package com.example.scrapvend.Models;
 
-public class PickupInfoModel {
-    String catagoryName;
+import android.util.Log;
 
-    public PickupInfoModel(String catagoryName) {
-        this.catagoryName = catagoryName;
+public class PickupInfoCategoryModel {
+    String categoryName;
+
+    public PickupInfoCategoryModel(String categoryName) {
+        this.categoryName = categoryName;
     }
 
-    public String getCatagoryName() {
-        return catagoryName;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setCatagoryName(String catagoryName) {
-        this.catagoryName = catagoryName;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 }

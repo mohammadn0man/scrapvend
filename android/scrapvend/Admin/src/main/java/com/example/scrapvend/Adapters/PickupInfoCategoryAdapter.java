@@ -14,17 +14,17 @@ import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 
-public class PickupInfoAdapter extends ArrayAdapter<PickupInfoCategoryModel> {
+public class PickupInfoCategoryAdapter extends ArrayAdapter<PickupInfoCategoryModel> {
 
     Context context;
     int resource;
-    ArrayList<PickupInfoCategoryModel> pickupInfoCategoryModelArrarList;
+    ArrayList<PickupInfoCategoryModel> pickupInfoCategoryModelArrayList;
 
-    public PickupInfoAdapter(@NonNull Context context, int resource, ArrayList<PickupInfoCategoryModel> pickupInfoCategoryModelArrarList) {
-        super(context, resource, pickupInfoCategoryModelArrarList);
+    public PickupInfoCategoryAdapter(@NonNull Context context, int resource, ArrayList<PickupInfoCategoryModel> pickupInfoCategoryModelArrayList) {
+        super(context, resource, pickupInfoCategoryModelArrayList);
         this.context = context;
         this.resource = resource;
-        this.pickupInfoCategoryModelArrarList = pickupInfoCategoryModelArrarList;
+        this.pickupInfoCategoryModelArrayList = pickupInfoCategoryModelArrayList;
     }
 
 
@@ -35,9 +35,9 @@ public class PickupInfoAdapter extends ArrayAdapter<PickupInfoCategoryModel> {
         v = inflater.inflate(R.layout.pickupinfo_list_layout, null);
 
         PickupInfoCategoryModel pickupInfoCategoryModel = getItem(position);
-        TextView name = v.findViewById(R.id.pickup_catagory);
+        TextView name = v.findViewById(R.id.pickup_category);
 
-        name.setText(pickupInfoCategoryModel.getCatagoryName());
+        name.setText(pickupInfoCategoryModel.getCategoryName());
 
         return v;
     }
