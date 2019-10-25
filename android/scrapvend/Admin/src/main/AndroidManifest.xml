@@ -12,6 +12,9 @@
         <activity android:name=".ui.pricing.AddItem"></activity>
         <activity android:name=".ui.pricing.UpdateItem"></activity>
         <activity android:name=".ui.contact.DetailView"></activity>
+        <activity android:name=".ui.contact.ContactFragment"></activity>
+        <activity android:name=".ui.pickupperson.AddPickupPerson"></activity>
+        <activity android:name=".ui.pickupperson.PickuppersonFragment"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
