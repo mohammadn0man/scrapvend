@@ -59,19 +59,11 @@ public class ContactFragment extends Fragment{
 
         pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-<<<<<<< HEAD
-            public void onClick(View view) {
-                Log.d(TAG, "inside onClickListener");
-                Intent intent = new Intent(getActivity(), ContactFragment.class);
-                startActivity(intent);
-
-=======
             public void onRefresh() {
 //                listview.setAdapter(null);
                 new MyTask().execute();
                 padapter.notifyDataSetChanged();
                 pullToRefresh.setRefreshing(false);
->>>>>>> 9fc847bed9d914792bf165375c39413cf964eaba
             }
         });
 
