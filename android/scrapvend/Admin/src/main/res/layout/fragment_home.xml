@@ -1,5 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/payment"
+        android:layout_width="170dp"
+        android:layout_height="124dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/image_button_circle"
+        android:text="PAYMENT"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/unschedule_pickups"
+        app:layout_constraintVertical_bias="0.702" />
+
+    <Button
+        android:id="@+id/unschedule_pickups"
+        android:layout_width="170dp"
+        android:layout_height="124dp"
+        android:layout_marginTop="136dp"
+        android:background="@drawable/image_button_circle"
+        android:text="UNSCHUDEL PICKUPS"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toStartOf="@+id/schedule_pickups"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/schedule_pickups"
+        android:layout_width="170dp"
+        android:layout_height="124dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/image_button_circle"
+        android:text="SCHEDULE PICKUPS"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/working"
+        android:layout_width="170dp"
+        android:layout_height="124dp"
+        android:background="@drawable/image_button_circle"
+        android:text="WORKING"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toTopOf="@+id/payment"
+        app:layout_constraintEnd_toStartOf="@+id/onleave"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/unschedule_pickups" />
+
+    <Button
+        android:id="@+id/onleave"
+        android:layout_width="170dp"
+        android:layout_height="124dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/image_button_circle"
+        android:text="ON LEAVE"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toTopOf="@+id/payment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/schedule_pickups" />
+</androidx.constraintlayout.widget.ConstraintLayout>
