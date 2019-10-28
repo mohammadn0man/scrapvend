@@ -8,9 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -20,7 +18,6 @@ import com.example.scrapvend.Adapters.PickuppersonAdapter;
 import com.example.scrapvend.DatabaseConnect.MySqlConnector;
 import com.example.scrapvend.Models.PickupPersonModel;
 import com.example.scrapvend.R;
-import com.example.scrapvend.ui.pricing.AddItem;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.sql.Connection;
@@ -32,8 +29,8 @@ import java.util.ArrayList;
 public class PickuppersonFragment extends Fragment {
     public View rootView;
     ListView listview;
-    TextView t1, t2, t3;
-    ImageView img;
+//    TextView t1, t2, t3;
+//    ImageView img;
     PickuppersonAdapter padapter;
     PickupPersonModel pmodel;
     ArrayList<PickupPersonModel> arr = new ArrayList<>();
@@ -60,18 +57,18 @@ public class PickuppersonFragment extends Fragment {
 
 
         listview = (ListView) root.findViewById(R.id.list_view);
-        t1 = (TextView) root.findViewById(R.id.textView9);
-        t2 = (TextView) root.findViewById(R.id.textView10);
-        t3 = (TextView) root.findViewById(R.id.textView11);
-        img = (ImageView) root.findViewById(R.id.imageView2);
+//        t1 = (TextView) root.findViewById(R.id.textView9);
+//        t2 = (TextView) root.findViewById(R.id.textView10);
+//        t3 = (TextView) root.findViewById(R.id.textView11);
+//        img = (ImageView) root.findViewById(R.id.imageView2);
 
-        new task().execute();
+        new PickupPersonTask().execute();
         Log.d(TAG, "back to oncreate again");
         context = this.getContext();
         return root;
     }
 
-    private class task extends AsyncTask<Void, Void, Void> {
+    private class PickupPersonTask extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... voids) {

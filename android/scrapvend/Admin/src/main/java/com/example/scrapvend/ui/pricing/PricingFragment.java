@@ -81,23 +81,23 @@ public class PricingFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Log.d(TAG, "onclick list 1"+position+id);
+            Log.d(TAG, "onclick list 1"+position+id);
 
-                PricingItemModel pricingItemModel = arr.get(position);
-                Log.d(TAG, "id to transfer : "+pricingItemModel.getItemId());
-                Intent intent = new Intent(getActivity(),UpdateItem.class);
-                intent.putExtra("GETName",pricingItemModel.getItemName());
-                intent.putExtra("GETRate",pricingItemModel.getItemRate());
-                intent.putExtra("GETMeasure",pricingItemModel.getItemMeasure());
-                intent.putExtra("GETId",pricingItemModel.getItemId());
-                //Convert to byte array
-                Log.d(TAG, pricingItemModel.getItemName());
-                Bitmap bitmap = pricingItemModel.getItemImage();
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                byte[] byteArray = stream.toByteArray();
-                intent.putExtra("GETImage",byteArray);
-                startActivity(intent);
+            PricingItemModel pricingItemModel = arr.get(position);
+            Log.d(TAG, "id to transfer : "+pricingItemModel.getItemId());
+            Intent intent = new Intent(getActivity(),UpdateItem.class);
+            intent.putExtra("GETName",pricingItemModel.getItemName());
+            intent.putExtra("GETRate",pricingItemModel.getItemRate());
+            intent.putExtra("GETMeasure",pricingItemModel.getItemMeasure());
+            intent.putExtra("GETId",pricingItemModel.getItemId());
+            //Convert to byte array
+            Log.d(TAG, pricingItemModel.getItemName());
+            Bitmap bitmap = pricingItemModel.getItemImage();
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            byte[] byteArray = stream.toByteArray();
+            intent.putExtra("GETImage",byteArray);
+            startActivity(intent);
 
             }
         });
@@ -115,13 +115,17 @@ public class PricingFragment extends Fragment {
         @Override
         protected Void doInBackground(Void... voids) {
 
+            Connection conn = null;
 
             try {
                 MySqlConnector connection = new MySqlConnector();
 
-                Connection conn = connection.getMySqlConnection();
+                conn = connection.getMySqlConnection();
                 Statement statement = conn.createStatement();
-                ResultSet results = statement.executeQuery("SELECT * FROM `item_details`;");
+
+                String query = "SELECT Item_id, Item_name, Item_rate, Item_measure, Item_image FROM item_details WHERE View_value = 1;";
+
+                ResultSet results = statement.executeQuery(query);
 
                 while (results.next()) {
                     Log.d(TAG, results.getString(2)+results.getString(3)+results.getBlob(5));
@@ -138,8 +142,12 @@ public class PricingFragment extends Fragment {
                     arr.add(pmodel);
                 }
 
-                conn.close();
             } catch (SQLException e) {
+                try {
+                    conn.close();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
                 e.printStackTrace();
             }
             return null;
