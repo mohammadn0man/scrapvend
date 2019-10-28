@@ -67,6 +67,8 @@ public class ContactFragment extends Fragment{
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "inside onClickListener");
+                Intent intent = new Intent(getActivity(), ContactFragment.class);
+                startActivity(intent);
 
             }
         });
