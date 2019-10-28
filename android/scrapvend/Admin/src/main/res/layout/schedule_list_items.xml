@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:text="UserName"
+        android:textColor="@color/black"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/date_time"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:text="Date Time"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/pickup_person_name"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:text="Pickup person Name"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="89dp"/>
+
+</LinearLayout>

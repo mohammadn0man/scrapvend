@@ -126,5 +126,6 @@
         android:layout_width="100dp"
         android:layout_height="45dp"
         android:text="Reply"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rounded_circle"/>
 </LinearLayout>
