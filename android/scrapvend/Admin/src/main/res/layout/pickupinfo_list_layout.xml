@@ -2,15 +2,46 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="15dp"
     android:orientation="vertical">
 
-
-    <TextView
-        android:id="@+id/pickup_category"
+    <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="25dp"
-        android:padding="15dp"/>
+        android:alignmentMode="alignMargins"
+        android:columnCount="2"
+        android:columnOrderPreserved="false"
+        android:rowCount="2">
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/pickup_person_name"
+            android:layout_width="191dp"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="189dp"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="TextView" />
+
+
+        <TextView
+            android:id="@+id/date_time"
+            android:layout_width="191dp"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="TextView" />
+
+    </GridLayout>
 
 </LinearLayout>

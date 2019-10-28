@@ -72,6 +72,8 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
         getItemId = bundle.getString("GETId");
         byte[] byteArray = getIntent().getByteArrayExtra("GETImage");
         getItemImage = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+        itemModel.setItemId(getItemId);
+
 
         Log.d(TAG, "Selected Item  = {}, {}, {}" + getItemName + getItemRate + getItemMeasure);
         itemNameEditText.setText(getItemName);
@@ -98,7 +100,6 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
                 itemModel.getItemImage().compress(Bitmap.CompressFormat.JPEG, 0, bos);
                 itemModel.setByteImage(bos.toByteArray());
-                itemModel.setItemId(getItemId);
 
                 new UpdateItemData().execute();
             }
@@ -184,7 +185,7 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
                 Log.d(TAG, "Connection established");
 
                 Statement statement = conn.createStatement();
-                String query = "DELETE FROM `item_details` WHERE Item_id = " + getItemId + " ";
+                String query = "UPDATE `item_details` SET `View_value` = 0 " + " WHERE Item_id = " + itemModel.getItemId() + " ";
 
                 Log.d(TAG, "query created : " + query);
 

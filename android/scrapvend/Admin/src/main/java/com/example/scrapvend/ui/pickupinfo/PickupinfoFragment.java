@@ -1,10 +1,12 @@
 package com.example.scrapvend.ui.pickupinfo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -42,8 +44,17 @@ public class PickupinfoFragment extends Fragment {
             pickupInfoCategoryModelArrayList.add(pickupInfoCategoryModel);
         }
 
-        pickupInfoCategoryAdapter = new PickupInfoCategoryAdapter(getContext(), R.layout.pickupinfo_list_layout, pickupInfoCategoryModelArrayList);
+        pickupInfoCategoryAdapter = new PickupInfoCategoryAdapter(getContext(), R.layout.pickup_category_list_layout, pickupInfoCategoryModelArrayList);
         listView.setAdapter(pickupInfoCategoryAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getContext(), PickupinfoList.class);
+                intent.putExtra("GET_PICKUPINFO_FLAG", pickupinfoCategory[i]);
+                startActivity(intent);
+            }
+        });
 
 
         return root;

@@ -32,7 +32,7 @@ public class PickupInfoCategoryAdapter extends ArrayAdapter<PickupInfoCategoryMo
     public View getView(int position, View convertView, ViewGroup parent){
         View v;
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        v = inflater.inflate(R.layout.pickupinfo_list_layout, null);
+        v = inflater.inflate(R.layout.pickup_category_list_layout, null);
 
         PickupInfoCategoryModel pickupInfoCategoryModel = getItem(position);
         TextView name = v.findViewById(R.id.pickup_category);

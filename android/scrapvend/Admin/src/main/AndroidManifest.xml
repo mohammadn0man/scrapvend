@@ -14,6 +14,7 @@
         <activity android:name=".ui.contact.DetailView"></activity>
         <activity android:name=".ui.contact.ContactFragment"></activity>
         <activity android:name=".ui.pickupperson.AddPickupPerson"></activity>
+        <activity android:name=".ui.pickupinfo.PickupinfoList"></activity>
         <activity android:name=".ui.pickupperson.PickuppersonFragment"></activity>
         <activity
             android:name=".MainActivity"
