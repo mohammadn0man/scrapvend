@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -17,13 +16,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.scrapvend.Adapters.ContactAdapter;
 import com.example.scrapvend.DatabaseConnect.MySqlConnector;
 import com.example.scrapvend.Models.ContactModel;
 import com.example.scrapvend.R;
-import com.example.scrapvend.ui.pricing.AddItem;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -41,37 +39,33 @@ public class ContactFragment extends Fragment{
     ListView listview;
     Context context;
     ArrayList<ContactModel> arr = new ArrayList<>();
-
+    SwipeRefreshLayout pullToRefresh;
     ContactViewModel contactViewModel;
 
 
     private static final String TAG = "MyActivity";
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        Log.d(TAG, "inside contactFragment.java");
 
-        contactViewModel=
-                ViewModelProviders.of(this).get(ContactViewModel.class);
+        contactViewModel= ViewModelProviders.of(this).get(ContactViewModel.class);
         View root = inflater.inflate(R.layout.fragment_contact, container, false);
         listview = (ListView) root.findViewById(R.id.list_view02);
         name = (TextView) root.findViewById(R.id.author_name);
         subject = (TextView) root.findViewById(R.id.subject);
-        Log.d(TAG, "inside shareFragment.java");
+        pullToRefresh = (SwipeRefreshLayout) root.findViewById(R.id.pullToRefresh);
         new MyTask().execute();
 
-
-
-        Button button = (Button) root.findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onClick(View view) {
-                Log.d(TAG, "inside onClickListener");
-
+            public void onRefresh() {
+//                listview.setAdapter(null);
+                new MyTask().execute();
+                padapter.notifyDataSetChanged();
+                pullToRefresh.setRefreshing(false);
             }
         });
-
-
 
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -99,6 +93,7 @@ public class ContactFragment extends Fragment{
             try {
                 Statement statement = conn.createStatement();
                 ResultSet results = statement.executeQuery("SELECT * FROM `contact_us`;");
+                arr.clear();
 
                 while (results.next()) {
                     Log.d(TAG, results.getString(1) + results.getString(2));

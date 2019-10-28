@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2019 at 01:58 AM
+-- Generation Time: Oct 28, 2019 at 02:20 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -119,29 +119,30 @@ CREATE TABLE `booking_details` (
   `Scheduled_pickup_date_time` datetime NOT NULL,
   `Pickup_date_time` datetime DEFAULT NULL,
   `Booking_id` int(11) NOT NULL,
-  `Pickup_status` varchar(50) NOT NULL
+  `Pickup_status` varchar(50) NOT NULL,
+  `Address_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `booking_details`
 --
 
-INSERT INTO `booking_details` (`User_id`, `Booking_date_time`, `Scheduled_pickup_date_time`, `Pickup_date_time`, `Booking_id`, `Pickup_status`) VALUES
-(1, '2019-08-03 20:59:42', '2019-08-07 10:00:00', '2019-08-14 21:00:25', 1, 'Pending Pickup'),
-(1, '2019-08-03 20:59:42', '2019-08-07 12:00:00', '2019-08-14 21:00:25', 2, 'Pickup Person Assign'),
-(1, '2019-08-03 20:59:42', '2019-08-07 14:00:00', '2019-08-14 21:00:25', 3, 'Pickup Confirmed'),
-(1, '2019-08-03 20:59:42', '2019-08-07 16:00:00', '2019-08-14 21:00:25', 4, 'Pickup Completed'),
-(2, '2019-08-03 20:59:42', '2019-08-07 10:00:00', '2019-08-14 21:00:25', 5, 'Pending Pickup'),
-(2, '2019-08-03 20:59:42', '2019-08-07 12:00:00', '2019-08-14 21:00:25', 6, 'Pickup Person Assign'),
-(2, '2019-08-03 20:59:42', '2019-08-07 16:00:00', '2019-08-14 21:00:25', 8, 'Pickup Completed'),
-(3, '2019-08-03 20:59:42', '2019-08-07 10:00:00', '2019-08-14 21:00:25', 9, 'Pending Pickup'),
-(3, '2019-08-03 20:59:42', '2019-08-07 12:00:00', '2019-08-14 21:00:25', 10, 'Pickup Person Assign'),
-(3, '2019-08-03 20:59:42', '2019-08-07 14:00:00', '2019-08-14 21:00:25', 11, 'Pickup Confirmed'),
-(3, '2019-08-03 20:59:42', '2019-08-07 16:00:00', '2019-08-14 21:00:25', 12, 'Pickup Completed'),
-(4, '2019-08-03 20:59:42', '2019-08-07 10:00:00', '2019-08-14 21:00:25', 13, 'Pending Pickup'),
-(4, '2019-08-03 20:59:42', '2019-08-07 12:00:00', '2019-08-14 21:00:25', 14, 'Pickup Person Assigned'),
-(4, '2019-08-03 20:59:42', '2019-08-07 14:00:00', '2019-08-14 21:00:25', 15, 'Pickup Confirmed'),
-(4, '2019-08-03 20:59:42', '2019-08-07 16:00:00', '2019-08-14 21:00:25', 16, 'Pickup Completed');
+INSERT INTO `booking_details` (`User_id`, `Booking_date_time`, `Scheduled_pickup_date_time`, `Pickup_date_time`, `Booking_id`, `Pickup_status`, `Address_id`) VALUES
+(1, '2019-08-03 20:59:42', '2019-08-07 10:00:00', '2019-08-14 21:00:25', 1, 'Pending Pickup', NULL),
+(1, '2019-08-03 20:59:42', '2019-08-07 12:00:00', '2019-08-14 21:00:25', 2, 'Pickup Person Assign', NULL),
+(1, '2019-08-03 20:59:42', '2019-08-07 14:00:00', '2019-08-14 21:00:25', 3, 'Pickup Confirmed', NULL),
+(1, '2019-08-03 20:59:42', '2019-08-07 16:00:00', '2019-08-14 21:00:25', 4, 'Pickup Completed', NULL),
+(2, '2019-08-03 20:59:42', '2019-08-07 10:00:00', '2019-08-14 21:00:25', 5, 'Pending Pickup', NULL),
+(2, '2019-08-03 20:59:42', '2019-08-07 12:00:00', '2019-08-14 21:00:25', 6, 'Pickup Person Assign', NULL),
+(2, '2019-08-03 20:59:42', '2019-08-07 16:00:00', '2019-08-14 21:00:25', 8, 'Pickup Completed', NULL),
+(3, '2019-08-03 20:59:42', '2019-08-07 10:00:00', '2019-08-14 21:00:25', 9, 'Pending Pickup', NULL),
+(3, '2019-08-03 20:59:42', '2019-08-07 12:00:00', '2019-08-14 21:00:25', 10, 'Pickup Person Assign', NULL),
+(3, '2019-08-03 20:59:42', '2019-08-07 14:00:00', '2019-08-14 21:00:25', 11, 'Pickup Confirmed', NULL),
+(3, '2019-08-03 20:59:42', '2019-08-07 16:00:00', '2019-08-14 21:00:25', 12, 'Pickup Completed', NULL),
+(4, '2019-08-03 20:59:42', '2019-08-07 10:00:00', '2019-08-14 21:00:25', 13, 'Pending Pickup', NULL),
+(4, '2019-08-03 20:59:42', '2019-08-07 12:00:00', '2019-08-14 21:00:25', 14, 'Pickup Person Assigned', NULL),
+(4, '2019-08-03 20:59:42', '2019-08-07 14:00:00', '2019-08-14 21:00:25', 15, 'Pickup Confirmed', NULL),
+(4, '2019-08-03 20:59:42', '2019-08-07 16:00:00', '2019-08-14 21:00:25', 16, 'Pickup Completed', NULL);
 
 -- --------------------------------------------------------
 
@@ -166,8 +167,7 @@ INSERT INTO `contact_us` (`Author`, `Email`, `Contact_no`, `Subject`, `Message`,
 ('Author one', 'authorone@email.com', '1234412331', 'tiran', 'db rest', 1),
 ('Author two', 'any', '12930', 'test', 'afasf', 2),
 ('Author three', 'authorone@email.com', '1234412331', 'tiran', 'db rest', 3),
-('feaf', 'sdfa', 'sdfasdf', 'jhdgf', 'asdfsa', 4),
-('feaf', 'sdfa', 'sdfasdf', 'jhdgf', 'asdfsa', 5);
+('Author three', 'authorone@email.com', '1234412331', 'tiran', 'db rest', 6);
 
 -- --------------------------------------------------------
 
@@ -376,6 +376,7 @@ ALTER TABLE `booking_assigned`
 ALTER TABLE `booking_details`
   ADD PRIMARY KEY (`Booking_id`),
   ADD UNIQUE KEY `booking_details_Booking_id_uindex` (`Booking_id`),
+  ADD UNIQUE KEY `booking_details_Address_id_uindex` (`Address_id`),
   ADD KEY `booking_details_fk0` (`User_id`);
 
 --
@@ -458,7 +459,7 @@ ALTER TABLE `booking_details`
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `Contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `item_details`
@@ -518,7 +519,8 @@ ALTER TABLE `booking_assigned`
 -- Constraints for table `booking_details`
 --
 ALTER TABLE `booking_details`
-  ADD CONSTRAINT `booking_details___fk0` FOREIGN KEY (`User_id`) REFERENCES `user_details` (`User_id`);
+  ADD CONSTRAINT `booking_details___fk0` FOREIGN KEY (`User_id`) REFERENCES `user_details` (`User_id`),
+  ADD CONSTRAINT `booking_details___fk1` FOREIGN KEY (`Address_id`) REFERENCES `address` (`Address_id`);
 
 --
 -- Constraints for table `order_cancel`
