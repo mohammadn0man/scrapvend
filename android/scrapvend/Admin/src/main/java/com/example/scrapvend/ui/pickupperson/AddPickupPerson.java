@@ -35,7 +35,7 @@ public class AddPickupPerson extends AppCompatActivity implements AdapterView.On
     ImageView itemImageView;
     Button chooseImage,addpickupperson;
     Uri imageUri;
-    Bitmap bmp;
+
     private EditText nameEditText, usernameEditText,adhaarnunber,salary,contact,email;
     PickupPersonModel model = new PickupPersonModel();
 
