@@ -27,7 +27,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="7968a7a8-45c1-48d4-b093-5fa73b955113">
-      <console name="scrap_vend" type="STANDARD" schema="scrap_vend" session="Main" />
+      <console name="scrap_vend" type="STANDARD" schema="scrap_vend" session="Main"><![CDATA[select * from company_details;]]></console>
     </connection>
     <connection id="98e15144-4f28-43f7-bf54-6dc59def14f5">
       <console name="hostalLan" type="STANDARD" schema="test_sv_2" session="Main" />
@@ -85,12 +85,12 @@
           <driver-library value="" />
           <driver value="" />
           <url-type value="DATABASE" />
-          <host value="192.168.43.197" />
+          <host value="192.168.43.227" />
           <port value="3306" />
           <database value="scrap_vend" />
           <type value="USER_PASSWORD" />
-          <user value="user" />
-          <deprecated-pwd value="cm9vdA==" />
+          <user value="root" />
+          <deprecated-pwd value="YWRtaW4=" />
         </database>
         <properties>
           <auto-commit value="false" />
