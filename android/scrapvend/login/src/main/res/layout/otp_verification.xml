@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/download">
+
+    <TextView
+        android:id="@+id/mnv"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:focusable="true"
+        android:text="@string/mobile_number_verification"
+        android:textSize="43sp"
+        android:textColor="#ffffff" />
+    <TextView
+        android:id="@+id/enter"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:focusable="true"
+        android:text="@string/please_enter_the_code_sent_to_your_number"
+        android:textSize="17sp"
+        android:textColor="#ffffff" />
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="300dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="215dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/editText"
+            android:inputType="number"
+            android:padding="5dp"
+            android:textSize="18sp" />
+    </LinearLayout>
+        <TextView
+            android:id="@+id/resend"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="380dp"
+            android:focusable="true"
+            android:text="Didn't get the OTP? RESEND OTP"
+            android:textSize="17sp"
+            android:clickable="true"
+            android:textColor="#362B28"/>
+
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_centerHorizontal="true"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="490dp"
+        android:background="@drawable/background_signup"
+        android:text="SUBMIT"
+        android:textColor="#fff"
+        android:textAllCaps="false"
+        android:clickable="true"
+        android:textSize="18dp"/>
+
+</RelativeLayout>

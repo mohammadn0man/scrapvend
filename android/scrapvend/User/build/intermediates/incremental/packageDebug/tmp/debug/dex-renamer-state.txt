@@ -1,4 +1,0 @@
-#Thu Oct 24 14:49:47 IST 2019
-base.0=D\:\\scrapVend\\android\\scrapvend\\User\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
