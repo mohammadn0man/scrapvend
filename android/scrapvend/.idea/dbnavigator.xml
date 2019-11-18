@@ -23,7 +23,11 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="562cb555-9d36-4d0a-a8f1-06cfc8dde2c6">
+        <schema name="test_sv_2" object-types="table, view" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="7968a7a8-45c1-48d4-b093-5fa73b955113">
@@ -35,6 +39,9 @@
     <connection id="562cb555-9d36-4d0a-a8f1-06cfc8dde2c6">
       <console name="test_sv_2" type="STANDARD" schema="" session="Main" />
     </connection>
+    <connection id="686906f4-dc0f-4ffc-9cdc-1aed1aebd34f">
+      <console name="mohammadnoman" type="STANDARD" schema="" session="Main" />
+    </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
@@ -43,6 +50,7 @@
     <connection id="7968a7a8-45c1-48d4-b093-5fa73b955113" />
     <connection id="98e15144-4f28-43f7-bf54-6dc59def14f5" />
     <connection id="562cb555-9d36-4d0a-a8f1-06cfc8dde2c6" />
+    <connection id="686906f4-dc0f-4ffc-9cdc-1aed1aebd34f" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="562cb555-9d36-4d0a-a8f1-06cfc8dde2c6" dataset="test_sv_2.user_details" active-filter-id="">
@@ -257,6 +265,89 @@
           <type value="USER_PASSWORD" />
           <user value="root" />
           <deprecated-pwd value="YWRtaW4=" />
+        </database>
+        <properties>
+          <auto-commit value="false" />
+        </properties>
+        <ssh-settings>
+          <active value="false" />
+          <proxy-host value="" />
+          <proxy-port value="22" />
+          <proxy-user value="" />
+          <deprecated-proxy-pwd value="" />
+          <auth-type value="PASSWORD" />
+          <key-file value="" />
+          <key-passphrase value="" />
+        </ssh-settings>
+        <ssl-settings>
+          <active value="false" />
+          <certificate-authority-file value="" />
+          <client-certificate-file value="" />
+          <client-key-file value="" />
+        </ssl-settings>
+        <details>
+          <charset value="UTF-8" />
+          <session-management value="true" />
+          <ddl-file-binding value="true" />
+          <database-logging value="false" />
+          <connect-automatically value="true" />
+          <restore-workspace value="true" />
+          <restore-workspace-deep value="true" />
+          <environment-type value="default" />
+          <idle-time-to-disconnect value="30" />
+          <idle-time-to-disconnect-pool value="5" />
+          <credential-expiry-time value="10" />
+          <max-connection-pool-size value="7" />
+          <alternative-statement-delimiter value="" />
+        </details>
+        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false">
+          <object-type-filter use-master-settings="true">
+            <object-type name="SCHEMA" enabled="true" />
+            <object-type name="USER" enabled="true" />
+            <object-type name="ROLE" enabled="true" />
+            <object-type name="PRIVILEGE" enabled="true" />
+            <object-type name="CHARSET" enabled="true" />
+            <object-type name="TABLE" enabled="true" />
+            <object-type name="VIEW" enabled="true" />
+            <object-type name="MATERIALIZED_VIEW" enabled="true" />
+            <object-type name="NESTED_TABLE" enabled="true" />
+            <object-type name="COLUMN" enabled="true" />
+            <object-type name="INDEX" enabled="true" />
+            <object-type name="CONSTRAINT" enabled="true" />
+            <object-type name="DATASET_TRIGGER" enabled="true" />
+            <object-type name="DATABASE_TRIGGER" enabled="true" />
+            <object-type name="SYNONYM" enabled="true" />
+            <object-type name="SEQUENCE" enabled="true" />
+            <object-type name="PROCEDURE" enabled="true" />
+            <object-type name="FUNCTION" enabled="true" />
+            <object-type name="PACKAGE" enabled="true" />
+            <object-type name="TYPE" enabled="true" />
+            <object-type name="TYPE_ATTRIBUTE" enabled="true" />
+            <object-type name="ARGUMENT" enabled="true" />
+            <object-type name="DIMENSION" enabled="true" />
+            <object-type name="CLUSTER" enabled="true" />
+            <object-type name="DBLINK" enabled="true" />
+          </object-type-filter>
+          <object-name-filters />
+        </object-filters>
+      </connection>
+      <connection id="686906f4-dc0f-4ffc-9cdc-1aed1aebd34f" active="true">
+        <database>
+          <name value="mohammadnoman" />
+          <description value="" />
+          <database-type value="MYSQL" />
+          <config-type value="BASIC" />
+          <database-version value="5.7" />
+          <driver-source value="BUILTIN" />
+          <driver-library value="" />
+          <driver value="" />
+          <url-type value="DATABASE" />
+          <host value="mohammadnoman.co" />
+          <port value="3306" />
+          <database value="mohammad_Scrapvend" />
+          <type value="USER_PASSWORD" />
+          <user value="mohammad_user" />
+          <deprecated-pwd value="bm9tcG9vYWlzc2FpMTIz" />
         </database>
         <properties>
           <auto-commit value="false" />

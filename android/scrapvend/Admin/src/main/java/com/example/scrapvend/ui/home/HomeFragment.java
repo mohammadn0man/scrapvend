@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.scrapvend.R;
+import com.example.scrapvend.ui.pickupinfo.PickupinfoList;
 
 public class HomeFragment extends Fragment {
 
@@ -43,7 +44,8 @@ public class HomeFragment extends Fragment {
         schedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SchedulePickups.class);
+                Intent intent = new Intent(getContext(), PickupinfoList.class);
+                intent.putExtra("GET_PICKUPINFO_FLAG", "Pickup Person Assigned");
                 startActivity(intent);
             }
         });
@@ -51,7 +53,8 @@ public class HomeFragment extends Fragment {
         unschedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),UnSchedulePickups.class);
+                Intent intent = new Intent(getContext(), PickupinfoList.class);
+                intent.putExtra("GET_PICKUPINFO_FLAG", "Pending Pickup");
                 startActivity(intent);
             }
         });

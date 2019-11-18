@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <View
+    <view
         android:id="@+id/onleave"
         android:layout_width="match_parent"
         android:layout_height="277dp"
@@ -16,11 +16,11 @@
             android:layout_marginTop="92dp"
             android:dividerHeight="3dp"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            />
-    </View>
+            android:layout_marginStart="@dimen/activity_horizontal_margin" />
+    </view>
 
 
-    <View
+    <view
         android:id="@+id/requestforleave"
         android:layout_width="match_parent"
         android:layout_height="323dp"
@@ -33,5 +33,5 @@
             android:layout_marginTop="92dp"
             android:dividerHeight="3dp"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
-    </View>
+    </view>
 </LinearLayout>
