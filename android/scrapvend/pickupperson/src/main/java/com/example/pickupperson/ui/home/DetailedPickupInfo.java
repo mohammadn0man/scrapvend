@@ -29,10 +29,10 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
     TextView textAddress;
     TextView textContact;
     TextView textbookingid;
-    TextView textDate,textPrice;
-    EditText edittext;
+    TextView textDate,textTime,textPrice;
+    EditText editDate,editTime;
     Spinner spinner;
-    Button editbutton,updatebutton;
+    Button editbutton,updateButton;
     private final String TAG = "MyDBpage2";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +43,12 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
         textContact=findViewById(R.id.textContact);
         textbookingid=findViewById(R.id.textbookingid);
         textDate=findViewById(R.id.textDate);
-        edittext=findViewById(R.id.editpickupDate);
+        textTime=findViewById(R.id.textTime);
+        editDate=findViewById(R.id.editPickupDate);
+        editTime=findViewById(R.id.editPickupTime);
         spinner=findViewById((R.id.spinner));
         editbutton=findViewById(R.id.buttonEdit);
+        textPrice=findViewById(R.id.textPrice);
 
         editbutton.setOnClickListener(new View.OnClickListener() {
 
@@ -54,10 +57,24 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
                 // TODO Auto-generated method stub
                 Intent i = new Intent(DetailedPickupInfo.this,ItemQuantity.class);
                 Log.d(TAG, "intent sent");
-                startActivity(i);
-
+               // startActivity(i);
+                startActivityForResult(i, 2);// Activity is started with requestCode 2
             }
+
+
         });
+
+//        updateButton.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                // TODO Auto-generated method stub
+//
+//
+//
+//            }
+//        });
+
 
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.pickup_status, android.R.layout.simple_spinner_item);
@@ -74,6 +91,17 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
 
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        // check if the request code is same as what is passed  here it is 2
+        if(requestCode==2)
+        {
+            String message=data.getStringExtra("TotalAmount");
+            Log.d(TAG, message);
+            textPrice.setText(message);
+        }
+    }
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
@@ -89,7 +117,6 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
 
     private class task extends AsyncTask<Void, Void, Void> {
 
-        ResultSet results;
         @SuppressLint("WrongThread")
         @Override
         protected Void doInBackground(Void... voids) {
@@ -109,13 +136,38 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
 
                 Log.d(TAG, query);
 
-                results = statement.executeQuery(query);
+                ResultSet results = statement.executeQuery(query);
                 Log.d(TAG, "query executed");
+                Log.d(TAG, "results.next()");
+
                 results.next();
-                Log.d(TAG, results.getString(1) + results.getString(2));
+                Log.d(TAG, "after result.next()");
 
-                //problem
+               // Log.d(TAG, results.getString(1) + results.getString(2)+" "+results.getString(3)+" "+results.getString(4)+" "+results.getString(5));
 
+                Log.d(TAG, "problrm");
+
+                Log.d(TAG, results.getString(1));
+                String scheduledDate=results.getString(4).substring(0,10);
+                String scheduledTime=results.getString(5).substring(12);
+                String pickupDate=results.getString(5).substring(0,10);
+                String pickupTime=results.getString(5).substring(12);
+                textName.setText(results.getString(1));
+                textAddress.setText(results.getString(2));
+                textbookingid.setText(results.getString(3));
+                textDate.setText(scheduledDate);
+                textTime.setText(scheduledTime);
+                editDate.setText(pickupDate);
+                editTime.setText(pickupTime);
+
+//                String totalAmount = getIntent().getStringExtra("TotalAmount");
+//                if(totalAmount==null)
+//                     textPrice.setText("00");
+//                 else
+//                textPrice.setText(totalAmount);
+
+
+                Log.d(TAG,"values inserted");
 
                 conn.close();
             } catch (SQLException e) {
@@ -125,17 +177,7 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
         }
         protected void onPostExecute(Void aVoid)
         {
-            try {
-                textName.setText(results.getString(1));
-                textAddress.setText(results.getString(2));
-                textbookingid.setText(results.getString(3));
-                textDate.setText(results.getString(4));
-                edittext.setText(results.getString(5));
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
 
-            Log.d(TAG,"values inserted");
 
 
             super.onPostExecute(aVoid);

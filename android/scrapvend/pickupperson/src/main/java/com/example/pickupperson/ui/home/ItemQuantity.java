@@ -1,6 +1,7 @@
 package com.example.pickupperson.ui.home;
 import android.content.Context;
 import android.content.Intent;
+import android.net.wifi.p2p.WifiP2pManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,7 +33,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
-public class ItemQuantity extends AppCompatActivity {
+public class ItemQuantity extends AppCompatActivity implements View.OnClickListener {
    // private final String TAG = "MyDB";
     ListView listView;
     ItemQuantityModel pmodel;
@@ -43,9 +44,8 @@ public class ItemQuantity extends AppCompatActivity {
     EditText editQuantity;
     Button okButton;
     String totalAmount;
+    int value,i;
     private final String TAG = "MyDBPage3";
-    ItemQuantityAdapter adapter;
-    ItemQuantityModel details;
     ArrayList<ItemQuantityModel> arrayOfEmp = new ArrayList<>();
 
     private HomeViewModel homeViewModel;
@@ -57,10 +57,12 @@ public class ItemQuantity extends AppCompatActivity {
         //final View root;
         Log.d(TAG, "Hello from Home");
         listView = (ListView) findViewById(R.id.itemListView);
+        listView.setItemsCanFocus(true);
         textViewName = (TextView)findViewById(R.id.textViewItemName);
         textViewPrice = (TextView)findViewById(R.id.textViewItemRate);
-       editQuantity=findViewById(R.id.editItemQuantity);
-       okButton=findViewById(R.id.okButton);
+        editQuantity=findViewById(R.id.editItemQuantity);
+        okButton=findViewById(R.id.okButton);
+
         img1 = (ImageView)findViewById(R.id.imageView);
         new task().execute();
         context = this.getApplicationContext();
@@ -72,45 +74,125 @@ public class ItemQuantity extends AppCompatActivity {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 View root;
-
                 EditText e;
                 TextView t;
-                int value;
                 value = 0;
-                for(int i=0;i<listView.getCount();i++)
-                {
+
+//                padapter.notifyDataSetChanged();
+                listView = (ListView) ItemQuantity.this.findViewById(R.id.itemListView);
+                Log.d(TAG, String.valueOf(listView.getCount()));
+                for(i=0;i<listView.getCount();i++){
+
+                    Log.d(TAG, "msg:value = " + i);
+//                    root = listView.getAdapter().getView(i,null,null);
                     root=listView.getChildAt(i);
-                    e=root.findViewById(R.id.editItemQuantity);
-                    t=(TextView)root.findViewById(R.id.textViewItemRate);
-                    value=(Integer.parseInt(e.getText().toString())*Integer.parseInt(t.getText().toString()));
+                    Log.d(TAG, String.valueOf(root));
+                    e = root.findViewById(R.id.editItemQuantity);
+                    t = root.findViewById(R.id.textViewItemRate);
+                    value+=(Integer.parseInt(e.getText().toString())*Integer.parseInt(t.getText().toString()));
+                    Log.d(TAG, e.getText().toString());
                 }
                 totalAmount=String.valueOf(value);
-                Intent i = new Intent(ItemQuantity.this,DetailedPickupInfo.class);
-                Log.d(TAG, "intent sent");
-                i.putExtra("ListViewClickedValue", totalAmount);
-                startActivity(i);
+                Log.d(TAG, totalAmount);
+//                Intent i = new Intent(ItemQuantity.this,DetailedPickupInfo.class);
+//                Log.d(TAG, "intent sent");
+//                i.putExtra("TotalAmount", totalAmount);
+//                startActivity(i);
+
+
+                Intent intent=new Intent();
+                intent.putExtra("TotalAmount", totalAmount);
+                setResult(2,intent);
+                finish();//finishing activity
 
             }
         });
 
-  /*  public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        Log.d(TAG, "item activity");
-        homeViewModel=ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.itemquantity, container, false);
+    }
 
-        listView = (ListView)findViewById(R.id.itemListView);
-        textViewName = (TextView)findViewById(R.id.textViewItemName);
-        textViewPrice = (TextView)findViewById(R.id.textViewItemPrice);
-        editQuantity=findViewById(R.id.editItemQuantity);
-        img1 = (ImageView)findViewById(R.id.imageView);
+    @Override
+    public void onClick(View v) {
 
-        new task().execute();
-        Log.d(TAG, "back to oncreate again");
-       context = this.getContext();
-        return root;
-    }*/}
-    class task extends AsyncTask<Void, Void, Void> {
+    }
+
+
+    /*public class ItemQuantity extends Fragment  {
+        // private final String TAG = "MyDB";
+        ListView listView;
+        ItemQuantityModel pmodel;
+        ItemQuantityAdapter padapter;
+        Context context;
+        ImageView img1;
+        TextView textViewName, textViewPrice;
+        EditText editQuantity;
+        Button okButton;
+        String totalAmount;
+        int value,i;
+        private final String TAG = "MyDBPage3";
+        ItemQuantityAdapter adapter;
+        ItemQuantityModel details;
+        ArrayList<ItemQuantityModel> arrayOfEmp = new ArrayList<>();
+        private HomeViewModel homeViewModel;
+
+        public View onCreateView(@NonNull final LayoutInflater inflater,
+                                 final ViewGroup container, Bundle savedInstanceState) {
+            homeViewModel =
+                    ViewModelProviders.of(this).get(HomeViewModel.class);
+            final View root = inflater.inflate(R.layout.itemquantity, container, false);
+
+            listView = (ListView)root.findViewById(R.id.itemListView);
+            textViewName = (TextView) root.findViewById(R.id.textViewItemName);
+            textViewPrice = (TextView)root.findViewById(R.id.textViewItemRate);
+            editQuantity = root.findViewById(R.id.editItemQuantity);
+            okButton = root.findViewById(R.id.okButton);
+            img1 = (ImageView) root.findViewById(R.id.imageView);
+            new task().execute();
+            context = this.getContext();
+            Log.d(TAG, "before intent in home");
+
+            okButton.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    // TODO Auto-generated method stub
+                    View root=inflater.inflate(R.layout.itemquantity, container, false);
+                    ;
+                    listView = (ListView) root.findViewById(R.id.itemListView);
+                    EditText e;
+                    TextView t;
+                    value = 0;
+                    Log.d(TAG, String.valueOf(listView.getCount()));
+                    for (i = 0; i < listView.getCount(); i++) {
+                        Log.d(TAG, String.valueOf(listView.getChildAt(i)));
+                        Log.d(TAG, "msg:value = " + i);
+
+                        e = listView.getChildAt(i).findViewById(R.id.editItemQuantity);
+                        t = listView.getChildAt(i).findViewById(R.id.textViewItemRate);
+                        value += (Integer.parseInt(e.getText().toString()) * Integer.parseInt(t.getText().toString()));
+                        Log.d(TAG, String.valueOf(value));
+                    }
+                    totalAmount = String.valueOf(value);
+                    Log.d(TAG, totalAmount);
+    //                Intent i = new Intent(ItemQuantity.this,DetailedPickupInfo.class);
+    //                Log.d(TAG, "intent sent");
+    //                i.putExtra("TotalAmount", totalAmount);
+    //                startActivity(i);
+
+
+                    Intent intent = new Intent();
+                    intent.putExtra("TotalAmount", totalAmount);
+                    //setResult(2, intent);
+                    //finish();//finishing activity
+
+                }
+            });
+
+            return root;
+
+        }
+
+     */
+        class task extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... voids) {
@@ -129,6 +211,8 @@ public class ItemQuantity extends AppCompatActivity {
                 while (results.next()) {
                     Log.d(TAG, results.getString("Item_name") + results.getString("Item_rate"));
                     pmodel = new ItemQuantityModel(results.getString("Item_name"), results.getString("Item_rate"));
+//                    pmodel = new ItemQuantityModel(results.getString("Item_name"), results.getString("Item_rate"));
+                    pmodel.setItemqty("10");
                     arrayOfEmp.add(pmodel);
                 }
 

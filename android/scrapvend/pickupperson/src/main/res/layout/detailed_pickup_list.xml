@@ -9,7 +9,7 @@
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/colorPrimary">
+        android:background="@color/LightPink">
 
 
         <TextView
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Scheduled Pickup datetime"
+            android:text="Scheduled Pickup date"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -69,24 +69,45 @@
             android:id="@+id/textViewF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
-            android:text="Pickup datetime"
+            android:text="Scheduled Pickup time"
             android:textSize="20dp"
             android:textStyle="bold" />
+
 
         <TextView
             android:id="@+id/textViewG"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:text="Pickup date"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:text="Pickup time"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:layout_marginBottom="10dp"
             android:text="Pickup Status"
             android:textSize="20dp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textViewH"
+            android:id="@+id/textViewJ"
             android:layout_width="match_parent"
             android:layout_height="288dp"
             android:layout_marginTop="16dp"
@@ -99,9 +120,9 @@
 
     <LinearLayout
     android:layout_width="180dp"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-        android:background="@color/colorPrimaryDark">
+        android:background="@color/Pink">
 
     <TextView
         android:id="@+id/textName"
@@ -150,21 +171,42 @@
         android:layout_height="wrap_content"
 
         android:layout_marginTop="10dp"
-        android:text="20"
+
         android:textSize="20dp"
         android:textStyle="italic"
         />
+        <TextView
+            android:id="@+id/textTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="10dp"
+
+            android:textSize="20dp"
+            android:textStyle="italic"
+            />
+
     <EditText
-        android:id="@+id/editpickupDate"
+        android:id="@+id/editPickupDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="7dp"
-        android:text="***"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+
         android:textSize="20dp"
         android:textStyle="italic"
         />
 
+        <EditText
+            android:id="@+id/editPickupTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+
+            android:textSize="20dp"
+            android:textStyle="italic"
+            />
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="match_parent"
@@ -176,12 +218,12 @@
 
         <LinearLayout
             android:layout_width="180dp"
-            android:layout_height="100dp"
+            android:layout_height="80dp"
             android:orientation="horizontal"
-            android:background="@color/colorPrimary">
+            android:background="@color/Pink">
 
             <TextView
-                android:id="@+id/textprice"
+                android:id="@+id/textPrice"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

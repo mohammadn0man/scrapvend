@@ -15,10 +15,6 @@ public class Details {
     }
 
 
-    // public int getId() {
-    //   return id; }
-
-
     public String getName() {
         return userName;
     }

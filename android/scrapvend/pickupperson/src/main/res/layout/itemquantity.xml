@@ -10,7 +10,10 @@
         android:id="@+id/itemListView"
         android:layout_width="match_parent"
         android:layout_height="1000dp"
-        android:background="@color/Azure"/>
+        android:background="@color/Azure"
+        android:descendantFocusability="afterDescendants"
+        android:focusable="auto"
+        android:windowSoftInputMode="adjustPan" />
 
     <Button
         android:id="@+id/okButton"

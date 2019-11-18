@@ -13,12 +13,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import java.sql.SQLException;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.pickupperson.Adapters.DetailsAdapter;
-import com.example.pickupperson.MainActivity;
 import com.example.pickupperson.Models.Details;
 import com.example.pickupperson.R;
 import com.example.pickupperson.ui.MySQLConnector;
@@ -27,9 +25,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-
-import static android.graphics.BlurMaskFilter.Blur.INNER;
-import static android.webkit.WebSettings.PluginState.ON;
 
 public class HomeFragment extends Fragment {
 
