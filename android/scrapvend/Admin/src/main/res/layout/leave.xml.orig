@@ -17,7 +17,11 @@
             android:layout_marginTop="92dp"
             android:dividerHeight="3dp"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
+<<<<<<< HEAD
+            android:layout_marginStart="@dimen/activity_horizontal_margin" />
+=======
             />
+>>>>>>> facf819b01dbcd3981e87f1b141a4e0dcacfef7c
     </view>
 
 
