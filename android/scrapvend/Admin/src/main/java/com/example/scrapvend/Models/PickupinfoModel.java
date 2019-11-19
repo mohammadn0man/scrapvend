@@ -1,20 +1,40 @@
 package com.example.scrapvend.Models;
 
+import android.graphics.Bitmap;
+
 public class PickupinfoModel {
-    String username;
-    String pickupPersonName;
-    String userId;
-    String bookingId;
-    String pickupStatus;
-    String pickupPersonId;
-    String scheduleTime;
-    String schuduleDate;
-    String pickupDate;
-    String pickupTime;
-    String bookedDate;
-    String bookedTime;
-    String location;
-    String Address;
+    private String username;
+    private String pickupPersonName;
+    private String userId;
+    private String bookingId;
+    private String pickupStatus;
+    private String pickupPersonId;
+    private String scheduleTime;
+    private String schuduleDate;
+    private String pickupDate;
+    private String pickupTime;
+    private String bookedDate;
+    private String bookedTime;
+    private String location;
+    private String Address;
+    private Bitmap personImage;
+    private byte[] personByteImage;
+
+    public Bitmap getPersonImage() {
+        return personImage;
+    }
+
+    public void setPersonImage(Bitmap personImage) {
+        this.personImage = personImage;
+    }
+
+    public byte[] getPersonByteImage() {
+        return personByteImage;
+    }
+
+    public void setPersonByteImage(byte[] personByteImage) {
+        this.personByteImage = personByteImage;
+    }
 
     public PickupinfoModel() {
     }
