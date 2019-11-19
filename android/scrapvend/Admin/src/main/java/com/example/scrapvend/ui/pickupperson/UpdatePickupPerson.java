@@ -64,9 +64,9 @@ public class UpdatePickupPerson extends AppCompatActivity implements AdapterView
         getsalary = bundle.getString("GETSalary");
         getadhaar = bundle.getString("GETAdhaar");
         getId=bundle.getString("GETId");
+        pickupPersonModel.setId(getId);
 //        byte[] byteArray = getIntent().getByteArrayExtra("GETImage");
 //        getItemImage = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-        pickupPersonModel.setId(getId);
 
 
         Log.d(TAG, "Selected Item  = {}, {}, {}" + getName + getRating + getadhaar);
@@ -89,7 +89,7 @@ public class UpdatePickupPerson extends AppCompatActivity implements AdapterView
 //                ByteArrayOutputStream bos = new ByteArrayOutputStream();
 //                pickupPersonModel.getItemImage().compress(Bitmap.CompressFormat.JPEG, 0, bos);
 //                pickupPersonModel.setByteImage(bos.toByteArray());
-
+Log.e(TAG,"ad = "+ pickupPersonModel.getAdhaar_no()+" id = "+pickupPersonModel.getId());
                 new UpdateItemData().execute();
             }
         });
@@ -128,7 +128,7 @@ public class UpdatePickupPerson extends AppCompatActivity implements AdapterView
 
                 Statement statement = conn.createStatement();
 
-                String query = "UPDATE `pickup_person_details` SET `Name`=\""+pickupPersonModel.getName()+"\",`Aadhar_no`=\""+pickupPersonModel.getAdhaar_no()+"\",`Salary`="+pickupPersonModel.getSalary()+",`Rating`=" + pickupPersonModel.getRating() + "  WHERE Aadhar_no = \"" + pickupPersonModel.getId() + "\" ";
+                String query = "UPDATE `pickup_person_details` SET `Name`=\""+pickupPersonModel.getName()+"\",`Aadhar_no`=\""+pickupPersonModel.getAdhaar_no()+"\",`Salary`="+pickupPersonModel.getSalary()+",`Rating`=" + pickupPersonModel.getRating() + "  WHERE Pickup_person_id = \"" + pickupPersonModel.getId() + "\" ";
 
                 PreparedStatement preparedStatement = conn.prepareStatement(query);
 //
@@ -172,7 +172,7 @@ public class UpdatePickupPerson extends AppCompatActivity implements AdapterView
                 Log.d(TAG, "Connection established");
 
                 Statement statement = conn.createStatement();
-                String query = "UPDATE `pickup_person_details` SET `View_value` = 0 " + " WHERE Aadhar_no = \"" + pickupPersonModel.getId() + "\"  ";
+                String query = "UPDATE `pickup_person_details` SET `View_value` = 0 " + " WHERE Pickup_person_id = \"" + pickupPersonModel.getId() + "\"  ";
 
                 Log.d(TAG, "query created : " + query);
 

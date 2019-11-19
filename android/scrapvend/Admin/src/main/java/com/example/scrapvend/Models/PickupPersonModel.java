@@ -91,7 +91,7 @@ public class PickupPersonModel {
         this.salary = salary;
     }
 
-    public PickupPersonModel(String name, String id , String adhaar_no , Blob itemImage , String salary , String rating)
+    public PickupPersonModel(String name, String adhaar_no , String id , Blob itemImage , String salary , String rating)
 {
     this.name=name;
     this.id=id;

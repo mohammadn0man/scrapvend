@@ -121,9 +121,9 @@ public class AddPickupPerson extends AppCompatActivity implements AdapterView.On
                 PreparedStatement preparedStatement = conn.prepareStatement(query);
 
                 preparedStatement.setString(1,name);
-                preparedStatement.setString(4, uname);
                 preparedStatement.setString(2,adhaar);
                 preparedStatement.setString(3,personsalary);
+                preparedStatement.setString(4, uname);
 
                 Log.d(TAG, "query created : " + query);
 
