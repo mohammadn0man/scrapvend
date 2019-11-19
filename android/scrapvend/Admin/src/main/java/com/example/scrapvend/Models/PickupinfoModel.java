@@ -38,9 +38,9 @@ public class PickupinfoModel {
         Address = address;
     }
 
-    public PickupinfoModel(String username, String pickupPersonName, String schuduleDate, String location) {
+    public PickupinfoModel(String username, String bookedDate, String schuduleDate, String location) {
         this.username = username;
-        this.pickupPersonName = pickupPersonName;
+        this.bookedDate = bookedDate;
         this.schuduleDate = schuduleDate;
         this.location = location;
     }
