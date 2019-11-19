@@ -91,12 +91,14 @@ public class PickupPersonModel {
         this.salary = salary;
     }
 
-    public PickupPersonModel(String name, String id , String adhaar_no , Blob itemImage)
+    public PickupPersonModel(String name, String id , String adhaar_no , Blob itemImage , String salary , String rating)
 {
     this.name=name;
     this.id=id;
     this.adhaar_no=adhaar_no;
     this.itemImage = itemImage;
+    this.salary = salary;
+    this.rating=rating;
 }
     public PickupPersonModel()
     {
