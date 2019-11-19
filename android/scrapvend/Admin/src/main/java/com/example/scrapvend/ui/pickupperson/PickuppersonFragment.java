@@ -2,12 +2,14 @@ package com.example.scrapvend.ui.pickupperson;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -20,6 +22,7 @@ import com.example.scrapvend.Models.PickupPersonModel;
 import com.example.scrapvend.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.ByteArrayOutputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -62,6 +65,33 @@ public class PickuppersonFragment extends Fragment {
 //        t3 = (TextView) root.findViewById(R.id.textView11);
 //        img = (ImageView) root.findViewById(R.id.imageView2);
 
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Log.d(TAG, "onclick list 1"+position+id);
+
+                 pmodel = arr.get(position);
+                Log.d(TAG, "id to transfer : "+pmodel.getId()+pmodel.getAdhaar_no()+pmodel.getSalary());
+                Intent intent = new Intent(getActivity(),UpdatePickupPerson.class);
+                intent.putExtra("GETName",pmodel.getName());
+                intent.putExtra("GETRating",pmodel.getRating());
+                intent.putExtra("GETAdhaar",pmodel.getAdhaar_no());
+                intent.putExtra("GETSalary",pmodel.getSalary());
+                intent.putExtra("GETId",pmodel.getId());
+                //Convert to byte array
+//                Log.d(TAG, pmodel.getName());
+//                Bitmap bitmap = pmodel.getImage();
+//                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+//                byte[] byteArray = stream.toByteArray();
+//                intent.putExtra("GETImage",byteArray);
+                startActivity(intent);
+
+            }
+        });
+
+
         new PickupPersonTask().execute();
         Log.d(TAG, "back to oncreate again");
         context = this.getContext();
@@ -80,7 +110,7 @@ public class PickuppersonFragment extends Fragment {
 
                 while (results.next()) {
                     Log.d(TAG, results.getString(1)+results.getString(2));
-                    pmodel = new PickupPersonModel(results.getString(1),results.getString(2), results.getString(3),results.getBlob(8));
+                    pmodel = new PickupPersonModel(results.getString(1),results.getString(2), results.getString(3),results.getBlob(8),results.getString(4),results.getString(5));
                     arr.add(pmodel);
                 }
 
