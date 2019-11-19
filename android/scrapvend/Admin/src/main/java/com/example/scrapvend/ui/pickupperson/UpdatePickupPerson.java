@@ -31,7 +31,7 @@ import java.sql.Statement;
 
 public class UpdatePickupPerson extends AppCompatActivity implements AdapterView.OnItemSelectedListener  {
 
-    private final String TAG = "MyAddItem";
+    private final String TAG = "MyUpdatePickupPerson";
     private static final int PICK_IMAGE = 100;
     private EditText personNameEditText, adhaarEditText,salaryEditText,ratingEditText;
     Uri imageUri;
@@ -63,18 +63,18 @@ public class UpdatePickupPerson extends AppCompatActivity implements AdapterView
         getRating = bundle.getString("GETRating");
         getsalary = bundle.getString("GETSalary");
         getadhaar = bundle.getString("GETAdhaar");
-        getId=bundle.getString("GETId");
+        getId = bundle.getString("GETId");
         pickupPersonModel.setId(getId);
-//        byte[] byteArray = getIntent().getByteArrayExtra("GETImage");
-//        getItemImage = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+        byte[] byteArray = getIntent().getByteArrayExtra("GETImage");
+        getItemImage = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
 
 
-        Log.d(TAG, "Selected Item  = {}, {}, {}" + getName + getRating + getadhaar);
+        Log.d(TAG, "Selected Item " + getName + getRating + getadhaar);
         personNameEditText.setText(getName);
         ratingEditText.setText(getRating);
         salaryEditText.setText(getsalary);
         adhaarEditText.setText(getId);
-//        itemImageView.setImageBitmap(getItemImage);
+        itemImageView.setImageBitmap(getItemImage);
 
        //UPDATE BUTTON
         saveEditItem.setOnClickListener(new View.OnClickListener() {
@@ -85,12 +85,12 @@ public class UpdatePickupPerson extends AppCompatActivity implements AdapterView
                 pickupPersonModel.setAdhaar_no(adhaarEditText.getText().toString());
                 pickupPersonModel.setRating(ratingEditText.getText().toString());
                 pickupPersonModel.setSalary(salaryEditText.getText().toString());
-//                pickupPersonModel.setItemImage(((BitmapDrawable)itemImageView.getDrawable()).getBitmap());
-//                ByteArrayOutputStream bos = new ByteArrayOutputStream();
-//                pickupPersonModel.getItemImage().compress(Bitmap.CompressFormat.JPEG, 0, bos);
-//                pickupPersonModel.setByteImage(bos.toByteArray());
-Log.e(TAG,"ad = "+ pickupPersonModel.getAdhaar_no()+" id = "+pickupPersonModel.getId());
+                pickupPersonModel.setBitmapImage(((BitmapDrawable)itemImageView.getDrawable()).getBitmap());
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                pickupPersonModel.getBitmapImage().compress(Bitmap.CompressFormat.JPEG, 0, bos);
+                pickupPersonModel.setByteImage(bos.toByteArray());
                 new UpdateItemData().execute();
+
             }
         });
         //EDIT BUTTON
@@ -124,20 +124,17 @@ Log.e(TAG,"ad = "+ pickupPersonModel.getAdhaar_no()+" id = "+pickupPersonModel.g
 
                 Connection conn = connection.getMySqlConnection();
 
-                Log.d(TAG, "Connection established");
+                Log.d(TAG, "Connection established inside update pickup person");
 
-                Statement statement = conn.createStatement();
-
-                String query = "UPDATE `pickup_person_details` SET `Name`=\""+pickupPersonModel.getName()+"\",`Aadhar_no`=\""+pickupPersonModel.getAdhaar_no()+"\",`Salary`="+pickupPersonModel.getSalary()+",`Rating`=" + pickupPersonModel.getRating() + "  WHERE Pickup_person_id = \"" + pickupPersonModel.getId() + "\" ";
+                String query = "UPDATE `pickup_person_details` SET `Name`=\""+pickupPersonModel.getName()+"\",`Aadhar_no`=\""+pickupPersonModel.getAdhaar_no()+"\",`Salary`="+pickupPersonModel.getSalary()+",`Rating`=" + pickupPersonModel.getRating() + " ,`Person_image`=(?)  WHERE Pickup_person_id = " + pickupPersonModel.getId() + " ";
 
                 PreparedStatement preparedStatement = conn.prepareStatement(query);
 //
-//                preparedStatement.setBytes(1, pickupPersonModel.getByteImage());
+                preparedStatement.setBytes(1, pickupPersonModel.getByteImage());
 
                 Log.d(TAG, "query created : " + query);
 
                 preparedStatement.execute();
-//                statement.executeUpdate(query);
 
                 Log.d(TAG, "query executed");
 
@@ -204,11 +201,23 @@ Log.e(TAG,"ad = "+ pickupPersonModel.getAdhaar_no()+" id = "+pickupPersonModel.g
 
 
 
-        private void openGallery() {
+    private void openGallery() {
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(gallery, PICK_IMAGE);
         Log.d(TAG, "open gallery");
     }
+
+    @Override
+    protected void onActivityResult(int request, int resultCode, Intent data){
+        super.onActivityResult(request, resultCode, data);
+        Log.d(TAG, "request ="+request);
+        if(resultCode == RESULT_OK && request == PICK_IMAGE){
+            imageUri = data.getData();
+            Log.d(TAG, "imageUri = " + imageUri);
+            itemImageView.setImageURI(imageUri);
+        }
+    }
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 

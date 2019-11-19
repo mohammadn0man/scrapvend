@@ -3,6 +3,7 @@ package com.example.scrapvend.ui.pickupperson;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +24,7 @@ import com.example.scrapvend.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.ByteArrayOutputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,7 +37,7 @@ public class PickuppersonFragment extends Fragment {
 //    TextView t1, t2, t3;
 //    ImageView img;
     PickuppersonAdapter padapter;
-    PickupPersonModel pmodel;
+    PickupPersonModel pickupPersonModel;
     ArrayList<PickupPersonModel> arr = new ArrayList<>();
     private PickuppersonViewModel toolsViewModel;
     private FloatingActionButton floatingActionButtonAddPickupPerson;
@@ -71,21 +73,21 @@ public class PickuppersonFragment extends Fragment {
 
                 Log.d(TAG, "onclick list 1"+position+id);
 
-                 pmodel = arr.get(position);
-                Log.d(TAG, "id to transfer : "+pmodel.getId()+pmodel.getAdhaar_no()+pmodel.getSalary());
+                pickupPersonModel = arr.get(position);
+                Log.d(TAG, "id to transfer : "+ pickupPersonModel.getId()+ pickupPersonModel.getAdhaar_no()+ pickupPersonModel.getSalary());
                 Intent intent = new Intent(getActivity(),UpdatePickupPerson.class);
-                intent.putExtra("GETName",pmodel.getName());
-                intent.putExtra("GETRating",pmodel.getRating());
-                intent.putExtra("GETAdhaar",pmodel.getAdhaar_no());
-                intent.putExtra("GETSalary",pmodel.getSalary());
-                intent.putExtra("GETId",pmodel.getId());
+                intent.putExtra("GETName", pickupPersonModel.getName());
+                intent.putExtra("GETRating", pickupPersonModel.getRating());
+                intent.putExtra("GETAdhaar", pickupPersonModel.getAdhaar_no());
+                intent.putExtra("GETSalary", pickupPersonModel.getSalary());
+                intent.putExtra("GETId", pickupPersonModel.getId());
                 //Convert to byte array
-//                Log.d(TAG, pmodel.getName());
-//                Bitmap bitmap = pmodel.getImage();
-//                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-//                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-//                byte[] byteArray = stream.toByteArray();
-//                intent.putExtra("GETImage",byteArray);
+                Log.d(TAG, pickupPersonModel.getName());
+                Bitmap bitmap = pickupPersonModel.getBitmapImage();
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                byte[] byteArray = stream.toByteArray();
+                intent.putExtra("GETImage",byteArray);
                 startActivity(intent);
 
             }
@@ -109,9 +111,19 @@ public class PickuppersonFragment extends Fragment {
                 ResultSet results = statement.executeQuery("SELECT * FROM `pickup_person_details` WHERE View_value = 1;");
 
                 while (results.next()) {
+                    Blob blob = results.getBlob(8);
+                    Bitmap bitmap;
+                    try {
+                        int blobLength = (int) blob.length();
+                        byte[] blobAsBytes = blob.getBytes(1,blobLength);
+                        bitmap = BitmapFactory.decodeByteArray(blobAsBytes, 0, blobAsBytes.length);
+                        pickupPersonModel = new PickupPersonModel(results.getString(1),results.getString(2), results.getString(3),results.getBlob(8),results.getString(4),results.getString(5),bitmap);
+                    }
+                    catch (Exception e){
+                        e.printStackTrace();
+                    }
                     Log.d(TAG, results.getString(1)+results.getString(2));
-                    pmodel = new PickupPersonModel(results.getString(1),results.getString(2), results.getString(3),results.getBlob(8),results.getString(4),results.getString(5));
-                    arr.add(pmodel);
+                    arr.add(pickupPersonModel);
                 }
 
 

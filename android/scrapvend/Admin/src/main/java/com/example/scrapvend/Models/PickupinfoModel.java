@@ -17,24 +17,6 @@ public class PickupinfoModel {
     private String bookedTime;
     private String location;
     private String Address;
-    private Bitmap personImage;
-    private byte[] personByteImage;
-
-    public Bitmap getPersonImage() {
-        return personImage;
-    }
-
-    public void setPersonImage(Bitmap personImage) {
-        this.personImage = personImage;
-    }
-
-    public byte[] getPersonByteImage() {
-        return personByteImage;
-    }
-
-    public void setPersonByteImage(byte[] personByteImage) {
-        this.personByteImage = personByteImage;
-    }
 
     public PickupinfoModel() {
     }

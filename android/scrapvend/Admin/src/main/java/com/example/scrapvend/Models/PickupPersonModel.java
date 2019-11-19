@@ -8,7 +8,7 @@ public class PickupPersonModel {
     String name, adhaar_no, status, Username;
     String id, rating,salary;
     Blob itemImage;
-    private Bitmap image;
+    private Bitmap bitmapImage;
     private byte[] byteImage;
 
     public byte[] getByteImage() {
@@ -19,12 +19,12 @@ public class PickupPersonModel {
         this.byteImage = byteImage;
     }
 
-    public Bitmap getImage() {
-        return image;
+    public Bitmap getBitmapImage() {
+        return bitmapImage;
     }
 
-    public void setImage(Bitmap image) {
-        this.image = image;
+    public void setBitmapImage(Bitmap bitmapImage) {
+        this.bitmapImage = bitmapImage;
     }
 
     public Blob getItemImage() {
@@ -91,7 +91,7 @@ public class PickupPersonModel {
         this.salary = salary;
     }
 
-    public PickupPersonModel(String name, String adhaar_no , String id , Blob itemImage , String salary , String rating)
+    public PickupPersonModel(String name, String adhaar_no , String id , Blob itemImage , String salary , String rating, Bitmap bitmapImage)
 {
     this.name=name;
     this.id=id;
@@ -99,6 +99,7 @@ public class PickupPersonModel {
     this.itemImage = itemImage;
     this.salary = salary;
     this.rating=rating;
+    this.bitmapImage = bitmapImage;
 }
     public PickupPersonModel()
     {
