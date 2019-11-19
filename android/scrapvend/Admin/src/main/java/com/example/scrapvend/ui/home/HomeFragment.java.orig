@@ -12,7 +12,11 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.scrapvend.R;
+<<<<<<< HEAD
 import com.example.scrapvend.ui.pickupinfo.PickupinfoList;
+=======
+import com.example.scrapvend.ui.pickupperson.PickuppersonFragment;
+>>>>>>> facf819b01dbcd3981e87f1b141a4e0dcacfef7c
 
 public class HomeFragment extends Fragment {
 
@@ -34,7 +38,7 @@ public class HomeFragment extends Fragment {
         working.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), Working.class);
+                Intent intent = new Intent(getActivity(),PickuppersonFragment.class);
                 startActivity(intent);
 
 

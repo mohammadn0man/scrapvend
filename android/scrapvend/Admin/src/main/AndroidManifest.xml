@@ -19,8 +19,6 @@
         <activity android:name=".ui.pickupperson.PickuppersonFragment"></activity>
         <activity android:name=".ui.home.OnLeave"></activity>
         <activity android:name=".ui.home.Working"></activity>
-        <activity android:name=".ui.home.SchedulePickups"></activity>
-        <activity android:name=".ui.home.UnSchedulePickups"></activity>
         <activity android:name=".ui.home.Payment"></activity>
         <activity
             android:name=".MainActivity"

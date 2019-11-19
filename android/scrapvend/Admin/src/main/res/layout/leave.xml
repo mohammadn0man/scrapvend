@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <View
+    <view
         android:id="@+id/onleave"
+        class="androidx.appcompat.widget.ActionMenuView"
         android:layout_width="match_parent"
         android:layout_height="277dp"
         android:background="?android:attr/listDivider" >
@@ -12,16 +14,16 @@
             android:id="@+id/leave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_marginTop="92dp"
             android:dividerHeight="3dp"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             />
-    </View>
+    </view>
 
 
-    <View
+    <view
         android:id="@+id/requestforleave"
+        class="androidx.appcompat.widget.ActionMenuView"
         android:layout_width="match_parent"
         android:layout_height="323dp"
         android:background="?android:attr/listDivider" >
@@ -33,5 +35,5 @@
             android:layout_marginTop="92dp"
             android:dividerHeight="3dp"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
-    </View>
+    </view>
 </LinearLayout>

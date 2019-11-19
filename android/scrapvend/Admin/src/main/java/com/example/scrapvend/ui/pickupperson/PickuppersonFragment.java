@@ -76,7 +76,7 @@ public class PickuppersonFragment extends Fragment {
             Connection conn = connection.getMySqlConnection();
             try {
                 Statement statement = conn.createStatement();
-                ResultSet results = statement.executeQuery("SELECT * FROM `pickup_person_details`;");
+                ResultSet results = statement.executeQuery("SELECT * FROM `pickup_person_details` WHERE View_value = 1;");
 
                 while (results.next()) {
                     Log.d(TAG, results.getString(1)+results.getString(2));
