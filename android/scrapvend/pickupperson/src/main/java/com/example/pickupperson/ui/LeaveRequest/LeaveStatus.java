@@ -56,7 +56,7 @@ final  ArrayList<LeaveStatusModel> arrayOfEmp = new ArrayList<>();
 //        listView.setItemsCanFocus(true);
 
 //        context = this.getContext();
-        
+
 
         new task().execute();
         context = this.getApplicationContext();
@@ -104,7 +104,6 @@ final  ArrayList<LeaveStatusModel> arrayOfEmp = new ArrayList<>();
 
             Log.d(TAG, "add values");
             listView.setAdapter(padapter);
-
 
             super.onPostExecute(aVoid);
         }
