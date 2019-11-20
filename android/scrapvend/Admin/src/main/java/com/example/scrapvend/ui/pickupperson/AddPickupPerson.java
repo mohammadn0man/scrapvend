@@ -35,6 +35,7 @@ public class AddPickupPerson extends AppCompatActivity implements AdapterView.On
     ImageView itemImageView;
     Button chooseImage,addpickupperson;
     Uri imageUri;
+    Bitmap bmp;
 
     private EditText nameEditText, usernameEditText,adhaarnunber,salary,contact,email;
     PickupPersonModel model = new PickupPersonModel();
@@ -97,6 +98,13 @@ public class AddPickupPerson extends AppCompatActivity implements AdapterView.On
                 String uname=usernameEditText.getText().toString();
                 String adhaar = adhaarnunber.getText().toString();
                 String personsalary = salary.getText().toString();
+
+                bmp = ((BitmapDrawable)itemImageView.getDrawable()).getBitmap();
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                bmp.compress(Bitmap.CompressFormat.JPEG, 0, bos);
+                byte[] bArray = bos.toByteArray();
+
+
                 Log.d(TAG, "retrieve = " + name );
 
 
@@ -115,7 +123,7 @@ public class AddPickupPerson extends AppCompatActivity implements AdapterView.On
 
                 preparedStatement1.execute();
                 Log.d(TAG, "query Execute ");
-                String query = "INSERT INTO `pickup_person_details`(`Name`, `Aadhar_no`, `Salary`,  `Username`) VALUES (?,?,?,?)";
+                String query = "INSERT INTO `pickup_person_details`(`Name`, `Aadhar_no`, `Salary`,  `Username`, `Person_image`) VALUES (?,?,?,?,?)";
 
                 Log.d(TAG, "query = " + query );
                 PreparedStatement preparedStatement = conn.prepareStatement(query);
@@ -124,6 +132,8 @@ public class AddPickupPerson extends AppCompatActivity implements AdapterView.On
                 preparedStatement.setString(2,adhaar);
                 preparedStatement.setString(3,personsalary);
                 preparedStatement.setString(4, uname);
+                preparedStatement.setBytes(5,bArray);
+
 
                 Log.d(TAG, "query created : " + query);
 

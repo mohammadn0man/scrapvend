@@ -1,20 +1,22 @@
 package com.example.scrapvend.Models;
 
+import android.graphics.Bitmap;
+
 public class PickupinfoModel {
-    String username;
-    String pickupPersonName;
-    String userId;
-    String bookingId;
-    String pickupStatus;
-    String pickupPersonId;
-    String scheduleTime;
-    String schuduleDate;
-    String pickupDate;
-    String pickupTime;
-    String bookedDate;
-    String bookedTime;
-    String location;
-    String Address;
+    private String username;
+    private String pickupPersonName;
+    private String userId;
+    private String bookingId;
+    private String pickupStatus;
+    private String pickupPersonId;
+    private String scheduleTime;
+    private String schuduleDate;
+    private String pickupDate;
+    private String pickupTime;
+    private String bookedDate;
+    private String bookedTime;
+    private String location;
+    private String Address;
 
     public PickupinfoModel() {
     }
@@ -36,9 +38,9 @@ public class PickupinfoModel {
         Address = address;
     }
 
-    public PickupinfoModel(String username, String pickupPersonName, String schuduleDate, String location) {
+    public PickupinfoModel(String username, String bookedDate, String schuduleDate, String location) {
         this.username = username;
-        this.pickupPersonName = pickupPersonName;
+        this.bookedDate = bookedDate;
         this.schuduleDate = schuduleDate;
         this.location = location;
     }
