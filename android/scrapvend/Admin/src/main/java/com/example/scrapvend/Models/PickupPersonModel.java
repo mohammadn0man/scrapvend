@@ -5,8 +5,42 @@ import android.graphics.Bitmap;
 import java.sql.Blob;
 
 public class PickupPersonModel {
-    String name, adhaar_no, status, Username;
+    String name, aadhar_no, status, Username;
     String id, rating,salary;
+    int t1,t2,t3,t4;
+
+    public int getT1() {
+        return t1;
+    }
+
+    public void setT1(int t1) {
+        this.t1 = t1;
+    }
+
+    public int getT2() {
+        return t2;
+    }
+
+    public void setT2(int t2) {
+        this.t2 = t2;
+    }
+
+    public int getT3() {
+        return t3;
+    }
+
+    public void setT3(int t3) {
+        this.t3 = t3;
+    }
+
+    public int getT4() {
+        return t4;
+    }
+
+    public void setT4(int t4) {
+        this.t4 = t4;
+    }
+
     Blob itemImage;
     private Bitmap image;
     private byte[] byteImage;
@@ -43,12 +77,12 @@ public class PickupPersonModel {
         this.name = name;
     }
 
-    public String getAdhaar_no() {
-        return adhaar_no;
+    public String getAadhar_no() {
+        return aadhar_no;
     }
 
-    public void setAdhaar_no(String adhaar_no) {
-        this.adhaar_no = adhaar_no;
+    public void setAadhar_no(String aadhar_no) {
+        this.aadhar_no = aadhar_no;
     }
 
     public String getStatus() {
@@ -91,11 +125,11 @@ public class PickupPersonModel {
         this.salary = salary;
     }
 
-    public PickupPersonModel(String name, String adhaar_no , String id , Blob itemImage , String salary , String rating)
+    public PickupPersonModel(String name, String aadhar_no , String id , Blob itemImage , String salary , String rating)
 {
     this.name=name;
     this.id=id;
-    this.adhaar_no=adhaar_no;
+    this.aadhar_no=aadhar_no;
     this.itemImage = itemImage;
     this.salary = salary;
     this.rating=rating;
@@ -103,6 +137,15 @@ public class PickupPersonModel {
     public PickupPersonModel()
     {
 
+    }
+    public PickupPersonModel(String name,String id,int t1,int t2,int t3,int t4)
+    {
+        this.name=name;
+        this.id=id;
+        this.t1=t1;
+        this.t2=t2;
+        this.t3=t3;
+        this.t4=t4;
     }
 
 }

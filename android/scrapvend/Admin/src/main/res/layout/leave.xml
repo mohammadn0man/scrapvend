@@ -4,36 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <view
-        android:id="@+id/onleave"
-        class="androidx.appcompat.widget.ActionMenuView"
-        android:layout_width="match_parent"
-        android:layout_height="277dp"
-        android:background="?android:attr/listDivider" >
-        <ListView
-            android:id="@+id/leave"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="92dp"
-            android:dividerHeight="3dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            />
-    </view>
 
-
-    <view
-        android:id="@+id/requestforleave"
-        class="androidx.appcompat.widget.ActionMenuView"
+    <ListView
+        android:id="@+id/leave"
         android:layout_width="match_parent"
-        android:layout_height="323dp"
-        android:background="?android:attr/listDivider" >
-        <ListView
-            android:id="@+id/request"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="92dp"
-            android:dividerHeight="3dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
-    </view>
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:dividerHeight="3dp">
+
+    </ListView>
+
+    <ListView
+        android:id="@+id/request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="92dp"
+        android:dividerHeight="3dp" />
+
 </LinearLayout>

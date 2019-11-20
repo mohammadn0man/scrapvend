@@ -72,11 +72,11 @@ public class PickuppersonFragment extends Fragment {
                 Log.d(TAG, "onclick list 1"+position+id);
 
                  pmodel = arr.get(position);
-                Log.d(TAG, "id to transfer : "+pmodel.getId()+pmodel.getAdhaar_no()+pmodel.getSalary());
+                Log.d(TAG, "id to transfer : "+pmodel.getId()+pmodel.getAadhar_no()+pmodel.getSalary());
                 Intent intent = new Intent(getActivity(),UpdatePickupPerson.class);
                 intent.putExtra("GETName",pmodel.getName());
                 intent.putExtra("GETRating",pmodel.getRating());
-                intent.putExtra("GETAdhaar",pmodel.getAdhaar_no());
+                intent.putExtra("GETAdhaar",pmodel.getAadhar_no());
                 intent.putExtra("GETSalary",pmodel.getSalary());
                 intent.putExtra("GETId",pmodel.getId());
                 //Convert to byte array
