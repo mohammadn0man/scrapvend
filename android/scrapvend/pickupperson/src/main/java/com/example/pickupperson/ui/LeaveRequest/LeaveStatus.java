@@ -12,8 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.pickupperson.Adapters.DetailsAdapter;
 import com.example.pickupperson.Adapters.LeaveStatusAdapter;
@@ -38,7 +40,8 @@ public class LeaveStatus extends AppCompatActivity
     ListView listView;
     LeaveStatusModel pmodel;
     LeaveStatusAdapter padapter;
-final  ArrayList<LeaveStatusModel> arrayOfEmp = new ArrayList<>();
+    SwipeRefreshLayout swipeRefreshLayout;
+    final  ArrayList<LeaveStatusModel> arrayOfEmp = new ArrayList<>();
     private final String TAG = "MyDBpage2";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,15 +57,45 @@ final  ArrayList<LeaveStatusModel> arrayOfEmp = new ArrayList<>();
         status = findViewById(R.id.textViewStatus);
         listView = (ListView)findViewById(R.id.LeaveStatusList);
 //        listView.setItemsCanFocus(true);
+         swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.pullToRefresh);
 
 //        context = this.getContext();
+//        runOnUiThread(new Runnable() {
+//            public void run() {
+//                padapter.notifyDataSetChanged();
+//            }
+//        });
 
 
         new task().execute();
         context = this.getApplicationContext();
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Log.d(TAG, "add ref values");
+                new task().execute();
+                Log.d(TAG, "add ref values");
+                padapter.notifyDataSetChanged();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
+
 
     }
-    private class task extends AsyncTask<Void, Void, Void> {
+
+//    @Override
+//    public void onRefresh() {
+//
+//        Log.d(TAG, "add ref values");
+//        new task().execute();
+//        Log.d(TAG, "add ref values");
+//
+//
+//    }
+
+
+    public class task extends AsyncTask<Void, Void, Void> {
 
         @SuppressLint("WrongThread")
         @Override
@@ -82,11 +115,12 @@ final  ArrayList<LeaveStatusModel> arrayOfEmp = new ArrayList<>();
                 ResultSet results = statement.executeQuery(query);
                 Log.d(TAG, " leavestatus query executed");
                 Log.d(TAG, "results.next()");
-
+                arrayOfEmp.clear();
                 while (results.next()) {
                     Log.d(TAG,results.getString("Date")+" "+ results.getInt(3)+" "+results.getInt(4)+" "+ results.getInt(5)+" "+results.getInt(6)+" "+results.getInt(7));
 
                     pmodel = new LeaveStatusModel(results.getString("Date"), results.getInt(3), results.getInt(4), results.getInt(5),results.getInt(6),results.getInt(7));
+
                     arrayOfEmp.add(pmodel);
                 }
                 Log.d(TAG,"values inserted");
@@ -103,7 +137,10 @@ final  ArrayList<LeaveStatusModel> arrayOfEmp = new ArrayList<>();
             padapter = new LeaveStatusAdapter(context, R.layout.leavestatuslistview, arrayOfEmp);
 
             Log.d(TAG, "add values");
+
             listView.setAdapter(padapter);
+
+//            padapter.notifyDataSetChanged();
 
             super.onPostExecute(aVoid);
         }

@@ -34,11 +34,14 @@ import java.util.ArrayList;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
+
 public class LeaveStatusAdapter extends ArrayAdapter<LeaveStatusModel> {
     Context context;
     int resourse;
     ArrayList<LeaveStatusModel> historylist;
-
+   LeaveStatusAdapter adapter;
+   LeaveStatusModel model;
+    private final String TAG = "MyDBhome";
 
     public int getCount(){return super.getCount();}
     public LeaveStatusAdapter(@NonNull Context context, int resource, ArrayList<LeaveStatusModel> historylist) {
@@ -73,16 +76,16 @@ public class LeaveStatusAdapter extends ArrayAdapter<LeaveStatusModel> {
         t3=employee.getT3();
         t4=employee.getT4();
         s=employee.getStatus();
-        if(t1==0) {
-            time1.setVisibility(View.INVISIBLE);
+        if(t1==1) {
+            time1.setVisibility(View.VISIBLE);
         }
-        if(t2==0) {
-            time2.setVisibility(View.INVISIBLE);
+        if(t2==1) {
+            time2.setVisibility(View.VISIBLE);
         }
-        if(t3==0) {
-            time3.setVisibility(View.INVISIBLE);
-        }if(t4==0) {
-            time4.setVisibility(View.INVISIBLE);
+        if(t3==1) {
+            time3.setVisibility(View.VISIBLE);
+        }if(t4==1) {
+            time4.setVisibility(View.VISIBLE);
         }
         if(s==0) {
             status.setText("Pending");
@@ -106,7 +109,12 @@ public class LeaveStatusAdapter extends ArrayAdapter<LeaveStatusModel> {
                 {
 
                     Toast.makeText(context, "Request Cancelled", Toast.LENGTH_SHORT).show();
-                     new task().execute();
+                     new task(employee.getDate()).execute();
+
+                    // new LeaveStatus().change();
+//
+//                    if(context instanceof LeaveStatus){
+//                        ((LeaveStatus)context).change();
 
                 }
 
@@ -120,6 +128,14 @@ public class LeaveStatusAdapter extends ArrayAdapter<LeaveStatusModel> {
     private class task extends AsyncTask<Void, Void, Void> {
 
         @SuppressLint("WrongThread")
+                String date;
+        task(String date)
+        {
+            this.date=date;
+
+            Log.d(TAG, "emploee date :"+date);
+        }
+
         @Override
         protected Void doInBackground(Void... voids) {
 
@@ -129,7 +145,8 @@ public class LeaveStatusAdapter extends ArrayAdapter<LeaveStatusModel> {
                 Connection conn = connection.getMySqlConnection();
                 Statement statement = conn.createStatement();
 
-                String query ="UPDATE `pickup_person_record` SET `Approval_status`=? WHERE Pickup_person_id=? && Date=\"123456\"";
+                Log.d(TAG, "emploee date :"+date);
+                String query ="UPDATE `pickup_person_record` SET `Approval_status`=? WHERE Pickup_person_id=? and Date=\""+date+"\"";
                 PreparedStatement preparedStatement1 = conn.prepareStatement(query);
 
                 preparedStatement1.setInt(1, 2);

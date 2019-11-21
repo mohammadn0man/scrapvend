@@ -44,6 +44,7 @@
             android:text="Time Slots"
             android:textStyle="bold"
             android:textSize="30dp"
+
             />
 
         <TextView
@@ -53,6 +54,7 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:text="10:00AM-12:00PM"
+            android:visibility="gone"
             />
         <TextView
             android:id="@+id/timeSlot2"
@@ -60,6 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
+            android:visibility="gone"
             android:text="12:00PM-02:00PM"
             />
     <TextView
@@ -69,6 +72,9 @@
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
         android:text="02:00PM-04:00PM"
+
+
+        android:visibility="gone"
         />
     <TextView
         android:id="@+id/timeSlot4"
@@ -77,6 +83,8 @@
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
         android:text="04:00PM-06:00PM"
+        android:textColor="@color/colorPrimaryDark"
+        android:visibility="gone"
         />
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -97,7 +105,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="35dp"
         android:layout_marginTop="5dp"
         android:text="Pending"
             android:textColor="@color/Red"
@@ -109,8 +117,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_marginLeft="60dp"
-
+            android:layout_marginLeft="70dp"
+            android:layout_marginBottom="10dp"
             android:background="@color/colorPrimary"
             android:text="CANCEL"
             android:textSize="15dp" />
