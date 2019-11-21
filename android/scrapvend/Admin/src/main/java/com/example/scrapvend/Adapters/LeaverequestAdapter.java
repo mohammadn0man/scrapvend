@@ -71,6 +71,9 @@ public class LeaverequestAdapter extends ArrayAdapter<PickupPersonModel> {
         final TextView name = v.findViewById(R.id.name);
         name.setText(pickuppersonModel.getName());
         pname=pickuppersonModel.getName();
+
+
+
         reject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,5 +111,10 @@ public class LeaverequestAdapter extends ArrayAdapter<PickupPersonModel> {
             }
         });
         return v;
+    }
+    //REFRESH
+    public void notifyDataSetChanged()
+    {
+        super.notifyDataSetChanged();
     }
 }
