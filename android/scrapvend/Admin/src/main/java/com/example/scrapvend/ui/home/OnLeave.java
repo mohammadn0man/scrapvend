@@ -137,7 +137,8 @@ public class OnLeave extends AppCompatActivity {
         String id;
         int temp;
         int c1,c2,c3,c4;
-        LeaverequestAdapter padapter;
+         LeaverequestAdapter padapter;
+
         public Leavegrant(String id,int c1,int c2,int c3,int c4){
             this.id=id;
             this.c1=c1;
