@@ -82,13 +82,23 @@ public class UpdatePickupPerson extends AppCompatActivity implements AdapterView
             public void onClick(View view) {
 
                 pickupPersonModel.setName(personNameEditText.getText().toString());
-                pickupPersonModel.setAdhaar_no(adhaarEditText.getText().toString());
+                pickupPersonModel.setAadhar_no(adhaarEditText.getText().toString());
                 pickupPersonModel.setRating(ratingEditText.getText().toString());
                 pickupPersonModel.setSalary(salaryEditText.getText().toString());
+//                pickupPersonModel.setItemImage(((BitmapDrawable)itemImageView.getDrawable()).getBitmap());
+//                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//                pickupPersonModel.getItemImage().compress(Bitmap.CompressFormat.JPEG, 0, bos);
+//                pickupPersonModel.setByteImage(bos.toByteArray());
+Log.e(TAG,"ad = "+ pickupPersonModel.getAadhar_no()+" id = "+pickupPersonModel.getId());
                 pickupPersonModel.setBitmapImage(((BitmapDrawable)itemImageView.getDrawable()).getBitmap());
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
                 pickupPersonModel.getBitmapImage().compress(Bitmap.CompressFormat.JPEG, 0, bos);
                 pickupPersonModel.setByteImage(bos.toByteArray());
+//                pickupPersonModel.setItemImage(((BitmapDrawable)itemImageView.getDrawable()).getBitmap());
+//                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//                pickupPersonModel.getItemImage().compress(Bitmap.CompressFormat.JPEG, 0, bos);
+//                pickupPersonModel.setByteImage(bos.toByteArray());
+Log.e(TAG,"ad = "+ pickupPersonModel.getAadhar_no()+" id = "+pickupPersonModel.getId());
                 new UpdateItemData().execute();
 
             }
@@ -126,7 +136,7 @@ public class UpdatePickupPerson extends AppCompatActivity implements AdapterView
 
                 Log.d(TAG, "Connection established inside update pickup person");
 
-                String query = "UPDATE `pickup_person_details` SET `Name`=\""+pickupPersonModel.getName()+"\",`Aadhar_no`=\""+pickupPersonModel.getAdhaar_no()+"\",`Salary`="+pickupPersonModel.getSalary()+",`Rating`=" + pickupPersonModel.getRating() + " ,`Person_image`=(?)  WHERE Pickup_person_id = " + pickupPersonModel.getId() + " ";
+                String query = "UPDATE `pickup_person_details` SET `Name`=\""+pickupPersonModel.getName()+"\",`Aadhar_no`=\""+pickupPersonModel.getAadhar_no()+"\",`Salary`="+pickupPersonModel.getSalary()+",`Rating`=" + pickupPersonModel.getRating() + " ,`Person_image`=(?)  WHERE Pickup_person_id = " + pickupPersonModel.getId() + " ";
 
                 PreparedStatement preparedStatement = conn.prepareStatement(query);
 //

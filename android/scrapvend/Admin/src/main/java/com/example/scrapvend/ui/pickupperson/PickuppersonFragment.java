@@ -73,14 +73,18 @@ public class PickuppersonFragment extends Fragment {
 
                 Log.d(TAG, "onclick list 1"+position+id);
 
+                 pickupPersonModel = arr.get(position);
+                Log.d(TAG, "id to transfer : "+pickupPersonModel.getId()+pickupPersonModel.getAadhar_no()+pickupPersonModel.getSalary());
                 pickupPersonModel = arr.get(position);
-                Log.d(TAG, "id to transfer : "+ pickupPersonModel.getId()+ pickupPersonModel.getAdhaar_no()+ pickupPersonModel.getSalary());
+                Log.d(TAG, "id to transfer : "+ pickupPersonModel.getId()+ pickupPersonModel.getAadhar_no()+ pickupPersonModel.getSalary());
+                 pickupPersonModel = arr.get(position);
+                Log.d(TAG, "id to transfer : "+pickupPersonModel.getId()+pickupPersonModel.getAadhar_no()+pickupPersonModel.getSalary());
                 Intent intent = new Intent(getActivity(),UpdatePickupPerson.class);
-                intent.putExtra("GETName", pickupPersonModel.getName());
-                intent.putExtra("GETRating", pickupPersonModel.getRating());
-                intent.putExtra("GETAdhaar", pickupPersonModel.getAdhaar_no());
-                intent.putExtra("GETSalary", pickupPersonModel.getSalary());
-                intent.putExtra("GETId", pickupPersonModel.getId());
+                intent.putExtra("GETName",pickupPersonModel.getName());
+                intent.putExtra("GETRating",pickupPersonModel.getRating());
+                intent.putExtra("GETAdhaar",pickupPersonModel.getAadhar_no());
+                intent.putExtra("GETSalary",pickupPersonModel.getSalary());
+                intent.putExtra("GETId",pickupPersonModel.getId());
                 //Convert to byte array
                 Log.d(TAG, pickupPersonModel.getName());
                 Bitmap bitmap = pickupPersonModel.getBitmapImage();
