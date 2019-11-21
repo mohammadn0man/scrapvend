@@ -21,7 +21,16 @@ public class PickupinfoModel {
     private String pickupTime;
     private String bookedDate;
     private String bookedTime;
+    private String pickupRating;
     private String Address;
+
+    public String getPickupRating() {
+        return pickupRating;
+    }
+
+    public void setPickupRating(String pickupRating) {
+        this.pickupRating = pickupRating;
+    }
 
     public String getCustomerName() {
         return CustomerName;
@@ -201,4 +210,5 @@ public class PickupinfoModel {
     public void setAddress(String address) {
         Address = address;
     }
+
 }

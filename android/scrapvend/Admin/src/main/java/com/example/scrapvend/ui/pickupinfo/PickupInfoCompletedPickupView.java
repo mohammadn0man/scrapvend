@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.example.scrapvend.DatabaseConnect.MySqlConnector;
-import com.example.scrapvend.DymanicSwitch.Switcher;
 import com.example.scrapvend.Models.PickupinfoModel;
 import com.example.scrapvend.R;
 
@@ -19,7 +18,7 @@ import java.sql.Statement;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PickupInfoView extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class PickupInfoCompletedPickupView extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     ViewHolder viewHolder = new ViewHolder();
 
@@ -31,7 +30,8 @@ public class PickupInfoView extends AppCompatActivity implements AdapterView.OnI
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pickupinfo_detailed_view);
+        setContentView(R.layout.pickupinfo_detailed_completed_pickup_view);
+
         Log.e(TAG, "From PickupinfoView");
         viewHolder.setUserNameTextView((TextView) findViewById(R.id.user_name));
         viewHolder.setBookingIdTextView((TextView) findViewById(R.id.booking_id));
@@ -47,36 +47,20 @@ public class PickupInfoView extends AppCompatActivity implements AdapterView.OnI
         viewHolder.setPickupPersonIdTextView((TextView) findViewById(R.id.pickup_person_id));
         viewHolder.setPickupPersonNameTextView((TextView) findViewById(R.id.pickup_person_name));
         viewHolder.setPickupDateTimeTextView((TextView) findViewById(R.id.pickup_date_time));
+        viewHolder.setPickupRatingTextView((TextView) findViewById(R.id.pickup_rating));
 
         Bundle bundle = getIntent().getExtras();
         pickupinfoModel.setAddress(bundle.getString("ADDRESS"));
         pickupinfoModel.setBookingId(bundle.getString("BOOKING_ID"));
         GET_PICKUPLIST_FLAG = bundle.getString("GET_PICKUPLIST_FLAG");
+        pickupinfoModel.setPickupStatus(GET_PICKUPLIST_FLAG);
 
         viewHolder.getAddressTextView().setText(pickupinfoModel.getAddress());
         viewHolder.getBookingIdTextView().setText(pickupinfoModel.getBookingId());
 
-        Switcher switcher = new Switcher();
         pickupinfoCategory = getResources().getStringArray(R.array.pickupinfo_category_name);
-        query = generateQuery(GET_PICKUPLIST_FLAG);
+
         new PickupInfoViewTask().execute();
-
-        /*  Dynamic switch implemntation
-        for (final String categories : pickupinfoCategory){
-
-            switcher.addCaseCommand(categories, new Command() {
-                @Override
-                public void execute() {
-                    query = generateQuery(categories);
-                }
-            });
-
-        }
-        switcher.on(GET_PICKUPLIST_FLAG);
-        */
-
-
-
 
     }
 
@@ -90,6 +74,21 @@ public class PickupInfoView extends AppCompatActivity implements AdapterView.OnI
             Connection conn = connection.getMySqlConnection();
             try {
                 Statement statement = conn.createStatement();
+
+                query = "SELECT booking_details.Booking_date_time, booking_details.Scheduled_pickup_date_time, " +
+                        "user_details.Username, booking_details.Pickup_date_time, booking_details.Pickup_status, " +
+                        "user_details.Name, booking_assigned.Assigned_date , booking_assigned.Pickup_rating, " +
+                        "pickup_person_details.Pickup_person_id, pickup_person_details.Name, " +
+                        "payment_details.Payment_mode, payment_details.Payment_amount " +
+                        "FROM booking_details " +
+                        "INNER JOIN user_details ON user_details.User_id = booking_details.User_id " +
+                        "INNER JOIN booking_assigned ON booking_assigned.Booking_id = booking_details.Booking_id " +
+                        "INNER JOIN payment_details ON booking_details.Booking_id = payment_details.Booking_id " +
+                        "INNER JOIN pickup_person_details ON booking_assigned.Pickup_person_id = pickup_person_details.Pickup_person_id " +
+                        "where booking_details.Booking_id =" + pickupinfoModel.getBookingId();
+
+                Log.d(TAG, "query == "+ query);
+
                 ResultSet results = statement.executeQuery(query);
 
                 while (results.next()) {
@@ -97,14 +96,18 @@ public class PickupInfoView extends AppCompatActivity implements AdapterView.OnI
                     pickupinfoModel.setBookedDate(results.getString(1));
                     pickupinfoModel.setSchuduleDate(results.getString(2));
                     pickupinfoModel.setUsername(results.getString(3));
-                    pickupinfoModel.setBookingId(results.getString(4));
-                    pickupinfoModel.setCustomerName(results.getString(5));
+                    pickupinfoModel.setPickupDate(results.getString(4));
+                    pickupinfoModel.setPaymentStatus(results.getString(5));
+                    pickupinfoModel.setCustomerName(results.getString(6));
+                    pickupinfoModel.setAssignedDate(results.getString(7));
+                    pickupinfoModel.setPickupRating(results.getString(8));
+                    pickupinfoModel.setPickupPersonId(results.getString(9));
+                    pickupinfoModel.setPickupPersonName(results.getString(10));
+                    pickupinfoModel.setPaymentMode(results.getString(11));
+                    pickupinfoModel.setPaymentAmount(results.getString(12));
+
                     Log.d(TAG, "name"+pickupinfoModel.getUsername());
-
-
                 }
-
-
             } catch (SQLException e) {
                 e.printStackTrace();
             } finally {
@@ -114,7 +117,6 @@ public class PickupInfoView extends AppCompatActivity implements AdapterView.OnI
                     e.printStackTrace();
                 }
             }
-
             return null;
         }
 
@@ -125,42 +127,22 @@ public class PickupInfoView extends AppCompatActivity implements AdapterView.OnI
 
         }
     }
-    private String generateQuery(String get_pickuplist_flag) {
-        String str = "";
-        if (get_pickuplist_flag.equals(pickupinfoCategory[0])){
-            str = "SELECT booking_details.Booking_date_time, booking_details.Scheduled_pickup_date_time, user_details.Username, booking_details.Booking_id, user_details.Name FROM booking_details INNER JOIN user_details ON user_details.User_id = booking_details.User_id where Pickup_status = \"Pending Pickup\" and Booking_id = "+ pickupinfoModel.getBookingId() +";";
-        } else if (get_pickuplist_flag.equals(pickupinfoCategory[1])){
-            str = "x";
-        } else if (get_pickuplist_flag.equals(pickupinfoCategory[2])){
-            str = "x";
-        } else if (get_pickuplist_flag.equals(pickupinfoCategory[3])){
-            str = "x";
-        } else {
-            str = "Invalid Parameter Query not generated";
-        }
-
-        return str;
-    }
 
     private void textViewFiller(String get_pickuplist_flag)    {
 
-        if (get_pickuplist_flag.equals(pickupinfoCategory[0])){
-
-            viewHolder.getBookingDateTimeTextView().setText(pickupinfoModel.getBookedDate());
-            viewHolder.getScheduledDateTextView().setText(pickupinfoModel.getSchuduleDate());
-            viewHolder.getUserNameTextView().setText(pickupinfoModel.getUsername());
-            viewHolder.getCustomerNameTextView().setText(pickupinfoModel.getCustomerName());
-
-        } else if (get_pickuplist_flag.equals(pickupinfoCategory[1])){
-
-        } else if (get_pickuplist_flag.equals(pickupinfoCategory[2])){
-
-        } else if (get_pickuplist_flag.equals(pickupinfoCategory[3])){
-
-        } else {
-
-        }
-
+        viewHolder.getBookingDateTimeTextView().setText(pickupinfoModel.getBookedDate());
+        viewHolder.getScheduledDateTextView().setText(pickupinfoModel.getSchuduleDate());
+        viewHolder.getUserNameTextView().setText(pickupinfoModel.getUsername());
+        viewHolder.getPaymentStatusTextView().setText(pickupinfoModel.getPaymentStatus());
+        viewHolder.getCustomerNameTextView().setText(pickupinfoModel.getCustomerName());
+        viewHolder.getAssignedDateTimeTextView().setText(pickupinfoModel.getAssignedDate());
+        viewHolder.getPickupRatingTextView().setText(pickupinfoModel.getPickupRating());
+        viewHolder.getPickupPersonIdTextView().setText(pickupinfoModel.getPickupPersonId());
+        viewHolder.getPickupPersonNameTextView().setText(pickupinfoModel.getPickupPersonName());
+        viewHolder.getPickupStatusTextView().setText(pickupinfoModel.getPickupStatus());
+        viewHolder.getPickupDateTimeTextView().setText(pickupinfoModel.getPickupDate());
+        viewHolder.getPaymentModeTextView().setText(pickupinfoModel.getPaymentMode());
+        viewHolder.getPaymentAmountTextView().setText(pickupinfoModel.getPaymentAmount());
     }
 
     @Override
@@ -182,6 +164,16 @@ public class PickupInfoView extends AppCompatActivity implements AdapterView.OnI
         TextView bookingDateTimeTextView;
         TextView assignedDateTimeTextView;
         TextView pickupStatusTextView;
+        TextView pickupRatingTextView;
+
+        public TextView getPickupRatingTextView() {
+            return pickupRatingTextView;
+        }
+
+        public void setPickupRatingTextView(TextView pickupRatingTextView) {
+            this.pickupRatingTextView = pickupRatingTextView;
+        }
+
         TextView pickupPersonNameTextView;
         TextView pickupPersonIdTextView;
         TextView paymentStatusTextView;

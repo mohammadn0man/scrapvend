@@ -22,7 +22,6 @@
     <string-array name="pickupinfo_category_name">
         <item>Pending Pickup</item>
         <item>Pickup Person Assigned</item>
-        <item>Pickup Confirmed</item>
         <item>Pickup Completed</item>
     </string-array>
 

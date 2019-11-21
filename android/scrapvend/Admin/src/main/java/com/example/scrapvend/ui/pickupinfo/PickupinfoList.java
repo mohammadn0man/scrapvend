@@ -29,15 +29,16 @@ public class PickupinfoList extends AppCompatActivity {
     PickupinfoAdapter pickupinfoAdapter;
     ArrayList<PickupinfoModel> pickupinfoModelArrayList = new ArrayList<>();
     String GET_PICKUPLIST_FLAG;
-
+    String[] pickupinfoCategory;
 
     public void onCreate(Bundle savedInstancestate) {
         super.onCreate(savedInstancestate);
         setContentView(R.layout.pickupinfo_list);
         listView = (ListView) findViewById(R.id.pickupinfo_listview);
 
-        Bundle bundle = new Bundle();
-        bundle = getIntent().getExtras();
+        pickupinfoCategory = getResources().getStringArray(R.array.pickupinfo_category_name);
+
+        Bundle bundle = getIntent().getExtras();
         GET_PICKUPLIST_FLAG = bundle.getString("GET_PICKUPINFO_FLAG");
 
         new PickupinfoTask().execute();
@@ -48,11 +49,13 @@ public class PickupinfoList extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 PickupinfoModel pickupinfoModel = pickupinfoModelArrayList.get(i);
                 Log.e(TAG, "Booking id to transfer " + pickupinfoModel.getBookingId());
-                Intent intent = new Intent(getApplicationContext(), PickupInfoView.class);
-                intent.putExtra("GET_PICKUPLIST_FLAG", GET_PICKUPLIST_FLAG);
-                intent.putExtra("ADDRESS", pickupinfoModel.getLocation());
-                intent.putExtra("BOOKING_ID", pickupinfoModel.getBookingId());
-                startActivity(intent);
+                if(GET_PICKUPLIST_FLAG.equals("Pickup Completed")) {
+                    Intent intent = new Intent(getApplicationContext(), PickupInfoCompletedPickupView.class);
+                    intent.putExtra("GET_PICKUPLIST_FLAG", GET_PICKUPLIST_FLAG);
+                    intent.putExtra("ADDRESS", pickupinfoModel.getLocation());
+                    intent.putExtra("BOOKING_ID", pickupinfoModel.getBookingId());
+                    startActivity(intent);
+                }
             }
         });
 

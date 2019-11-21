@@ -193,6 +193,27 @@
                 android:text="TextView" />
         </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView50"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Pickup Rating" />
+
+        <TextView
+            android:id="@+id/pickup_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView" />
+    </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -300,11 +321,12 @@
                 android:text="TextView" />
         </LinearLayout>
 
-        <Button
+    <Button
         android:id="@+id/button6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Button helllo" />
+        android:onClick="@android:string/ok"
+        android:text="Done" />
 
 </LinearLayout>
