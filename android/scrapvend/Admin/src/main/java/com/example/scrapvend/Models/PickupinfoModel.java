@@ -4,19 +4,64 @@ import android.graphics.Bitmap;
 
 public class PickupinfoModel {
     private String username;
+    private String CustomerName;
     private String pickupPersonName;
     private String userId;
     private String bookingId;
+    private String location;
     private String pickupStatus;
     private String pickupPersonId;
     private String scheduleTime;
     private String schuduleDate;
+    private String assignedDate;
+    private String paymentStatus;
+    private String paymentMode;
+    private String paymentAmount;
     private String pickupDate;
     private String pickupTime;
     private String bookedDate;
     private String bookedTime;
-    private String location;
     private String Address;
+
+    public String getCustomerName() {
+        return CustomerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        CustomerName = customerName;
+    }
+
+    public String getAssignedDate() {
+        return assignedDate;
+    }
+
+    public void setAssignedDate(String assignedDate) {
+        this.assignedDate = assignedDate;
+    }
+
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
+
+    public String getPaymentMode() {
+        return paymentMode;
+    }
+
+    public void setPaymentMode(String paymentMode) {
+        this.paymentMode = paymentMode;
+    }
+
+    public String getPaymentAmount() {
+        return paymentAmount;
+    }
+
+    public void setPaymentAmount(String paymentAmount) {
+        this.paymentAmount = paymentAmount;
+    }
 
     public PickupinfoModel() {
     }
