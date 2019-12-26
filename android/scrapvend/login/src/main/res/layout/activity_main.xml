@@ -8,7 +8,6 @@
     android:background="@drawable/download">
 
 
-    android
     <EditText
         android:layout_width="300dp"
         android:layout_marginLeft="40dp"

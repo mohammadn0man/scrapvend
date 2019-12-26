@@ -80,7 +80,6 @@ public class registration_user extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 number = _number.getText().toString();
-                Toast.makeText(getApplicationContext(), number, Toast.LENGTH_SHORT).show();
 
                 name = _name.getText().toString();
                 email = _email.getText().toString();
@@ -99,7 +98,7 @@ public class registration_user extends AppCompatActivity {
 
                     toast.show();
                 } else {
-                    new Openlogin().execute();
+//                    new Openlogin().execute();
                     Intent intent = new Intent(getBaseContext(), otp_verification.class);
                     startActivity(intent);
                 }
@@ -108,29 +107,29 @@ public class registration_user extends AppCompatActivity {
         });
     }
 
-    public class Openlogin extends AsyncTask<String, String, String> {
-        boolean isSuccess = false;
+//    public class Openlogin extends AsyncTask<String, String, String> {
+//        boolean isSuccess = false;
 
-        @Override
-        public String doInBackground(String... params) {
-            try {
-
-                MySqlConnector connection = new MySqlConnector();
-
-                Connection con = connection.getMySqlConnection();
-
-
-                if (con == null) {
-                    Toast toast = Toast.makeText(getApplicationContext(),
-                            "Please check your INTERNET connection",
-                            Toast.LENGTH_SHORT);
-
-                    toast.show();
-                } else {
-                    String query1 = "INSERT INTO `login_info`(`Username`, `Role`, `password`, `email`, `contact_no`) VALUES (\"" + name + number + "\", '2',\"" + password + "\",\"" + email + "\",\"" + number + "\")";
-                    String query2 = "INSERT INTO `user_details`(`Name`, `Username`) VALUES (\"" + name + "\",\"" + name + number + "\")";
-                    Log.d("Reg", "query = " + query1);
-                    Statement statement = con.createStatement();
+      //  @Override
+//        public String doInBackground(String... params) {
+//            try {
+//
+//                MySqlConnector connection = new MySqlConnector();
+//
+//                Connection con = connection.getMySqlConnection();
+//
+//
+//                if (con == null) {
+//                    Toast toast = Toast.makeText(getApplicationContext(),
+//                            "Please check your INTERNET connection",
+//                            Toast.LENGTH_SHORT);
+//
+//                    toast.show();
+//                } else {
+//                    String query1 = "INSERT INTO `login_info`(`Username`, `Role`, `password`, `email`, `contact_no`) VALUES (\"" + name + number + "\", '2',\"" + password + "\",\"" + email + "\",\"" + number + "\")";
+//                    String query2 = "INSERT INTO `user_details`(`Name`, `Username`) VALUES (\"" + name + "\",\"" + name + number + "\")";
+//                    Log.d("Reg", "query = " + query1);
+//                    Statement statement = con.createStatement();
 //                    statement.executeUpdate(query1);
 //                    statement.executeUpdate(query2);
 //
@@ -138,21 +137,20 @@ public class registration_user extends AppCompatActivity {
 //                            "Register successful",
 //                            Toast.LENGTH_SHORT);
 //                    toast.show();
+//
+//                    isSuccess = true;
+//
+//                }
+//
+//            } catch (SQLException e) {
+//                isSuccess = false;
+//            }
 
-                    isSuccess = true;
-
-                }
-
-            } catch (SQLException e) {
-                isSuccess = false;
-            }
-
-            return null;
-    }
+//            return null;
+//    }
 
 
-}
-
+//}
 
 
 }
