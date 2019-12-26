@@ -13,6 +13,7 @@
         <activity android:name=".ui.pricing.AddItem"></activity>
         <activity android:name=".ui.pricing.UpdateItem"></activity>
         <activity android:name=".ui.contact.DetailView"></activity>
+        <activity android:name=".ui.pickupinfo.PickupInfoPickupPersonAssigned"></activity>
         <activity android:name=".ui.pickupinfo.PickupInfoCompletedPickupView"></activity>
         <activity android:name=".ui.contact.ContactFragment"></activity>
         <activity android:name=".ui.pickupperson.AddPickupPerson"></activity>

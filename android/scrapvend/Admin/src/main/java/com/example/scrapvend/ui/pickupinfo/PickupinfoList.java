@@ -24,7 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class PickupinfoList extends AppCompatActivity {
 
     ListView listView;
-    final static String TAG = "";
+    final static String TAG = "MyPickupinfoList";
     PickupinfoModel pickupinfoModel;
     PickupinfoAdapter pickupinfoAdapter;
     ArrayList<PickupinfoModel> pickupinfoModelArrayList = new ArrayList<>();
@@ -51,6 +51,13 @@ public class PickupinfoList extends AppCompatActivity {
                 Log.e(TAG, "Booking id to transfer " + pickupinfoModel.getBookingId());
                 if(GET_PICKUPLIST_FLAG.equals("Pickup Completed")) {
                     Intent intent = new Intent(getApplicationContext(), PickupInfoCompletedPickupView.class);
+                    intent.putExtra("GET_PICKUPLIST_FLAG", GET_PICKUPLIST_FLAG);
+                    intent.putExtra("ADDRESS", pickupinfoModel.getLocation());
+                    intent.putExtra("BOOKING_ID", pickupinfoModel.getBookingId());
+                    startActivity(intent);
+                }
+                if(GET_PICKUPLIST_FLAG.equals("Pickup Person Assigned")) {
+                    Intent intent = new Intent(getApplicationContext(), PickupInfoPickupPersonAssigned.class);
                     intent.putExtra("GET_PICKUPLIST_FLAG", GET_PICKUPLIST_FLAG);
                     intent.putExtra("ADDRESS", pickupinfoModel.getLocation());
                     intent.putExtra("BOOKING_ID", pickupinfoModel.getBookingId());

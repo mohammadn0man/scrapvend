@@ -75,6 +75,7 @@ public class PickupInfoCompletedPickupView extends AppCompatActivity implements 
             try {
                 Statement statement = conn.createStatement();
 
+
                 query = "SELECT booking_details.Booking_date_time, booking_details.Scheduled_pickup_date_time, " +
                         "user_details.Username, booking_details.Pickup_date_time, booking_details.Pickup_status, " +
                         "user_details.Name, booking_assigned.Assigned_date , booking_assigned.Pickup_rating, " +
@@ -91,7 +92,7 @@ public class PickupInfoCompletedPickupView extends AppCompatActivity implements 
 
                 ResultSet results = statement.executeQuery(query);
 
-                while (results.next()) {
+                while (results.next()){
                     Log.d(TAG, results.getString(1) + results.getString(2));
                     pickupinfoModel.setBookedDate(results.getString(1));
                     pickupinfoModel.setSchuduleDate(results.getString(2));
