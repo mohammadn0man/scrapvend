@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".registration_user"></activity>
         <activity android:name=".otp_verification"></activity>
+        <activity android:name=".homepage"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
