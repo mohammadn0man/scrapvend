@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.pricing.AddItem">
+    android:orientation="vertical"
+    android:background="@drawable/admin_background">
 
     <Button
         android:id="@+id/add_item_submit"
         android:layout_width="193dp"
         android:layout_height="55dp"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:background="@drawable/admin_item"
         android:text="Add Item"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/spinner_measure"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="@+id/spinner_measure"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_measure"
-        app:layout_constraintVertical_bias="0.111" />
+        android:textColor="#fff"
+        android:textSize="18dp"
+        android:layout_marginTop="490dp"
+        android:layout_centerHorizontal="true"/>
 
     <Button
         android:id="@+id/choose_item_image"
-        android:layout_width="wrap_content"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="170dp"
         android:text="Choose Image"
+        android:textColor="#fff"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/admin_addimage"
         app:layout_constraintEnd_toEndOf="@+id/item_image"
         app:layout_constraintHorizontal_bias="0.56"
         app:layout_constraintStart_toStartOf="@+id/item_image"
@@ -32,36 +34,37 @@
 
     <EditText
         android:id="@+id/item_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_add_item"
         android:ems="10"
         android:hint="Item Name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/choose_item_image"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="@+id/choose_item_image"
-        app:layout_constraintTop_toBottomOf="@+id/choose_item_image"
-        app:layout_constraintVertical_bias="0.058" />
+        android:textColorHint="@color/black"
+        android:layout_width="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="50dp"
+        android:layout_marginTop="250dp"
+        android:background="@android:color/transparent"
+        android:maxLines="1" />
 
     <EditText
         android:id="@+id/item_rate"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="320dp"
+        android:layout_centerHorizontal="true"
         android:ems="10"
+        android:background="@android:color/transparent"
         android:hint="Item Rate"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="@+id/item_name"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/item_name"
-        app:layout_constraintTop_toBottomOf="@+id/item_name" />
+        android:drawableLeft="@drawable/ic_rate"
+        android:textColorHint="@color/black"
+        android:inputType="numberDecimal"/>
 
     <ImageView
         android:id="@+id/item_image"
         android:layout_width="151dp"
         android:layout_height="152dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
         android:src="@drawable/ic_menu_gallery"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -71,12 +74,9 @@
     <Spinner
         android:id="@+id/spinner_measure"
         android:layout_width="211dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/item_rate"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/item_rate"
-        app:layout_constraintTop_toBottomOf="@+id/item_rate" />
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="410dp"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
