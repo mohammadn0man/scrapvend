@@ -1,12 +1,9 @@
-package com.example.login;
+package com.example.login.login;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.ImageFormat;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.provider.CalendarContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +13,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.login.main.MySqlConnector;
+import com.example.login.DatabaseConnection.MySqlConnector;
+import com.example.login.MainActivity;
+import com.example.login.R;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

@@ -1,10 +1,7 @@
-package com.example.login;
+package com.example.login.login;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,43 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.login.main.MySqlConnector;
-import com.mysql.jdbc.Buffer;
-import com.mysql.jdbc.CachedResultSetMetaData;
-import com.mysql.jdbc.ExceptionInterceptor;
-import com.mysql.jdbc.Extension;
-import com.mysql.jdbc.Field;
-import com.mysql.jdbc.MySQLConnection;
-import com.mysql.jdbc.MysqlIO;
-import com.mysql.jdbc.ResultSetInternalMethods;
-import com.mysql.jdbc.ServerPreparedStatement;
-import com.mysql.jdbc.SingleByteCharsetConverter;
-import com.mysql.jdbc.StatementImpl;
-import com.mysql.jdbc.StatementInterceptorV2;
-import com.mysql.jdbc.profiler.ProfilerEventHandler;
-
-import java.sql.Array;
-import java.sql.Blob;
-import java.sql.CallableStatement;
-import java.sql.Clob;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.NClob;
-import java.sql.PreparedStatement;
-import java.sql.SQLClientInfoException;
-import java.sql.SQLException;
-import java.sql.SQLWarning;
-import java.sql.SQLXML;
-import java.sql.Savepoint;
-import java.sql.Statement;
-import java.sql.Struct;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.TimeZone;
-import java.util.Timer;
-import java.util.concurrent.Executor;
+import com.example.login.R;
+import com.example.login.login.otp_verification;
 
 public class registration_user extends AppCompatActivity {
     private Button register;

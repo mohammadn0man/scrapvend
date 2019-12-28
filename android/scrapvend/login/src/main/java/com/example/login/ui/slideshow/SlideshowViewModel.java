@@ -1,16 +1,16 @@
-package com.example.user.ui.send;
+package com.example.login.ui.slideshow;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SendViewModel extends ViewModel {
+public class SlideshowViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SendViewModel() {
+    public SlideshowViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is logout fragment");
+        mText.setValue("This is slideshow fragment");
     }
 
     public LiveData<String> getText() {
