@@ -31,7 +31,7 @@
         </activity>
         <activity android:name="com.example.login.login.registration_user" />
         <activity android:name="com.example.login.login.otp_verification" />
-        <activity android:name="com.example.login.homepage" />
+        <activity android:name="com.example.login.logout" />
         <activity android:name="com.example.login.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
