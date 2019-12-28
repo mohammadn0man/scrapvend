@@ -1,9 +1,11 @@
 package com.example.login;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -13,8 +15,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.login.main.MySqlConnector;
-import com.mysql.jdbc.MySQLConnection;
+import com.example.login.login.registration_user;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -29,6 +30,8 @@ public String email,password;
 public CheckBox _remember;
 public TextView _forgetp;
 public Connection connection;
+SharedPreferences sp;
+private static String tag="sp";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,13 @@ public Connection connection;
         _forgetp = (TextView) findViewById(R.id.forgetp);
 
         login = (Button) findViewById(R.id.login);
+        sp=getSharedPreferences("login", Context.MODE_PRIVATE);
+
+        if((sp.contains("username"))){
+            Log.d(tag,sp.getString("username","null"));
+            Intent in = new Intent(MainActivity.this,User.class);
+            startActivity(in);
+        }
 
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +72,7 @@ public Connection connection;
             }
 
             public void openregistration(){
-                Intent intent = new Intent(MainActivity.this,registration_user.class);
+                Intent intent = new Intent(MainActivity.this, registration_user.class);
                 startActivity(intent);
             }});
 
@@ -82,6 +92,7 @@ public Connection connection;
 
             @Override
             protected String doInBackground(String... strings) {
+
                 if (email.trim().equals("") || password.trim().equals("")) {
                     z = "Please enter the username and password";
                 } else {
@@ -97,7 +108,12 @@ public Connection connection;
                             if (rs.next()) {
                                 z = "Login Successful...";
                                 isSuccess = true;
-                                Intent in = new Intent(MainActivity.this, homepage.class);
+                                SharedPreferences.Editor e=sp.edit();
+                                e.putString("username",email);
+                                e.putString("password",password);
+                                e.commit();
+                                Log.d(tag,sp.getString("username","null"));
+                                Intent in = new Intent(MainActivity.this, User.class);
                                 startActivity(in);
 
                             } else {

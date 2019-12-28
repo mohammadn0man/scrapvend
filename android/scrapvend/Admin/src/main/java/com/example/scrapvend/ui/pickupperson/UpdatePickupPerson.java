@@ -214,7 +214,7 @@ Log.e(TAG,"ad = "+ pickupPersonModel.getAadhar_no()+" id = "+pickupPersonModel.g
     private void openGallery() {
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(gallery, PICK_IMAGE);
-        Log.d(TAG, "open gallery");
+        Log.d(TAG, "open profile");
     }
 
     @Override
