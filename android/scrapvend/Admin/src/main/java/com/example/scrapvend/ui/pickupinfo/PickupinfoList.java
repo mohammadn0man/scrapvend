@@ -56,13 +56,21 @@ public class PickupinfoList extends AppCompatActivity {
                     intent.putExtra("BOOKING_ID", pickupinfoModel.getBookingId());
                     startActivity(intent);
                 }
-                if(GET_PICKUPLIST_FLAG.equals("Pickup Person Assigned")) {
+                else if(GET_PICKUPLIST_FLAG.equals("Pickup Person Assigned")) {
                     Intent intent = new Intent(getApplicationContext(), PickupInfoPickupPersonAssigned.class);
                     intent.putExtra("GET_PICKUPLIST_FLAG", GET_PICKUPLIST_FLAG);
                     intent.putExtra("ADDRESS", pickupinfoModel.getLocation());
                     intent.putExtra("BOOKING_ID", pickupinfoModel.getBookingId());
                     startActivity(intent);
                 }
+                else if(GET_PICKUPLIST_FLAG.equals("Pending Pickup")) {
+                    Intent intent = new Intent(getApplicationContext(), PickupInfoPendingPickup.class);
+                    intent.putExtra("GET_PICKUPLIST_FLAG", GET_PICKUPLIST_FLAG);
+                    intent.putExtra("ADDRESS", pickupinfoModel.getLocation());
+                    intent.putExtra("BOOKING_ID", pickupinfoModel.getBookingId());
+                    startActivity(intent);
+                }
+
             }
         });
 
