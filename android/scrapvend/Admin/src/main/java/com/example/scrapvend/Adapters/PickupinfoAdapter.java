@@ -37,17 +37,17 @@ public class PickupinfoAdapter extends ArrayAdapter<PickupinfoModel> {
         view = layoutInflater.inflate(R.layout.pickupinfo_list_layout, null);
         PickupinfoModel pickupinfoModel =  getItem(position);
 
-        TextView username, pickupPersonName, location, date_time;
+        TextView username, scheduled_date_time, location, booked_date_time;
 
         username = (TextView) view.findViewById(R.id.username);
-        pickupPersonName = (TextView) view.findViewById(R.id.pickup_person_name);
+        scheduled_date_time = (TextView) view.findViewById(R.id.scheduled_date_time);
         location = (TextView) view.findViewById(R.id.location);
-        date_time = (TextView) view.findViewById(R.id.date_time);
+        booked_date_time = (TextView) view.findViewById(R.id.booked_date_time);
 
         username.setText(pickupinfoModel.getUsername());
         location.setText(pickupinfoModel.getLocation());
-        pickupPersonName.setText(pickupinfoModel.getPickupPersonName());
-        date_time.setText(pickupinfoModel.getBookedDate() + pickupinfoModel.getBookedTime());
+        scheduled_date_time.setText(pickupinfoModel.getSchuduleDate());
+        booked_date_time.setText(pickupinfoModel.getBookedDate());
 
         return view;
     }

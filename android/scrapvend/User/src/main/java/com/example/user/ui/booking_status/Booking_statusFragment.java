@@ -1,4 +1,4 @@
-package com.example.user.ui.tools;
+package com.example.user.ui.booking_status;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.user.R;
 
-public class ToolsFragment extends Fragment {
+public class Booking_statusFragment extends Fragment {
 
-    private ToolsViewModel toolsViewModel;
+    private Booking_statusViewModel bookingstatusViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        toolsViewModel =
-                ViewModelProviders.of(this).get(ToolsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_tools, container, false);
+        bookingstatusViewModel =
+                ViewModelProviders.of(this).get(Booking_statusViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_booking_status, container, false);
         final TextView textView = root.findViewById(R.id.text_tools);
-        toolsViewModel.getText().observe(this, new Observer<String>() {
+        bookingstatusViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

@@ -20,13 +20,13 @@ import java.util.ArrayList;
 
 public class PickuppersonAdapter extends ArrayAdapter<PickupPersonModel> {
     Context context;
-    int resourse;
+    int resource;
     ArrayList<PickupPersonModel> pickupperson;
     public PickuppersonAdapter(@NonNull Context context, int resource, ArrayList<PickupPersonModel> pickupperson) {
 
         super(context,resource,pickupperson);
         this.context=context;
-        this.resourse=resource;
+        this.resource =resource;
         this.pickupperson= pickupperson;
     }
     public int getCount(){return super.getCount();}
@@ -42,7 +42,7 @@ public class PickuppersonAdapter extends ArrayAdapter<PickupPersonModel> {
         ImageView img = v.findViewById(R.id.imageView2);
 
         name.setText(pickuppersonModel.getName());
-        adhar.setText(pickuppersonModel.getAdhaar_no());
+        adhar.setText(pickuppersonModel.getAadhar_no());
         id.setText(pickuppersonModel.getId());
 
         Blob bp = pickuppersonModel.getItemImage();

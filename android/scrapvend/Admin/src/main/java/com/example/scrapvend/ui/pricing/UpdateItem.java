@@ -137,8 +137,6 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
 
                 Log.d(TAG, "Connection established");
 
-                Statement statement = conn.createStatement();
-
                 String query = "UPDATE `item_details` SET `Item_name`=\"" + itemModel.getItemName() +"\" ,`Item_rate`=" + itemModel.getItemRate() + ",`Item_measure`=\"" + itemModel.getItemMeasure() +"\" ,`Item_image`=(?) WHERE Item_id = " + itemModel.getItemId() + " ";
 
                 PreparedStatement preparedStatement = conn.prepareStatement(query);
@@ -148,7 +146,6 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
                 Log.d(TAG, "query created : " + query);
 
                 preparedStatement.execute();
-//                statement.executeUpdate(query);
 
                 Log.d(TAG, "query executed");
 
