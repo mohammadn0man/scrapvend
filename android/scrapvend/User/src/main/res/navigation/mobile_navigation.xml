@@ -13,27 +13,27 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.user.ui.gallery.GalleryFragment"
+        android:name="com.example.user.ui.profile.ProfileFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.user.ui.slideshow.SlideshowFragment"
+        android:name="com.example.user.ui.history.HistoryFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/nav_tools"
-        android:name="com.example.user.ui.tools.ToolsFragment"
+        android:name="com.example.user.ui.booking_status.Booking_statusFragment"
         android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
+        tools:layout="@layout/fragment_booking_status" />
 
     <fragment
         android:id="@+id/nav_share"
-        android:name="com.example.user.ui.share.ShareFragment"
+        android:name="com.example.user.ui.contact_us.Contact_usFragment"
         android:label="@string/menu_share"
-        tools:layout="@layout/fragment_share" />
+        tools:layout="@layout/fragment_contact" />
 
     <fragment
         android:id="@+id/nav_send"

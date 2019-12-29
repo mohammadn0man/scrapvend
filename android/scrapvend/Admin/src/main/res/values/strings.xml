@@ -7,7 +7,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Inventory</string>
+    <string name="menu_home">Home</string>
     <string name="menu_pricing">Pricing</string>
     <string name="menu_pickupinfo">Pickups info</string>
     <string name="menu_pickupperson">Pickup Person</string>
@@ -22,8 +22,6 @@
     <string-array name="pickupinfo_category_name">
         <item>Pending Pickup</item>
         <item>Pickup Person Assigned</item>
-        <item>Pickup Confirmed</item>
-        <item>Scheduled Pickups</item>
         <item>Pickup Completed</item>
     </string-array>
 

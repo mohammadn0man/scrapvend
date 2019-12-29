@@ -1,38 +1,29 @@
 package com.example.pickupperson.ui.home;
 import android.content.Context;
 import android.content.Intent;
-import android.net.wifi.p2p.WifiP2pManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 
-import com.example.pickupperson.Adapters.DetailsAdapter;
 import com.example.pickupperson.Adapters.ItemQuantityAdapter;
-import com.example.pickupperson.Models.Details;
+import com.example.pickupperson.ui.MySQLConnector;
 import com.example.pickupperson.Models.ItemQuantityModel;
 import com.example.pickupperson.R;
-import com.example.pickupperson.ui.MySQLConnector;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
+
 public class ItemQuantity extends AppCompatActivity implements View.OnClickListener {
    // private final String TAG = "MyDB";
     ListView listView;
@@ -81,17 +72,26 @@ public class ItemQuantity extends AppCompatActivity implements View.OnClickListe
 //                padapter.notifyDataSetChanged();
                 listView = (ListView) ItemQuantity.this.findViewById(R.id.itemListView);
                 Log.d(TAG, String.valueOf(listView.getCount()));
-                for(i=0;i<listView.getCount();i++){
 
-                    Log.d(TAG, "msg:value = " + i);
-//                    root = listView.getAdapter().getView(i,null,null);
-                    root=listView.getChildAt(i);
-                    Log.d(TAG, String.valueOf(root));
-                    e = root.findViewById(R.id.editItemQuantity);
-                    t = root.findViewById(R.id.textViewItemRate);
-                    value+=(Integer.parseInt(e.getText().toString())*Integer.parseInt(t.getText().toString()));
-                    Log.d(TAG, e.getText().toString());
+
+//                for(i=0;i<listView.getCount();i++){
+//
+//                    Log.d(TAG, "msg:value = " + i);
+////                  root = listView.getAdapter().getView(i,null,null);
+//                    root=listView.getChildAt(i);
+//                    Log.d(TAG, String.valueOf(root));
+//                    e = root.findViewById(R.id.editItemQuantity);
+//                    t = root.findViewById(R.id.textViewItemRate);
+//                    value+=(Integer.parseInt(e.getText().toString())*Integer.parseInt(t.getText().toString()));
+//                    Log.d(TAG, e.getText().toString());
+//                }
+
+                for (int i = 0; i < ItemQuantityAdapter.itemlist.size(); i++){
+
+                    value+=(Integer.parseInt(ItemQuantityAdapter.itemlist.get(i).getEditTextValue()));
+
                 }
+
                 totalAmount=String.valueOf(value);
                 Log.d(TAG, totalAmount);
 //                Intent i = new Intent(ItemQuantity.this,DetailedPickupInfo.class);
@@ -212,7 +212,7 @@ public class ItemQuantity extends AppCompatActivity implements View.OnClickListe
                     Log.d(TAG, results.getString("Item_name") + results.getString("Item_rate"));
                     pmodel = new ItemQuantityModel(results.getString("Item_name"), results.getString("Item_rate"));
 //                    pmodel = new ItemQuantityModel(results.getString("Item_name"), results.getString("Item_rate"));
-                    pmodel.setItemqty("10");
+                    pmodel.setEditTextValue("10");
                     arrayOfEmp.add(pmodel);
                 }
 
