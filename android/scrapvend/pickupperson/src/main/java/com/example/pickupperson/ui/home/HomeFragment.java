@@ -17,9 +17,9 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.pickupperson.Adapters.DetailsAdapter;
+import com.example.pickupperson.ui.MySQLConnector;
 import com.example.pickupperson.Models.Details;
 import com.example.pickupperson.R;
-import com.example.pickupperson.ui.MySQLConnector;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

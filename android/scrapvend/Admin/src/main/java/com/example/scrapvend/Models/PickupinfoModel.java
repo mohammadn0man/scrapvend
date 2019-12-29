@@ -1,20 +1,76 @@
 package com.example.scrapvend.Models;
 
+import android.graphics.Bitmap;
+
 public class PickupinfoModel {
-    String username;
-    String pickupPersonName;
-    String userId;
-    String bookingId;
-    String pickupStatus;
-    String pickupPersonId;
-    String scheduleTime;
-    String schuduleDate;
-    String pickupDate;
-    String pickupTime;
-    String bookedDate;
-    String bookedTime;
-    String location;
-    String Address;
+    private String username;
+    private String CustomerName;
+    private String pickupPersonName;
+    private String userId;
+    private String bookingId;
+    private String location;
+    private String pickupStatus;
+    private String pickupPersonId;
+    private String scheduleTime;
+    private String schuduleDate;
+    private String assignedDate;
+    private String paymentStatus;
+    private String paymentMode;
+    private String paymentAmount;
+    private String pickupDate;
+    private String pickupTime;
+    private String bookedDate;
+    private String bookedTime;
+    private String pickupRating;
+    private String Address;
+
+    public String getPickupRating() {
+        return pickupRating;
+    }
+
+    public void setPickupRating(String pickupRating) {
+        this.pickupRating = pickupRating;
+    }
+
+    public String getCustomerName() {
+        return CustomerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        CustomerName = customerName;
+    }
+
+    public String getAssignedDate() {
+        return assignedDate;
+    }
+
+    public void setAssignedDate(String assignedDate) {
+        this.assignedDate = assignedDate;
+    }
+
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
+
+    public String getPaymentMode() {
+        return paymentMode;
+    }
+
+    public void setPaymentMode(String paymentMode) {
+        this.paymentMode = paymentMode;
+    }
+
+    public String getPaymentAmount() {
+        return paymentAmount;
+    }
+
+    public void setPaymentAmount(String paymentAmount) {
+        this.paymentAmount = paymentAmount;
+    }
 
     public PickupinfoModel() {
     }
@@ -36,9 +92,9 @@ public class PickupinfoModel {
         Address = address;
     }
 
-    public PickupinfoModel(String username, String pickupPersonName, String schuduleDate, String location) {
+    public PickupinfoModel(String username, String bookedDate, String schuduleDate, String location) {
         this.username = username;
-        this.pickupPersonName = pickupPersonName;
+        this.bookedDate = bookedDate;
         this.schuduleDate = schuduleDate;
         this.location = location;
     }
@@ -154,4 +210,5 @@ public class PickupinfoModel {
     public void setAddress(String address) {
         Address = address;
     }
+
 }

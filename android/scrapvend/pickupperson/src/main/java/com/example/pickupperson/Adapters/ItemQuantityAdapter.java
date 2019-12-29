@@ -3,6 +3,8 @@ package com.example.pickupperson.Adapters;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +27,7 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class ItemQuantityAdapter extends ArrayAdapter<ItemQuantityModel> {
 
-    ArrayList<ItemQuantityModel> itemlist;
+    public static ArrayList<ItemQuantityModel> itemlist;
   //  private LayoutInflater inflater;
   //  public  ArrayList myItems=new ArrayList();
     Context context;
@@ -43,7 +45,7 @@ public class ItemQuantityAdapter extends ArrayAdapter<ItemQuantityModel> {
 
     }
 
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
 
         // Check if an existing view is being reused, otherwise inflate the view
@@ -54,28 +56,45 @@ public class ItemQuantityAdapter extends ArrayAdapter<ItemQuantityModel> {
         ItemQuantityModel employee=getItem(position);
         TextView textViewName = v.findViewById(R.id.textViewItemName);
         textViewName.setText(employee.getitemName());
-        EditText editTextqty = v.findViewById(R.id.editItemQuantity);
-        editTextqty.setText(employee.getItemqty());
-        TextView textViewRate = v.findViewById(R.id.textViewItemRate);
+//        EditText editTextqty = v.findViewById(R.id.editItemQuantity);
+        final TextView textViewRate = v.findViewById(R.id.textViewItemRate);
         textViewRate.setText(employee.getItemRate());
 
+        final ViewHolder holder;
 
+        if (convertView == null) {
+            holder = new ViewHolder();
+//            convertView = inflater.inflate(R.layout.itemquantitylist, null, true);
 
+            holder.editText = (EditText) v.findViewById(R.id.editItemQuantity);
+//            holder.editText.setText(employee.getEditTextValue());
 
-        editTextqty.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            v.setTag(holder);
+        }else {
+            // the getTag returns the viewHolder object set as a tag to the view
+            holder = (ViewHolder)v.getTag();
+        }
+
+        holder.editText.setText(itemlist.get(position).getEditTextValue());
+
+        holder.editText.addTextChangedListener(new TextWatcher() {
+
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                /*
-                 * When focus is lost save the entered value for
-                 * later use
-                 */
-                if (!hasFocus) {
-                    int itemIndex = v.getId();
-                    String enteredPrice = ((EditText) v).getText().toString();
-//                    selItems.put(itemIndex, enteredPrice);
-                }
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                itemlist.get(position).setEditTextValue(String.valueOf(Integer.parseInt(holder.editText.getText().toString()) * Integer.parseInt(textViewRate.getText().toString())));
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
+
 
 
         //   ImageView img = v.findViewById(R.id.imageView3);
@@ -93,6 +112,13 @@ public class ItemQuantityAdapter extends ArrayAdapter<ItemQuantityModel> {
             e.printStackTrace();
         }*/
                 return v;
+    }
+
+
+    private class ViewHolder {
+
+        protected EditText editText;
+
     }
 
 }

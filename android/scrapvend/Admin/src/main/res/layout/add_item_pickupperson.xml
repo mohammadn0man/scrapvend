@@ -2,12 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/admin_background"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="80dp"
+        android:background="@drawable/image_admin"
         android:layout_height="80dp"/>
     <LinearLayout
         android:orientation="vertical" android:layout_width="match_parent"
@@ -17,21 +19,24 @@
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="Item name"
+            android:drawableLeft="@drawable/ic_add_item"
             android:padding="3dp"/>
 
         <TextView
             android:id="@+id/textView10"
             android:layout_width="match_parent"
+            android:drawableLeft="@drawable/ic_rate"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="Rate"
             android:padding="3dp"/>
 
         <TextView
             android:id="@+id/textView11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:drawableLeft="@drawable/ic_quantity"
+            android:text="Quantity"
             android:padding="3dp"/>
     </LinearLayout>
 </LinearLayout>
