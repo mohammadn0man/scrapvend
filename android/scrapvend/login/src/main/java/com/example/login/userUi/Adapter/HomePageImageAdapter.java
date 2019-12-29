@@ -1,4 +1,4 @@
-package com.example.login.ui.Adapter;
+package com.example.login.userUi.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -37,6 +37,8 @@ public class HomePageImageAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, final int position) {
         View itemView = layoutInflater.inflate(R.layout.sliding_image_item_layout, container, false);
+
+
 
         ImageView imageView = (ImageView) itemView.findViewById(R.id.imageView);
         imageView.setImageResource(images[position]);

@@ -1,4 +1,4 @@
-package com.example.login.ui.history;
+package com.example.login.userUi.history;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

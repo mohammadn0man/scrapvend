@@ -1,4 +1,4 @@
-package com.example.login.ui.profile;
+package com.example.login.userUi.contactus;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.login.R;
 
-public class ProfileFragment extends Fragment {
+public class ContactUsFragment extends Fragment {
 
-    private ProfileViewModel profileViewModel;
+    private ContactUsViewModel contactUsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        profileViewModel =
-                ViewModelProviders.of(this).get(ProfileViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_profile, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
-        profileViewModel.getText().observe(this, new Observer<String>() {
+        contactUsViewModel =
+                ViewModelProviders.of(this).get(ContactUsViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_contact_us, container, false);
+        final TextView textView = root.findViewById(R.id.text_share);
+        contactUsViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

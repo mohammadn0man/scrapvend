@@ -32,12 +32,16 @@ public TextView _forgetp;
 public Connection connection;
 SharedPreferences sp;
 private static String tag="sp";
+    Intent in ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
+        in = new Intent(MainActivity.this,User.class);
+        in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+
 
         _email = (EditText) findViewById(R.id.email);
         _password = (EditText) findViewById(R.id.password);
@@ -49,7 +53,6 @@ private static String tag="sp";
 
         if((sp.contains("username"))){
             Log.d(tag,sp.getString("username","null"));
-            Intent in = new Intent(MainActivity.this,User.class);
             startActivity(in);
         }
 
@@ -57,7 +60,7 @@ private static String tag="sp";
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                email = _email.getText().toString();
+                email = _email .getText().toString();
                 password = _password.getText().toString();
                 new CheckLogin().execute();
             }
@@ -77,7 +80,7 @@ private static String tag="sp";
             }});
 
     }
-    
+
          class CheckLogin extends AsyncTask<String, String, String> {
             String z = "";
             Boolean isSuccess = false;
@@ -113,7 +116,6 @@ private static String tag="sp";
                                 e.putString("password",password);
                                 e.commit();
                                 Log.d(tag,sp.getString("username","null"));
-                                Intent in = new Intent(MainActivity.this, User.class);
                                 startActivity(in);
 
                             } else {

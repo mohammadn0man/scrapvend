@@ -1,4 +1,4 @@
-package com.example.login.ui.logout;
+package com.example.login.userUi.logout;
 
 import android.content.Intent;
 import android.os.Bundle;

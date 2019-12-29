@@ -1,4 +1,4 @@
-package com.example.login.ui.bookingstatus;
+package com.example.login.userUi.profile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.login.R;
 
-public class BookingStatusFragment extends Fragment {
+public class ProfileFragment extends Fragment {
 
-    private BookingStatusViewModel bookingStatusViewModel;
+    private ProfileViewModel profileViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        bookingStatusViewModel =
-                ViewModelProviders.of(this).get(BookingStatusViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_booking_status, container, false);
-        final TextView textView = root.findViewById(R.id.text_tools);
-        bookingStatusViewModel.getText().observe(this, new Observer<String>() {
+        profileViewModel =
+                ViewModelProviders.of(this).get(ProfileViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_profile, container, false);
+        final TextView textView = root.findViewById(R.id.text_gallery);
+        profileViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
