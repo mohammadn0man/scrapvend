@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.scrapvend.DatabaseConnect.MySqlConnector;
@@ -59,6 +60,14 @@ public class PickupInfoCompletedPickupView extends AppCompatActivity implements 
         viewHolder.getBookingIdTextView().setText(pickupinfoModel.getBookingId());
 
         pickupinfoCategory = getResources().getStringArray(R.array.pickupinfo_category_name);
+
+        Button backButton = (Button)this.findViewById(R.id.done);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         new PickupInfoViewTask().execute();
 

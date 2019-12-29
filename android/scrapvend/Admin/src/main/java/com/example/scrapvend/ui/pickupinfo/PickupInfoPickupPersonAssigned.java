@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.scrapvend.DatabaseConnect.MySqlConnector;
@@ -53,6 +54,15 @@ public class PickupInfoPickupPersonAssigned extends AppCompatActivity implements
             pickupinfoModel.setPickupStatus(GET_PICKUPLIST_FLAG);
             pickupinfoCategory = getResources().getStringArray(R.array.pickupinfo_category_name);
             viewHolder.getPickupStatusTextView().setText(pickupinfoModel.getPickupStatus());
+
+            Button backButton = (Button)this.findViewById(R.id.done);
+            backButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
+
 
             new PickupInfoPersonAssignTask().execute();
 

@@ -1,5 +1,6 @@
 package com.example.scrapvend.ui.home;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -65,7 +66,14 @@ public class Working extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                
+                PickupPersonModel pickupPersonModelIntent = pickupPersonModelArrayList.get(i);
+                Log.e(TAG, "id to transer = "+ pickupPersonModelIntent.getId());
+                Intent intent = new Intent(Working.this,PersonOnDateWorking.class);
+                intent.putExtra("DATE", selectedDate);
+                intent.putExtra("PERSON_ID", pickupPersonModelIntent.getId());
+                intent.putExtra("PERSON_NAME", pickupPersonModelIntent.getName());
+                intent.putExtra("PERSON_ADDRESS", pickupPersonModelIntent.getAddress());
+                startActivity(intent);
             }
         });
 
@@ -80,8 +88,8 @@ public class Working extends AppCompatActivity {
                 MySqlConnector mySqlConnector = new MySqlConnector();
                 connection = mySqlConnector.getMySqlConnection();
                 Statement statement = connection.createStatement();
-                String queryPickupPersonList = "select pickup_person_details.Name, pickup_person_details.Address from pickup_person_details " +
-                        "where Pickup_person_id not in " +
+                String queryPickupPersonList = "select pickup_person_details.Name, pickup_person_details.Address, pickup_person_details.Pickup_person_id " +
+                        " from pickup_person_details where Pickup_person_id not in " +
                         "(select pickup_person_record.Pickup_person_id from pickup_person_record" +
                             " where pickup_person_record.Approval_status = 3" +
                             " and pickup_person_record.`10:00AM-12:00PM` = 1" +
@@ -101,6 +109,7 @@ public class Working extends AppCompatActivity {
                     Log.e(TAG, resultSetListOfPickupPerson.getString(1));
                     pickupPersonModel.setName(resultSetListOfPickupPerson.getString(1));
                     pickupPersonModel.setAddress(resultSetListOfPickupPerson.getString(2));
+                    pickupPersonModel.setId(resultSetListOfPickupPerson.getString(3));
 
                     pickupPersonModelArrayList.add(pickupPersonModel);
                 }

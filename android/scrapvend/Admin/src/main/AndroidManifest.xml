@@ -21,6 +21,7 @@
         <activity android:name=".ui.pickupperson.PickuppersonFragment"></activity>
         <activity android:name=".ui.home.OnLeave"></activity>
         <activity android:name=".ui.home.Working"></activity>
+        <activity android:name=".ui.home.PersonOnDateWorking"></activity>
         <activity android:name=".ui.home.Payment"></activity>
         <activity android:name=".ui.pickupperson.UpdatePickupPerson"></activity>
         <activity
