@@ -1,4 +1,4 @@
-package com.example.login.ui.history;
+package com.example.login.userUi.bookingstatus;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.login.R;
 
-public class HistoryFragment extends Fragment {
+public class BookingStatusFragment extends Fragment {
 
-    private HistoryViewModel historyViewModel;
+    private BookingStatusViewModel bookingStatusViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        historyViewModel =
-                ViewModelProviders.of(this).get(HistoryViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_history, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
-        historyViewModel.getText().observe(this, new Observer<String>() {
+        bookingStatusViewModel =
+                ViewModelProviders.of(this).get(BookingStatusViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_booking_status, container, false);
+        final TextView textView = root.findViewById(R.id.text_tools);
+        bookingStatusViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

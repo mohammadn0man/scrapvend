@@ -20,6 +20,7 @@ public class logout extends AppCompatActivity {
 
         Log.d(tag,sp.getString("username","null"));
         Intent in = new Intent(this,MainActivity.class);
+        in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(in);
         finish();
 

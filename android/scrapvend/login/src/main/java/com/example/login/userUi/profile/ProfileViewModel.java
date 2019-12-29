@@ -1,4 +1,4 @@
-package com.example.login.ui.profile;
+package com.example.login.userUi.profile;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

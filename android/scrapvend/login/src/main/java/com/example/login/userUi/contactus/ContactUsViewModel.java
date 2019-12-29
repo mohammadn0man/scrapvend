@@ -1,16 +1,16 @@
-package com.example.login.ui.bookingstatus;
+package com.example.login.userUi.contactus;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class BookingStatusViewModel extends ViewModel {
+public class ContactUsViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public BookingStatusViewModel() {
+    public ContactUsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is tools fragment");
+        mText.setValue("This is share fragment");
     }
 
     public LiveData<String> getText() {
