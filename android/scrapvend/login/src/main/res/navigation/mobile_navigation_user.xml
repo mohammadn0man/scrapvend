@@ -34,6 +34,11 @@
         android:name="com.example.login.userUi.contactus.ContactUsFragment"
         android:label="@string/menu_contact_us"
         tools:layout="@layout/fragment_contact_us" />
-
+    <fragment
+        android:id="@id/nav_send"
+        android:name="com.example.login.userUi.logout.LogoutFragment"
+        android:label="@string/menu_logout"
+        tools:layout="@layout/fragment_logout"
+        />
 
 </navigation>
