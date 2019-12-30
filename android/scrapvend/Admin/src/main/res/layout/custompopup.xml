@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="300dp"
+    android:layout_gravity="center"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/txtclose"
+        android:layout_width="55dp"
+        android:layout_height="20dp"
+        android:layout_gravity="end"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:text="Close"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp" />
+
+        <TextView
+            android:id="@+id/pickup_person_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:text="Name Here"
+            android:textSize="25dp"
+            android:textAllCaps="true"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/working_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:text="Availability for date " />
+    </LinearLayout>
+
+
+    <RadioGroup
+        android:id="@+id/slot_group"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/slot_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="10:00AM-12:00PM" />
+
+        <RadioButton
+            android:id="@+id/slot_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="12:00PM-02:00PM" />
+
+        <RadioButton
+            android:id="@+id/slot_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="02:00PM-04:00PM" />
+
+        <RadioButton
+            android:id="@+id/slot_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="04:00PM-06:00PM" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnfollow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:text="Follow Me" />
+
+</LinearLayout>

@@ -68,6 +68,8 @@ public class PickupinfoList extends AppCompatActivity {
                     intent.putExtra("GET_PICKUPLIST_FLAG", GET_PICKUPLIST_FLAG);
                     intent.putExtra("ADDRESS", pickupinfoModel.getLocation());
                     intent.putExtra("BOOKING_ID", pickupinfoModel.getBookingId());
+                    intent.putExtra("USERNAME", pickupinfoModel.getUsername());
+                    intent.putExtra("SCHEDULEDDATE", pickupinfoModel.getSchuduleDate());
                     startActivity(intent);
                 }
 

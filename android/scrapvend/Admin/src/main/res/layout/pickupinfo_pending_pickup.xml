@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    tools:context="com.example.scrapvend.ui.pickupinfo.PickupInfoPendingPickup"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -12,7 +15,8 @@
 
         <TextView
             android:id="@+id/textView24"
-            android:layout_width="100dp"
+            android:layout_width="150dp"
+            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:text="User Name" />
 
@@ -20,6 +24,7 @@
             android:id="@+id/customer_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="20dp"
             android:layout_weight="1"
             android:text="TextView" />
     </LinearLayout>
@@ -32,7 +37,8 @@
 
         <TextView
             android:id="@+id/textView25"
-            android:layout_width="100dp"
+            android:layout_width="150dp"
+            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:text="Scheduled Date" />
 
@@ -40,6 +46,7 @@
             android:id="@+id/scheduled_date_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="20dp"
             android:layout_weight="1"
             android:text="TextView" />
     </LinearLayout>
@@ -52,7 +59,8 @@
 
         <TextView
             android:id="@+id/textView27"
-            android:layout_width="100dp"
+            android:layout_width="150dp"
+            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:text="Pickup Location" />
 
@@ -60,9 +68,24 @@
             android:id="@+id/location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="20dp"
             android:layout_weight="1"
             android:text="TextView" />
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:text="Available pickup person for given date"
+        />
+
+    <ListView
+        android:id="@+id/workingListView"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

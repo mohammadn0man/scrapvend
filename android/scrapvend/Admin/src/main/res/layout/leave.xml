@@ -23,6 +23,7 @@
         android:layout_margin="@dimen/activity_horizontal_margin"
         android:dividerHeight="3dp"
         android:background="@drawable/rectangle_border"/>
+
     <TextView
         android:id="@+id/textView15"
         android:layout_width="match_parent"

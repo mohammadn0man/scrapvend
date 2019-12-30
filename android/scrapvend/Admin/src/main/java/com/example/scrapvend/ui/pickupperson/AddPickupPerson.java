@@ -72,6 +72,7 @@ public class AddPickupPerson extends AppCompatActivity implements AdapterView.On
             @Override
             public void onClick(View view) {
                 new InsertIntoDatabaseTask().execute();
+
             }
         });
     }
@@ -164,9 +165,7 @@ public class AddPickupPerson extends AppCompatActivity implements AdapterView.On
 
             Toast.makeText(getApplicationContext(),model.getName() + " added successfully.",Toast.LENGTH_SHORT).show();
             Log.d(TAG, "Toast executed");
-            Intent intent = new Intent(getApplicationContext(),PickuppersonFragment.class);
-            startActivity(intent);
-
+            finish();
 
         }
 

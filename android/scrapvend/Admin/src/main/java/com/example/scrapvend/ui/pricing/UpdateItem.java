@@ -202,8 +202,9 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
                 //finally block used to close resources
 
                 Log.d(TAG, "inside finally");
-                Intent intent = new Intent(getBaseContext(),PricingFragment.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getBaseContext(),PricingFragment.class);
+//                startActivity(intent);
+                finish();
 
             }
 
