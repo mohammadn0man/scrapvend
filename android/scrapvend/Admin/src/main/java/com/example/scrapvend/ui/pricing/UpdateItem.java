@@ -202,8 +202,9 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
                 //finally block used to close resources
 
                 Log.d(TAG, "inside finally");
-                Intent intent = new Intent(getBaseContext(),PricingFragment.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getBaseContext(),PricingFragment.class);
+//                startActivity(intent);
+                finish();
 
             }
 
@@ -219,7 +220,7 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
     private void openGallery() {
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(gallery, PICK_IMAGE);
-        Log.d(TAG, "open gallery");
+        Log.d(TAG, "open profile");
     }
 
     @Override

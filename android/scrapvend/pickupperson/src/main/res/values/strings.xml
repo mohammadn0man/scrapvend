@@ -9,7 +9,7 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">History</string>
-    <string name="menu_slideshow">Profile</string>
+    <string name="menu_slideshow">Leave Request</string>
     <string name="menu_tools">Pickup Details</string>
     <string name="menu_share">Pickup Details</string>
     <string name="menu_send">Send</string>

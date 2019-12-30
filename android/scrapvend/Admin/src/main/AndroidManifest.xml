@@ -13,6 +13,7 @@
         <activity android:name=".ui.pricing.AddItem"></activity>
         <activity android:name=".ui.pricing.UpdateItem"></activity>
         <activity android:name=".ui.contact.DetailView"></activity>
+        <activity android:name=".ui.pickupinfo.PickupInfoPickupPersonAssigned"></activity>
         <activity android:name=".ui.pickupinfo.PickupInfoCompletedPickupView"></activity>
         <activity android:name=".ui.contact.ContactFragment"></activity>
         <activity android:name=".ui.pickupperson.AddPickupPerson"></activity>
@@ -20,6 +21,7 @@
         <activity android:name=".ui.pickupperson.PickuppersonFragment"></activity>
         <activity android:name=".ui.home.OnLeave"></activity>
         <activity android:name=".ui.home.Working"></activity>
+        <activity android:name=".ui.home.PersonOnDateWorking"></activity>
         <activity android:name=".ui.home.Payment"></activity>
         <activity android:name=".ui.pickupperson.UpdatePickupPerson"></activity>
         <activity
@@ -32,6 +34,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.pickupinfo.PickupInfoPendingPickup" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
