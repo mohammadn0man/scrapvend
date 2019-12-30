@@ -2,16 +2,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.login">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon1"
         android:label="ScrapVend"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Design">
-        <activity android:name=".registration_user"></activity>
-        <activity android:name=".otp_verification"></activity>
-        <activity android:name=".homepage"></activity>
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".User"
+            android:label="@string/title_activity_user"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.login.MainActivity" />
+        </activity>
+        <activity android:name=".login.registration_user" />
+        <activity android:name=".login.otp_verification" />
+        <activity android:name=".logout" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,8 +31,5 @@
             </intent-filter>
         </activity>
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
-
 
 </manifest>
