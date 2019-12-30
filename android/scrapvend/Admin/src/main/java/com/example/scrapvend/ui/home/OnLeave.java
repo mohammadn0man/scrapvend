@@ -1,5 +1,8 @@
 package com.example.scrapvend.ui.home;
 
+
+//default 0  , leave granted 1, rejected 3
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;

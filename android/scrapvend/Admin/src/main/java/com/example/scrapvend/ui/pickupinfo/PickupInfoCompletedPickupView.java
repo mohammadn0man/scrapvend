@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.scrapvend.DatabaseConnect.MySqlConnector;
@@ -60,6 +61,14 @@ public class PickupInfoCompletedPickupView extends AppCompatActivity implements 
 
         pickupinfoCategory = getResources().getStringArray(R.array.pickupinfo_category_name);
 
+        Button backButton = (Button)this.findViewById(R.id.done);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         new PickupInfoViewTask().execute();
 
     }
@@ -74,6 +83,7 @@ public class PickupInfoCompletedPickupView extends AppCompatActivity implements 
             Connection conn = connection.getMySqlConnection();
             try {
                 Statement statement = conn.createStatement();
+
 
                 query = "SELECT booking_details.Booking_date_time, booking_details.Scheduled_pickup_date_time, " +
                         "user_details.Username, booking_details.Pickup_date_time, booking_details.Pickup_status, " +
@@ -91,7 +101,7 @@ public class PickupInfoCompletedPickupView extends AppCompatActivity implements 
 
                 ResultSet results = statement.executeQuery(query);
 
-                while (results.next()) {
+                while (results.next()){
                     Log.d(TAG, results.getString(1) + results.getString(2));
                     pickupinfoModel.setBookedDate(results.getString(1));
                     pickupinfoModel.setSchuduleDate(results.getString(2));

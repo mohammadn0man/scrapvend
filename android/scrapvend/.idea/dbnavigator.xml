@@ -30,16 +30,16 @@
       <console name="mohammadnoman" type="STANDARD" schema="" session="Main" />
     </connection>
     <connection id="5c212642-736e-4897-b157-0ed4a14a3a72">
-      <console name="mohammad_scrapend" type="STANDARD" schema="mysql" session="Main" />
+      <console name="mohammad_scrapend" type="STANDARD" schema="" session="Main" />
     </connection>
     <connection id="d56ddb43-9fd2-4e63-ad57-6d1c5c238eec">
       <console name="Connection" type="STANDARD" schema="" session="Main" />
     </connection>
     <connection id="92c04c99-3a13-4f3c-911a-56b6f3e7d768">
-      <console name="scrap_vend" type="STANDARD" schema="scrap_vend" session="Main" />
+      <console name="scrap_vend" type="STANDARD" schema="" session="Main" />
     </connection>
     <connection id="e0a6ebcb-5457-45f1-a8de-99334eb446c6">
-      <console name="Connection 1" type="STANDARD" schema="scrap_vend" session="Main" />
+      <console name="Connection 1" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

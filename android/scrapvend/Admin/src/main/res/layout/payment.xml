@@ -18,7 +18,14 @@
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="Button"
+        android:background="@drawable/admin_item"
+        android:textColor="#fff"
+        android:textSize="18dp"
+        android:layout_marginTop="490dp"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:textAllCaps="false"/>
 
     </view>
 

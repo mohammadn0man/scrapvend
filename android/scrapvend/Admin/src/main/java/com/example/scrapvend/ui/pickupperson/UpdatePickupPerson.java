@@ -158,9 +158,9 @@ Log.e(TAG,"ad = "+ pickupPersonModel.getAadhar_no()+" id = "+pickupPersonModel.g
             } finally {
                 //finally block used to close resources
                 Log.d(TAG, "inside finally");
-                Intent intent = new Intent(getApplicationContext(),PickuppersonFragment.class);
-                startActivity(intent);
-
+//                Intent intent = new Intent(getApplicationContext(),PickuppersonFragment.class);
+//                startActivity(intent);
+                finish();
             }
 
             return null;

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -100,7 +101,7 @@
             android:id="@+id/textViewI"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
             android:text="Pickup Status"
             android:textSize="20dp"
@@ -110,7 +111,7 @@
             android:id="@+id/textViewJ"
             android:layout_width="match_parent"
             android:layout_height="288dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="19dp"
             android:layout_marginBottom="10dp"
             android:text="Total amount"
             android:textSize="20dp"
@@ -180,7 +181,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="45dp"
 
             android:textSize="20dp"
             android:textStyle="italic"
@@ -190,9 +191,7 @@
         android:id="@+id/editPickupDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
-
+        android:layout_marginTop="35dp"
         android:textSize="20dp"
         android:textStyle="italic"
         />
@@ -201,8 +200,8 @@
             android:id="@+id/editPickupTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="20dp"
+
+            android:layout_marginTop="15dp"
 
             android:textSize="20dp"
             android:textStyle="italic"
@@ -211,7 +210,7 @@
             android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="16dp"
             android:text="20"
             android:textSize="20dp" />

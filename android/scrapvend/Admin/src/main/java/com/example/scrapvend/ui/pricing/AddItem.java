@@ -168,9 +168,7 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
 
             Toast.makeText(getApplicationContext(),itemModel.getItemName() + " added successfully.",Toast.LENGTH_SHORT).show();
             Log.d(TAG, "Toast executed");
-            Intent intent = new Intent(getApplicationContext(), PricingFragment.class);
-            startActivity(intent);
-
+            finish();
         }
 
     }

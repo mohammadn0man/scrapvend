@@ -24,7 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class PickupinfoList extends AppCompatActivity {
 
     ListView listView;
-    final static String TAG = "";
+    final static String TAG = "MyPickupinfoList";
     PickupinfoModel pickupinfoModel;
     PickupinfoAdapter pickupinfoAdapter;
     ArrayList<PickupinfoModel> pickupinfoModelArrayList = new ArrayList<>();
@@ -56,6 +56,23 @@ public class PickupinfoList extends AppCompatActivity {
                     intent.putExtra("BOOKING_ID", pickupinfoModel.getBookingId());
                     startActivity(intent);
                 }
+                else if(GET_PICKUPLIST_FLAG.equals("Pickup Person Assigned")) {
+                    Intent intent = new Intent(getApplicationContext(), PickupInfoPickupPersonAssigned.class);
+                    intent.putExtra("GET_PICKUPLIST_FLAG", GET_PICKUPLIST_FLAG);
+                    intent.putExtra("ADDRESS", pickupinfoModel.getLocation());
+                    intent.putExtra("BOOKING_ID", pickupinfoModel.getBookingId());
+                    startActivity(intent);
+                }
+                else if(GET_PICKUPLIST_FLAG.equals("Pending Pickup")) {
+                    Intent intent = new Intent(getApplicationContext(), PickupInfoPendingPickup.class);
+                    intent.putExtra("GET_PICKUPLIST_FLAG", GET_PICKUPLIST_FLAG);
+                    intent.putExtra("ADDRESS", pickupinfoModel.getLocation());
+                    intent.putExtra("BOOKING_ID", pickupinfoModel.getBookingId());
+                    intent.putExtra("USERNAME", pickupinfoModel.getUsername());
+                    intent.putExtra("SCHEDULEDDATE", pickupinfoModel.getSchuduleDate());
+                    startActivity(intent);
+                }
+
             }
         });
 
