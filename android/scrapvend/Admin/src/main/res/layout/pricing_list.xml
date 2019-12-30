@@ -9,7 +9,9 @@
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="80dp"
-        android:layout_height="80dp"/>
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/image_admin"/>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"

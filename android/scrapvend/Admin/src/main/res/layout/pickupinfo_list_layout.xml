@@ -19,7 +19,8 @@
             android:layout_width="90dp"
             android:textAllCaps="true"
             android:layout_height="wrap_content"
-            android:text="User Name" />
+            android:text="User Name"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/username"
@@ -34,7 +35,8 @@
             android:textAllCaps="true"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:text="Scheduled Date_Time" />
+            android:text="Scheduled Date_Time"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/scheduled_date_time"
@@ -42,14 +44,15 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:padding="10dp"
-            android:text="TextView" />
+            android:text="TextView"/>
 
         <TextView
         android:id="@+id/textView19"
         android:textAllCaps="true"
         android:layout_width="90dp"
         android:layout_height="wrap_content"
-        android:text="Booked Date_Time" />
+        android:text="Booked Date_Time"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/booked_date_time"
@@ -64,7 +67,8 @@
             android:textAllCaps="true"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:text="Location"/>
+            android:text="Location"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/location"
