@@ -1,125 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.pricing.AddItem">
+    android:orientation="vertical"
+    android:background="@drawable/admin_background">
+    tools:context=".ui.pricing.AddItem>
 
     <Button
         android:id="@+id/add_pickup_person"
         android:layout_width="193dp"
         android:layout_height="55dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#fff"
+        android:background="@drawable/admin_item"
+        android:layout_marginTop="550dp"
         android:text="Add Pickup Person"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/salary"
-        app:layout_constraintVertical_bias="0.644"
-        android:background="@drawable/rounded_circle"/>
+        android:clickable="true"
+        android:textSize="15dp"/>
 
     <Button
         android:id="@+id/choose_pickup_person_image"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:textColor="#fff"
+        android:background="@drawable/admin_addimage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="170dp"
         android:text="Choose Image"
-        app:layout_constraintEnd_toEndOf="@+id/pickup_person_image"
-        app:layout_constraintHorizontal_bias="0.56"
-        app:layout_constraintStart_toStartOf="@+id/pickup_person_image"
-        app:layout_constraintTop_toBottomOf="@+id/pickup_person_image" />
+        android:clickable="true"
+        android:textSize="15dp"/>
 
     <EditText
         android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:ems="10"
         android:hint="Name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/choose_pickup_person_image"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="@+id/choose_pickup_person_image"
-        app:layout_constraintTop_toBottomOf="@+id/choose_pickup_person_image"
-        app:layout_constraintVertical_bias="0.058" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="240dp"
+        android:background="@android:color/transparent"
+        android:textColorHint="@color/black"
+        android:drawableLeft="@drawable/ic_perm_identity"
+        android:maxLines="1"
+        android:inputType="textPersonName"/>
 
     <EditText
         android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:ems="10"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="290dp"
+        android:background="@android:color/transparent"
+        android:textColorHint="@color/black"
+        android:drawableLeft="@drawable/ic_perm_identity"
+        android:maxLines="1"
         android:hint="User Name"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        android:inputType="textPersonName" />
 
     <ImageView
         android:id="@+id/pickup_person_image"
         android:layout_width="151dp"
         android:layout_height="152dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/ic_menu_gallery"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_menu_gallery" />
 
     <EditText
         android:id="@+id/adhaarnumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:ems="10"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="340dp"
+        android:background="@android:color/transparent"
+        android:textColorHint="@color/black"
+        android:drawableLeft="@drawable/ic_adhaar"
+        android:maxLines="1"
         android:hint="Adhaar Number"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/salary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username"
-        app:layout_constraintVertical_bias="0.898" />
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/salary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:ems="10"
-
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="490dp"
+        android:background="@android:color/transparent"
+        android:textColorHint="@color/black"
+        android:drawableLeft="@drawable/ic_rate"
+        android:maxLines="1"
         android:hint="Salary"
         android:inputType="numberDecimal"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username"
-        app:layout_constraintVertical_bias="0.676" />
+        />
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:ems="10"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="390dp"
+        android:background="@android:color/transparent"
+        android:textColorHint="@color/black"
+        android:drawableLeft="@drawable/ic_email_black_24dp"
+        android:maxLines="1"
         android:hint="Email"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/adhaarnumber"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username"
-        app:layout_constraintVertical_bias="0.21" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/contact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:ems="10"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="440dp"
+        android:background="@android:color/transparent"
+        android:textColorHint="@color/black"
+        android:drawableLeft="@drawable/ic_contact"
+        android:maxLines="1"
         android:hint="Contact"
-        android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/adhaarnumber"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        android:inputType="numberDecimal">
+
+    </EditText>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

@@ -15,18 +15,19 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="147dp"
+        android:layout_width="150dp"
         android:layout_height="90dp"
         android:contentDescription="@string/nav_header_desc"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:paddingTop="3dp"
         app:srcCompat="@drawable/icon" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scrap Vend"
-        tools:text="SCRAP VEND" />
+        android:text="ScrapVend"
+        android:textSize="20dp"
+        tools:text="SCRAPVEND" />
 
     <TextView
         android:id="@+id/textView2"

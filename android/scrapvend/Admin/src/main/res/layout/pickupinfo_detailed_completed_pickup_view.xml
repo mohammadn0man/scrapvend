@@ -15,7 +15,8 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Booking ID" />
+                android:text="Booking ID"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/booking_id"
@@ -36,7 +37,8 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Username" />
+                android:text="Username"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/user_name"
@@ -57,7 +59,8 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Address" />
+                android:text="Address"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/Address"
@@ -78,7 +81,8 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Customer Name" />
+                android:text="Customer Name"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/customer_name"
@@ -99,7 +103,8 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Booking Date Time" />
+                android:text="Booking Date Time"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/booked_date_time"
@@ -120,7 +125,8 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Scheduled Date Time" />
+                android:text="Scheduled Date Time"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/scheduled_date_time"
@@ -141,7 +147,8 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Pickup Date Time" />
+                android:text="Pickup Date Time"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/pickup_date_time"
@@ -162,7 +169,8 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Pickup Status" />
+                android:text="Pickup Status"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/pickup_status"
@@ -183,7 +191,8 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Assigned Date Time" />
+                android:text="Assigned Date Time"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/booking_assign_date_time"
@@ -204,7 +213,8 @@
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Pickup Rating" />
+            android:text="Pickup Rating"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/pickup_rating"
@@ -225,7 +235,8 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Pickup Person Name" />
+                android:text="Pickup Person Name"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/pickup_person_name"
@@ -246,7 +257,8 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Pickup Person ID" />
+                android:text="Pickup Person ID"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/pickup_person_id"
@@ -267,7 +279,8 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Payment Status" />
+                android:text="Payment Status"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/payment_status"
@@ -288,7 +301,8 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Payment Amount" />
+                android:text="Payment Amount"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/payment_amount"
@@ -311,7 +325,8 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Payment Mode" />
+                android:text="Payment Mode"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/payment_mode"
@@ -322,9 +337,25 @@
         </LinearLayout>
 
     <Button
+        android:id="@+id/button6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:onClick="@android:string/ok"
+        android:id="@+id/button6"
+        android:layout_weight="1"
+        android:onClick="@android:string/ok"
         android:id="@+id/done"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Done" />
+        android:text="Done"
+        android:layout_width="180dp"
+        android:layout_height="55dp"
+        android:layout_marginHorizontal="100dp"
+        android:background="@drawable/admin_item"
+        android:textColor="#fff"
+        android:textSize="18dp"
+        android:clickable="true"
+        android:textAllCaps="false"/>
 
 </LinearLayout>

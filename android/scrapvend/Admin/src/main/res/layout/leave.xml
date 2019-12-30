@@ -2,25 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/admin_background">
 
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ONLEAVE"
-        android:textColor="@color/black"
+        android:text="ON LEAVE"
+        android:textColor="@color/Red"
         android:textSize="23dp"
-        android:layout_margin="@dimen/activity_horizontal_margin"
-        />
+        android:layout_margin="16dp"/>
 
     <ListView
         android:id="@+id/request"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_margin="16dp"
         android:dividerHeight="3dp"
         android:background="@drawable/rectangle_border"/>
 
@@ -41,7 +41,7 @@
         android:layout_margin="@dimen/activity_horizontal_margin"
         android:dividerHeight="3dp"
         android:background="@drawable/rectangle_border"
-        android:paddingBottom="@dimen/activity_vertical_margin"/>
+        android:paddingBottom="16dp"/>
 
 
 

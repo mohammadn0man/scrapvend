@@ -1,72 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/admin_background">
+
+    <TextView
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="45dp"
+        android:text="ADMIN"
+        android:textColor="@color/green"
+        android:textSize="28sp"/>
+
+    <TextView
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="45dp"
+        android:text="DASHBOARD"
+        android:textColor="@color/WhiteSmoke"
+        android:textSize="28sp"/>
 
     <Button
         android:id="@+id/payment"
-        android:layout_width="170dp"
-        android:layout_height="124dp"
-        android:layout_marginBottom="36dp"
-        android:background="@drawable/image_button_circle"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="470dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/payment_pick"
         android:text="PAYMENT"
         android:textColor="@android:color/background_light"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/unschedule_pickups"
-        app:layout_constraintVertical_bias="0.702" />
+        android:clickable="true"
+        android:textSize="18dp"/>
 
     <Button
         android:id="@+id/unschedule_pickups"
-        android:layout_width="170dp"
-        android:layout_height="124dp"
-        android:layout_marginTop="136dp"
-        android:background="@drawable/image_button_circle"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="150dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/unschedule_pick"
         android:text="UNSCHUDEL PICKUPS"
         android:textColor="@android:color/background_light"
-        app:layout_constraintEnd_toStartOf="@+id/schedule_pickups"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:clickable="true"
+        android:textSize="18dp"/>
 
     <Button
         android:id="@+id/schedule_pickups"
-        android:layout_width="170dp"
-        android:layout_height="124dp"
-        android:layout_marginTop="128dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/image_button_circle"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="230dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/schedule_pick"
         android:text="SCHEDULE PICKUPS"
         android:textColor="@android:color/background_light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:clickable="true"
+        android:textSize="18dp"/>
 
     <Button
         android:id="@+id/working"
-        android:layout_width="170dp"
-        android:layout_height="124dp"
-        android:background="@drawable/image_button_circle"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="310dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/working_pick"
         android:text="WORKING"
         android:textColor="@android:color/background_light"
-        app:layout_constraintBottom_toTopOf="@+id/payment"
-        app:layout_constraintEnd_toStartOf="@+id/onleave"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/unschedule_pickups" />
+        android:clickable="true"
+        android:textSize="18dp"/>
 
     <Button
         android:id="@+id/onleave"
-        android:layout_width="170dp"
-        android:layout_height="124dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/image_button_circle"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="390dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/onleave_pick"
         android:text="ON LEAVE"
         android:textColor="@android:color/background_light"
-        app:layout_constraintBottom_toTopOf="@+id/payment"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/schedule_pickups" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:clickable="true"
+        android:textSize="18dp"/>
+</RelativeLayout>
