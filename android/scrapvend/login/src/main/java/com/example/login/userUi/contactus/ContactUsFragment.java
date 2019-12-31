@@ -36,7 +36,7 @@ public class ContactUsFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_contact_us, container, false);
         send = (Button) root.findViewById(R.id.send);
         msg = (EditText) root.findViewById(R.id.message);
-        sub=(EditText)root.findViewById(R.id.subject);
+        sub = (EditText)root.findViewById(R.id.subject);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
