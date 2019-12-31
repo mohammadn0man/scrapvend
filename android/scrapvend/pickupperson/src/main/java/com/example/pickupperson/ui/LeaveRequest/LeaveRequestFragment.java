@@ -45,7 +45,7 @@ public class LeaveRequestFragment extends Fragment {
     Context context;
     TextView timeSlot;
     CheckBox timeSlot1, timeSlot2, timeSlot3, timeSlot4;
-    Button requestBtn;
+    Button requestBtn,historyBtn;
     boolean validDate = false;
     String Date;
     private final String TAG = "MyLeaverRequestPage";
@@ -64,6 +64,8 @@ public class LeaveRequestFragment extends Fragment {
         timeSlot3 = root.findViewById(R.id.checkBox3);
         timeSlot4 = root.findViewById(R.id.checkBox4);
         requestBtn = root.findViewById(R.id.requestBtn);
+        historyBtn=root.findViewById(R.id.historyBtn);
+
 
         context = this.getContext();
 
@@ -114,7 +116,17 @@ public class LeaveRequestFragment extends Fragment {
 
             }
         });
+        historyBtn.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Intent i = new Intent(getActivity(), LeaveStatus.class);
+                Log.d(TAG, "intent sent");
+                 startActivity(i);
+
+            }
+        });
 
         context = this.getContext();
 

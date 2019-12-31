@@ -36,14 +36,14 @@ public class HistoryAdapter extends ArrayAdapter<HistoryDetails> {
         // Check if an existing view is being reused, otherwise inflate the view
         View v;
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        v = inflater.inflate(R.layout.homelist_layout, null);
+        v = inflater.inflate(R.layout.historylist, null);
 
         HistoryDetails history=getItem(position);
         TextView textViewId = v.findViewById(R.id.textViewId);
         TextView textViewAddress = v.findViewById(R.id.textViewAddress);
         TextView textViewTime = v.findViewById(R.id.textViewTime);
         TextView textViewDate = v.findViewById(R.id.textViewDate);
-        textViewId.setText(history.getBookingid());
+        textViewId.setText(String.valueOf(history.getBookingid()));
         textViewAddress.setText(history.getAddress());
         textViewDate.setText(history.getDate());
         textViewTime.setText(history.getTime());
