@@ -10,16 +10,8 @@
         android:label="ScrapVend"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+<<<<<<< HEAD
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".PickupPerson"
-            android:label="@string/title_activity_pickup_person"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.login.MainActivity" />
-        </activity>
         <activity
             android:name=".User"
             android:label="@string/title_activity_user"
@@ -32,6 +24,12 @@
         <activity android:name=".login.registration_user" />
         <activity android:name=".login.otp_verification" />
         <activity android:name=".logout" />
+=======
+        android:theme="@style/Theme.Design">
+        <activity android:name=".registration_user"></activity>
+        <activity android:name=".otp_verification"></activity>
+        <activity android:name=".homepage"></activity>
+>>>>>>> 9041fbe22b8b3f72dd452fbaab6aba4df444554d
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,13 +37,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".userUi.home.RequestPickup">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
     </application>
 
 </manifest>
