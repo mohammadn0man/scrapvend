@@ -32,6 +32,7 @@ public TextView _forgetp;
 public Connection connection;
 SharedPreferences sp,pickupersonsp;
 private static String tag="sp";
+public static String user;
     Intent in,inp ;
 
     @Override
@@ -57,6 +58,7 @@ private static String tag="sp";
 
         if((sp.contains("username"))){
             Log.d(tag,sp.getString("username","null"));
+            user=sp.getString("username",null);
             startActivity(in);
         }
         if((pickupersonsp.contains("PickupPersonUsername"))){
@@ -125,7 +127,10 @@ private static String tag="sp";
                                     e.putString("username", email);
                                     e.putString("password", password);
                                     e.commit();
+                                    user=sp.getString("username",null);
                                     Log.d(tag, sp.getString("username", "null"));
+
+                                    Log.d(tag,"user name"+ user);
                                     startActivity(in);
 
                                 }
