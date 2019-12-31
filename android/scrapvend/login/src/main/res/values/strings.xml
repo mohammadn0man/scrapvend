@@ -17,5 +17,11 @@
     <string name="menu_share">Contact Us</string>
     <string name="menu_send">Logout</string>
 
+    <string-array name="slots">
+        <item>10:00AM-12:00PM</item>
+        <item>12:00PM-02:00PM</item>
+        <item>02:00PM-04:00PM</item>
+        <item>04:00PM-06:00PM</item>
+    </string-array>
 
 </resources>
