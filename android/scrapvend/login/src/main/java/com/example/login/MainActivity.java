@@ -30,9 +30,10 @@ public String email,password;
 public CheckBox _remember;
 public TextView _forgetp;
 public Connection connection;
-SharedPreferences sp;
+SharedPreferences sp,pickupersonsp;
 private static String tag="sp";
-    Intent in ;
+public static String user;
+    Intent in,inp ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,9 @@ private static String tag="sp";
         in = new Intent(MainActivity.this,User.class);
         in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
 
+        inp = new Intent(MainActivity.this,PickupPerson.class);
+        inp.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+
 
         _email = (EditText) findViewById(R.id.email);
         _password = (EditText) findViewById(R.id.password);
@@ -50,10 +54,16 @@ private static String tag="sp";
 
         login = (Button) findViewById(R.id.login);
         sp=getSharedPreferences("login", Context.MODE_PRIVATE);
+        pickupersonsp=getSharedPreferences("login", Context.MODE_PRIVATE);
 
         if((sp.contains("username"))){
             Log.d(tag,sp.getString("username","null"));
+            user=sp.getString("username",null);
             startActivity(in);
+        }
+        if((pickupersonsp.contains("PickupPersonUsername"))){
+            Log.d(tag,pickupersonsp.getString("username","null"));
+            startActivity(inp);
         }
 
 
@@ -105,26 +115,44 @@ private static String tag="sp";
                         if (connection == null) {
                             z = "Check your internet Connection";
                         } else {
-                            String query = "SELECT * FROM `login_info` WHERE `Username`=\""+email+"\" and `password`=\""+password+"\"";
+                            String query = "SELECT * FROM `login_info` WHERE `Username`=\"" + email + "\" and `password`=\"" + password + "\"";
                             PreparedStatement prest = connection.prepareStatement(query);
                             ResultSet rs = prest.executeQuery(query);
                             if (rs.next()) {
-                                z = "Login Successful...";
-                                isSuccess = true;
-                                SharedPreferences.Editor e=sp.edit();
-                                e.putString("username",email);
-                                e.putString("password",password);
-                                e.commit();
-                                Log.d(tag,sp.getString("username","null"));
-                                startActivity(in);
+                                int role = rs.getInt(2);
+                                if (role == 2) {
+                                    z = "Login Successful...";
+                                    isSuccess = true;
+                                    SharedPreferences.Editor e = sp.edit();
+                                    e.putString("username", email);
+                                    e.putString("password", password);
+                                    e.commit();
+                                    user=sp.getString("username",null);
+                                    Log.d(tag, sp.getString("username", "null"));
 
+                                    Log.d(tag,"user name"+ user);
+                                    startActivity(in);
+
+                                }
+                                if (role == 1) {
+                                    z = "Login Successful...";
+                                    isSuccess = true;
+                                    SharedPreferences.Editor ep = pickupersonsp.edit();
+                                    ep.putString("PickupPersonUsername", email);
+                                    ep.putString("password", password);
+                                    ep.commit();
+                                    Log.d(tag, pickupersonsp.getString("username", "null"));
+                                    startActivity(inp);
+
+                                }
                             } else {
                                 z = "Invalid Credentials...";
                                 isSuccess = false;
                             }
-                        }
 
-                    } catch (ClassNotFoundException e) {
+
+                        }
+                    }catch (ClassNotFoundException e) {
                         z = e.getMessage();
                     } catch (SQLException e) {
                         z = e.getMessage();

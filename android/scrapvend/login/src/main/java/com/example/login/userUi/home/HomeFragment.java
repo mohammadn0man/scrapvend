@@ -1,6 +1,5 @@
 package com.example.login.userUi.home;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -40,7 +39,7 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_home_user, container, false);
         mPager = (ViewPager) root.findViewById(R.id.pager);
         //   indicator = (CirclePageIndicator)root.findViewById(R.id.indicator);
 
