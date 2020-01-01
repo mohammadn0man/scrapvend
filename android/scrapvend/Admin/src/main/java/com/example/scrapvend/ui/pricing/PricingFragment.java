@@ -116,11 +116,11 @@ public class PricingFragment extends Fragment {
         protected Void doInBackground(Void... voids) {
 
             Connection conn = null;
+            MySqlConnector connection = new MySqlConnector();
+
+            conn = connection.getMySqlConnection();
 
             try {
-                MySqlConnector connection = new MySqlConnector();
-
-                conn = connection.getMySqlConnection();
                 Statement statement = conn.createStatement();
 
                 String query = "SELECT Item_id, Item_name, Item_rate, Item_measure, Item_image FROM item_details WHERE View_value = 1;";
@@ -145,12 +145,11 @@ public class PricingFragment extends Fragment {
             } catch (SQLException e) {
 
                 e.printStackTrace();
-            }
-            finally {
+            } finally {
                 try {
                     conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
                 }
             }
             return null;

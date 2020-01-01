@@ -128,11 +128,11 @@ Log.e(TAG,"ad = "+ pickupPersonModel.getAadhar_no()+" id = "+pickupPersonModel.g
         @SuppressLint("WrongThread")
         protected Void doInBackground(Void... voids) {
             Log.d(TAG, "inside doInBackground");
+            MySqlConnector connection = new MySqlConnector();
+            Connection conn = connection.getMySqlConnection();
 
             try {
-                MySqlConnector connection = new MySqlConnector();
 
-                Connection conn = connection.getMySqlConnection();
 
                 Log.d(TAG, "Connection established inside update pickup person");
 
@@ -148,7 +148,6 @@ Log.e(TAG,"ad = "+ pickupPersonModel.getAadhar_no()+" id = "+pickupPersonModel.g
 
                 Log.d(TAG, "query executed");
 
-                conn.close();
 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -156,6 +155,11 @@ Log.e(TAG,"ad = "+ pickupPersonModel.getAadhar_no()+" id = "+pickupPersonModel.g
                 //Handle errors for Class.forName
                 e.printStackTrace();
             } finally {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 //finally block used to close resources
                 Log.d(TAG, "inside finally");
 //                Intent intent = new Intent(getApplicationContext(),PickuppersonFragment.class);
@@ -167,15 +171,16 @@ Log.e(TAG,"ad = "+ pickupPersonModel.getAadhar_no()+" id = "+pickupPersonModel.g
 
         }
     }
+
+
     private class DeleteItemData extends AsyncTask<Void, Void, Void> {
         protected Void doInBackground(Void... voids) {
             Log.d(TAG, "inside doInBackground");
+            MySqlConnector connection = new MySqlConnector();
 
-            Connection conn = null;
+            Connection conn = connection.getMySqlConnection();
+
             try {
-                MySqlConnector connection = new MySqlConnector();
-
-                conn = connection.getMySqlConnection();
 
                 Log.d(TAG, "Connection established");
 
@@ -187,7 +192,6 @@ Log.e(TAG,"ad = "+ pickupPersonModel.getAadhar_no()+" id = "+pickupPersonModel.g
                 statement.executeUpdate(query);
 
                 Log.d(TAG, "query executed");
-
 
 
 
@@ -203,6 +207,7 @@ Log.e(TAG,"ad = "+ pickupPersonModel.getAadhar_no()+" id = "+pickupPersonModel.g
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+
                 Log.d(TAG, "inside finally");
                 Intent intent = new Intent(getBaseContext(), PickuppersonFragment.class);
                 startActivity(intent);
