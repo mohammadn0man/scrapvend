@@ -73,11 +73,11 @@ public class DetailView extends AppCompatActivity {
         @SuppressLint("WrongThread")
         protected Void doInBackground(Void... voids) {
             Log.d(TAG, "inside doInBackground");
+            MySqlConnector connection = new MySqlConnector();
+
+            Connection conn = connection.getMySqlConnection();
 
             try {
-                MySqlConnector connection = new MySqlConnector();
-
-                Connection conn = connection.getMySqlConnection();
 
                 Log.d(TAG, "Connection established");
 
@@ -101,7 +101,6 @@ public class DetailView extends AppCompatActivity {
                 Log.d(TAG, "query executed");
 
 
-                conn.close();
 
             } catch (
                     SQLException e) {
@@ -111,6 +110,11 @@ public class DetailView extends AppCompatActivity {
                 e.printStackTrace();
             } finally {
                 //finally block used to close resources
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 Log.d(TAG, "inside finally");
 
             }

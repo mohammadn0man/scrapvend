@@ -129,11 +129,11 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
         @SuppressLint("WrongThread")
         protected Void doInBackground(Void... voids) {
             Log.d(TAG, "inside doInBackground");
+            MySqlConnector connection = new MySqlConnector();
+
+            Connection conn = connection.getMySqlConnection();
 
             try {
-                MySqlConnector connection = new MySqlConnector();
-
-                Connection conn = connection.getMySqlConnection();
 
                 Log.d(TAG, "Connection established");
 
@@ -149,7 +149,6 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
 
                 Log.d(TAG, "query executed");
 
-                conn.close();
 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -157,6 +156,11 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
                 //Handle errors for Class.forName
                 e.printStackTrace();
             } finally {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 //finally block used to close resources
                 Log.d(TAG, "inside finally");
                 Intent intent = new Intent(getApplicationContext(),PricingFragment.class);

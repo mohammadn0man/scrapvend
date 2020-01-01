@@ -92,8 +92,7 @@ public class ContactUsFragment extends Fragment {
                 try {
                     Log.d(TAG, "user name = " + user);
                     conn.close();
-                    Intent intent = new Intent(getActivity(), MainActivity.class);
-                    startActivity(intent);
+
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -103,6 +102,8 @@ public class ContactUsFragment extends Fragment {
 
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
+            Intent intent = new Intent(getActivity(), MainActivity.class);
+            startActivity(intent);
         }
 
     }
