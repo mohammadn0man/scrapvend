@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:background="@drawable/admin_background"
     tools:context="com.example.scrapvend.ui.pickupperson.PickuppersonFragment">
 
 
