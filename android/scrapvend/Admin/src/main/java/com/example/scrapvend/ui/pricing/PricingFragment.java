@@ -143,12 +143,15 @@ public class PricingFragment extends Fragment {
                 }
 
             } catch (SQLException e) {
+
+                e.printStackTrace();
+            }
+            finally {
                 try {
                     conn.close();
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
+                } catch (SQLException e) {
+                    e.printStackTrace();
                 }
-                e.printStackTrace();
             }
             return null;
         }

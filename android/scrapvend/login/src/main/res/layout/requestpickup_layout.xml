@@ -35,18 +35,6 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textViewB"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="25dp"
-            android:text="Zip-code"
-            android:textSize="20dp"
-            android:textStyle="bold"
-
-            />
-
-        <TextView
             android:id="@+id/textViewC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -96,53 +84,32 @@
         android:orientation="vertical"
         >
 
-        <EditText
-            android:id="@+id/editPickupAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:layout_marginBottom="20dp"
-            android:textSize="20dp"
-            android:text="enter address"
-            android:textStyle="italic"
-            android:textColor="@color/LightGrey"
-            />
 
-
-        <EditText
-            android:id="@+id/editZipCode"
+        <TextView
+            android:id="@+id/address"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="64dp"
+            android:layout_marginTop="85dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/contact_no"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
             android:layout_marginTop="15dp"
-            android:textColor="@color/LightGrey"
-            android:layout_marginBottom="20dp"
-            android:textSize="20dp"
-            android:text="enter Zip"
-            android:textStyle="italic"
-            />
+            android:text="TextView" />
 
-        <EditText
-            android:id="@+id/editContact"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="20dp"
-            android:textSize="20dp"
-            android:textColor="@color/LightGrey"
-            android:text="enter contact"
-            android:textStyle="italic"
-            />
         <EditText
             android:id="@+id/editQuantity"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="20dp"
-            android:textSize="20dp"
             android:text="enter quantity"
             android:textColor="@color/LightGrey"
-            android:textStyle="italic"
-            />
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

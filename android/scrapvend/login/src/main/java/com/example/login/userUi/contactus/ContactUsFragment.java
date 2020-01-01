@@ -64,7 +64,7 @@ public class ContactUsFragment extends Fragment {
 
                 Statement statement = conn.createStatement();
                 Log.d(TAG, "SELECT user_details.Name,login_info.email,login_info.contact_no FROM login_info INNER JOIN user_details ON login_info.Username=user_details.Username;");
-                ResultSet results = statement.executeQuery("SELECT user_details.Name,login_info.email,login_info.contact_no FROM login_info INNER JOIN user_details ON login_info.Username=user_details.Username  where login_info.Username=\"poornimauser\";");
+                ResultSet results = statement.executeQuery("SELECT user_details.Name,login_info.email,login_info.contact_no FROM login_info INNER JOIN user_details ON login_info.Username=user_details.Username  where login_info.Username= \""+user+"\";");
                 results.next();
                 Log.d(TAG,"author name "+results.getString(1));
                 Log.d(TAG, "user name = " + user);

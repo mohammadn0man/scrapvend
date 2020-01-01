@@ -1,9 +1,11 @@
 package com.example.login.userUi.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -20,6 +22,7 @@ import java.util.TimerTask;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
+    TextView textRequest,textList,textBooking;
     ViewPager viewPager;
     Timer timer;
     int images[] = {R.drawable.image1, R.drawable.image_2, R.drawable.image_3, R.drawable.image_4};
@@ -32,6 +35,10 @@ public class HomeFragment extends Fragment {
         viewPager = (ViewPager) root.findViewById(R.id.viewPager);
         TabLayout tabLayout = (TabLayout) root.findViewById(R.id.tabDots);
         tabLayout.setupWithViewPager(viewPager, true);
+
+        textRequest=root.findViewById(R.id.requestPickup);
+        textList=root.findViewById(R.id.itemList);
+        textBooking=root.findViewById(R.id.bookingStatus);
 
 
         homePageImageAdapter = new HomePageImageAdapter(getActivity(), images);
@@ -51,6 +58,15 @@ public class HomeFragment extends Fragment {
         };
         timer = new Timer();
         timer.schedule(timerTask, 3000, 3000);
+        textRequest.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeFragment.this.getActivity(), RequestPickup.class);
+                startActivity(intent);
+
+            }
+        });
         return root;
     }
 
