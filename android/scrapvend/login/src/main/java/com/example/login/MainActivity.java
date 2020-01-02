@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.login.DatabaseConnection.MySqlConnector;
 import com.example.login.login.registration_user;
 
 import java.sql.Connection;
@@ -29,7 +30,6 @@ public EditText _email,_password;
 public String email,password;
 public CheckBox _remember;
 public TextView _forgetp;
-public Connection connection;
 SharedPreferences sp,pickupersonsp;
 private static String tag="sp";
 public static String user;
@@ -106,12 +106,14 @@ public static String user;
             @Override
             protected String doInBackground(String... strings) {
 
+                MySqlConnector connector = new MySqlConnector();
+                Connection connection = connector.getMySqlConnection();
+
                 if (email.trim().equals("") || password.trim().equals("")) {
                     z = "Please enter the username and password";
                 } else {
                     try {
-                        Class.forName("com.mysql.jdbc.Driver");
-                        connection = DriverManager.getConnection("jdbc:mysql://mohammadnoman.co:3306/mohammad_Scrapvend", "mohammad_user", "nompooaissai123");
+
                         if (connection == null) {
                             z = "Check your internet Connection";
                         } else {
@@ -152,13 +154,17 @@ public static String user;
 
 
                         }
-                    }catch (ClassNotFoundException e) {
-                        z = e.getMessage();
                     } catch (SQLException e) {
                         z = e.getMessage();
                     } catch (Exception e) {
                         isSuccess = false;
                         z = e.getMessage();
+                    } finally {
+                        try {
+                            connection.close();
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
                     }
 
                 }
