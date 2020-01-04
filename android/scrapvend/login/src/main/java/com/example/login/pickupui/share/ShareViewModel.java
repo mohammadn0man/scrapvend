@@ -1,4 +1,4 @@
-package com.example.login.ui.share;
+package com.example.login.pickupui.share;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

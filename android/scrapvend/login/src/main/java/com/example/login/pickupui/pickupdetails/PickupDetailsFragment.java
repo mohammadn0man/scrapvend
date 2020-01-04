@@ -1,4 +1,4 @@
-package com.example.login.ui.share;
+package com.example.login.pickupui.pickupdetails;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.login.R;
 
-public class ShareFragment extends Fragment {
+public class PickupDetailsFragment extends Fragment {
 
-    private ShareViewModel shareViewModel;
+    private PickupPersonViewModel pickupPersonViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        shareViewModel =
-                ViewModelProviders.of(this).get(ShareViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_share, container, false);
-        final TextView textView = root.findViewById(R.id.text_share);
-        shareViewModel.getText().observe(this, new Observer<String>() {
+        pickupPersonViewModel =
+                ViewModelProviders.of(this).get(PickupPersonViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_pickup_details, container, false);
+        final TextView textView = root.findViewById(R.id.text_tools);
+        pickupPersonViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

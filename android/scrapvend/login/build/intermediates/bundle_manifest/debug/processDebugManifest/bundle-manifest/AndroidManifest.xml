@@ -18,7 +18,6 @@
         android:label="ScrapVend"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.example.login.PickupPerson"
@@ -29,6 +28,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.login.MainActivity" />
         </activity>
+        <activity android:name="com.example.login.userUi.home.ItemListGirdView" />
         <activity
             android:name="com.example.login.User"
             android:label="@string/title_activity_user"

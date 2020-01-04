@@ -7,37 +7,37 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.login.ui.home.HomeFragment"
+        android:name="com.example.login.pickupui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.login.ui.gallery.GalleryFragment"
+        android:name="com.example.login.pickupui.history.HistoryFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_pickup_history" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.login.ui.slideshow.SlideshowFragment"
+        android:name="com.example.login.pickupui.leaverequest.LeaveRequestFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_pickup_leaverequest" />
 
     <fragment
         android:id="@+id/nav_tools"
-        android:name="com.example.login.ui.tools.ToolsFragment"
+        android:name="com.example.login.pickupui.pickupdetails.PickupDetailsFragment"
         android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
+        tools:layout="@layout/fragment_pickup_details" />
 
     <fragment
         android:id="@+id/nav_share"
-        android:name="com.example.login.ui.share.ShareFragment"
+        android:name="com.example.login.pickupui.share.ShareFragment"
         android:label="@string/menu_share"
         tools:layout="@layout/fragment_share" />
 
     <fragment
         android:id="@+id/nav_send"
-        android:name="com.example.login.ui.send.SendFragment"
+        android:name="com.example.login.pickupui.logout.LogoutFragment"
         android:label="Send"
         tools:layout="@layout/fragment_send" />
 </navigation>

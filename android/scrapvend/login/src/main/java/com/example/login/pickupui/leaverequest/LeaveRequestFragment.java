@@ -1,4 +1,4 @@
-package com.example.login.ui.slideshow;
+package com.example.login.pickupui.leaverequest;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.login.R;
 
-public class SlideshowFragment extends Fragment {
+public class LeaveRequestFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private LeaveRequestViewModel leaveRequestViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                ViewModelProviders.of(this).get(SlideshowViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
+        leaveRequestViewModel =
+                ViewModelProviders.of(this).get(LeaveRequestViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_pickup_leaverequest, container, false);
         final TextView textView = root.findViewById(R.id.text_slideshow);
-        slideshowViewModel.getText().observe(this, new Observer<String>() {
+        leaveRequestViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

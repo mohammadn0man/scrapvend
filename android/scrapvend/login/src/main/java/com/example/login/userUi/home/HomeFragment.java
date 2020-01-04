@@ -58,11 +58,11 @@ public class HomeFragment extends Fragment {
         };
         timer = new Timer();
         timer.schedule(timerTask, 3000, 3000);
-        textRequest.setOnClickListener(new View.OnClickListener() {
+        textList.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeFragment.this.getActivity(), RequestPickup.class);
+                Intent intent = new Intent(HomeFragment.this.getActivity(), ItemListGirdView.class);
                 startActivity(intent);
 
             }

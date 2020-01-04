@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.login.DatabaseConnection.MySqlConnector;
 import com.example.login.login.registration_user;
 
 import java.sql.Connection;
@@ -110,13 +111,16 @@ public static String user;
                     z = "Please enter the username and password";
                 } else {
                     try {
-                        Class.forName("com.mysql.jdbc.Driver");
-                        connection = DriverManager.getConnection("jdbc:mysql://mohammadnoman.co:3306/mohammad_Scrapvend", "mohammad_user", "nompooaissai123");
-                        if (connection == null) {
+//                        Class.forName("com.mysql.jdbc.Driver");
+//                        connection = DriverManager.getConnection("jdbc:mysql://mohammadnoman.co:3306/mohammad_Scrapvend", "mohammad_user", "nompooaissai123");
+                        MySqlConnector connection = new MySqlConnector();
+                        Connection conn = connection.getMySqlConnection();
+
+                        if (conn == null) {
                             z = "Check your internet Connection";
                         } else {
                             String query = "SELECT * FROM `login_info` WHERE `Username`=\"" + email + "\" and `password`=\"" + password + "\"";
-                            PreparedStatement prest = connection.prepareStatement(query);
+                            PreparedStatement prest = conn.prepareStatement(query);
                             ResultSet rs = prest.executeQuery(query);
                             if (rs.next()) {
                                 int role = rs.getInt(2);
@@ -152,8 +156,6 @@ public static String user;
 
 
                         }
-                    }catch (ClassNotFoundException e) {
-                        z = e.getMessage();
                     } catch (SQLException e) {
                         z = e.getMessage();
                     } catch (Exception e) {
