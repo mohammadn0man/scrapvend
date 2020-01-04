@@ -1,4 +1,4 @@
-package com.example.login.pickupui.leaverequest;
+package com.example.login.pickupui.LeaveRequest;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
