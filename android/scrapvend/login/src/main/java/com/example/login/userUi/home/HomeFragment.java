@@ -26,6 +26,7 @@ public class HomeFragment extends Fragment {
     TextView textRequest,textList,textBooking;
 
     ViewPager viewPager;
+    LinearLayout itemList;
     Timer timer;
     int images[] = {R.drawable.image1, R.drawable.image_2, R.drawable.image_3, R.drawable.image_4};
     HomePageImageAdapter homePageImageAdapter;
@@ -40,6 +41,7 @@ public class HomeFragment extends Fragment {
 
         textRequest=root.findViewById(R.id.requestPickup);
         textList=root.findViewById(R.id.itemList);
+        itemList=root.findViewById(R.id.item_list_linear_layout);
         textBooking=root.findViewById(R.id.bookingStatus);
 
 
@@ -60,15 +62,16 @@ public class HomeFragment extends Fragment {
         };
         timer = new Timer();
         timer.schedule(timerTask, 3000, 3000);
-        textList.setOnClickListener(new View.OnClickListener() {
 
+        itemList.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Intent intent = new Intent(HomeFragment.this.getActivity(), ItemListGirdView.class);
                 startActivity(intent);
 
             }
         });
+
         return root;
     }
 
