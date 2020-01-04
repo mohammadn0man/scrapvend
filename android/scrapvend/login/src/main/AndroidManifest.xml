@@ -47,6 +47,10 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".pickupui.home.DetailedPickupInfo"/>
+        <activity android:name=".pickupui.home.ItemQuantity"/>
+        <activity android:name=".pickupui.LeaveRequest.LeaveStatus"/>
+        
     </application>
 
 </manifest>

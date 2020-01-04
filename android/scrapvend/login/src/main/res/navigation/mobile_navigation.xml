@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.login.pickupui.leaverequest.LeaveRequestFragment"
+        android:name="com.example.login.pickupui.LeaveRequest.LeaveRequestFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_pickup_leaverequest" />
 

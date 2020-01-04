@@ -205,9 +205,8 @@ public class PickupInfoPendingPickup extends AppCompatActivity implements Adapte
 
             try{
 
-                PreparedStatement preparedStatement = connection.prepareStatement("UPDATE booking_details SET Pickup_status = 'Pickup Person Assigned', Scheduled_time_slot = (?) where Booking_id = ? ");
-                preparedStatement.setString(1, selectedSlot);
-                preparedStatement.setString(2,pickupinfoModel.getBookingId());
+                PreparedStatement preparedStatement = connection.prepareStatement("UPDATE booking_details SET Pickup_status = 'Pickup Person Assigned' where Booking_id = ? ");
+                preparedStatement.setString(1,pickupinfoModel.getBookingId());
 
                 preparedStatement.execute();
 

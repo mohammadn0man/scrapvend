@@ -32,4 +32,10 @@
         <item>04:00PM-06:00PM</item>
     </string-array>
 
+    <string-array name="pickup_status">
+        <item>Pending</item>
+        <item>Complete</item>
+    </string-array>
+
+
 </resources>
