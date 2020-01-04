@@ -5,12 +5,11 @@
     tools:context=".userUi.home.RequestPickup" >
 
     <GridView
-        android:numColumns="auto_fit"
-        android:gravity="center"
-        android:columnWidth="200dp"
-        android:stretchMode="columnWidth"
+        android:id="@+id/imagegrid"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/imagegrid"
-        />
+        android:gravity="center"
+        android:numColumns="auto_fit"
+        android:stretchMode="columnWidth" />
+
 </LinearLayout>

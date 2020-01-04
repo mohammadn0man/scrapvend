@@ -111,8 +111,10 @@ public class ItemListGirdView extends Activity {
             CustomGridViewAdapter adapter = new CustomGridViewAdapter(getApplicationContext(), image_name, imageId,item_rate);
             grid=(GridView)findViewById(R.id.imagegrid);
             grid.setAdapter(adapter);
+
 //            Intent intent = new Intent(getActivity(), MainActivity.class);
 //            startActivity(intent);
+
         }
 
     }
