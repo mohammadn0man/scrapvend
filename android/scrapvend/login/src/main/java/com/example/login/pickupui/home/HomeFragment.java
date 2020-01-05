@@ -43,7 +43,7 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
   //  private  AdapterView<>;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
+    public View onCreateView(@NonNull final LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
@@ -77,6 +77,7 @@ public class HomeFragment extends Fragment {
 
                 // Sending value to another activity using intent.
                 intent.putExtra("ListViewClickedValue", details.getName());
+                intent.putExtra("id", details.getBookingId());
 
                 startActivity(intent);
 
@@ -92,10 +93,10 @@ public class HomeFragment extends Fragment {
         @Override
         protected Void doInBackground(Void... voids) {
 
-            try {
-                MySqlConnector connection = new MySqlConnector();
+            MySqlConnector connection = new MySqlConnector();
 
-                Connection conn = connection.getMySqlConnection();
+            Connection conn = connection.getMySqlConnection();
+            try {
                 Statement statement = conn.createStatement();
 
                 int value=1;
@@ -103,7 +104,7 @@ public class HomeFragment extends Fragment {
 //                " FROM"+"((user_details"+ " INNER JOIN "+ "booking_details"+" ON "+ "user_details.User_id = booking_details.User_id)"+"INNER JOIN "+
 //                "login_info "+"ON"+" user_details.Username = login_info.Username)"+" WHERE " +"booking_details.Pickup_person_id ="+ value ;
 
-                String query = "SELECT login_info.Username, login_info.contact_no, address.City, booking_assigned.Assigned_date " +
+                String query = "SELECT login_info.Username, login_info.contact_no, address.City, booking_assigned.Assigned_date, booking_details.Booking_id " +
                         "from login_info INNER JOIN user_details on login_info.Username = user_details.Username " +
                         "INNER JOIN booking_details ON user_details.User_id = booking_details.User_id " +
                         "INNER JOIN address ON booking_details.Address_id = address.Address_id " +
@@ -114,13 +115,20 @@ public class HomeFragment extends Fragment {
 
                 while (results.next()) {
                     Log.d(TAG, results.getString("Username") + results.getString("contact_no"));
-                    pmodel = new Details(results.getString("Username"), results.getString("contact_no"), results.getString("City"), results.getString("Pickup_date_time"));
+                    pmodel = new Details(results.getString("Username"), results.getString("contact_no"), results.getString("City"), results.getString("Assigned_date"));
+                    pmodel.setBookingId(results.getString(5));
                     arrayOfEmp.add(pmodel);
                 }
 
-                conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
+            }finally {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
             }
             return null;
         }

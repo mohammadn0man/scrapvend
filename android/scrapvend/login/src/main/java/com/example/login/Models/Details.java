@@ -3,9 +3,17 @@ package com.example.login.Models;
 public class Details {
     String userName,date;
     String contact,address;
+    String bookingId;
 
+    public String getBookingId() {
+        return bookingId;
+    }
 
-    public Details(String username,String address, String contact, String date) {
+    public void setBookingId(String bookingId) {
+        this.bookingId = bookingId;
+    }
+
+    public Details(String username, String address, String contact, String date) {
         //    this.id = id;
         this.userName = username;
         this.contact = contact;
