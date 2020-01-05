@@ -1,4 +1,0 @@
-INSERT INTO pickup_person_details (Name, Aadhar_no, Pickup_person_id, Salary, Rating, Pickup_person_status, Username) VALUES ('aishwarya', '40311804418', 1, 1000, 0, 'working', 'aishwaryapickup');
-INSERT INTO pickup_person_details (Name, Aadhar_no, Pickup_person_id, Salary, Rating, Pickup_person_status, Username) VALUES ('noman', '02111804418', 2, 1000, 0, 'working', 'nomanpickup');
-INSERT INTO pickup_person_details (Name, Aadhar_no, Pickup_person_id, Salary, Rating, Pickup_person_status, Username) VALUES ('poornima', '02511804418', 3, 1000, 0, 'working', 'poornimapickup');
-INSERT INTO pickup_person_details (Name, Aadhar_no, Pickup_person_id, Salary, Rating, Pickup_person_status, Username) VALUES ('saif', '03511804418', 4, 500, 0, 'working', 'saifpickup');

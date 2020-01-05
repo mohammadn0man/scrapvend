@@ -27,7 +27,7 @@
         <TextView
             android:id="@+id/textViewB"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="123dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:text="Address"
@@ -135,16 +135,16 @@
         android:textSize="20dp"
         android:textStyle="italic"
         />
-    <TextView
-        android:id="@+id/textAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:text="agra"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        />
+
+        <TextView
+            android:id="@+id/textAddress"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="agra"
+            android:textSize="20dp"
+            android:textStyle="italic" />
     <TextView
         android:id="@+id/textContact"
         android:layout_width="match_parent"

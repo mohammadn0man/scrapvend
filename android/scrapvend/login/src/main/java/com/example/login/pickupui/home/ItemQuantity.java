@@ -193,6 +193,8 @@ public class ItemQuantity extends AppCompatActivity implements View.OnClickListe
         }
 
      */
+
+
         class task extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -226,7 +228,7 @@ public class ItemQuantity extends AppCompatActivity implements View.OnClickListe
         protected void onPostExecute(Void aVoid)
         {
 
-                padapter = new ItemQuantityAdapter(context, R.layout.itemquantitylist, arrayOfEmp);
+            padapter = new ItemQuantityAdapter(context, R.layout.itemquantitylist, arrayOfEmp);
 
             listView.setAdapter(padapter);
 
@@ -234,5 +236,3 @@ public class ItemQuantity extends AppCompatActivity implements View.OnClickListe
         }
     }
 }
-
-

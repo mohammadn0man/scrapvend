@@ -123,10 +123,9 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
 
                 ResultSet resultSet = statement.executeQuery("select * from `item_details` where `Item_name`=\""+itemModel.getItemName()+"\"");
                 String query;
-//
-//                resultSet.next();
-                if((resultSet.next())){
-                    query = "UPDATE `item_details` SET `Item_name`=(?) ,`Item_rate`=(?),`Item_measure`=(?) ,`Item_image`=(?),`View_value`=1 WHERE Item_name = \"" + itemModel.getItemName() + "\" ";
+
+                if(resultSet.next()){
+                    query = "UPDATE `item_details` SET `Item_name`=(?) ,`Item_rate`=(?),`Item_measure`=(?) ,`Item_image`=(?),`View_value`=1 WHERE Item_name = \"" + itemModel.getItemName() + "\" ;";
                 }else {
                     query = "INSERT INTO `item_details`(`Item_name`, `Item_rate`, `Item_measure`, `Item_image`) VALUES (?,?,?,?)";
                 }
