@@ -36,7 +36,7 @@ public class HomePageImageAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, final int position) {
-        View itemView = layoutInflater.inflate(R.layout.sliding_image_item_layout, container, false);
+        View itemView = layoutInflater.inflate(R.xml.sliding_image_item_layout, container, false);
 
 
 

@@ -49,7 +49,7 @@ public class CustomGridViewAdapter extends BaseAdapter {
         if (convertView == null) {
 
             grid = new View(mContext);
-            grid = inflater.inflate(R.layout.item_list_grid_layout, null);
+            grid = inflater.inflate(R.xml.item_list_grid_layout, null);
             TextView textView = (TextView) grid.findViewById(R.id.item_text);
             ImageView imageView = (ImageView) grid.findViewById(R.id.item_image);
             TextView itemRate =(TextView) grid.findViewById(R.id.item_price);

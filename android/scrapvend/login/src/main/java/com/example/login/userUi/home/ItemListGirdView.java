@@ -30,7 +30,7 @@ public class ItemListGirdView extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.item_list);
+        setContentView(R.xml.item_list);
 
         new getdata().execute();
 

@@ -24,6 +24,7 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     TextView textRequest,textList,textBooking;
+
     ViewPager viewPager;
     LinearLayout itemList;
     Timer timer;
@@ -33,7 +34,7 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home_user, container, false);
+        View root = inflater.inflate(R.xml.fragment_home_user, container, false);
         viewPager = (ViewPager) root.findViewById(R.id.viewPager);
         TabLayout tabLayout = (TabLayout) root.findViewById(R.id.tabDots);
         tabLayout.setupWithViewPager(viewPager, true);

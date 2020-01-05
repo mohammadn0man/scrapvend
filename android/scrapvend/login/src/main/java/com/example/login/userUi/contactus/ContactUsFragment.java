@@ -33,7 +33,7 @@ public class ContactUsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_contact_us, container, false);
+        View root = inflater.inflate(R.xml.fragment_contact_us, container, false);
         send = (Button) root.findViewById(R.id.send);
         msg = (EditText) root.findViewById(R.id.message);
         sub = (EditText)root.findViewById(R.id.subject);
