@@ -23,14 +23,14 @@ import static com.example.login.MainActivity.user;
 public class ItemListGirdView extends Activity {
     GridView grid=null;
     private final String TAG = "sp";
-    String[] image_name,item_rate ;
-    Bitmap[] imageId ;
+    static String[] image_name,item_rate ;
+    static Bitmap[] imageId ;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.xml.item_list);
+        setContentView(R.layout.item_list);
 
         new getdata().execute();
 
@@ -61,7 +61,7 @@ public class ItemListGirdView extends Activity {
 
                 Statement statement = conn.createStatement();
                 Log.d(TAG, "select Item_name,Item_image from item_details");
-                ResultSet rs = statement.executeQuery("select COUNT(*)  FROM item_details");
+                ResultSet rs = statement.executeQuery("select COUNT(*)  FROM item_details Where View_value=1");
                 int i=0;
                 rs.next();
                 int count=rs.getInt(1);
@@ -69,7 +69,7 @@ public class ItemListGirdView extends Activity {
                 image_name=new String[count];
                 item_rate=new String[count];
                 imageId=new Bitmap[count];
-                ResultSet results = statement.executeQuery("select Item_name,Item_image,Item_rate,Item_measure from item_details");
+                ResultSet results = statement.executeQuery("select Item_name,Item_image,Item_rate,Item_measure from item_details Where View_value=1");
                 while(results.next()) {
                     image_name[i]=results.getString(1);
                     item_rate[i]=results.getString(3)+"\\"+results.getString(4);
@@ -106,8 +106,8 @@ public class ItemListGirdView extends Activity {
 
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            for(int j=0;j<15;j++)
-                Log.d(TAG, "item name " +image_name[j]);
+//            for(int j=0;j<1;j++)
+//                Log.d(TAG, "item name " +image_name[j]);
             CustomGridViewAdapter adapter = new CustomGridViewAdapter(getApplicationContext(), image_name, imageId,item_rate);
             grid=(GridView)findViewById(R.id.imagegrid);
             grid.setAdapter(adapter);

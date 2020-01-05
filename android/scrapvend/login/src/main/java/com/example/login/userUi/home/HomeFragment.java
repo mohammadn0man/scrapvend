@@ -34,7 +34,7 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.xml.fragment_home_user, container, false);
+        View root = inflater.inflate(R.layout.fragment_home_user, container, false);
         viewPager = (ViewPager) root.findViewById(R.id.viewPager);
         TabLayout tabLayout = (TabLayout) root.findViewById(R.id.tabDots);
         tabLayout.setupWithViewPager(viewPager, true);
@@ -64,6 +64,14 @@ public class HomeFragment extends Fragment {
         timer.schedule(timerTask, 3000, 3000);
 
         itemList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeFragment.this.getActivity(), ItemListGirdView.class);
+                startActivity(intent);
+
+            }
+        });
+        textList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeFragment.this.getActivity(), ItemListGirdView.class);

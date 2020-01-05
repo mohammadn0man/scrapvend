@@ -121,12 +121,12 @@ public class AddItem extends AppCompatActivity implements AdapterView.OnItemSele
                 itemModel.setItemImage(bmp);
                 itemModel.setByteImage(bArray);
 
-                ResultSet resultSet = statement.executeQuery("select * from `item_details` where `Item_name`="+itemModel.getItemName());
+                ResultSet resultSet = statement.executeQuery("select * from `item_details` where `Item_name`=\""+itemModel.getItemName()+"\"");
                 String query;
-
-                resultSet.next();
-                if(resultSet.getString(1)!=null){
-                    query = "UPDATE `item_details` SET `Item_name`=\"" + itemModel.getItemName() +"\" ,`Item_rate`=" + itemModel.getItemRate() + ",`Item_measure`=\"" + itemModel.getItemMeasure() +"\" ,`Item_image`=(?),`View_value`=1 WHERE Item_name = " + itemModel.getItemName() + " ";
+//
+//                resultSet.next();
+                if((resultSet.next())){
+                    query = "UPDATE `item_details` SET `Item_name`=(?) ,`Item_rate`=(?),`Item_measure`=(?) ,`Item_image`=(?),`View_value`=1 WHERE Item_name = \"" + itemModel.getItemName() + "\" ";
                 }else {
                     query = "INSERT INTO `item_details`(`Item_name`, `Item_rate`, `Item_measure`, `Item_image`) VALUES (?,?,?,?)";
                 }
