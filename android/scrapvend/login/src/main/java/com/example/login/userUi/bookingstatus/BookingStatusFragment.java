@@ -22,7 +22,7 @@ public class BookingStatusFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         bookingStatusViewModel =
                 ViewModelProviders.of(this).get(BookingStatusViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_booking_status, container, false);
+        View root = inflater.inflate(R.xml.fragment_booking_status, container, false);
         final TextView textView = root.findViewById(R.id.text_tools);
         bookingStatusViewModel.getText().observe(this, new Observer<String>() {
             @Override
