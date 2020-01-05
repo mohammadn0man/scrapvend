@@ -64,6 +64,7 @@ public static String user;
         }
         if((pickupersonsp.contains("PickupPersonUsername"))){
             Log.d(tag,pickupersonsp.getString("username","null"));
+            user = pickupersonsp.getString("PickupPersonUsername","null");
             startActivity(inp);
         }
 
@@ -145,6 +146,7 @@ public static String user;
                                     ep.putString("PickupPersonUsername", email);
                                     ep.putString("password", password);
                                     ep.commit();
+                                    user = pickupersonsp.getString("PickupPersonUsername","null");
                                     Log.d(tag, pickupersonsp.getString("username", "null"));
                                     startActivity(inp);
 

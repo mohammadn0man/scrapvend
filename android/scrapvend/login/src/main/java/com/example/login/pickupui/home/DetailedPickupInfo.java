@@ -151,7 +151,7 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
                 results.next();
                 Log.d(TAG, "after result.next()");
 
-                Log.d(TAG, results.getString(1) + results.getString(2)+" "+results.getString(3)+" "+results.getString(4)+" "+results.getString(5));
+                Log.d(TAG, results.getString(1) + " " + results.getString(2) + " "+results.getString(3)+" "+results.getString(4)+" "+results.getString(5));
 
                 Log.d(TAG, "problem");
 
@@ -161,7 +161,7 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
                 String pickupDate=results.getString(9).substring(0,10);
                 String pickupTime=results.getString(9).substring(12);
                 textName.setText(results.getString(1));
-                String ad = results.getString(2)+results.getString(3)+results.getString(4)+results.getString(5)+results.getString(6);
+                String ad = results.getString(2)+" "+results.getString(3)+"\n"+results.getString(4)+" "+results.getString(5)+"\n"+results.getString(6);
                 textAddress.setText(ad);
                 textbookingid.setText(results.getString(7));
                 textDate.setText(scheduledDate);

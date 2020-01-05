@@ -162,10 +162,12 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
                     conn.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
+                } finally {
+                    finish();
                 }
                 Log.d(TAG, "inside finally");
-                Intent intent = new Intent(getApplicationContext(),PricingFragment.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getApplicationContext(),PricingFragment.class);
+//                startActivity(intent);
 
             }
 
