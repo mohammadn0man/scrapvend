@@ -23,7 +23,11 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="false" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="380ebe5a-dedd-4840-bb10-753bf9548e87">
+        <schema name="bvYGbRyIOE" object-types="procedure, index, column, view, constraint, table, function, dataset trigger" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="686906f4-dc0f-4ffc-9cdc-1aed1aebd34f">
@@ -42,7 +46,7 @@
       <console name="Connection 1" type="STANDARD" schema="" session="Main" />
     </connection>
     <connection id="380ebe5a-dedd-4840-bb10-753bf9548e87">
-      <console name="scrap vend" type="STANDARD" schema="bvYGbRyIOE" session="Main" />
+      <console name="scrap vend" type="STANDARD" schema="bvYGbRyIOE" session="Main"><![CDATA[SELECT booking_details.Booking_date_time, payment_details.Payment_Amount from payment_details INNER JOIN booking_details ON payment_details.Booking_id = booking_details.Booking_id INNER JOIN user_details ON booking_details.User_id = user_details.User_id where user_details.Username = "poornimauser"]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -55,6 +59,14 @@
     <connection id="92c04c99-3a13-4f3c-911a-56b6f3e7d768" />
     <connection id="e0a6ebcb-5457-45f1-a8de-99334eb446c6" />
     <connection id="380ebe5a-dedd-4840-bb10-753bf9548e87" />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="380ebe5a-dedd-4840-bb10-753bf9548e87" dataset="bvYGbRyIOE.booking_assigned" active-filter-id="">
+      <filter id="7ebf54ce-e99e-4c7c-9647-2e3925ee5a00" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="Booking_id" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
+    <filter-actions connection-id="380ebe5a-dedd-4840-bb10-753bf9548e87" dataset="bvYGbRyIOE.booking_details" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />

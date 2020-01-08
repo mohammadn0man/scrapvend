@@ -78,10 +78,10 @@ public class HistoryFragment extends Fragment {
         @Override
         protected Void doInBackground(Void... voids) {
 
-            try {
-                MySqlConnector connection = new MySqlConnector();
+            MySqlConnector connection = new MySqlConnector();
 
-                Connection conn = connection.getMySqlConnection();
+            Connection conn = connection.getMySqlConnection();
+            try {
                 Statement statement = conn.createStatement();
 
                 int value=1;
@@ -106,9 +106,16 @@ public class HistoryFragment extends Fragment {
                     arrayOfEmp.add(pmodel);
                 }
 
-                conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
+            } finally {
+
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
             }
             return null;
         }
