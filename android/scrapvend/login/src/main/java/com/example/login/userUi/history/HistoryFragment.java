@@ -1,11 +1,13 @@
 package com.example.login.userUi.history;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -37,8 +39,20 @@ public class HistoryFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_history_user, container, false);
         listView = (ListView) root.findViewById(R.id.history_list_view);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                HistoryDetails historyDetailsIntent = historyDetailsArrayList.get(i);
+                Intent intent = new Intent(getContext(), DetailedHistoryView.class);
+                intent.putExtra("BOOKING_ID", historyDetailsIntent.getBooking_id());
+                intent.putExtra("AMOUNT", historyDetailsIntent.getAmount());
+                startActivity(intent);
+            }
+        });
 
         new HistoryTask().execute();
+
+
         return root;
     }
 
@@ -52,7 +66,7 @@ public class HistoryFragment extends Fragment {
 
             try {
                 Statement statement = connection.createStatement();
-                String query = "SELECT booking_details.Booking_date_time, payment_details.Payment_Amount " +
+                String query = "SELECT booking_details.Booking_date_time, payment_details.Payment_Amount, booking_details.Booking_id " +
                         "from payment_details INNER JOIN booking_details ON payment_details.Booking_id = booking_details.Booking_id " +
                         "INNER JOIN user_details ON booking_details.User_id = user_details.User_id " +
                         "where user_details.Username = \""+user+"\"";
@@ -65,8 +79,9 @@ public class HistoryFragment extends Fragment {
 
                     historyDetails = new HistoryDetails();
                     historyDetails.setBooking_date(resultSet.getString(1).substring(0,10));
-                    historyDetails.setBooking_time(resultSet.getString(1).substring(12));
+                    historyDetails.setBooking_time(resultSet.getString(1).substring(11));
                     historyDetails.setAmount(resultSet.getString(2));
+                    historyDetails.setBooking_id(resultSet.getInt(3));
 
                     historyDetailsArrayList.add(historyDetails);
 

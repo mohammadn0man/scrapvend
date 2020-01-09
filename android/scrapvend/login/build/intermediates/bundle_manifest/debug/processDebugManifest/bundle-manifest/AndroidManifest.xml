@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:windowSoftInputMode="stateHidden|adjustResize" >
         <activity
             android:name="com.example.login.PickupPerson"
             android:label="@string/title_activity_pickup_person"
@@ -30,6 +31,7 @@
                 android:value="com.example.login.MainActivity" />
         </activity>
         <activity android:name="com.example.login.userUi.home.ItemListGirdView" />
+        <activity android:name="com.example.login.userUi.history.DetailedHistoryView" />
         <activity
             android:name="com.example.login.User"
             android:label="@string/title_activity_user"

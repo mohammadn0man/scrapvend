@@ -111,14 +111,14 @@ public class PickupInfoPendingPickup extends AppCompatActivity implements Adapte
                             selectedSlot = "3";
                         } else if (slot4.isChecked()) {
                             selectedSlot = "4";
+                            }
+                            Toast.makeText(getApplicationContext(), selectedSlot, Toast.LENGTH_LONG).show(); // print the value of selected super star
+
+                            new AssignPickupPersonTask().execute();
+    //                        myDialog.dismiss();
+
                         }
-                        Toast.makeText(getApplicationContext(), selectedSlot, Toast.LENGTH_LONG).show(); // print the value of selected super star
-
-                        new AssignPickupPersonTask().execute();
-//                        myDialog.dismiss();
-
-                    }
-                });
+                    });
 
                 txtclose.setOnClickListener(new View.OnClickListener() {
                     @Override

@@ -7,6 +7,26 @@ public class ItemQuantityModel {
     //String contact,address;
     private Blob itemImage;
 
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public void setItemRate(String itemRate) {
+        this.itemRate = itemRate;
+    }
+
+    public Blob getItemImage() {
+        return itemImage;
+    }
+
+    public void setItemImage(Blob itemImage) {
+        this.itemImage = itemImage;
+    }
+
     private String editTextValue;
 
     public String getEditTextValue() {
@@ -26,6 +46,7 @@ public class ItemQuantityModel {
         this.itemRate = itemRate;
         this.itemqty = itemqty;
     }
+    public ItemQuantityModel(){};
 
     public void setItemqty(String itemqty) {
         this.itemqty = itemqty;
