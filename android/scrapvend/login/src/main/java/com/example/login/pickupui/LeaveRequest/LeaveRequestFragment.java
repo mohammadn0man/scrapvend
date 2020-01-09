@@ -22,13 +22,17 @@ import com.example.login.DatabaseConnection.MySqlConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Calendar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+
+import static com.example.login.MainActivity.user;
 
 public class LeaveRequestFragment extends Fragment {
 
@@ -142,7 +146,12 @@ public class LeaveRequestFragment extends Fragment {
 
             try {
 
-                Log.d(TAG, "leave requestConnection established");
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery("SELECT pickup_person_details.Pickup_person_id from pickup_person_details INNER JOIN login_info ON pickup_person_details.Username = login_info.Username where login_info.Username = \""+ user + "\"");
+
+                resultSet.next();
+
+                Log.d(TAG, "leave requestConnection established" + resultSet.getInt(1));
                 int t1=0,t2=0,t3=0,t4=0;
                 if(timeSlot1.isChecked())
                     t1=1;
@@ -158,7 +167,7 @@ public class LeaveRequestFragment extends Fragment {
                 Log.d(TAG, "query = " + query1);
                 PreparedStatement preparedStatement1 = conn.prepareStatement(query1);
 
-                preparedStatement1.setInt(1, 1);
+                preparedStatement1.setInt(1, resultSet.getInt(1));
                 preparedStatement1.setString(2, Date);
                 preparedStatement1.setInt(3, t1);
                 preparedStatement1.setInt(4, t2);

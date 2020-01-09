@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import static com.example.login.MainActivity.user;
+
 public class LeaveStatus extends AppCompatActivity
 {
     TextView date,timeSlot1,timeSlot2,timeSlot3,timeSlot4,timeSlot,status;
@@ -99,7 +101,8 @@ public class LeaveStatus extends AppCompatActivity
                 Connection conn = connection.getMySqlConnection();
                 Statement statement = conn.createStatement();
 
-                String query ="Select * from `pickup_person_record` where  Pickup_person_id=1";
+                String query ="Select * from pickup_person_record INNER JOIN pickup_person_details ON pickup_person_record.Pickup_person_id = pickup_person_details.Pickup_person_id " +
+                        " where pickup_person_details.Username = \"" + user + "\"";
 
                 Log.d(TAG, "Leave query");
                 Log.d(TAG, query);

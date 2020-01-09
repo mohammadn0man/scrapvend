@@ -27,6 +27,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import static com.example.login.MainActivity.user;
+
 public class HomeFragment extends Fragment {
 
     ListView listView;
@@ -99,17 +101,19 @@ public class HomeFragment extends Fragment {
             try {
                 Statement statement = conn.createStatement();
 
-                int value=1;
 //                String query = " SELECT"+" user_details.Username"+" , "+"login_info.contact_no"+",user_details.Address"+",booking_details.Pickup_date_time"+
 //                " FROM"+"((user_details"+ " INNER JOIN "+ "booking_details"+" ON "+ "user_details.User_id = booking_details.User_id)"+"INNER JOIN "+
 //                "login_info "+"ON"+" user_details.Username = login_info.Username)"+" WHERE " +"booking_details.Pickup_person_id ="+ value ;
 
-                String query = "SELECT login_info.Username, login_info.contact_no, address.City, booking_assigned.Assigned_date, booking_details.Booking_id " +
-                        "from login_info INNER JOIN user_details on login_info.Username = user_details.Username " +
-                        "INNER JOIN booking_details ON user_details.User_id = booking_details.User_id " +
+                String query = "SELECT login_info.Username, login_info.contact_no, address.City, " +
+                        "booking_assigned.Assigned_date, booking_details.Booking_id " +
+                        "from login_info INNER JOIN pickup_person_details on login_info.Username = pickup_person_details.Username " +
+                        "INNER JOIN booking_assigned ON pickup_person_details.Pickup_person_id = booking_assigned.Pickup_person_id " +
+                        "INNER JOIN booking_details ON booking_assigned.Booking_id = booking_details.Booking_id " +
                         "INNER JOIN address ON booking_details.Address_id = address.Address_id " +
-                        "INNER JOIN booking_assigned ON booking_details.Booking_id = booking_assigned.Booking_id " +
-                        "where booking_assigned.Pickup_person_id =" + value;
+                        "where booking_details.Pickup_status = \"Pickup Person Assigned\" " +
+                        "and pickup_person_details.Username = \"" + user + "\"";
+
                 Log.d(TAG, query);
                 ResultSet results = statement.executeQuery(query);
 

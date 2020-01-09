@@ -10,18 +10,16 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.example.login.Adapters.HistoryAdapter;
 import com.example.login.Models.HistoryDetails;
 import com.example.login.R;
 import com.example.login.DatabaseConnection.MySqlConnector;
-
+import static com.example.login.MainActivity.user;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
@@ -87,7 +85,12 @@ public class HistoryFragment extends Fragment {
                 Statement statement = conn.createStatement();
 
                 int value=1;
-                String query ="Select booking_details.Booking_id,user_details.Address,booking_details.Pickup_date_time from booking_details INNER JOIN user_details On booking_details.User_id=user_details.User_id WHERE booking_details.Pickup_person_id=1 && booking_details.Pickup_status= \"complete\" ";
+                String query ="select booking_details.Booking_id, booking_details.Pickup_date_time,  address.Line_1, address.City " +
+                        "from login_info INNER JOIN pickup_person_details  on login_info.Username = pickup_person_details.Username " +
+                        "    INNER join booking_assigned on pickup_person_details.Pickup_person_id = booking_assigned.Pickup_person_id " +
+                        "    INNER join booking_details on booking_assigned.Booking_id = booking_details.Booking_id " +
+                        "    INNER JOIN address on booking_details.Address_id = address.Address_id " +
+                        "where booking_details.Pickup_status=\"Pickup Completed\" and login_info.Username = \"" + user + "\"";
 
                 Log.d(TAG, query);
                 ResultSet results = statement.executeQuery(query);
@@ -99,7 +102,7 @@ public class HistoryFragment extends Fragment {
                     String pickupTime=results.getString("Pickup_date_time").substring(12);
 
                     Log.d(TAG, String.valueOf(results.getInt("Booking_id")));
-                    pmodel = new HistoryDetails(results.getInt("Booking_id"), results.getString("Address"),pickupDate,pickupTime);
+                    pmodel = new HistoryDetails(results.getInt("Booking_id"), results.getString("Line_1") + results.getString("City"),pickupDate,pickupTime);
                     arrayOfEmp.add(pmodel);
                 }
 
