@@ -10,6 +10,7 @@
         android:label="ScrapVend"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:windowSoftInputMode="stateHidden|adjustResize"
         android:theme="@style/AppTheme">
         <activity
             android:name=".PickupPerson"
@@ -23,6 +24,7 @@
         <activity android:name=".userUi.home.ItemListGirdView"></activity>
         <activity android:name=".userUi.home.RequestPickup"></activity>
         <activity android:name=".userUi.home.RequestPickupForm"></activity>
+        <activity android:name="com.example.login.userUi.history.DetailedHistoryView"/>
         <activity android:name=".userUi.home.BookingStatus"></activity>
         <activity android:name=".userUi.bookingstatus.DetailedView"></activity>
         <activity

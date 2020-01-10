@@ -78,10 +78,10 @@ public class HistoryFragment extends Fragment {
         @Override
         protected Void doInBackground(Void... voids) {
 
-            try {
-                MySqlConnector connection = new MySqlConnector();
+            MySqlConnector connection = new MySqlConnector();
 
-                Connection conn = connection.getMySqlConnection();
+            Connection conn = connection.getMySqlConnection();
+            try {
                 Statement statement = conn.createStatement();
 
                 int value=1;
@@ -99,16 +99,23 @@ public class HistoryFragment extends Fragment {
                     // Log.d(TAG, results.getString("Username") + results.getString("contact_no"));
 
                     String pickupDate=results.getString("Pickup_date_time").substring(0,10);
-                    String pickupTime=results.getString("Pickup_date_time").substring(12);
+                    String pickupTime=results.getString("Pickup_date_time").substring(11);
 
                     Log.d(TAG, String.valueOf(results.getInt("Booking_id")));
                     pmodel = new HistoryDetails(results.getInt("Booking_id"), results.getString("Line_1") + results.getString("City"),pickupDate,pickupTime);
                     arrayOfEmp.add(pmodel);
                 }
 
-                conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
+            } finally {
+
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
             }
             return null;
         }
