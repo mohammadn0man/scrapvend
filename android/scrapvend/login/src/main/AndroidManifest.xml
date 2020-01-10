@@ -23,6 +23,8 @@
         <activity android:name=".userUi.home.ItemListGirdView"></activity>
         <activity android:name=".userUi.home.RequestPickup"></activity>
         <activity android:name=".userUi.home.RequestPickupForm"></activity>
+        <activity android:name=".userUi.home.BookingStatus"></activity>
+        <activity android:name=".userUi.bookingstatus.DetailedView"></activity>
         <activity
             android:name=".User"
             android:label="@string/title_activity_user"

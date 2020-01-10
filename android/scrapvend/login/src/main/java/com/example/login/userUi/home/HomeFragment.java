@@ -1,7 +1,9 @@
 package com.example.login.userUi.home;
 
 import android.content.Intent;
+import android.media.audiofx.BassBoost;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.login.R;
 import com.example.login.userUi.Adapter.HomePageImageAdapter;
+import com.example.login.userUi.bookingstatus.BookingStatusFragment;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.Timer;
@@ -84,6 +87,15 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(HomeFragment.this.getActivity(),RequestPickup.class);
                 startActivity(intent);
+
+            }
+        });
+        textBooking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(),BookingStatusFragment.class);
+                //intent.setAction(BookingStatusFragment);
+                view.getContext().startActivity(intent);
 
             }
         });
