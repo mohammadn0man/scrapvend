@@ -23,18 +23,14 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="false" />
-    <loaded-nodes>
-      <connection connection-id="380ebe5a-dedd-4840-bb10-753bf9548e87">
-        <schema name="bvYGbRyIOE" object-types="table, view" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="686906f4-dc0f-4ffc-9cdc-1aed1aebd34f">
       <console name="mohammadnoman" type="STANDARD" schema="" session="Main" />
     </connection>
     <connection id="380ebe5a-dedd-4840-bb10-753bf9548e87">
-      <console name="scrap vend" type="STANDARD" schema="bvYGbRyIOE" session="Main">SELECT booking_details.Booking_date_time, payment_details.Payment_Amount from payment_details INNER JOIN booking_details ON payment_details.Booking_id = booking_details.Booking_id INNER JOIN user_details ON booking_details.User_id = user_details.User_id where user_details.Username = &quot;poornimauser&quot;</console>
+      <console name="scrap vend" type="STANDARD" schema="bvYGbRyIOE" session="Main"><![CDATA[SELECT booking_details.Booking_date_time, payment_details.Payment_Amount from payment_details INNER JOIN booking_details ON payment_details.Booking_id = booking_details.Booking_id INNER JOIN user_details ON booking_details.User_id = user_details.User_id where user_details.Username = "poornimauser"]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
