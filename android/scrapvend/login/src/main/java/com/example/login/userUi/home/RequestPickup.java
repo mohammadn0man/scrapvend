@@ -1,178 +1,129 @@
 package com.example.login.userUi.home;
 
-import android.app.Activity;
-import android.app.DatePickerDialog;
-import android.content.Context;
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.Spinner;
-import android.widget.TextView;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.login.DatabaseConnection.MySqlConnector;
+import com.example.login.MainActivity;
+import com.example.login.userUi.Adapter.MultiSelectionAdapter;
+import com.example.login.userUi.Models.ItemListModel;
 import com.example.login.R;
 
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Calendar;
-import static com.example.login.MainActivity.user;
+import java.util.ArrayList;
 
-public class RequestPickup extends Activity implements AdapterView.OnItemSelectedListener {
-    EditText editQty;
-    TextView editAddress, editContact;
-    Spinner spinner;
-    Button confirmButton;
-    ImageButton imgBtn;
-    TextView textDate;
-    Calendar c;
-    Context context;
-    DatePickerDialog datePickerDialog;
-    private final String TAG = "sp";
-    //public  int year, month, day;
+import static android.view.View.VISIBLE;
 
+public class RequestPickup extends AppCompatActivity {
+    private final String TAG="rp";
+    ItemListModel itemListModel;
+    Button nextpage;
+    ListView itemlist;
+    public static MultiSelectionAdapter multiSelectionAdapter;
+
+    ArrayList<ItemListModel> arr = new ArrayList<>();
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.requestpickup_layout);
+        setContentView(R.layout.requestpickup_list);
+        Log.d(TAG,"Inside Request Pickup");
+        itemlist =(ListView)findViewById(R.id.pickuprequest);
+        nextpage =(Button)findViewById(R.id.nextpage);
 
-        editAddress = findViewById(R.id.address);
-        editContact = findViewById(R.id.contact_no);
-        //editZip = findViewById(R.id.editZipCode);
-        editQty = findViewById(R.id.editQuantity);
-        spinner = findViewById(R.id.spinner);
-        confirmButton = findViewById(R.id.ConfirmButton);
-        imgBtn = findViewById(R.id.imageButton);
-        textDate = findViewById(R.id.textDate);
-
-        ArrayAdapter<CharSequence> adapter;
-        adapter = ArrayAdapter.createFromResource(this, R.array.slots, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
-
-
-        confirmButton.setOnClickListener(new View.OnClickListener() {
-
+        nextpage.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-
-
-                Toast.makeText(RequestPickup.this, "Request submitted !", Toast.LENGTH_SHORT).show();
-                Log.d(TAG, "request button clicked");
-
-                 new InsertIntoDatabaseTask().execute();
-
+            public void onClick(View view) {
+                Log.d(TAG,"inside send button");
+                //selecteditem = new String();
+                Intent intent = new Intent(getApplicationContext(), RequestPickupForm.class);
+                startActivity(intent);
 
             }
         });
 
-        imgBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                c = Calendar.getInstance();
-                int cyear = c.get(Calendar.YEAR);
-                int cmonth = c.get(Calendar.MONTH);
-                int cday = c.get(Calendar.DAY_OF_MONTH);
+        itemlist.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
+        new viewitemlistdata().execute();
 
 
-                datePickerDialog = new DatePickerDialog(RequestPickup.this,
-                        new DatePickerDialog.OnDateSetListener() {
-
-                            @Override
-                            public void onDateSet(DatePicker view, int year,
-                                                  int month, int day) {
-
-                                textDate.setText(day + "-" + (month + 1) + "-" + year);
-
-                            }
-                        }, cyear, cmonth, cday);
-                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
-
-
-                datePickerDialog.show();
-
-
-            }
-        });
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
     }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
-
-    private class InsertIntoDatabaseTask extends AsyncTask<Void, Void, Void> {
-
+    private class viewitemlistdata extends AsyncTask<Void,Void,Void> {
+        @SuppressLint("WrongThread")
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
         protected Void doInBackground(Void... voids) {
+            Log.d(TAG,"inside viewitemlistdata");
+
             MySqlConnector connection = new MySqlConnector();
             Connection conn = connection.getMySqlConnection();
-
             try {
-                Log.d(TAG, "inside request pickup");
-                //FETCHING DETAILS
-
-
-                Log.d(TAG, " ");
-
+                Log.d(TAG,"connection Establishing");
                 Statement statement = conn.createStatement();
-                Log.d(TAG, "");
-                ResultSet results = statement.executeQuery("select l.contact_no,a.City,a.House_no,a.Line_1,a.State,a.Zip_code from login_info l inner join user_details u on\n" +
-                        "l.Username = u.Username  inner join address a on\n" +
-                        "u.User_id = a.User_id where l.Username= \""+user+"\";");
-                results.next();
-                Log.d(TAG, "address " + results.getString(4)+results.getString(3)+results.getString(2)+results.getString(5)+results.getString(6));
-                Log.d(TAG, "user name = " + user);
-                String address=results.getString(4)+","+results.getString(3)+","+results.getString(2)+","+results.getString(5)+","+results.getString(6);
-//                String name, email, contact_no;
-//                name = results.getString(1);
-//                email = results.getString(2);
-//                contact_no = results.getString(3);
+                ResultSet resultSet = statement.executeQuery("select * from item_details where View_value=1");
+                Log.d(TAG,"query executed");
+                while (resultSet.next())
+                {
+                    Blob bp = resultSet.getBlob(5);
+                    Bitmap btm;
+                    try {
+                        int boblength = (int) bp.length();
+                        byte[] blobAsByte = bp.getBytes(1,boblength);
+                        btm= BitmapFactory.decodeByteArray(blobAsByte,0,blobAsByte.length);
+                        Log.d(TAG,"data"+resultSet.getInt(1)+resultSet.getFloat(3)+resultSet.getString(2)+resultSet.getString(4)+btm);
+                        itemListModel = new ItemListModel(resultSet.getInt(1),resultSet.getFloat(3),resultSet.getString(2),resultSet.getString(4),btm);
+                        Log.d(TAG,"data inserted into itemlistmodel");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    arr.add(itemListModel);
 
+                }
 
-                //INSERTING DETAILS INTO CONTACT TABLE
-//                String query1 = "INSERT INTO contact_us (Author, Email, Contact_no, Subject, Message)VALUE(?,?,?,?,?); ";
-//                Log.d(TAG, "query = " + query1);
-//                PreparedStatement preparedStatement1 = conn.prepareStatement(query1);
-//
-//                preparedStatement1.setString(1, name);
-//                preparedStatement1.setString(2, email);
-//                preparedStatement1.setString(3, contact_no);
-//                preparedStatement1.setString(4,subject);
-//                preparedStatement1.setString(5,message);
-//                preparedStatement1.execute();
-                Log.d(TAG, "query Execute "+address);
-            } catch (SQLException e) {
+            }
+            catch (SQLException e) {
                 e.printStackTrace();
-            } finally {
+            }
+            finally {
                 try {
-                    Log.d(TAG, "user name = " + user);
                     conn.close();
-                    //Intent intent = new Intent(this, MainActivity.class);
-                    //startActivity(intent);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
+
             return null;
+        }
 
+        @Override
+        protected void onPostExecute(Void aVoid){
 
+            Log.d(TAG,"inside onpost execution");
+            multiSelectionAdapter = new MultiSelectionAdapter(getApplicationContext(),R.layout.request_pickup_list_item,arr);
+            itemlist.setAdapter(multiSelectionAdapter);
+            super.onPostExecute(aVoid);
         }
     }
-}
+
+
+
+    }

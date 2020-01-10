@@ -79,6 +79,14 @@ public class HomeFragment extends Fragment {
 
             }
         });
+        textRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeFragment.this.getActivity(),RequestPickup.class);
+                startActivity(intent);
+
+            }
+        });
 
         return root;
     }
