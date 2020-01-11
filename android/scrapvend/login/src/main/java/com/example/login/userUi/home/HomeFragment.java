@@ -12,9 +12,12 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.login.MainActivity;
 import com.example.login.R;
 import com.example.login.userUi.Adapter.HomePageImageAdapter;
 import com.example.login.userUi.bookingstatus.BookingStatusFragment;
@@ -33,10 +36,8 @@ public class HomeFragment extends Fragment {
     Timer timer;
     int images[] = {R.drawable.image1, R.drawable.image_2, R.drawable.image_3, R.drawable.image_4};
     HomePageImageAdapter homePageImageAdapter;
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home_user, container, false);
         viewPager = (ViewPager) root.findViewById(R.id.viewPager);
         TabLayout tabLayout = (TabLayout) root.findViewById(R.id.tabDots);
@@ -93,9 +94,12 @@ public class HomeFragment extends Fragment {
         textBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(),BookingStatusFragment.class);
-                //intent.setAction(BookingStatusFragment);
-                view.getContext().startActivity(intent);
+
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                BookingStatusFragment llf = new BookingStatusFragment();
+                ft.replace(R.id.nav_tools, llf);
+                ft.commit();
 
             }
         });
@@ -106,7 +110,7 @@ public class HomeFragment extends Fragment {
 
     @Override
     public void onDestroy() {
-        timer.cancel();
+//        timer.cancel();
         super.onDestroy();
     }
 }

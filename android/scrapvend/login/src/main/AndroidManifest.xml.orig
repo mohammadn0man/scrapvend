@@ -22,6 +22,7 @@
                 android:value="com.example.login.MainActivity" />
         </activity>
         <activity android:name=".userUi.home.ItemListGirdView"></activity>
+<<<<<<< Updated upstream
         <activity android:name=".userUi.home.RequestPickup"></activity>
         <activity android:name=".userUi.home.RequestPickupForm"></activity>
 <<<<<<< HEAD
@@ -30,6 +31,14 @@
 =======
         <activity android:name="com.example.login.userUi.history.DetailedHistoryView"/>
 >>>>>>> 6febc0510098475f0db66846075096fe8d89b230
+=======
+<<<<<<< HEAD
+        <activity android:name="com.example.login.userUi.history.DetailedHistoryView"/>
+=======
+        <activity android:name=".userUi.home.RequestPickup"></activity>
+        <activity android:name=".userUi.home.RequestPickupForm"></activity>
+>>>>>>> 6e9d35e94cf65bab596dbceeb79a28069424d39c
+>>>>>>> Stashed changes
         <activity
             android:name=".User"
             android:label="@string/title_activity_user"

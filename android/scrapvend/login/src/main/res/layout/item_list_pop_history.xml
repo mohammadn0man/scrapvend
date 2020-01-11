@@ -37,6 +37,7 @@
 
     </LinearLayout>
 
+
     <ListView
         android:id="@+id/item_list_list_view"
         android:padding="10dp"

@@ -63,7 +63,6 @@ public class MultiSelectionAdapter<T> extends BaseAdapter{
         if(convertView == null) {
             convertView = mInflater.inflate(R.layout.request_pickup_list_item, null);
         }
-        //TextView tvTitle = (TextView) convertView.findViewById(R.id.itemname);
         ItemListModel itemListModel = (ItemListModel) getItem(position);
         TextView itemprice = (TextView) convertView.findViewById(R.id.itemprice);
         ImageView itemimage = (ImageView) convertView.findViewById(R.id.itemimage);
