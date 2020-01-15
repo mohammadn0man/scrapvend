@@ -106,6 +106,7 @@ public class registration_user extends AppCompatActivity {
 //
 //            } catch (SQLException e) {
 //                isSuccess = false;
+//                con.close();
 //            }
 
 //            return null;

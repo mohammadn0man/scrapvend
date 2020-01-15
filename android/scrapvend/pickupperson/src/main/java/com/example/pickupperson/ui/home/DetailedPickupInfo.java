@@ -145,7 +145,7 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
 
                // Log.d(TAG, results.getString(1) + results.getString(2)+" "+results.getString(3)+" "+results.getString(4)+" "+results.getString(5));
 
-                Log.d(TAG, "problrm");
+                Log.d(TAG, "problem");
 
                 Log.d(TAG, results.getString(1));
                 String scheduledDate=results.getString(4).substring(0,10);

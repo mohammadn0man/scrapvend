@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+    android:layout_width="230dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:text="Aishwaryauser"
+
+        />
+
+    <TextView
+        android:id="@+id/textViewContact"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content"
+        android:text="Noida"
+        />
+
+    <TextView
+        android:id="@+id/textViewAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2019-08-14 21:00:25.0"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        />
+    <TextView
+        android:id="@+id/textViewA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:text="9760215764"
+        />
+    <TextView
+        android:id="@+id/textViewB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:text="pending"
+        />
+    <TextView
+        android:id="@+id/textViewC"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:text="NULL"
+        />
+    <EditText
+        android:id="@+id/textViewD"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:text="NULL"
+        />
+    <EditText
+        android:id="@+id/textViewE"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/cardview_shadow_end_color"
+        android:layout_height="wrap_content"
+        android:text="0"
+        />
+    <EditText
+        android:id="@+id/textViewF"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:text="100"
+        />
+    <Button
+        android:id="@+id/buttonDeleteEmployee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@color/colorAccent"
+        android:text="EDIT" />
+</LinearLayout>
+
+
+

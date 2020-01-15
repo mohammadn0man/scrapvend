@@ -22,51 +22,48 @@
   <component name="DBNavigator.Project.DatabaseBrowserManager">
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
-    <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="562cb555-9d36-4d0a-a8f1-06cfc8dde2c6">
-        <schema name="test_sv_2" object-types="table, view" />
-      </connection>
-    </loaded-nodes>
+    <show-object-properties value="false" />
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="7968a7a8-45c1-48d4-b093-5fa73b955113">
-      <console name="scrap_vend" type="STANDARD" schema="scrap_vend" session="Main" />
-    </connection>
-    <connection id="98e15144-4f28-43f7-bf54-6dc59def14f5">
-      <console name="hostalLan" type="STANDARD" schema="test_sv_2" session="Main" />
-    </connection>
-    <connection id="562cb555-9d36-4d0a-a8f1-06cfc8dde2c6">
-      <console name="test_sv_2" type="STANDARD" schema="" session="Main" />
-    </connection>
-<<<<<<< HEAD
     <connection id="686906f4-dc0f-4ffc-9cdc-1aed1aebd34f">
       <console name="mohammadnoman" type="STANDARD" schema="" session="Main" />
+    </connection>
+    <connection id="5c212642-736e-4897-b157-0ed4a14a3a72">
+      <console name="mohammad_scrapend" type="STANDARD" schema="" session="Main" />
+    </connection>
+    <connection id="d56ddb43-9fd2-4e63-ad57-6d1c5c238eec">
+      <console name="Connection" type="STANDARD" schema="" session="Main" />
+    </connection>
+    <connection id="92c04c99-3a13-4f3c-911a-56b6f3e7d768">
+      <console name="scrap_vend" type="STANDARD" schema="" session="Main" />
+    </connection>
+    <connection id="e0a6ebcb-5457-45f1-a8de-99334eb446c6">
+      <console name="Connection 1" type="STANDARD" schema="" session="Main" />
+    </connection>
+<<<<<<< HEAD
+    <connection id="380ebe5a-dedd-4840-bb10-753bf9548e87">
+      <console name="scrap vend" type="STANDARD" schema="bvYGbRyIOE" session="Main" />
 =======
-    <connection id="6fcc3515-fd5b-4fbf-bfea-f945f070c0bd">
-      <console name="mohammadnoman.co" type="STANDARD" schema="mohammad_Scrapvend" session="Main" />
->>>>>>> facf819b01dbcd3981e87f1b141a4e0dcacfef7c
+    <connection id="ca2eb14e-7c28-4fd7-9b5a-e416daa94fd3">
+      <console name="sql301.epizy.com" type="STANDARD" schema="" session="Main" />
+>>>>>>> bcc6a82126207b6ad3ea457a507f2aefedfa7a65
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="7968a7a8-45c1-48d4-b093-5fa73b955113" />
-    <connection id="98e15144-4f28-43f7-bf54-6dc59def14f5" />
-    <connection id="562cb555-9d36-4d0a-a8f1-06cfc8dde2c6" />
-<<<<<<< HEAD
     <connection id="686906f4-dc0f-4ffc-9cdc-1aed1aebd34f" />
+    <connection id="5c212642-736e-4897-b157-0ed4a14a3a72" />
+    <connection id="d56ddb43-9fd2-4e63-ad57-6d1c5c238eec" />
+    <connection id="92c04c99-3a13-4f3c-911a-56b6f3e7d768" />
+    <connection id="e0a6ebcb-5457-45f1-a8de-99334eb446c6" />
+<<<<<<< HEAD
+    <connection id="380ebe5a-dedd-4840-bb10-753bf9548e87" />
 =======
-    <connection id="6fcc3515-fd5b-4fbf-bfea-f945f070c0bd" />
->>>>>>> facf819b01dbcd3981e87f1b141a4e0dcacfef7c
-  </component>
-  <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="562cb555-9d36-4d0a-a8f1-06cfc8dde2c6" dataset="test_sv_2.user_details" active-filter-id="">
-      <filter id="cffd531d-b540-427f-84a8-4d14c2a00a03" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
-        <condition column="User_id" operator="=" value="" active="true" />
-      </filter>
-    </filter-actions>
+    <connection id="ca2eb14e-7c28-4fd7-9b5a-e416daa94fd3" />
+>>>>>>> bcc6a82126207b6ad3ea457a507f2aefedfa7a65
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -91,23 +88,23 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="7968a7a8-45c1-48d4-b093-5fa73b955113" active="true">
+      <connection id="686906f4-dc0f-4ffc-9cdc-1aed1aebd34f" active="true">
         <database>
-          <name value="scrap_vend" />
+          <name value="mohammadnoman" />
           <description value="" />
           <database-type value="MYSQL" />
           <config-type value="BASIC" />
-          <database-version value="5.5" />
+          <database-version value="5.7" />
           <driver-source value="BUILTIN" />
           <driver-library value="" />
           <driver value="" />
           <url-type value="DATABASE" />
-          <host value="192.168.43.227" />
+          <host value="mohammadnoman.co" />
           <port value="3306" />
-          <database value="scrap_vend" />
+          <database value="mohammad_Scrapvend" />
           <type value="USER_PASSWORD" />
-          <user value="root" />
-          <deprecated-pwd value="YWRtaW4=" />
+          <user value="mohammad_user" />
+          <deprecated-pwd value="bm9tcG9vYWlzc2FpMTIz" />
         </database>
         <properties>
           <auto-commit value="false" />
@@ -174,92 +171,9 @@
           <object-name-filters />
         </object-filters>
       </connection>
-      <connection id="98e15144-4f28-43f7-bf54-6dc59def14f5" active="true">
+      <connection id="5c212642-736e-4897-b157-0ed4a14a3a72" active="true">
         <database>
-          <name value="hostalLan" />
-          <description value="" />
-          <database-type value="MYSQL" />
-          <config-type value="BASIC" />
-          <database-version value="5.5" />
-          <driver-source value="BUILTIN" />
-          <driver-library value="" />
-          <driver value="" />
-          <url-type value="DATABASE" />
-          <host value="172.17.2.189" />
-          <port value="3306" />
-          <database value="test_sv_2" />
-          <type value="USER_PASSWORD" />
-          <user value="root" />
-          <deprecated-pwd value="YWRtaW4=" />
-        </database>
-        <properties>
-          <auto-commit value="false" />
-        </properties>
-        <ssh-settings>
-          <active value="false" />
-          <proxy-host value="" />
-          <proxy-port value="22" />
-          <proxy-user value="" />
-          <deprecated-proxy-pwd value="" />
-          <auth-type value="PASSWORD" />
-          <key-file value="" />
-          <key-passphrase value="" />
-        </ssh-settings>
-        <ssl-settings>
-          <active value="false" />
-          <certificate-authority-file value="" />
-          <client-certificate-file value="" />
-          <client-key-file value="" />
-        </ssl-settings>
-        <details>
-          <charset value="UTF-8" />
-          <session-management value="true" />
-          <ddl-file-binding value="true" />
-          <database-logging value="false" />
-          <connect-automatically value="true" />
-          <restore-workspace value="true" />
-          <restore-workspace-deep value="true" />
-          <environment-type value="default" />
-          <idle-time-to-disconnect value="30" />
-          <idle-time-to-disconnect-pool value="5" />
-          <credential-expiry-time value="10" />
-          <max-connection-pool-size value="7" />
-          <alternative-statement-delimiter value="" />
-        </details>
-        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false">
-          <object-type-filter use-master-settings="true">
-            <object-type name="SCHEMA" enabled="true" />
-            <object-type name="USER" enabled="true" />
-            <object-type name="ROLE" enabled="true" />
-            <object-type name="PRIVILEGE" enabled="true" />
-            <object-type name="CHARSET" enabled="true" />
-            <object-type name="TABLE" enabled="true" />
-            <object-type name="VIEW" enabled="true" />
-            <object-type name="MATERIALIZED_VIEW" enabled="true" />
-            <object-type name="NESTED_TABLE" enabled="true" />
-            <object-type name="COLUMN" enabled="true" />
-            <object-type name="INDEX" enabled="true" />
-            <object-type name="CONSTRAINT" enabled="true" />
-            <object-type name="DATASET_TRIGGER" enabled="true" />
-            <object-type name="DATABASE_TRIGGER" enabled="true" />
-            <object-type name="SYNONYM" enabled="true" />
-            <object-type name="SEQUENCE" enabled="true" />
-            <object-type name="PROCEDURE" enabled="true" />
-            <object-type name="FUNCTION" enabled="true" />
-            <object-type name="PACKAGE" enabled="true" />
-            <object-type name="TYPE" enabled="true" />
-            <object-type name="TYPE_ATTRIBUTE" enabled="true" />
-            <object-type name="ARGUMENT" enabled="true" />
-            <object-type name="DIMENSION" enabled="true" />
-            <object-type name="CLUSTER" enabled="true" />
-            <object-type name="DBLINK" enabled="true" />
-          </object-type-filter>
-          <object-name-filters />
-        </object-filters>
-      </connection>
-      <connection id="562cb555-9d36-4d0a-a8f1-06cfc8dde2c6" active="true">
-        <database>
-          <name value="test_sv_2" />
+          <name value="mohammad_scrapend" />
           <description value="" />
           <database-type value="MYSQL" />
           <config-type value="BASIC" />
@@ -270,10 +184,259 @@
           <url-type value="DATABASE" />
           <host value="192.168.43.115" />
           <port value="3306" />
-          <database value="test_sv_2" />
+          <database value="mysql" />
           <type value="USER_PASSWORD" />
           <user value="root" />
           <deprecated-pwd value="YWRtaW4=" />
+        </database>
+        <properties>
+          <auto-commit value="false" />
+        </properties>
+        <ssh-settings>
+          <active value="false" />
+          <proxy-host value="" />
+          <proxy-port value="22" />
+          <proxy-user value="" />
+          <deprecated-proxy-pwd value="" />
+          <auth-type value="PASSWORD" />
+          <key-file value="" />
+          <key-passphrase value="" />
+        </ssh-settings>
+        <ssl-settings>
+          <active value="false" />
+          <certificate-authority-file value="" />
+          <client-certificate-file value="" />
+          <client-key-file value="" />
+        </ssl-settings>
+        <details>
+          <charset value="UTF-8" />
+          <session-management value="true" />
+          <ddl-file-binding value="true" />
+          <database-logging value="false" />
+          <connect-automatically value="true" />
+          <restore-workspace value="true" />
+          <restore-workspace-deep value="true" />
+          <environment-type value="default" />
+          <idle-time-to-disconnect value="30" />
+          <idle-time-to-disconnect-pool value="5" />
+          <credential-expiry-time value="10" />
+          <max-connection-pool-size value="7" />
+          <alternative-statement-delimiter value="" />
+        </details>
+        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false">
+          <object-type-filter use-master-settings="true">
+            <object-type name="SCHEMA" enabled="true" />
+            <object-type name="USER" enabled="true" />
+            <object-type name="ROLE" enabled="true" />
+            <object-type name="PRIVILEGE" enabled="true" />
+            <object-type name="CHARSET" enabled="true" />
+            <object-type name="TABLE" enabled="true" />
+            <object-type name="VIEW" enabled="true" />
+            <object-type name="MATERIALIZED_VIEW" enabled="true" />
+            <object-type name="NESTED_TABLE" enabled="true" />
+            <object-type name="COLUMN" enabled="true" />
+            <object-type name="INDEX" enabled="true" />
+            <object-type name="CONSTRAINT" enabled="true" />
+            <object-type name="DATASET_TRIGGER" enabled="true" />
+            <object-type name="DATABASE_TRIGGER" enabled="true" />
+            <object-type name="SYNONYM" enabled="true" />
+            <object-type name="SEQUENCE" enabled="true" />
+            <object-type name="PROCEDURE" enabled="true" />
+            <object-type name="FUNCTION" enabled="true" />
+            <object-type name="PACKAGE" enabled="true" />
+            <object-type name="TYPE" enabled="true" />
+            <object-type name="TYPE_ATTRIBUTE" enabled="true" />
+            <object-type name="ARGUMENT" enabled="true" />
+            <object-type name="DIMENSION" enabled="true" />
+            <object-type name="CLUSTER" enabled="true" />
+            <object-type name="DBLINK" enabled="true" />
+          </object-type-filter>
+          <object-name-filters />
+        </object-filters>
+      </connection>
+      <connection id="d56ddb43-9fd2-4e63-ad57-6d1c5c238eec" active="true">
+        <database>
+          <name value="Connection" />
+          <description value="" />
+          <database-type value="MYSQL" />
+          <config-type value="BASIC" />
+          <database-version value="9999.0" />
+          <driver-source value="BUILTIN" />
+          <driver-library value="" />
+          <driver value="" />
+          <url-type value="DATABASE" />
+          <host value="localhost" />
+          <port value="3306" />
+          <database value="mysql" />
+          <type value="USER_PASSWORD" />
+          <user value="" />
+          <deprecated-pwd value="" />
+        </database>
+        <properties>
+          <auto-commit value="false" />
+        </properties>
+        <ssh-settings>
+          <active value="false" />
+          <proxy-host value="" />
+          <proxy-port value="22" />
+          <proxy-user value="" />
+          <deprecated-proxy-pwd value="" />
+          <auth-type value="PASSWORD" />
+          <key-file value="" />
+          <key-passphrase value="" />
+        </ssh-settings>
+        <ssl-settings>
+          <active value="false" />
+          <certificate-authority-file value="" />
+          <client-certificate-file value="" />
+          <client-key-file value="" />
+        </ssl-settings>
+        <details>
+          <charset value="UTF-8" />
+          <session-management value="true" />
+          <ddl-file-binding value="true" />
+          <database-logging value="false" />
+          <connect-automatically value="true" />
+          <restore-workspace value="true" />
+          <restore-workspace-deep value="true" />
+          <environment-type value="default" />
+          <idle-time-to-disconnect value="30" />
+          <idle-time-to-disconnect-pool value="5" />
+          <credential-expiry-time value="10" />
+          <max-connection-pool-size value="7" />
+          <alternative-statement-delimiter value="" />
+        </details>
+        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false">
+          <object-type-filter use-master-settings="true">
+            <object-type name="SCHEMA" enabled="true" />
+            <object-type name="USER" enabled="true" />
+            <object-type name="ROLE" enabled="true" />
+            <object-type name="PRIVILEGE" enabled="true" />
+            <object-type name="CHARSET" enabled="true" />
+            <object-type name="TABLE" enabled="true" />
+            <object-type name="VIEW" enabled="true" />
+            <object-type name="MATERIALIZED_VIEW" enabled="true" />
+            <object-type name="NESTED_TABLE" enabled="true" />
+            <object-type name="COLUMN" enabled="true" />
+            <object-type name="INDEX" enabled="true" />
+            <object-type name="CONSTRAINT" enabled="true" />
+            <object-type name="DATASET_TRIGGER" enabled="true" />
+            <object-type name="DATABASE_TRIGGER" enabled="true" />
+            <object-type name="SYNONYM" enabled="true" />
+            <object-type name="SEQUENCE" enabled="true" />
+            <object-type name="PROCEDURE" enabled="true" />
+            <object-type name="FUNCTION" enabled="true" />
+            <object-type name="PACKAGE" enabled="true" />
+            <object-type name="TYPE" enabled="true" />
+            <object-type name="TYPE_ATTRIBUTE" enabled="true" />
+            <object-type name="ARGUMENT" enabled="true" />
+            <object-type name="DIMENSION" enabled="true" />
+            <object-type name="CLUSTER" enabled="true" />
+            <object-type name="DBLINK" enabled="true" />
+          </object-type-filter>
+          <object-name-filters />
+        </object-filters>
+      </connection>
+      <connection id="92c04c99-3a13-4f3c-911a-56b6f3e7d768" active="true">
+        <database>
+          <name value="scrap_vend" />
+          <description value="" />
+          <database-type value="MYSQL" />
+          <config-type value="BASIC" />
+          <database-version value="5.5" />
+          <driver-source value="BUILTIN" />
+          <driver-library value="" />
+          <driver value="" />
+          <url-type value="DATABASE" />
+          <host value="172.17.2.198" />
+          <port value="3306" />
+          <database value="scrap_vend" />
+          <type value="USER_PASSWORD" />
+          <user value="root" />
+          <deprecated-pwd value="cm9vdA==" />
+        </database>
+        <properties>
+          <auto-commit value="false" />
+        </properties>
+        <ssh-settings>
+          <active value="false" />
+          <proxy-host value="" />
+          <proxy-port value="22" />
+          <proxy-user value="" />
+          <deprecated-proxy-pwd value="" />
+          <auth-type value="PASSWORD" />
+          <key-file value="" />
+          <key-passphrase value="" />
+        </ssh-settings>
+        <ssl-settings>
+          <active value="false" />
+          <certificate-authority-file value="" />
+          <client-certificate-file value="" />
+          <client-key-file value="" />
+        </ssl-settings>
+        <details>
+          <charset value="UTF-8" />
+          <session-management value="true" />
+          <ddl-file-binding value="true" />
+          <database-logging value="false" />
+          <connect-automatically value="true" />
+          <restore-workspace value="true" />
+          <restore-workspace-deep value="true" />
+          <environment-type value="default" />
+          <idle-time-to-disconnect value="30" />
+          <idle-time-to-disconnect-pool value="5" />
+          <credential-expiry-time value="10" />
+          <max-connection-pool-size value="7" />
+          <alternative-statement-delimiter value="" />
+        </details>
+        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false">
+          <object-type-filter use-master-settings="true">
+            <object-type name="SCHEMA" enabled="true" />
+            <object-type name="USER" enabled="true" />
+            <object-type name="ROLE" enabled="true" />
+            <object-type name="PRIVILEGE" enabled="true" />
+            <object-type name="CHARSET" enabled="true" />
+            <object-type name="TABLE" enabled="true" />
+            <object-type name="VIEW" enabled="true" />
+            <object-type name="MATERIALIZED_VIEW" enabled="true" />
+            <object-type name="NESTED_TABLE" enabled="true" />
+            <object-type name="COLUMN" enabled="true" />
+            <object-type name="INDEX" enabled="true" />
+            <object-type name="CONSTRAINT" enabled="true" />
+            <object-type name="DATASET_TRIGGER" enabled="true" />
+            <object-type name="DATABASE_TRIGGER" enabled="true" />
+            <object-type name="SYNONYM" enabled="true" />
+            <object-type name="SEQUENCE" enabled="true" />
+            <object-type name="PROCEDURE" enabled="true" />
+            <object-type name="FUNCTION" enabled="true" />
+            <object-type name="PACKAGE" enabled="true" />
+            <object-type name="TYPE" enabled="true" />
+            <object-type name="TYPE_ATTRIBUTE" enabled="true" />
+            <object-type name="ARGUMENT" enabled="true" />
+            <object-type name="DIMENSION" enabled="true" />
+            <object-type name="CLUSTER" enabled="true" />
+            <object-type name="DBLINK" enabled="true" />
+          </object-type-filter>
+          <object-name-filters />
+        </object-filters>
+      </connection>
+      <connection id="e0a6ebcb-5457-45f1-a8de-99334eb446c6" active="true">
+        <database>
+          <name value="Connection 1" />
+          <description value="" />
+          <database-type value="MYSQL" />
+          <config-type value="BASIC" />
+          <database-version value="5.5" />
+          <driver-source value="BUILTIN" />
+          <driver-library value="" />
+          <driver value="" />
+          <url-type value="DATABASE" />
+          <host value=" 192.168.137.1" />
+          <port value="3306" />
+          <database value="scrap_vend" />
+          <type value="USER_PASSWORD" />
+          <user value="root" />
+          <deprecated-pwd value="cm9vdA==" />
         </database>
         <properties>
           <auto-commit value="false" />
@@ -341,28 +504,41 @@
         </object-filters>
       </connection>
 <<<<<<< HEAD
-      <connection id="686906f4-dc0f-4ffc-9cdc-1aed1aebd34f" active="true">
+      <connection id="380ebe5a-dedd-4840-bb10-753bf9548e87" active="true">
         <database>
-          <name value="mohammadnoman" />
-=======
-      <connection id="6fcc3515-fd5b-4fbf-bfea-f945f070c0bd" active="true">
-        <database>
-          <name value="mohammadnoman.co" />
->>>>>>> facf819b01dbcd3981e87f1b141a4e0dcacfef7c
+          <name value="scrap vend" />
           <description value="" />
           <database-type value="MYSQL" />
           <config-type value="BASIC" />
-          <database-version value="5.7" />
+          <database-version value="8.0" />
+=======
+      <connection id="ca2eb14e-7c28-4fd7-9b5a-e416daa94fd3" active="true">
+        <database>
+          <name value="sql301.epizy.com" />
+          <description value="" />
+          <database-type value="MYSQL" />
+          <config-type value="BASIC" />
+          <database-version value="9999.0" />
+>>>>>>> bcc6a82126207b6ad3ea457a507f2aefedfa7a65
           <driver-source value="BUILTIN" />
           <driver-library value="" />
           <driver value="" />
           <url-type value="DATABASE" />
-          <host value="mohammadnoman.co" />
+<<<<<<< HEAD
+          <host value="remotemysql.com" />
           <port value="3306" />
-          <database value="mohammad_Scrapvend" />
+          <database value="bvYGbRyIOE" />
           <type value="USER_PASSWORD" />
-          <user value="mohammad_user" />
+          <user value="bvYGbRyIOE" />
+          <deprecated-pwd value="NURBTVpVSzNRaw==" />
+=======
+          <host value="sql301.epizy.com" />
+          <port value="3306" />
+          <database value="epiz_24999822_Scrapvend" />
+          <type value="USER_PASSWORD" />
+          <user value="epiz_24999822" />
           <deprecated-pwd value="bm9tcG9vYWlzc2FpMTIz" />
+>>>>>>> bcc6a82126207b6ad3ea457a507f2aefedfa7a65
         </database>
         <properties>
           <auto-commit value="false" />
@@ -559,8 +735,6 @@
           <content-type name="HTML" enabled="true" />
           <content-type name="XHTML" enabled="true" />
           <content-type name="Java" enabled="true" />
-          <content-type name="SQL" enabled="true" />
-          <content-type name="PL/SQL" enabled="true" />
           <content-type name="Groovy" enabled="true" />
           <content-type name="AIDL" enabled="true" />
           <content-type name="YAML" enabled="true" />

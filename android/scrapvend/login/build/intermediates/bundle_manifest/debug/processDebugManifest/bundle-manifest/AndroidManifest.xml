@@ -18,10 +18,43 @@
         android:label="ScrapVend"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+<<<<<<< HEAD
         android:theme="@style/Theme.Design" >
         <activity android:name="com.example.login.registration_user" />
         <activity android:name="com.example.login.otp_verification" />
         <activity android:name="com.example.login.homepage" />
+=======
+        android:testOnly="true"
+        android:theme="@style/AppTheme"
+        android:windowSoftInputMode="stateHidden|adjustResize" >
+        <activity
+            android:name="com.example.login.PickupPerson"
+            android:label="@string/title_activity_pickup_person"
+            android:parentActivityName="com.example.login.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.login.MainActivity" />
+        </activity>
+        <activity android:name="com.example.login.userUi.home.ItemListGirdView" />
+        <activity android:name="com.example.login.userUi.home.RequestPickup" />
+        <activity android:name="com.example.login.userUi.home.RequestPickupForm" />
+        <activity android:name="com.example.login.userUi.history.DetailedHistoryView" />
+        <activity android:name="com.example.login.userUi.home.BookingStatus" />
+        <activity android:name="com.example.login.userUi.bookingstatus.DetailedView" />
+        <activity
+            android:name="com.example.login.User"
+            android:label="@string/title_activity_user"
+            android:parentActivityName="com.example.login.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.login.MainActivity" />
+        </activity>
+        <activity android:name="com.example.login.login.registration_user" />
+        <activity android:name="com.example.login.login.otp_verification" />
+        <activity android:name="com.example.login.logout" />
+>>>>>>> b58a6ed49b35cb355c48e4f66604c9bad020bd15
         <activity android:name="com.example.login.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,6 +62,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.login.pickupui.home.DetailedPickupInfo" />
+        <activity android:name="com.example.login.pickupui.home.ItemQuantity" />
+        <activity android:name="com.example.login.pickupui.LeaveRequest.LeaveStatus" />
 
         <provider
             android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
