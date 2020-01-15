@@ -86,6 +86,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="5dp"
-        android:text="Follow Me" />
+        android:text="Follow Me"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="30dp"
+        android:textColor="#fff"
+        android:background="@drawable/admin_item"
+        android:textAllCaps="false"
+        android:clickable="true"
+        android:textSize="18dp"/>
 
 </LinearLayout>

@@ -19,18 +19,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design" >
-        <activity
-            android:name="com.example.login.User"
-            android:label="@string/title_activity_user"
-            android:parentActivityName="com.example.login.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.login.MainActivity" />
-        </activity>
-        <activity android:name="com.example.login.login.registration_user" />
-        <activity android:name="com.example.login.login.otp_verification" />
-        <activity android:name="com.example.login.logout" />
+        <activity android:name="com.example.login.registration_user" />
+        <activity android:name="com.example.login.otp_verification" />
+        <activity android:name="com.example.login.homepage" />
         <activity android:name="com.example.login.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
