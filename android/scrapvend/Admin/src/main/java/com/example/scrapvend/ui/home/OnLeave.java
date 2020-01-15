@@ -112,6 +112,7 @@ public class OnLeave extends AppCompatActivity {
         }
         protected void onPostExecute(Void aVoid)
         {
+            super.onPostExecute(aVoid);
             if(temp==1)
             {
                 request.setVisibility(GONE);
@@ -128,7 +129,6 @@ public class OnLeave extends AppCompatActivity {
             leaverequest.setAdapter(onleaveadapter);
 
 
-            super.onPostExecute(aVoid);
         }
     }
 
@@ -184,6 +184,7 @@ public class OnLeave extends AppCompatActivity {
         protected void onPostExecute(Void aVoid)
         {
             super.onPostExecute(aVoid);
+
         }
     }
 }

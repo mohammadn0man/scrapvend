@@ -37,7 +37,7 @@ public class AddPickupPerson extends AppCompatActivity implements AdapterView.On
     Uri imageUri;
     Bitmap bmp;
 
-    private EditText nameEditText, usernameEditText,adhaarnunber,salary,contact,email;
+    private EditText nameEditText, usernameEditText,adhaarnunber,salary,contact,email, address;
     PickupPersonModel model = new PickupPersonModel();
 
     private static final int PICK_IMAGE = 100;
@@ -55,6 +55,7 @@ public class AddPickupPerson extends AppCompatActivity implements AdapterView.On
         salary =(EditText) findViewById(R.id.salary);
         email=(EditText) findViewById(R.id.email);
         contact=(EditText) findViewById(R.id.contact);
+        address=(EditText) findViewById(R.id.address);
 
 
 
@@ -99,6 +100,7 @@ public class AddPickupPerson extends AppCompatActivity implements AdapterView.On
                 String uname=usernameEditText.getText().toString();
                 String adhaar = adhaarnunber.getText().toString();
                 String personsalary = salary.getText().toString();
+                String personAddress = address.getText().toString();
 
                 bmp = ((BitmapDrawable)itemImageView.getDrawable()).getBitmap();
                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -124,7 +126,7 @@ public class AddPickupPerson extends AppCompatActivity implements AdapterView.On
 
                 preparedStatement1.execute();
                 Log.d(TAG, "query Execute ");
-                String query = "INSERT INTO `pickup_person_details`(`Name`, `Aadhar_no`, `Salary`,  `Username`, `Person_image`) VALUES (?,?,?,?,?)";
+                String query = "INSERT INTO `pickup_person_details`(`Name`, `Aadhar_no`, `Salary`,  `Username`, `Person_image`, `Address`) VALUES (?,?,?,?,?,?)";
 
                 Log.d(TAG, "query = " + query );
                 PreparedStatement preparedStatement = conn.prepareStatement(query);
@@ -134,6 +136,7 @@ public class AddPickupPerson extends AppCompatActivity implements AdapterView.On
                 preparedStatement.setString(3,personsalary);
                 preparedStatement.setString(4, uname);
                 preparedStatement.setBytes(5,bArray);
+                preparedStatement.setString(6,personAddress);
 
 
                 Log.d(TAG, "query created : " + query);
@@ -163,7 +166,7 @@ public class AddPickupPerson extends AppCompatActivity implements AdapterView.On
         @Override
         protected void onPostExecute(Void aVoid){
 
-            Toast.makeText(getApplicationContext(),model.getName() + " added successfully.",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),nameEditText.getText() + " added successfully.",Toast.LENGTH_SHORT).show();
             Log.d(TAG, "Toast executed");
             finish();
 

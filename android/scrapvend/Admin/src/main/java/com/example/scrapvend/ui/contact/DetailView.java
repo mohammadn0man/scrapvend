@@ -74,10 +74,10 @@ public class DetailView extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
             Log.d(TAG, "inside doInBackground");
 
+            Connection conn=null;
             try {
                 MySqlConnector connection = new MySqlConnector();
-
-                Connection conn = connection.getMySqlConnection();
+                conn = connection.getMySqlConnection();
 
                 Log.d(TAG, "Connection established");
 
@@ -101,7 +101,7 @@ public class DetailView extends AppCompatActivity {
                 Log.d(TAG, "query executed");
 
 
-                conn.close();
+
 
             } catch (
                     SQLException e) {
@@ -110,6 +110,11 @@ public class DetailView extends AppCompatActivity {
                 //Handle errors for Class.forName
                 e.printStackTrace();
             } finally {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 //finally block used to close resources
                 Log.d(TAG, "inside finally");
 

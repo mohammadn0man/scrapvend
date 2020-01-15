@@ -17,6 +17,10 @@ public class logout extends AppCompatActivity {
         SharedPreferences.Editor e=sp.edit();
         e.clear();
         e.commit();
+        SharedPreferences pickuppersonsp=getSharedPreferences("login",MODE_PRIVATE);
+        SharedPreferences.Editor ep=pickuppersonsp.edit();
+        ep.clear();
+        ep.commit();
 
         Log.d(tag,sp.getString("username","null"));
         Intent in = new Intent(this,MainActivity.class);

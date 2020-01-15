@@ -1,6 +1,7 @@
 package com.example.scrapvend.ui.pickupinfo;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
@@ -91,6 +92,7 @@ public class PickupInfoPendingPickup extends AppCompatActivity implements Adapte
                 slot3 = (RadioButton) myDialog.findViewById(R.id.slot_3);
                 slot4 = (RadioButton) myDialog.findViewById(R.id.slot_4);
                 txtclose =(TextView) myDialog.findViewById(R.id.txtclose);
+                txtclose.setText("X");
                 name = (TextView) myDialog.findViewById(R.id.pickup_person_name);
                 date = (TextView) myDialog.findViewById(R.id.working_date);
                 submit = (Button) myDialog.findViewById(R.id.btnfollow);
@@ -109,14 +111,14 @@ public class PickupInfoPendingPickup extends AppCompatActivity implements Adapte
                             selectedSlot = "3";
                         } else if (slot4.isChecked()) {
                             selectedSlot = "4";
+                            }
+                            Toast.makeText(getApplicationContext(), selectedSlot, Toast.LENGTH_LONG).show(); // print the value of selected super star
+
+                            new AssignPickupPersonTask().execute();
+    //                        myDialog.dismiss();
+
                         }
-                        Toast.makeText(getApplicationContext(), selectedSlot, Toast.LENGTH_LONG).show(); // print the value of selected super star
-
-                        new AssignPickupPersonTask().execute();
-                        myDialog.dismiss();
-
-                    }
-                });
+                    });
 
                 txtclose.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -202,15 +204,19 @@ public class PickupInfoPendingPickup extends AppCompatActivity implements Adapte
             connection = mySqlConnector.getMySqlConnection();
 
             try{
-                PreparedStatement preparedStatement = connection.prepareStatement("insert into booking_assigned (Pickup_person_id, Booking_id,Assign_slot) values (?, ?, ?);");
-                preparedStatement.setString(1, pickupPersonModelIntent.getId());
-                preparedStatement.setString(2, pickupinfoModel.getBookingId());
-                preparedStatement.setString(3, selectedSlot);
+
+                PreparedStatement preparedStatement = connection.prepareStatement("UPDATE booking_details SET Pickup_status = 'Pickup Person Assigned' where Booking_id = ? ");
+                preparedStatement.setString(1,pickupinfoModel.getBookingId());
 
                 preparedStatement.execute();
 
-                PreparedStatement preparedStatement1 = connection.prepareStatement("UPDATE booking_details t SET t.Pickup_status = 'Pickup Person Assigned' WHERE Booking_id =? ");
-                preparedStatement1.setString(1, pickupinfoModel.getBookingId());
+                PreparedStatement preparedStatement1 = connection.prepareStatement("INSERT into booking_assigned (Pickup_person_id, Booking_id,Assign_slot) values (?, ?, ?);");
+                preparedStatement1.setString(1, pickupPersonModelIntent.getId());
+                preparedStatement1.setString(2, pickupinfoModel.getBookingId());
+                preparedStatement1.setString(3, selectedSlot);
+
+                preparedStatement1.execute();
+
 
             }catch (SQLException e){
                 e.printStackTrace();
@@ -228,6 +234,12 @@ public class PickupInfoPendingPickup extends AppCompatActivity implements Adapte
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
+            myDialog.dismiss();
+
+            Intent intent = new Intent(PickupInfoPendingPickup.this, PickupInfoPendingPickup.class);
+            startActivity(intent);
+
+
 //            finish();
         }
     }

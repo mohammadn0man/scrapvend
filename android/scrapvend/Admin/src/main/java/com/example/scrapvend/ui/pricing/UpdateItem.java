@@ -130,10 +130,11 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
         protected Void doInBackground(Void... voids) {
             Log.d(TAG, "inside doInBackground");
 
+            Connection conn = null;
             try {
                 MySqlConnector connection = new MySqlConnector();
 
-                Connection conn = connection.getMySqlConnection();
+                conn = connection.getMySqlConnection();
 
                 Log.d(TAG, "Connection established");
 
@@ -149,7 +150,6 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
 
                 Log.d(TAG, "query executed");
 
-                conn.close();
 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -158,9 +158,16 @@ public class UpdateItem  extends AppCompatActivity implements AdapterView.OnItem
                 e.printStackTrace();
             } finally {
                 //finally block used to close resources
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                } finally {
+                    finish();
+                }
                 Log.d(TAG, "inside finally");
-                Intent intent = new Intent(getApplicationContext(),PricingFragment.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getApplicationContext(),PricingFragment.class);
+//                startActivity(intent);
 
             }
 

@@ -12,6 +12,7 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".ui.home.DetailedPickupInfo"></activity>
+        <activity android:name=".ui.LeaveRequest.LeaveStatus"></activity>
         <activity android:name=".ui.home.ItemQuantity"  android:windowSoftInputMode="adjustPan"></activity>
         <activity
             android:name=".MainActivity"

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+
+    <ListView
+        android:id="@+id/itemListView"
+        android:layout_width="match_parent"
+        android:layout_height="1000dp"
+        android:background="@color/Azure"
+        android:descendantFocusability="afterDescendants"
+        android:focusable="auto"
+        android:windowSoftInputMode="adjustPan" />
+
+    <Button
+        android:id="@+id/okButton"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:paddingTop="10dp"
+        android:layout_alignBottom="@id/itemListView"
+        android:layout_alignRight="@+id/itemListView"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:background="@color/DarkSeaGreen"/>
+</RelativeLayout>
+
+
