@@ -48,7 +48,7 @@ public class ItemQuantityAdapter extends ArrayAdapter<ItemQuantityModel> {
         ItemQuantityModel employee=getItem(position);
         TextView textViewName = v.findViewById(R.id.textViewItemName);
         textViewName.setText(employee.getitemName());
-//        EditText editTextqty = v.findViewById(R.id.editItemQuantity);
+        EditText editTextqty = v.findViewById(R.id.editItemQuantity);
         final TextView textViewRate = v.findViewById(R.id.textViewItemRate);
         textViewRate.setText(employee.getItemRate());
 
