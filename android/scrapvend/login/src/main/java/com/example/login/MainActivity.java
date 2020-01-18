@@ -19,7 +19,6 @@ import com.example.login.DatabaseConnection.MySqlConnector;
 import com.example.login.login.registration_user;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

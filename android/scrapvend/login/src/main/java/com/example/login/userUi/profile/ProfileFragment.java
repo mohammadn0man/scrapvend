@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,6 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -25,13 +25,11 @@ import com.example.login.DatabaseConnection.MySqlConnector;
 import com.example.login.Models.UserAddressModel;
 import com.example.login.Models.UserProfileModel;
 import com.example.login.R;
-import com.example.login.User;
 import com.example.login.userUi.Adapter.AddressListAdapter;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 import static com.example.login.MainActivity.user;

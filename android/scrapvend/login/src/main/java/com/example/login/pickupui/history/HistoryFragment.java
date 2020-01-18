@@ -11,9 +11,10 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.example.login.Adapters.HistoryAdapter;
+import com.example.login.DatabaseConnection.MySqlConnector;
 import com.example.login.Models.HistoryDetails;
 import com.example.login.R;
-import com.example.login.DatabaseConnection.MySqlConnector;
+
 import static com.example.login.MainActivity.user;
 import java.sql.Connection;
 import java.sql.ResultSet;

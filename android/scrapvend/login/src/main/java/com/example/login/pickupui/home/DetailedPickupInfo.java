@@ -15,8 +15,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.login.R;
 import com.example.login.DatabaseConnection.MySqlConnector;
+import com.example.login.R;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -136,7 +136,7 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
 //                        " FROM"+"(user_details"+ " INNER JOIN "+ "booking_details"+" ON "+ "user_details.User_id = booking_details.User_id)"+" WHERE " +"(booking_details.Pickup_status =\'Pending\' AND " +"user_details.Username= \'"+value+"\')" ;
 
                 String query = "SELECT user_details.Name, address.House_no, address.Line_1, address.City, address.State, address.Zip_code, " +
-                        "booking_details.Booking_id, booking_details.Scheduled_pickup_date_time, booking_details.Pickup_date_time " +
+                        "booking_details.Booking_id, booking_details.Scheduled_time_slot, booking_details.Pickup_date_time " +
                         "From  user_details INNER JOIN booking_details on user_details.User_id = booking_details.User_id " +
                         "INNER JOIN address on booking_details.Address_id = address.Address_id " +
                         "WHERE booking_details.Pickup_status = 'Pickup Person Assigned' AND booking_details.Booking_id = "+bookingId+" " +
@@ -147,28 +147,28 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
                 ResultSet results = statement.executeQuery(query);
                 Log.d(TAG, "query executed");
                 Log.d(TAG, "results.next()");
+                if (results.next()) {
 
-                results.next();
-                Log.d(TAG, "after result.next()");
+                    Log.d(TAG, "after result.next()");
 
-                Log.d(TAG, results.getString(1) + " " + results.getString(2) + " "+results.getString(3)+" "+results.getString(4)+" "+results.getString(5));
+                    Log.d(TAG, results.getString(1) + " " + results.getString(2) + " " + results.getString(3) + " " + results.getString(4) + " " + results.getString(5));
 
-                Log.d(TAG, "problem");
+                    Log.d(TAG, "problem");
 
-                Log.d(TAG, results.getString(1));
-                String scheduledDate=results.getString(8).substring(0,10);
-                String scheduledTime=results.getString(8).substring(12);
-                String pickupDate=results.getString(9).substring(0,10);
-                String pickupTime=results.getString(9).substring(12);
-                textName.setText(results.getString(1));
-                String ad = results.getString(2)+" "+results.getString(3)+"\n"+results.getString(4)+" "+results.getString(5)+"\n"+results.getString(6);
-                textAddress.setText(ad);
-                textbookingid.setText(results.getString(7));
-                textDate.setText(scheduledDate);
-                textTime.setText(scheduledTime);
-                editDate.setText(pickupDate);
-                editTime.setText(pickupTime);
-
+                    Log.d(TAG, results.getString(1));
+                    String scheduledDate = results.getString(8).substring(0, 10);
+                    String scheduledTime = results.getString(8).substring(12);
+                    String pickupDate = results.getString(9).substring(0, 10);
+                    String pickupTime = results.getString(9).substring(12);
+                    textName.setText(results.getString(1));
+                    String ad = results.getString(2) + " " + results.getString(3) + "\n" + results.getString(4) + " " + results.getString(5) + "\n" + results.getString(6);
+                    textAddress.setText(ad);
+                    textbookingid.setText(results.getString(7));
+                    textDate.setText(scheduledDate);
+                    textTime.setText(scheduledTime);
+                    editDate.setText(pickupDate);
+                    editTime.setText(pickupTime);
+                }
 //                String totalAmount = getIntent().getStringExtra("TotalAmount");
 //                if(totalAmount==null)
 //                     textPrice.setText("00");

@@ -19,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.login.DatabaseConnection.MySqlConnector;
 import com.example.login.R;
-import com.example.login.userUi.Models.ItemListModel;
 
 import java.sql.Blob;
 import java.sql.Connection;

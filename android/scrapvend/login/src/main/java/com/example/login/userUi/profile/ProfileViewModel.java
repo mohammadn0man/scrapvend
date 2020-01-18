@@ -6,7 +6,7 @@ import android.util.Log;
 import com.example.login.DatabaseConnection.MySqlConnector;
 import com.example.login.Models.UserAddressModel;
 import com.example.login.Models.UserProfileModel;
-import com.example.login.User;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

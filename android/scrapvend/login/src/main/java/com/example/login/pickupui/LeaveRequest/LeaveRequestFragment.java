@@ -17,8 +17,8 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.login.R;
 import com.example.login.DatabaseConnection.MySqlConnector;
+import com.example.login.R;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
