@@ -27,10 +27,10 @@
         <TextView
             android:id="@+id/textViewB"
             android:layout_width="match_parent"
-            android:layout_height="123dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Address"
+            android:text="Address \n "
             android:textSize="20dp"
             android:textStyle="bold"
 
@@ -138,11 +138,11 @@
 
         <TextView
             android:id="@+id/textAddress"
-            android:layout_width="match_parent"
-            android:layout_height="125dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:text="agra"
+            android:text="agra \n hello"
             android:textSize="20dp"
             android:textStyle="italic" />
     <TextView
