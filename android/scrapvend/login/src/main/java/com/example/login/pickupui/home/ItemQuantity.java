@@ -25,8 +25,9 @@ import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 public class ItemQuantity extends AppCompatActivity implements View.OnClickListener {
-   // private final String TAG = "MyDB";
+    // private final String TAG = "MyDB";
     ListView listView;
     ItemQuantityModel pmodel;
     ItemQuantityAdapter padapter;
@@ -73,26 +74,17 @@ public class ItemQuantity extends AppCompatActivity implements View.OnClickListe
 //                padapter.notifyDataSetChanged();
                 listView = (ListView) ItemQuantity.this.findViewById(R.id.itemListView);
                 Log.d(TAG, String.valueOf(listView.getCount()));
+                for(i=0;i<listView.getCount();i++){
 
-
-//                for(i=0;i<listView.getCount();i++){
-//
-//                    Log.d(TAG, "msg:value = " + i);
-////                  root = listView.getAdapter().getView(i,null,null);
-//                    root=listView.getChildAt(i);
-//                    Log.d(TAG, String.valueOf(root));
-//                    e = root.findViewById(R.id.editItemQuantity);
-//                    t = root.findViewById(R.id.textViewItemRate);
-//                    value+=(Integer.parseInt(e.getText().toString())*Integer.parseInt(t.getText().toString()));
-//                    Log.d(TAG, e.getText().toString());
-//                }
-
-                for (int i = 0; i < ItemQuantityAdapter.itemlist.size(); i++){
-
-                    value+=(Integer.parseInt(ItemQuantityAdapter.itemlist.get(i).getEditTextValue()));
-
+                    Log.d(TAG, "msg:value = " + i);
+//                    root = listView.getAdapter().getView(i,null,null);
+                    root=listView.getChildAt(i);
+                    Log.d(TAG, String.valueOf(root));
+                    e = root.findViewById(R.id.editItemQuantity);
+                    t = root.findViewById(R.id.textViewItemRate);
+                    value+=(Integer.parseInt(e.getText().toString())*Integer.parseInt(t.getText().toString()));
+                    Log.d(TAG, e.getText().toString());
                 }
-
                 totalAmount=String.valueOf(value);
                 Log.d(TAG, totalAmount);
 //                Intent i = new Intent(ItemQuantity.this,DetailedPickupInfo.class);
@@ -193,9 +185,7 @@ public class ItemQuantity extends AppCompatActivity implements View.OnClickListe
         }
 
      */
-
-
-        class task extends AsyncTask<Void, Void, Void> {
+    class task extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... voids) {
@@ -207,15 +197,15 @@ public class ItemQuantity extends AppCompatActivity implements View.OnClickListe
                 Statement statement = conn.createStatement();
 
                 int value=1;
-                String query ="Select * from item_details";
-                        Log.d(TAG, query);
+                String query ="Select * from item_details where View_value = 1 ;";
+                Log.d(TAG, query);
                 ResultSet results = statement.executeQuery(query);
                 Log.d(TAG, "query executed");
                 while (results.next()) {
                     Log.d(TAG, results.getString("Item_name") + results.getString("Item_rate"));
                     pmodel = new ItemQuantityModel(results.getString("Item_name"), results.getString("Item_rate"));
 //                    pmodel = new ItemQuantityModel(results.getString("Item_name"), results.getString("Item_rate"));
-                    pmodel.setEditTextValue("10");
+                    pmodel.setItemqty("0");
                     arrayOfEmp.add(pmodel);
                 }
 
@@ -236,3 +226,5 @@ public class ItemQuantity extends AppCompatActivity implements View.OnClickListe
         }
     }
 }
+
+
