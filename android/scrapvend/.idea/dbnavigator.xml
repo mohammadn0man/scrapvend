@@ -25,7 +25,7 @@
     <show-object-properties value="false" />
     <loaded-nodes>
       <connection connection-id="380ebe5a-dedd-4840-bb10-753bf9548e87">
-        <schema name="bvYGbRyIOE" object-types="view, procedure, constraint, column, dataset trigger, table, index, function" />
+        <schema name="bvYGbRyIOE" object-types="view, table" />
       </connection>
     </loaded-nodes>
   </component>
@@ -34,13 +34,11 @@
       <console name="mohammadnoman" type="STANDARD" schema="" session="Main" />
     </connection>
     <connection id="380ebe5a-dedd-4840-bb10-753bf9548e87">
-      <console name="scrap vend" type="STANDARD" schema="bvYGbRyIOE" session="Main"><![CDATA[SELECT * from address where View_value = 1 AND User_id = 3]]></console>
+      <console name="scrap vend" type="STANDARD" schema="bvYGbRyIOE" session="Main">SELECT * from address where View_value = 1 AND User_id = 3</console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="380ebe5a-dedd-4840-bb10-753bf9548e87" object-ref="schemas/bvYGbRyIOE/tables/address" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="686906f4-dc0f-4ffc-9cdc-1aed1aebd34f" />
