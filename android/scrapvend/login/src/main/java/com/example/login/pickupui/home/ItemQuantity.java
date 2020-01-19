@@ -56,6 +56,7 @@ public class ItemQuantity extends AppCompatActivity implements View.OnClickListe
         editQuantity=findViewById(R.id.editItemQuantity);
         okButton=findViewById(R.id.okButton);
 
+
         img1 = (ImageView)findViewById(R.id.imageView);
         new task().execute();
         context = this.getApplicationContext();
@@ -66,15 +67,15 @@ public class ItemQuantity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                View root;
-                EditText e;
-                TextView t;
-                value = 0;
-
-//                padapter.notifyDataSetChanged();
-                listView = (ListView) ItemQuantity.this.findViewById(R.id.itemListView);
-                Log.d(TAG, String.valueOf(listView.getCount()));
-                for(i=0;i<listView.getCount();i++){
+//                View root;
+//                EditText e;
+//                TextView t;
+//                value = 0;
+//
+////                padapter.notifyDataSetChanged();
+//                listView = (ListView) ItemQuantity.this.findViewById(R.id.itemListView);
+//                Log.d(TAG, String.valueOf(listView.getCount()));
+                /*for(i=0;i<listView.getCount();i++){
 
                     Log.d(TAG, "msg:value = " + i);
 //                    root = listView.getAdapter().getView(i,null,null);
@@ -85,17 +86,24 @@ public class ItemQuantity extends AppCompatActivity implements View.OnClickListe
                     value+=(Integer.parseInt(e.getText().toString())*Integer.parseInt(t.getText().toString()));
                     Log.d(TAG, e.getText().toString());
                 }
-                totalAmount=String.valueOf(value);
-                Log.d(TAG, totalAmount);
-//                Intent i = new Intent(ItemQuantity.this,DetailedPickupInfo.class);
-//                Log.d(TAG, "intent sent");
-//                i.putExtra("TotalAmount", totalAmount);
-//                startActivity(i);
+                */
 
+                int val = 1;
+                for(int i=0; i< ItemQuantityAdapter.itemlist.size(); i++)
+                {
+                    val += Integer.parseInt(ItemQuantityAdapter.itemlist.get(i).getItemqty().toString());
+//                        textPrice.setText(textPrice.getText()+" "+ItemQuantityAdapter.itemlist.get(i).getItemqty());
+                    Log.e(TAG, val +" "+i+"<-val->"+ItemQuantityAdapter.itemlist.size());
+                }
+                totalAmount=String.valueOf(val);
+
+                Log.d(TAG, totalAmount + "<----");
 
                 Intent intent=new Intent();
                 intent.putExtra("TotalAmount", totalAmount);
                 setResult(2,intent);
+
+
                 finish();//finishing activity
 
             }

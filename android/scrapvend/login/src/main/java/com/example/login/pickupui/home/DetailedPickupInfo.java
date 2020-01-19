@@ -2,9 +2,13 @@ package com.example.login.pickupui.home;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,9 +19,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.login.Adapters.ItemQuantityAdapter;
 import com.example.login.R;
 import com.example.login.DatabaseConnection.MySqlConnector;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -49,6 +58,7 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
         editTime=findViewById(R.id.editPickupTime);
         spinner=findViewById((R.id.spinner));
         editbutton=findViewById(R.id.buttonEdit);
+        updateButton=findViewById(R.id.buttonUpdate);
         textPrice=findViewById(R.id.textPrice);
 
         editbutton.setOnClickListener(new View.OnClickListener() {
@@ -65,16 +75,16 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
 
         });
 
-//        updateButton.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                // TODO Auto-generated method stub
-//
-//
-//
-//            }
-//        });
+        updateButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Intent i=new Intent(DetailedPickupInfo.this,AmountVerification.class);
+                 startActivity(i);
+
+            }
+        });
 
 
 
@@ -102,6 +112,9 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
             String message=data.getStringExtra("TotalAmount");
             Log.d(TAG, message);
             textPrice.setText(message);
+
+
+
         }
     }
     @Override
@@ -195,8 +208,12 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
         protected void onPostExecute(Void aVoid)
         {
             textAddress.setText(ad);
-
-
+            if (ItemQuantityAdapter.flag){
+                for(int i=0; i< ItemQuantityAdapter.itemlist.size(); i++)
+                {
+                    textPrice.setText(textPrice.getText()+" "+ItemQuantityAdapter.itemlist.get(i).getItemqty()+System.getProperty("line.separator"));
+                }
+            }
 
             super.onPostExecute(aVoid);
         }

@@ -77,13 +77,7 @@ public class MultiSelectionAdapter<T> extends BaseAdapter{
         return convertView;
     }
     OnCheckedChangeListener mCheckedChangeListener = new OnCheckedChangeListener() {
-
-
-
-
         @Override
-
-
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             // TODO Auto-generated method stub
             mSparseBooleanArray.put((Integer) buttonView.getTag(), isChecked);
