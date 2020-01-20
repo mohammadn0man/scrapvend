@@ -2,6 +2,7 @@ package com.example.login.Models;
 
 public class UserAddressModel {
 
+    int addressId;
     String houseNo;
     String line1;
     String city;
@@ -10,6 +11,14 @@ public class UserAddressModel {
 
     public String getHouseNo() {
         return houseNo;
+    }
+
+    public int getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(int addressId) {
+        this.addressId = addressId;
     }
 
     public void setHouseNo(String houseNo) {

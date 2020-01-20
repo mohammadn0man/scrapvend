@@ -72,7 +72,7 @@ public class RequestPickupForm extends AppCompatActivity implements AdapterView.
         //RETRIEVING LIST DATA FROM SELECTED ITEM LIST
         if(multiSelectionAdapter != null) {
 
-            list= new String[0];
+            list = new String[0];
             mArrayProducts = multiSelectionAdapter.getCheckedItems();
             Log.d("form", "inside send button");
 

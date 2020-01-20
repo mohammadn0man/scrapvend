@@ -68,12 +68,13 @@ public class ProfileViewModel extends ViewModel {
                 Log.e("MyProfile", userProfileModel.getName());
 
                 Statement statement1 = connection.createStatement();
-                query = "SELECT * from address where User_id = \"" + userProfileModel.getUserId() + "\"";
+                query = "SELECT * from address where View_value = 1 AND User_id = \"" + userProfileModel.getUserId() + "\"";
                 ResultSet resultSet1 = statement1.executeQuery(query);
 
                 while (resultSet1.next()) {
 
                     userAddressModel = new UserAddressModel();
+                    userAddressModel.setAddressId(resultSet1.getInt("Address_id"));
                     userAddressModel.setCity(resultSet1.getString("City"));
                     userAddressModel.setHouseNo(resultSet1.getString("House_no"));
                     userAddressModel.setLine1(resultSet1.getString("Line_1"));
