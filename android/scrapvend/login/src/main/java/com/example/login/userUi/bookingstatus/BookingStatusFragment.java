@@ -87,7 +87,7 @@ public class BookingStatusFragment extends Fragment {
             try {
                 Statement statement = conn.createStatement();
 
-                String query = "select Booking_id,Booking_date_time,Pickup_status,Scheduled_time_slot,Scheduled_pickup_date from booking_details bd INNER JOIN user_details ud  ON ud.User_id=bd.User_id where Pickup_status!=\"Pending Completed \" and ud.Username=\""+user+"\";";
+                String query = "select Booking_id,Booking_date_time,Pickup_status,Scheduled_time_slot,Scheduled_pickup_date from booking_details bd INNER JOIN user_details ud  ON ud.User_id=bd.User_id where Pickup_status!=\"Pickup Completed \" and ud.Username=\""+user+"\";";
 
                 ResultSet results = statement.executeQuery(query);
 

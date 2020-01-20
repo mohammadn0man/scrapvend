@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 
@@ -93,9 +94,8 @@ public class HomeFragment extends Fragment {
         textBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(),BookingStatusFragment.class);
-                //intent.setAction(BookingStatusFragment);
-                view.getContext().startActivity(intent);
+                FragmentTransaction ft = getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new BookingStatusFragment());
+                ft.commit();
 
             }
         });

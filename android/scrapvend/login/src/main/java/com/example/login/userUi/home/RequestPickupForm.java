@@ -35,11 +35,11 @@ import static com.example.login.userUi.home.RequestPickup.multiSelectionAdapter;
 
 public class RequestPickupForm extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     TextView itemname,addressv,contactno;
-    ListView itemlist;
-    EditText quantity,date;
-    Spinner time;
+    ListView itemListView;
+    EditText quantityEditText, dateEditText;
+    Spinner timeSpinner;
     Button bookedpickup;
-    String qt,dt,tm;
+    String quantity, date, time;
     String  contact_no,userid,addressid,address;
     public static String[] list;
      ArrayList<ItemListModel> mArrayProducts;
@@ -54,10 +54,10 @@ public class RequestPickupForm extends AppCompatActivity implements AdapterView.
 
 //      DEFINING VARIABLE
         itemname=(TextView) findViewById(R.id.selecteditem);
-        itemlist=(ListView) findViewById(R.id.selectedlist);
-        quantity=(EditText)findViewById(R.id.estimated_weight);
-        date=(EditText)findViewById(R.id.pickupdate);
-        time = findViewById(R.id.pickuptime);
+        itemListView =(ListView) findViewById(R.id.selectedlist);
+        quantityEditText =(EditText)findViewById(R.id.estimated_weight);
+        dateEditText =(EditText)findViewById(R.id.pickupdate);
+        timeSpinner = findViewById(R.id.pickuptime);
         bookedpickup=findViewById(R.id.bookpickup);
         addressv=(TextView)findViewById(R.id.address);
         contactno=(TextView) findViewById(R.id.contactno);
@@ -66,8 +66,8 @@ public class RequestPickupForm extends AppCompatActivity implements AdapterView.
         ArrayAdapter<CharSequence> adapter;
         adapter = ArrayAdapter.createFromResource(this, R.array.slots, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        time.setAdapter(adapter);
-        time.setOnItemSelectedListener(this);
+        timeSpinner.setAdapter(adapter);
+        timeSpinner.setOnItemSelectedListener(this);
 
         //RETRIEVING LIST DATA FROM SELECTED ITEM LIST
         if(multiSelectionAdapter != null) {
@@ -88,7 +88,7 @@ public class RequestPickupForm extends AppCompatActivity implements AdapterView.
         }
 //      INSERT SELECTED ITEM INTO SELECTED LIST
         listAdapter = new ArrayAdapter<String>(this, R.layout.selecteditem, R.id.selecteditem,list );
-        itemlist.setAdapter(listAdapter);
+        itemListView.setAdapter(listAdapter);
 
         new InsertIntoDatabaseTask().execute();
 
@@ -184,9 +184,9 @@ public class RequestPickupForm extends AppCompatActivity implements AdapterView.
 
                 Log.d(TAG, "user name = " + user);
 
-                qt= quantity.getText().toString();
-                dt=date.getText().toString();
-                tm=time.getSelectedItem().toString();
+                quantity = quantityEditText.getText().toString();
+                date = dateEditText.getText().toString();
+                time = timeSpinner.getSelectedItem().toString();
 
 
                 //INSERTING DETAILS INTO CONTACT TABLE
@@ -196,9 +196,9 @@ public class RequestPickupForm extends AppCompatActivity implements AdapterView.
 
                 preparedStatement1.setString(1, userid);
                 preparedStatement1.setString(2, addressid);
-                preparedStatement1.setString(3, tm);
-                preparedStatement1.setString(4,dt);
-                preparedStatement1.setString(5,qt);
+                preparedStatement1.setString(3, time);
+                preparedStatement1.setString(4, date);
+                preparedStatement1.setString(5, quantity);
                 preparedStatement1.execute();
                 Log.d(TAG, "insert query1 executed");
                 result = preparedStatement1.getGeneratedKeys();
