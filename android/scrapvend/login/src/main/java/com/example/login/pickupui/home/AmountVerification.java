@@ -64,6 +64,14 @@ public class AmountVerification extends AppCompatActivity {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
 
+                String user_otp=editOtp.getText().toString();
+
+                if(user_otp.equals(""))
+                {   Log.d(TAG,"inside if");
+
+                    Toast.makeText(getApplicationContext(), "Enter otp", Toast.LENGTH_SHORT).show();
+
+                }
 
             }
 
