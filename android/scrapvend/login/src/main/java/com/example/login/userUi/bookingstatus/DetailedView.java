@@ -1,6 +1,7 @@
 package com.example.login.userUi.bookingstatus;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -18,8 +20,11 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.login.DatabaseConnection.MySqlConnector;
+import com.example.login.MainActivity;
 import com.example.login.R;
-
+import com.example.login.User;
+import com.example.login.userUi.Models.ItemListModel;
+import com.example.login.userUi.home.HomeFragment;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -34,6 +39,7 @@ public class DetailedView extends AppCompatActivity {
     LinearLayout pdetails;
     ListView itemlist;
     ArrayAdapter<String> listAdapter;
+    Button okbutton;
     public static final String TAG = "status detail view";
     String bid;
     @SuppressLint("WrongViewCast")
@@ -54,6 +60,7 @@ public class DetailedView extends AppCompatActivity {
         pcontact=findViewById(R.id.pcontact);
         pimage=findViewById(R.id.pimage);
         ptime=findViewById(R.id.ptime);
+        okbutton=(Button) findViewById(R.id.okbutton);
 
         //FETCHING DETAILS
         Bundle bundle;
@@ -75,7 +82,14 @@ public class DetailedView extends AppCompatActivity {
             pnotassign.setVisibility(View.INVISIBLE);
             pdetails.setVisibility(View.VISIBLE);
         }
-        //Log.d(TAG, "inside item"+list[0]);
+        okbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), User.class);
+                startActivity(intent);
+
+            }
+        });
     }
 
     private class viewlistdata extends AsyncTask<Void, Void, Void> {

@@ -30,7 +30,7 @@
       <console name="mohammadnoman" type="STANDARD" schema="" session="Main" />
     </connection>
     <connection id="380ebe5a-dedd-4840-bb10-753bf9548e87">
-      <console name="scrap vend" type="STANDARD" schema="bvYGbRyIOE" session="Main"><![CDATA[SELECT * from address where View_value = 1 AND User_id = 3]]></console>
+      <console name="scrap vend" type="STANDARD" schema="bvYGbRyIOE" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
