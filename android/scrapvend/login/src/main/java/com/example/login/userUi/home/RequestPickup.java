@@ -11,13 +11,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.login.DatabaseConnection.MySqlConnector;
-import com.example.login.MainActivity;
 import com.example.login.userUi.Adapter.MultiSelectionAdapter;
 import com.example.login.userUi.Models.ItemListModel;
 import com.example.login.R;
@@ -28,8 +26,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
-import static android.view.View.VISIBLE;
 
 public class RequestPickup extends AppCompatActivity {
     private final String TAG="rp";

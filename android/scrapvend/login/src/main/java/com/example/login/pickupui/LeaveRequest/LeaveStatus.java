@@ -10,9 +10,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.login.Adapters.LeaveStatusAdapter;
+import com.example.login.DatabaseConnection.MySqlConnector;
 import com.example.login.Models.LeaveStatusModel;
 import com.example.login.R;
-import com.example.login.DatabaseConnection.MySqlConnector;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

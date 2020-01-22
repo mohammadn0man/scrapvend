@@ -2,7 +2,6 @@ package com.example.pickupperson.Adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -11,28 +10,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.example.pickupperson.Models.Details;
 import com.example.pickupperson.Models.LeaveStatusModel;
 import com.example.pickupperson.R;
-import com.example.pickupperson.ui.LeaveRequest.LeaveStatus;
 import com.example.pickupperson.ui.MySQLConnector;
-import com.example.pickupperson.ui.home.HomeFragment;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
-import static androidx.constraintlayout.widget.Constraints.TAG;
 
 
 public class LeaveStatusAdapter extends ArrayAdapter<LeaveStatusModel> {
@@ -140,7 +131,7 @@ public class LeaveStatusAdapter extends ArrayAdapter<LeaveStatusModel> {
         protected Void doInBackground(Void... voids) {
 
             try {
-                MySQLConnector connection = new MySQLConnector();
+                MySqlConnector connection = new MySQLConnector();
 
                 Connection conn = connection.getMySqlConnection();
                 Statement statement = conn.createStatement();

@@ -6,7 +6,7 @@ import android.util.Log;
 import com.example.login.DatabaseConnection.MySqlConnector;
 import com.example.login.Models.UserAddressModel;
 import com.example.login.Models.UserProfileModel;
-import com.example.login.User;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -38,6 +38,7 @@ public class ProfileViewModel extends ViewModel {
     }
 
     public class UserProfileTask extends AsyncTask<Void, Void, Void> {
+
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);

@@ -23,14 +23,36 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="false" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="380ebe5a-dedd-4840-bb10-753bf9548e87">
+<<<<<<< HEAD
+        <schema name="bvYGbRyIOE" object-types="table, view, function, column" />
+=======
+        <schema name="bvYGbRyIOE" object-types="view, table" />
+>>>>>>> a517a7521c4176272fcb2137277fe83ee1d1bc55
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="686906f4-dc0f-4ffc-9cdc-1aed1aebd34f">
       <console name="mohammadnoman" type="STANDARD" schema="" session="Main" />
     </connection>
     <connection id="380ebe5a-dedd-4840-bb10-753bf9548e87">
-      <console name="scrap vend" type="STANDARD" schema="bvYGbRyIOE" session="Main" />
+<<<<<<< HEAD
+      <console name="scrap vend" type="STANDARD" schema="bvYGbRyIOE" session="Main"><![CDATA[SELECT user_details.Username, address.House_no, address.Line_1, 
+address.City, address.State, login_info.contact_no, 
+booking_details.Scheduled_time_slot 
+from booking_details 
+INNER JOIN booking_assigned ON booking_details.Booking_id = booking_assigned.Booking_id 
+inner join pickup_person_details on pickup_person_details.Pickup_person_id = booking_assigned.Pickup_person_id 
+inner join address ON address.Address_id = booking_details.Booking_id 
+inner join user_details ON booking_details.User_id = user_details.User_id 
+inner join login_info ON user_details.Username = login_info.Username 
+where pickup_person_details.Username = 'aishwaryapickup' 
+and booking_details.Pickup_status = 'Pickup Person Assigned']]></console>
+=======
+      <console name="scrap vend" type="STANDARD" schema="bvYGbRyIOE" session="Main">SELECT * from address where View_value = 1 AND User_id = 3</console>
+>>>>>>> a517a7521c4176272fcb2137277fe83ee1d1bc55
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

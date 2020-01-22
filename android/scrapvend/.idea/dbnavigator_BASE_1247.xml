@@ -23,18 +23,24 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="false" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="380ebe5a-dedd-4840-bb10-753bf9548e87">
+        <schema name="bvYGbRyIOE" object-types="view, procedure, constraint, column, dataset trigger, table, index, function" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="686906f4-dc0f-4ffc-9cdc-1aed1aebd34f">
       <console name="mohammadnoman" type="STANDARD" schema="" session="Main" />
     </connection>
     <connection id="380ebe5a-dedd-4840-bb10-753bf9548e87">
-      <console name="scrap vend" type="STANDARD" schema="bvYGbRyIOE" session="Main" />
+      <console name="scrap vend" type="STANDARD" schema="bvYGbRyIOE" session="Main"><![CDATA[SELECT * from address where View_value = 1 AND User_id = 3]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="380ebe5a-dedd-4840-bb10-753bf9548e87" object-ref="schemas/bvYGbRyIOE/tables/address" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="686906f4-dc0f-4ffc-9cdc-1aed1aebd34f" />
@@ -370,8 +376,6 @@
           <content-type name="HTML" enabled="true" />
           <content-type name="XHTML" enabled="true" />
           <content-type name="Java" enabled="true" />
-          <content-type name="SQL" enabled="true" />
-          <content-type name="PL/SQL" enabled="true" />
           <content-type name="Groovy" enabled="true" />
           <content-type name="AIDL" enabled="true" />
           <content-type name="YAML" enabled="true" />
