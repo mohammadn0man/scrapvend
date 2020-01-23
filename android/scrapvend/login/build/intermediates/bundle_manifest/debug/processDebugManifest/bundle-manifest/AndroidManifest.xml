@@ -18,12 +18,6 @@
         android:label="ScrapVend"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-<<<<<<< HEAD
-        android:theme="@style/Theme.Design" >
-        <activity android:name="com.example.login.registration_user" />
-        <activity android:name="com.example.login.otp_verification" />
-        <activity android:name="com.example.login.homepage" />
-=======
         android:testOnly="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="stateHidden|adjustResize" >
@@ -54,7 +48,6 @@
         <activity android:name="com.example.login.login.registration_user" />
         <activity android:name="com.example.login.login.otp_verification" />
         <activity android:name="com.example.login.logout" />
->>>>>>> b58a6ed49b35cb355c48e4f66604c9bad020bd15
         <activity android:name="com.example.login.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
