@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="300dp"
-    android:layout_height="300dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@color/colorPrimaryDark"
+    android:background="@drawable/admin_background"
     android:orientation="vertical"
     android:padding="5dp">
-
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="120dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rectangle_border"
+        android:orientation="vertical">
     <TextView
         android:id="@+id/txtclose"
         android:layout_width="55dp"
@@ -14,7 +20,8 @@
         android:layout_gravity="end"
         android:gravity="center"
         android:textAllCaps="true"
-        android:text="Close"
+        android:text="X"
+        android:textColor="@color/red"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -82,10 +89,16 @@
 
     <Button
         android:id="@+id/btnfollow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="5dp"
-        android:text="Follow Me" />
-
+        android:layout_marginTop="50dp"
+        android:text="Follow Me"
+        android:layout_marginHorizontal="30dp"
+        android:textColor="#fff"
+        android:background="@drawable/admin_item"
+        android:textAllCaps="false"
+        android:clickable="true"
+        android:textSize="18dp"/>
+    </LinearLayout>
 </LinearLayout>
