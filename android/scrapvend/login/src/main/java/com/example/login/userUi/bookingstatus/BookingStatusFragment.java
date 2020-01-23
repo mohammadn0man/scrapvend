@@ -9,14 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.login.DatabaseConnection.MySqlConnector;
@@ -87,7 +83,7 @@ public class BookingStatusFragment extends Fragment {
             try {
                 Statement statement = conn.createStatement();
 
-                String query = "select Booking_id,Booking_date_time,Pickup_status,Scheduled_time_slot,Scheduled_pickup_date from booking_details bd INNER JOIN user_details ud  ON ud.User_id=bd.User_id where Pickup_status!=\"Pending Completed \" and ud.Username=\""+user+"\";";
+                String query = "select Booking_id,Booking_date_time,Pickup_status,Scheduled_time_slot,Scheduled_pickup_date from booking_details bd INNER JOIN user_details ud  ON ud.User_id=bd.User_id where Pickup_status!=\"Pickup Completed \" and ud.Username=\""+user+"\";";
 
                 ResultSet results = statement.executeQuery(query);
 

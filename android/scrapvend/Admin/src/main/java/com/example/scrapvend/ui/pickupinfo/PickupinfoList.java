@@ -87,7 +87,7 @@ public class PickupinfoList extends AppCompatActivity {
             Connection conn = connection.getMySqlConnection();
             try {
                 Statement statement = conn.createStatement();
-                ResultSet results = statement.executeQuery("SELECT booking_details.Booking_date_time, booking_details.Scheduled_pickup_date_time, user_details.Username, address.House_no , address.Line_1, address.City, booking_details.Booking_id FROM booking_details INNER JOIN user_details ON user_details.User_id = booking_details.User_id INNER JOIN address ON booking_details.Address_id = address.Address_id where Pickup_status = \""+ GET_PICKUPLIST_FLAG + "\";");
+                ResultSet results = statement.executeQuery("SELECT booking_details.Booking_date_time, booking_details.Scheduled_pickup_date, user_details.Username, address.House_no , address.Line_1, address.City, booking_details.Booking_id FROM booking_details INNER JOIN user_details ON user_details.User_id = booking_details.User_id INNER JOIN address ON booking_details.Address_id = address.Address_id where Pickup_status = \""+ GET_PICKUPLIST_FLAG + "\";");
 
                 while (results.next()) {
                     Log.d(TAG, results.getString(1) + results.getString(2));

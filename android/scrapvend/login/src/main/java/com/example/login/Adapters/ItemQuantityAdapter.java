@@ -3,114 +3,103 @@ package com.example.login.Adapters;
 import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.login.Models.ItemQuantityModel;
 import com.example.login.R;
 
 import java.util.ArrayList;
 
+import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 
-public class ItemQuantityAdapter extends ArrayAdapter<ItemQuantityModel> {
+public class ItemQuantityAdapter extends BaseAdapter
+{
 
+    EditText editTextqty;
+    ItemQuantityModel employee;
+    public static boolean flag = false;
     public static ArrayList<ItemQuantityModel> itemlist;
-  //  private LayoutInflater inflater;
-  //  public  ArrayList myItems=new ArrayList();
+    private LayoutInflater inflater;
     Context context;
     int textViewResourceId;
-    @NonNull
-    @Override
-    public int getCount() {return super.getCount();}
-
-
     public ItemQuantityAdapter(@NonNull Context context, int textViewResourceId, ArrayList<ItemQuantityModel> itemlist) {
-        super(context,0, itemlist);
+
         this.itemlist =itemlist;
         this.context=context;
         this.textViewResourceId=textViewResourceId;
 
     }
 
-    public View getView(final int position, View convertView, ViewGroup parent) {
-        // Get the data item for this position
+    @Override
+    public int getCount() {
+         return itemlist.size();
+    }
 
-        // Check if an existing view is being reused, otherwise inflate the view
-        View v;
-        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        v = inflater.inflate(R.layout.itemquantitylist, null);
+    @Override
+    public Object getItem(int position) {
+        return itemlist.get(position);
+    }
 
-        ItemQuantityModel employee=getItem(position);
-        TextView textViewName = v.findViewById(R.id.textViewItemName);
-        textViewName.setText(employee.getitemName());
-//        EditText editTextqty = v.findViewById(R.id.editItemQuantity);
-        final TextView textViewRate = v.findViewById(R.id.textViewItemRate);
-        textViewRate.setText(employee.getItemRate());
+    @Override
+    public long getItemId(int position) {
+        return 0;
+    }
 
-        final ViewHolder holder;
+    @Override
+    public View getView(final int position, View convertView, final ViewGroup parent) {
 
-        if (convertView == null) {
-            holder = new ViewHolder();
-//            convertView = inflater.inflate(R.layout.itemquantitylist, null, true);
+        if(convertView==null)
+        {
 
-            holder.editText = (EditText) v.findViewById(R.id.editItemQuantity);
-//            holder.editText.setText(employee.getEditTextValue());
+            LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.itemquantitylist, null);
 
-            v.setTag(holder);
-        }else {
-            // the getTag returns the viewHolder object set as a tag to the view
-            holder = (ViewHolder)v.getTag();
+             employee=(ItemQuantityModel) getItem(position);
+            TextView textViewName = convertView.findViewById(R.id.textViewItemName);
+             editTextqty = convertView.findViewById(R.id.editItemQuantity);
+            TextView textViewRate = convertView.findViewById(R.id.textViewItemRate);
+
+            textViewRate.setText(employee.getItemRate());
+            textViewName.setText(employee.getitemName());
+
         }
-
-        holder.editText.setText(itemlist.get(position).getEditTextValue());
-
-        holder.editText.addTextChangedListener(new TextWatcher() {
-
+        editTextqty.setText(itemlist.get(position).getItemqty());
+        editTextqty.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                itemlist.get(position).setEditTextValue(String.valueOf(Integer.parseInt(holder.editText.getText().toString()) * Integer.parseInt(textViewRate.getText().toString())));
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                itemlist.get(position).setItemqty(s.toString());
+                Log.d("MyItemAdapter", s +"s, p"+position+count+"c, m"+itemlist.get(position).getItemqty());
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {
+            public void afterTextChanged(Editable s) {
 
             }
         });
 
-
-
-        //   ImageView img = v.findViewById(R.id.imageView3);
-     /*   Blob bp = employee.getItemImage();
-        // CONVERTING BLOB IMAGE INTO BITMAP IMAGE
-        Bitmap btm;
-        try {
-            Log.d(TAG, "back to hello2" + bp.length());
-            int blobLength = (int) bp.length();
-            Log.d(TAG, "poornima" + (int) bp.length());
-            byte[] blobAsBytes = bp.getBytes(1, blobLength);
-            btm = BitmapFactory.decodeByteArray(blobAsBytes, 0, blobAsBytes.length);
-            img.setImageBitmap(btm);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
-                return v;
+        return convertView;
     }
 
-
-    private class ViewHolder {
-
-        protected EditText editText;
-
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 
+    @Override
+    public int getViewTypeCount() {
+        return getCount();
+    }
 }

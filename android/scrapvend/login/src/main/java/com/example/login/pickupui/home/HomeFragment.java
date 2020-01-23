@@ -37,6 +37,7 @@ public class HomeFragment extends Fragment {
 
     Context context;
     TextView textViewName, textViewAddress, textViewDate, textViewContact;
+    String slot[];
     private final String TAG = "MyDBhome";
     DetailsAdapter adapter;
     Details details;
@@ -58,7 +59,7 @@ public class HomeFragment extends Fragment {
         textViewContact = (TextView) root.findViewById(R.id.textViewContact);
         textViewAddress = (TextView) root.findViewById(R.id.textViewAddress);
         textViewDate = (TextView) root.findViewById(R.id.textViewDate);
-
+        slot = getResources().getStringArray(R.array.slots);
         new task().execute();
         context = this.getContext();
         Log.d(TAG, "before intent in home");
@@ -78,7 +79,7 @@ public class HomeFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), DetailedPickupInfo.class);
 
                 // Sending value to another activity using intent.
-                intent.putExtra("ListViewClickedValue", details.getName());
+//                intent.putExtra("ListViewClickedValue", details.getName());
                 intent.putExtra("id", details.getBookingId());
 
                 startActivity(intent);
@@ -105,22 +106,25 @@ public class HomeFragment extends Fragment {
 //                " FROM"+"((user_details"+ " INNER JOIN "+ "booking_details"+" ON "+ "user_details.User_id = booking_details.User_id)"+"INNER JOIN "+
 //                "login_info "+"ON"+" user_details.Username = login_info.Username)"+" WHERE " +"booking_details.Pickup_person_id ="+ value ;
 
-                String query = "SELECT login_info.Username, login_info.contact_no, address.City, " +
-                        "booking_assigned.Assigned_date, booking_details.Booking_id " +
-                        "from login_info INNER JOIN pickup_person_details on login_info.Username = pickup_person_details.Username " +
-                        "INNER JOIN booking_assigned ON pickup_person_details.Pickup_person_id = booking_assigned.Pickup_person_id " +
-                        "INNER JOIN booking_details ON booking_assigned.Booking_id = booking_details.Booking_id " +
-                        "INNER JOIN address ON booking_details.Address_id = address.Address_id " +
-                        "where booking_details.Pickup_status = \"Pickup Person Assigned\" " +
-                        "and pickup_person_details.Username = \"" + user + "\"";
+                String query = "SELECT login_info.Username, login_info.contact_no, address.House_no, address.Line_1, address.State, address.City, " +
+                        "booking_details.Scheduled_pickup_date, booking_details.Scheduled_time_slot, booking_details.Booking_id " +
+                        "from pickup_person_details " +
+                        "    INNER JOIN booking_assigned on booking_assigned.Pickup_person_id = pickup_person_details.Pickup_person_id " +
+                        "    INNER JOIN booking_details ON booking_assigned.Booking_id = booking_details.Booking_id " +
+                        "    INNER JOIN user_details ON user_details.User_id = booking_details.User_id " +
+                        "    INNER JOIN address ON booking_details.Address_id = address.Address_id " +
+                        "    INNER JOIN login_info on user_details.Username = login_info.Username " +
+                        "where booking_details.Pickup_status = \"Pickup Person Assigned\" and pickup_person_details.Username = \"" + user + "\"";
 
                 Log.d(TAG, query);
                 ResultSet results = statement.executeQuery(query);
 
                 while (results.next()) {
                     Log.d(TAG, results.getString("Username") + results.getString("contact_no"));
-                    pmodel = new Details(results.getString("Username"), results.getString("contact_no"), results.getString("City"), results.getString("Assigned_date"));
-                    pmodel.setBookingId(results.getString(5));
+                    pmodel = new Details(results.getString("Username"), results.getString("contact_no"), results.getString("House_no") +", "+
+                            results.getString("Line_1") + "\n " + results.getString("City") + ", " + results.getString("State"),
+                            results.getString("Scheduled_pickup_date") + "\n" + slot[Integer.parseInt(results.getString("Scheduled_time_slot")) - 1] );
+                    pmodel.setBookingId(results.getString("Booking_id"));
                     arrayOfEmp.add(pmodel);
                 }
 
