@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="5dp"
+    android:layout_margin="5dp"
     android:background="@drawable/rectangle_border"
-    android:layout_margin="5dp">
+    android:orientation="vertical"
+    android:padding="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -93,19 +94,19 @@
         android:id="@+id/textView20"
         android:layout_width="match_parent"
         android:layout_height="43dp"
-        android:text="Pickup Person Details"
         android:gravity="center"
-        android:textSize="30dp"
-        android:textColor="#000"/>
+        android:text="Pickup Person Details"
+        android:textColor="#000"
+        android:textSize="30dp" />
 
     <TextView
         android:id="@+id/p_not_assign"
         android:layout_width="match_parent"
         android:layout_height="43dp"
-        android:text="Pickup Person Not Assigned"
         android:gravity="center"
+        android:text="Pickup Person Not Assigned"
         android:textSize="20dp"
-        android:visibility="visible"/>
+        android:visibility="visible" />
 
     <LinearLayout
         android:id="@+id/pickup_person_detail"
@@ -151,11 +152,36 @@
 
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/ilist"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/rectangle_border" />
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/ilist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_border"
+            app:layout_constraintBottom_toTopOf="@+id/okbutton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.181" />
+
+        <Button
+            android:id="@+id/okbutton"
+            android:layout_width="116dp"
+            android:layout_height="54dp"
+
+            android:layout_marginBottom="4dp"
+            android:text="OK"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </LinearLayout>
