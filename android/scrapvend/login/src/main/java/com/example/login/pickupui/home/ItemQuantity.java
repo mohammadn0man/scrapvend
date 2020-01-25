@@ -88,7 +88,7 @@ public class ItemQuantity extends AppCompatActivity implements View.OnClickListe
                 }
                 */
 
-                int val = 1;
+                int val = 0;
                 for(int i=0; i< ItemQuantityAdapter.itemlist.size(); i++)
                 {
                     val += Integer.parseInt(ItemQuantityAdapter.itemlist.get(i).getItemqty().toString());
@@ -226,7 +226,7 @@ public class ItemQuantity extends AppCompatActivity implements View.OnClickListe
         protected void onPostExecute(Void aVoid)
         {
 
-            padapter = new ItemQuantityAdapter(context, R.layout.itemquantitylist, arrayOfEmp);
+            padapter = new ItemQuantityAdapter(context, arrayOfEmp);
 
             listView.setAdapter(padapter);
 
