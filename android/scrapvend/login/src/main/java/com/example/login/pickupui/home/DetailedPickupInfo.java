@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -15,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,7 +45,9 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
     String bookingId;
     Spinner spinner;
     Button editbutton,updateButton;
+    ImageButton mapButton;
     private final String TAG = "MyDBpage2";
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +64,8 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
         editbutton=findViewById(R.id.buttonEdit);
         updateButton=findViewById(R.id.buttonUpdate);
         textPrice=findViewById(R.id.textPrice);
+        mapButton=findViewById(R.id.mapButton);
+
 
         editbutton.setOnClickListener(new View.OnClickListener() {
 
@@ -75,13 +81,28 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
 
         });
 
+        mapButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Uri gmmIntentUri = Uri.parse("geo:37.7749,-122.4194");
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                if (mapIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(mapIntent);
+                }
+
+            }
+        });
+
         updateButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 Intent i=new Intent(DetailedPickupInfo.this,AmountVerification.class);
-                 startActivity(i);
+                startActivity(i);
 
             }
         });

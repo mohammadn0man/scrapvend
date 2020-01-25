@@ -71,6 +71,7 @@
             android:layout_marginLeft="60dp"
             android:layout_marginTop="20dp"
             android:id="@+id/historyBtn"
+            android:padding="5dp"
             android:textColor="@color/DarkSeaGreen"/>
     </LinearLayout>
 
