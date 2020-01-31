@@ -30,12 +30,11 @@ public class ItemQuantityAdapter extends BaseAdapter
     public static ArrayList<ItemQuantityModel> itemlist;
     private LayoutInflater inflater;
     Context context;
-    int textViewResourceId;
-    public ItemQuantityAdapter(@NonNull Context context, int textViewResourceId, ArrayList<ItemQuantityModel> itemlist) {
+
+    public ItemQuantityAdapter(@NonNull Context context, ArrayList<ItemQuantityModel> itemlist) {
 
         this.itemlist =itemlist;
         this.context=context;
-        this.textViewResourceId=textViewResourceId;
 
     }
 
@@ -55,24 +54,27 @@ public class ItemQuantityAdapter extends BaseAdapter
     }
 
     @Override
-    public View getView(final int position, View convertView, final ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         if(convertView==null)
         {
 
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.itemquantitylist, null);
-
+//            notifyDataSetChanged();
+            convertView = inflater.inflate(R.layout.itemquantitylist, null, true);
              employee=(ItemQuantityModel) getItem(position);
             TextView textViewName = convertView.findViewById(R.id.textViewItemName);
              editTextqty = convertView.findViewById(R.id.editItemQuantity);
             TextView textViewRate = convertView.findViewById(R.id.textViewItemRate);
-
+            convertView.setTag(editTextqty);
             textViewRate.setText(employee.getItemRate());
             textViewName.setText(employee.getitemName());
 
+        } else {
+            editTextqty = (EditText) convertView.getTag();
         }
         editTextqty.setText(itemlist.get(position).getItemqty());
+//        editTextqty.setId(position);
         editTextqty.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -81,7 +83,9 @@ public class ItemQuantityAdapter extends BaseAdapter
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 itemlist.get(position).setItemqty(s.toString());
-                Log.d("MyItemAdapter", s +"s, p"+position+count+"c, m"+itemlist.get(position).getItemqty());
+                Log.d("MyItemAdapter", s +"s, p"+position + " -- "+count+"c, m"+itemlist.get(position).getItemqty() + ", qty " + employee.getItemqty());
+
+                employee.setItemqty(s.toString());
             }
 
             @Override
