@@ -73,11 +73,11 @@ public class OnLeave extends AppCompatActivity {
             try {
                 Statement statement = conn.createStatement();
                 Log.d(TAG, "query :"+"SELECT pickup_person_details.Name,pickup_person_details.Pickup_person_id,pickup_person_record.`10:00AM-12:00PM` ,pickup_person_record.\"12:00PM-02:00PM\",pickup_person_record.\"02:00PM-04:00PM\",pickup_person_record.\"04:00PM-06:00PM\" FROM `pickup_person_details` INNER JOIN `pickup_person_record` ON pickup_person_details.Pickup_person_id=pickup_person_record.Pickup_person_id;");
-                ResultSet results = statement.executeQuery("SELECT pickup_person_details.Name,pickup_person_details.Pickup_person_id,pickup_person_record.`10:00AM-12:00PM` ,pickup_person_record.`12:00PM-02:00PM`,pickup_person_record.`02:00PM-04:00PM`,pickup_person_record.`04:00PM-06:00PM` FROM `pickup_person_details` INNER JOIN `pickup_person_record` ON pickup_person_details.Pickup_person_id=pickup_person_record.Pickup_person_id where Approval_status=0;");
+                ResultSet results = statement.executeQuery("SELECT pickup_person_details.Name,pickup_person_details.Pickup_person_id,pickup_person_record.`10:00AM-12:00PM` ,pickup_person_record.`12:00PM-02:00PM`,pickup_person_record.`02:00PM-04:00PM`,pickup_person_record.`04:00PM-06:00PM`,pickup_person_record.`Date` FROM `pickup_person_details` INNER JOIN `pickup_person_record` ON pickup_person_details.Pickup_person_id=pickup_person_record.Pickup_person_id where Approval_status=0;");
                 if(results.next()) {
                     do {
                         Log.d(TAG, results.getString(1));
-                        pmodel = new PickupPersonModel(results.getString(1), results.getString(2), results.getInt(3), results.getInt(4), results.getInt(5), results.getInt(6));
+                        pmodel = new PickupPersonModel(results.getString(1), results.getString(2), results.getInt(3), results.getInt(4), results.getInt(5), results.getInt(6),results.getString(7));
                         arr.add(pmodel);
                     }while (results.next());
                 }
@@ -137,18 +137,19 @@ public class OnLeave extends AppCompatActivity {
 
     public static class Leavegrant extends AsyncTask<Void, Void, Void> {
 
-        String id;
+        String id,Date;
         int temp;
         int c1,c2,c3,c4;
          LeaverequestAdapter padapter;
 
-        public Leavegrant(String id,int c1,int c2,int c3,int c4,int temp){
+        public Leavegrant(String id,int c1,int c2,int c3,int c4,int temp,String Date){
             this.id=id;
             this.c1=c1;
             this.c2=c2;
             this.c3=c3;
             this.c4=c4;
             this.temp=temp;
+            this.Date=Date;
 
         }
 
@@ -160,9 +161,9 @@ public class OnLeave extends AppCompatActivity {
 
             try {
 
-                Log.d(TAG, "query :"+id);
-                Log.d(TAG,"update pickup_person_details set `10:00AM-12:00PM`=\""+temp+"\",`12:00PM-02:00PM`=\""+temp+"\",`02:00PM-04:00PM`=\" "+temp+"\",`04:00PM-06:00PM`=\" "+temp+"\"");
-                String query ="update pickup_person_record set `10:00AM-12:00PM`="+c1+",`12:00PM-02:00PM`=\""+c2+"\",`02:00PM-04:00PM`=\""+c3+"\",`04:00PM-06:00PM`=\""+c4+"\",`Approval_status`="+temp+" WHERE Pickup_person_id = "+id+"";
+                Log.d(TAG, "query :"+id+Date);
+                Log.d(TAG,"update pickup_person_record set `10:00AM-12:00PM`=\""+temp+"\",`12:00PM-02:00PM`=\""+temp+"\",`02:00PM-04:00PM`=\" "+temp+"\",`04:00PM-06:00PM`=\" "+temp+"\" WHERE Pickup_person_id = \"+id+\" And Date =\"+Date+\"");
+                String query ="update pickup_person_record set `10:00AM-12:00PM`="+c1+",`12:00PM-02:00PM`=\""+c2+"\",`02:00PM-04:00PM`=\""+c3+"\",`04:00PM-06:00PM`=\""+c4+"\",`Approval_status`="+temp+" WHERE Pickup_person_id = "+id+" And Date =\""+Date+"\"";
                 PreparedStatement preparedStatement = conn.prepareStatement(query);
                 preparedStatement.execute();
 

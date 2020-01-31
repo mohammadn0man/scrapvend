@@ -13,9 +13,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.login.Adapters.DetailsAdapter;
+import com.example.login.DatabaseConnection.MySqlConnector;
 import com.example.login.Models.Details;
 import com.example.login.R;
-import com.example.login.DatabaseConnection.MySqlConnector;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

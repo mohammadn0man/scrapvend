@@ -79,7 +79,7 @@ public class LeaverequestAdapter extends ArrayAdapter<PickupPersonModel> {
             public void onClick(View view) {
                 Toast.makeText(context, pname +reject.getText().toString(), Toast.LENGTH_SHORT).show();
                 int c1=0,c2=0,c3=0,c4=0;
-                new OnLeave.Leavegrant(pickuppersonModel.getId(),c1,c2,c3,c4,3).execute();
+                new OnLeave.Leavegrant(pickuppersonModel.getId(),c1,c2,c3,c4,3,pickuppersonModel.getDate()).execute();
 
 
             }
@@ -107,7 +107,7 @@ public class LeaverequestAdapter extends ArrayAdapter<PickupPersonModel> {
                 {
                     c4 =1;
                 }
-                new OnLeave.Leavegrant(pickuppersonModel.getId(),c1,c2,c3,c4,1).execute();
+                new OnLeave.Leavegrant(pickuppersonModel.getId(),c1,c2,c3,c4,1,pickuppersonModel.getDate()).execute();
             }
         });
         return v;
