@@ -51,6 +51,7 @@ public class PickupDetailsFragment extends Fragment {
 
         dialog = new Dialog(getContext());
         viewHolder.name=root.findViewById(R.id.name);
+        viewHolder.username=root.findViewById(R.id.username);
         viewHolder.contactNo=root.findViewById(R.id.contact_no);
         viewHolder.email=root.findViewById(R.id.email);
         viewHolder.changePassword=root.findViewById(R.id.change_password);
@@ -67,6 +68,7 @@ public class PickupDetailsFragment extends Fragment {
                 viewHolder.contactNo.setText(s.getContactNo());
                 viewHolder.email.setText(s.getEmail());
 
+                pickupPersonProfileModel.setPassword(s.getPassword());
             }
         });
 
@@ -97,7 +99,7 @@ public class PickupDetailsFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
 
-                        if(viewHolder.oldPassword.getText().toString().equals("aish")){
+                        if(viewHolder.oldPassword.getText().toString().equals(pickupPersonProfileModel.getPassword())){
                             if(viewHolder.newPassword.getText().toString().equals(viewHolder.confirmPassword.getText().toString())){
 
                                 changedPassword =viewHolder.newPassword.getText().toString();

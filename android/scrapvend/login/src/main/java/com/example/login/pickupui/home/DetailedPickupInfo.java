@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.login.Adapters.ItemQuantityAdapter;
+import com.example.login.Models.Details;
 import com.example.login.R;
 import com.example.login.DatabaseConnection.MySqlConnector;
 
@@ -36,7 +37,7 @@ import java.sql.Statement;
 
 public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSelectedListener
 {   TextView textName;
-    TextView textAddress;
+    TextView textAddress,textQty;
     String ad;
     TextView textContact;
     TextView textbookingid;
@@ -45,7 +46,7 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
     String bookingId;
     Spinner spinner;
     Button editbutton,updateButton;
-    ImageButton mapButton;
+    Details details;
     private final String TAG = "MyDBpage2";
     @SuppressLint("WrongViewCast")
     @Override
@@ -58,14 +59,13 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
         textbookingid=findViewById(R.id.textbookingid);
         textDate=findViewById(R.id.textDate);
         textTime=findViewById(R.id.textTime);
-        editDate=findViewById(R.id.editPickupDate);
-        editTime=findViewById(R.id.editPickupTime);
+        textQty=findViewById(R.id.textQty);
+//        editDate=findViewById(R.id.editPickupDate);
+//        editTime=findViewById(R.id.editPickupTime);
         spinner=findViewById((R.id.spinner));
         editbutton=findViewById(R.id.buttonEdit);
         updateButton=findViewById(R.id.buttonUpdate);
         textPrice=findViewById(R.id.textPrice);
-        mapButton=findViewById(R.id.mapButton);
-
 
         editbutton.setOnClickListener(new View.OnClickListener() {
 
@@ -81,34 +81,33 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
 
         });
 
-        mapButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                Uri gmmIntentUri = Uri.parse("geo:37.7749,-122.4194");
-                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                mapIntent.setPackage("com.google.android.apps.maps");
-                if (mapIntent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(mapIntent);
-                }
-
-            }
-        });
-
+//        mapButton.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                // TODO Auto-generated method stub
+//                Uri gmmIntentUri = Uri.parse("geo:37.7749,-122.4194");
+//                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+//                mapIntent.setPackage("com.google.android.apps.maps");
+//                if (mapIntent.resolveActivity(getPackageManager()) != null) {
+//                    startActivity(mapIntent);
+//                }
+//
+//            }
+//        });
         updateButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 Intent i=new Intent(DetailedPickupInfo.this,AmountVerification.class);
+                i.putExtra("id", bookingId);
+                i.putExtra("contact_num", textContact.getText());
+
                 startActivity(i);
 
             }
         });
-
-
-
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.pickup_status, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -133,9 +132,6 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
             String message=data.getStringExtra("TotalAmount");
             Log.d(TAG, message);
             textPrice.setText(message);
-
-
-
         }
     }
     @Override
@@ -143,12 +139,9 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
 
         String str = parent.getItemAtPosition(position).toString();
         Toast.makeText(parent.getContext(), str, Toast.LENGTH_SHORT).show();
-
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
     }
 
     private class task extends AsyncTask<Void, Void, Void> {
@@ -171,7 +164,7 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
 //                        " FROM"+"(user_details"+ " INNER JOIN "+ "booking_details"+" ON "+ "user_details.User_id = booking_details.User_id)"+" WHERE " +"(booking_details.Pickup_status =\'Pending\' AND " +"user_details.Username= \'"+value+"\')" ;
 
                 String query = "SELECT user_details.Name, address.House_no, address.Line_1, address.City, address.State, address.Zip_code,\n" +
-                        "       booking_details.Booking_id, booking_details.Scheduled_pickup_date, Scheduled_time_slot, booking_details.Pickup_date_time,\n" +
+                        "       booking_details.Booking_id, booking_details.Scheduled_pickup_date, Scheduled_time_slot, booking_details.Total_quantity,\n" +
                         "       user_details.Username\n" +
                         "From  user_details\n" +
                         "    INNER JOIN booking_details on user_details.User_id = booking_details.User_id\n" +
@@ -194,16 +187,17 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
                 String slot[] = slot = getResources().getStringArray(R.array.slots);
                 Log.d(TAG, results.getString(1));
                 String scheduledDate=results.getString("Scheduled_pickup_date");
-                String scheduledTime= slot[Integer.parseInt(results.getString("Scheduled_time_slot")) - 1] ;
-                String pickupDate=results.getString("Pickup_date_time").substring(0,11);
-                String pickupTime=results.getString("Pickup_date_time").substring(12);
+                String scheduledTime= results.getString("Scheduled_time_slot") ;
+               // String pickupDate=results.getString("Pickup_date_time");
+               // String pickupTime=results.getString("Pickup_date_time");
                 textName.setText(results.getString("Name"));
                 ad = results.getString("House_no") + ", " + results.getString("Line_1") + "\n " + results.getString("City") + ", " + results.getString("State");
                 textbookingid.setText(results.getString("Booking_id"));
                 textDate.setText(scheduledDate);
                 textTime.setText(scheduledTime);
-                editDate.setText(pickupDate);
-                editTime.setText(pickupTime);
+                textQty.setText(results.getString("Total_quantity"));
+//                editDate.setText(pickupDate);
+//                editTime.setText(pickupTime);
 
 //                String totalAmount = getIntent().getStringExtra("TotalAmount");
 //                if(totalAmount==null)

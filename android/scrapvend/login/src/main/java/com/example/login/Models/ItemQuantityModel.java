@@ -1,11 +1,29 @@
 package com.example.login.Models;
 
+import android.graphics.Bitmap;
+
 import java.sql.Blob;
 
 public class ItemQuantityModel {
-    String itemName,itemRate, itemqty;
-    //String contact,address;
-    private Blob itemImage;
+    String itemName,itemRate, itemqty,itemId;
+    private Bitmap itemImage;
+    private byte[] byteImage;
+
+    public byte[] getByteImage() {
+        return byteImage;
+    }
+
+    public void setByteImage(byte[] byteImage) {
+        this.byteImage = byteImage;
+    }
+
+    public Bitmap getItemImage() {
+        return itemImage;
+    }
+
+    public void setItemImage(Bitmap itemImage) {
+        this.itemImage = itemImage;
+    }
 
     public String getItemName() {
         return itemName;
@@ -19,53 +37,25 @@ public class ItemQuantityModel {
         this.itemRate = itemRate;
     }
 
-    public Blob getItemImage() {
-        return itemImage;
-    }
-
-    public void setItemImage(Blob itemImage) {
-        this.itemImage = itemImage;
-    }
-
     private String editTextValue;
-
-    public String getEditTextValue() {
-        return editTextValue;
-    }
-
-    public void setEditTextValue(String editTextValue) {
-        this.editTextValue = editTextValue;
-    }
 
     public String getItemqty() {
         return itemqty;
     }
 
-    public ItemQuantityModel(String itemName, String itemRate, String itemqty) {
-        this.itemName = itemName;
-        this.itemRate = itemRate;
-        this.itemqty = itemqty;
-    }
-    public ItemQuantityModel(){};
-
     public void setItemqty(String itemqty) {
         this.itemqty = itemqty;
     }
 
-    /*public ItemQuantityModel(String itemName,Blob itemImage)
-        {    this.itemName = itemName;
-             this.itemImage=itemImage;
+    public ItemQuantityModel(){};
 
-        }*/
-    public ItemQuantityModel(String itemName,String itemRate)
+    public ItemQuantityModel(String Itemid,String itemName,String itemRate,Bitmap itemImage)
     {    this.itemName = itemName;
         this.itemRate=itemRate;
-
+        this.itemImage = itemImage;
+        this.itemId=Itemid;
     }
-
-    // public int getId() {
-    //   return id; }
-
+    public String getItemId(){ return itemId;}
 
     public String getitemName() {
         return itemName;
@@ -75,21 +65,7 @@ public class ItemQuantityModel {
         return itemRate;
     }
 
-    /*   public String getAddress() {
-        return address;
-    }
 
-
-    public String getContact() {
-        return contact;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-
-*/
 }
 
 

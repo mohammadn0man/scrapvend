@@ -123,7 +123,7 @@ public class HomeFragment extends Fragment {
                     Log.d(TAG, results.getString("Username") + results.getString("contact_no"));
                     pmodel = new Details(results.getString("Username"), results.getString("contact_no"), results.getString("House_no") +", "+
                             results.getString("Line_1") + "\n " + results.getString("City") + ", " + results.getString("State"),
-                            results.getString("Scheduled_pickup_date") + "\n" + slot[Integer.parseInt(results.getString("Scheduled_time_slot")) - 1] );
+                            results.getString("Scheduled_pickup_date") + "\n" + results.getString("Scheduled_time_slot"));
                     pmodel.setBookingId(results.getString("Booking_id"));
                     arrayOfEmp.add(pmodel);
                 }
