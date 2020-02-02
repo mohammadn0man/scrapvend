@@ -97,7 +97,7 @@
 
                 <EditText
                     android:id="@+id/pickupdate"
-                    android:layout_width="140dp"
+                    android:layout_width="108dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/rectangle_border"
