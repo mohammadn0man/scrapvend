@@ -43,7 +43,7 @@
         android:layout_marginTop="150dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/unschedule_pick"
-        android:text="UNSCHUDEL PICKUPS"
+        android:text="UNSCHEDULED PICKUPS"
         android:textColor="@android:color/background_light"
         android:clickable="true"
         android:textSize="18dp"/>
