@@ -103,7 +103,7 @@ public class HistoryFragment extends Fragment {
                     String pickupTime=results.getString("Pickup_date_time").substring(11);
 
                     Log.d(TAG, String.valueOf(results.getInt("Booking_id")));
-                    pmodel = new HistoryDetails(results.getInt("Booking_id"), results.getString("Line_1") + results.getString("City"),pickupDate,pickupTime);
+                    pmodel = new HistoryDetails(results.getInt("Booking_id"), results.getString("Line_1")+" , " + results.getString("City"),pickupDate,pickupTime);
                     arrayOfEmp.add(pmodel);
                 }
 
