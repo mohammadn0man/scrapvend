@@ -84,7 +84,6 @@ public class ItemQuantityAdapter extends BaseAdapter
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 itemlist.get(position).setItemqty(s.toString());
                 Log.d("MyItemAdapter", s +"s, p"+position + " -- "+count+"c, m"+itemlist.get(position).getItemqty() + ", qty " + employee.getItemqty());
-
                 employee.setItemqty(s.toString());
             }
 

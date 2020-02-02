@@ -92,17 +92,17 @@ public class ItemQuantity extends AppCompatActivity implements View.OnClickListe
                 for(int i=0; i< ItemQuantityAdapter.itemlist.size(); i++)
                 {
                     val += Integer.parseInt(ItemQuantityAdapter.itemlist.get(i).getItemqty().toString());
-//                        textPrice.setText(textPrice.getText()+" "+ItemQuantityAdapter.itemlist.get(i).getItemqty());
-                    Log.e(TAG, val +" "+i+"<-val->"+ItemQuantityAdapter.itemlist.size());
+//                    textPrice.setText(textPrice.getText()+" "+ItemQuantityAdapter.itemlist.get(i).getItemqty());
+//                    Log.e(TAG, val +" "+i+"<-val->"+ItemQuantityAdapter.itemlist.size());
                 }
+
                 totalAmount=String.valueOf(val);
 
-                Log.d(TAG, totalAmount + "<----");
+//                Log.d(TAG, totalAmount + "<----");
 
                 Intent intent=new Intent();
                 intent.putExtra("TotalAmount", totalAmount);
                 setResult(2,intent);
-
 
                 finish();//finishing activity
 
