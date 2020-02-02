@@ -73,21 +73,7 @@ public class LeaveStatus extends AppCompatActivity
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
-
-
-
     }
-
-//    @Override
-//    public void onRefresh() {
-//
-//        Log.d(TAG, "add ref values");
-//        new task().execute();
-//        Log.d(TAG, "add ref values");
-//
-//
-//    }
-
 
     public class task extends AsyncTask<Void, Void, Void> {
 
@@ -95,14 +81,14 @@ public class LeaveStatus extends AppCompatActivity
         @Override
         protected Void doInBackground(Void... voids) {
 
-            try {
-                MySqlConnector connection = new MySqlConnector();
+            MySqlConnector connection = new MySqlConnector();
 
-                Connection conn = connection.getMySqlConnection();
+            Connection conn = connection.getMySqlConnection();
+            try {
                 Statement statement = conn.createStatement();
 
                 String query ="Select * from pickup_person_record INNER JOIN pickup_person_details ON pickup_person_record.Pickup_person_id = pickup_person_details.Pickup_person_id " +
-                        " where pickup_person_details.Username = \"" + user + "\"";
+                        " where pickup_person_details.Username = \'" + user + "\'";
 
                 Log.d(TAG, "Leave query");
                 Log.d(TAG, query);
@@ -114,15 +100,21 @@ public class LeaveStatus extends AppCompatActivity
                 while (results.next()) {
                     Log.d(TAG,results.getString("Date")+" "+ results.getInt(3)+" "+results.getInt(4)+" "+ results.getInt(5)+" "+results.getInt(6)+" "+results.getInt(7));
 
-                    pmodel = new LeaveStatusModel(results.getString("Date"), results.getInt(3), results.getInt(4), results.getInt(5),results.getInt(6),results.getInt(7));
+                    pmodel = new LeaveStatusModel(results.getString("Date"), results.getInt("10:00AM-12:00PM"), results.getInt("12:00PM-02:00PM"), results.getInt("02:00PM-04:00PM"),results.getInt("04:00PM-06:00PM"),results.getInt("Approval_status"));
 
                     arrayOfEmp.add(pmodel);
                 }
                 Log.d(TAG,"values inserted");
 
-                conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
+            } finally {
+
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
             return null;
         }
@@ -131,7 +123,7 @@ public class LeaveStatus extends AppCompatActivity
             Log.d(TAG, "inside post execute");
             padapter = new LeaveStatusAdapter(context, R.layout.leavestatuslistview, arrayOfEmp);
 
-            Log.d(TAG, "add values");
+            Log.d(TAG, "add values" + arrayOfEmp.size());
 
             listView.setAdapter(padapter);
 

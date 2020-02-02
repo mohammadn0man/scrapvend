@@ -79,7 +79,7 @@ public class PickupInfoPickupPersonAssigned extends AppCompatActivity implements
                 try {
                     Statement statement = conn.createStatement();
 
-                    query = "SELECT booking_details.Booking_date_time, booking_details.Scheduled_pickup_date_time, " +
+                    query = "SELECT booking_details.Booking_date_time, booking_details.Scheduled_pickup_date, " +
                             "user_details.Username, booking_details.Pickup_status, user_details.Name, " +
                             "booking_assigned.Assigned_date, pickup_person_details.Pickup_person_id, " +
                             "pickup_person_details.Name " +

@@ -2,6 +2,8 @@ package com.example.login.pickupui.home;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +19,7 @@ import com.example.login.DatabaseConnection.MySqlConnector;
 import com.example.login.Models.ItemQuantityModel;
 import com.example.login.R;
 
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -32,7 +35,7 @@ public class ItemQuantity extends AppCompatActivity implements View.OnClickListe
     ItemQuantityModel pmodel;
     ItemQuantityAdapter padapter;
     Context context;
-    ImageView img1;
+    ImageView img;
     TextView textViewName, textViewPrice;
     EditText editQuantity;
     Button okButton;
@@ -55,9 +58,8 @@ public class ItemQuantity extends AppCompatActivity implements View.OnClickListe
         textViewPrice = (TextView)findViewById(R.id.textViewItemRate);
         editQuantity=findViewById(R.id.editItemQuantity);
         okButton=findViewById(R.id.okButton);
+        img = (ImageView)findViewById(R.id.imageView);
 
-
-        img1 = (ImageView)findViewById(R.id.imageView);
         new task().execute();
         context = this.getApplicationContext();
         Log.d(TAG, "before intent in home");
@@ -91,18 +93,20 @@ public class ItemQuantity extends AppCompatActivity implements View.OnClickListe
                 int val = 0;
                 for(int i=0; i< ItemQuantityAdapter.itemlist.size(); i++)
                 {
-                    val += Integer.parseInt(ItemQuantityAdapter.itemlist.get(i).getItemqty().toString());
-//                    textPrice.setText(textPrice.getText()+" "+ItemQuantityAdapter.itemlist.get(i).getItemqty());
-//                    Log.e(TAG, val +" "+i+"<-val->"+ItemQuantityAdapter.itemlist.size());
+                    val +=Integer.parseInt(ItemQuantityAdapter.itemlist.get(i).getItemqty().toString())*
+                            Integer.parseInt(ItemQuantityAdapter.itemlist.get(i).getItemRate().toString());
+//
+//                        textPrice.setText(textPrice.getText()+" "+ItemQuantityAdapter.itemlist.get(i).getItemqty());
+                    Log.e(TAG, val +" "+i+"<-val->"+ItemQuantityAdapter.itemlist.size());
                 }
-
                 totalAmount=String.valueOf(val);
 
-//                Log.d(TAG, totalAmount + "<----");
+                Log.d(TAG, totalAmount + "<----");
 
                 Intent intent=new Intent();
                 intent.putExtra("TotalAmount", totalAmount);
                 setResult(2,intent);
+
 
                 finish();//finishing activity
 
@@ -211,9 +215,18 @@ public class ItemQuantity extends AppCompatActivity implements View.OnClickListe
                 Log.d(TAG, "query executed");
                 while (results.next()) {
                     Log.d(TAG, results.getString("Item_name") + results.getString("Item_rate"));
-                    pmodel = new ItemQuantityModel(results.getString("Item_name"), results.getString("Item_rate"));
-//                    pmodel = new ItemQuantityModel(results.getString("Item_name"), results.getString("Item_rate"));
-                    pmodel.setItemqty("0");
+                    Blob bp = results.getBlob(5);
+                    Bitmap btm;
+                    try {
+                        int blobLength = (int) bp.length();
+                        byte[] blobAsBytes = bp.getBytes(1, blobLength);
+                        btm = BitmapFactory.decodeByteArray(blobAsBytes, 0, blobAsBytes.length);
+                        pmodel = new ItemQuantityModel(results.getString("Item_id"),results.getString("Item_name"), results.getString("Item_rate"),btm);
+                        pmodel.setItemqty("0");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
                     arrayOfEmp.add(pmodel);
                 }
 

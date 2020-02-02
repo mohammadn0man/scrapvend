@@ -22,6 +22,20 @@
         android:drawableLeft="@drawable/ic_action_user"
         android:layout_marginTop="200dp" />
     <EditText
+        android:inputType="text"
+        android:layout_width="300dp"
+        android:layout_marginLeft="40dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:background="@android:color/transparent"
+        android:id="@+id/username"
+        android:hint="Username"
+        android:textColorHint="#fff"
+        android:maxLines="1"
+        android:drawableLeft="@drawable/ic_action_user"
+        android:layout_marginTop="470dp" />
+
+    <EditText
         android:inputType="textEmailAddress"
         android:drawableLeft="@drawable/ic_action_mail"
         android:layout_width="300dp"
@@ -88,7 +102,7 @@
         android:layout_centerHorizontal="true"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_marginTop="490dp"
+        android:layout_marginTop="540dp"
         android:background="@drawable/background_registration"
         android:text="REGISTER"
         android:textColor="#fff"

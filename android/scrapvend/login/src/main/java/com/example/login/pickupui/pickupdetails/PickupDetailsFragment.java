@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,7 +23,6 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.login.DatabaseConnection.MySqlConnector;
 import com.example.login.Models.PickupPersonProfileModel;
 import com.example.login.R;
-import com.example.login.userUi.profile.ProfileFragment;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -51,6 +49,7 @@ public class PickupDetailsFragment extends Fragment {
 
         dialog = new Dialog(getContext());
         viewHolder.name=root.findViewById(R.id.name);
+        viewHolder.username=root.findViewById(R.id.username);
         viewHolder.contactNo=root.findViewById(R.id.contact_no);
         viewHolder.email=root.findViewById(R.id.email);
         viewHolder.changePassword=root.findViewById(R.id.change_password);
@@ -67,6 +66,7 @@ public class PickupDetailsFragment extends Fragment {
                 viewHolder.contactNo.setText(s.getContactNo());
                 viewHolder.email.setText(s.getEmail());
 
+                pickupPersonProfileModel.setPassword(s.getPassword());
             }
         });
 
@@ -97,7 +97,7 @@ public class PickupDetailsFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
 
-                        if(viewHolder.oldPassword.getText().toString().equals("aish")){
+                        if(viewHolder.oldPassword.getText().toString().equals(pickupPersonProfileModel.getPassword())){
                             if(viewHolder.newPassword.getText().toString().equals(viewHolder.confirmPassword.getText().toString())){
 
                                 changedPassword =viewHolder.newPassword.getText().toString();
