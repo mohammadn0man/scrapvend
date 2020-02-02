@@ -10,7 +10,8 @@
         android:layout_height="47dp"
         android:text="TextView"
         android:textSize="20dp"
-        android:textColor="#000"/>
+        android:textColor="#000"
+        android:padding="10dp"/>
 
     <TextView
         android:id="@+id/textView20"

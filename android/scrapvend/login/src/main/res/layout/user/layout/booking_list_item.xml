@@ -2,18 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/admin_background">
-
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/bid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
-        android:padding="5dp"
+        android:padding="15dp"
         android:textSize="20dp"
-        android:textColor="#000"/>
+        android:textColor="@color/Black"/>
 
 
     <TextView
@@ -21,14 +19,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
-        android:padding="5dp"
-        android:textSize="20dp" />
+        android:padding="15dp"
+        android:textSize="20dp"
+        android:textColor="@color/Black"/>
 
     <TextView
         android:id="@+id/bdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
-        android:padding="5dp"
-        android:textSize="20dp" />
+        android:padding="15dp"
+        android:textSize="20dp"
+        android:textColor="@color/Black"/>
 </LinearLayout>

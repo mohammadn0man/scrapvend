@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="308dp"
+    android:layout_height="408dp"
     android:layout_gravity="center"
-    android:background="@drawable/admin_background"
+    android:background="@drawable/rectangle_border"
     android:orientation="vertical">
         <LinearLayout
         android:layout_width="300dp"
         android:layout_height="400dp"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="5dp"
             android:layout_gravity="center"
-            android:background="@drawable/rectangle_border"
+            android:background="@drawable/admin_background"
             android:orientation="vertical">
     <TextView
         android:id="@+id/txtclose"
@@ -20,6 +20,7 @@
         android:textSize="20dp"
         android:text="X"
         android:textStyle="bold"
+        android:layout_marginRight="10dp"
         android:clickable="true"/>
 
     <TextView
@@ -43,6 +44,7 @@
             android:hint="house_no"
             android:padding="10dp"
             android:textSize="20dp"
+            android:drawableLeft="@drawable/ic_home_black"
             android:textColorHint="@color/Black"
             android:paddingLeft="10dp"/>
 
@@ -54,7 +56,9 @@
             android:hint="Street"
             android:textAlignment="center"
             android:padding="10dp"
+            android:drawableLeft="@drawable/ic_home_black"
             android:textSize="20dp"
+
             android:textColorHint="@color/Black"
             android:paddingLeft="10dp"/>
 
@@ -67,6 +71,7 @@
             android:padding="10dp"
             android:textAlignment="center"
             android:textColorHint="@color/Black"
+            android:drawableLeft="@drawable/ic_location_city"
             android:textSize="20dp"
             android:paddingLeft="10dp"/>
 
@@ -79,6 +84,7 @@
         android:hint="State"
         android:textColorHint="@color/Black"
         android:padding="10dp"
+        android:drawableLeft="@drawable/ic_location_city"
         android:textSize="20dp"
         android:paddingLeft="10dp"/>
 
@@ -92,6 +98,7 @@
         android:padding="10dp"
         android:textSize="20dp"
         android:paddingLeft="10dp"
+        android:drawableLeft="@drawable/ic_format_zipcode"
         android:textColorHint="@color/Black"/>
 
     <Button

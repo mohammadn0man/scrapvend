@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:orientation="horizontal">
-
+    android:orientation="vertical">
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:layout_width="80dp"
@@ -26,10 +25,11 @@
         android:id="@+id/textViewItemName"
         android:layout_width="150dp"
         android:layout_height="match_parent"
-        android:padding="3dp"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
         android:text="TextView"
         android:textSize="20dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/textViewItemRate"
@@ -50,6 +50,7 @@
         android:focusableInTouchMode="true"
         android:padding="3dp"
         android:text="0"
+        android:layout_marginTop="10dp"
         android:textSize="20dp"
         android:textStyle="bold" />
 

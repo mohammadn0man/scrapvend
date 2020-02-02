@@ -16,14 +16,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:textSize="15sp" >
+        android:textSize="15sp"
+        android:textColor="@color/Black">
     </TextView>
     <TextView
         android:id="@+id/item_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:textSize="15sp" >
+        android:textSize="15sp"
+        android:textColor="@color/Black">
     </TextView>
 
 </LinearLayout>

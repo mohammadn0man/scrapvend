@@ -17,7 +17,7 @@
     <ListView
         android:id="@+id/request"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="250dp"
         android:layout_alignParentTop="true"
         android:layout_margin="16dp"
         android:dividerHeight="3dp"
@@ -28,10 +28,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="LEAVE REQUEST"
-        android:textColor="@color/black"
+        android:textColor="@color/red"
         android:textSize="23dp"
-        android:layout_margin="@dimen/activity_horizontal_margin"
-        />
+        android:layout_margin="@dimen/activity_horizontal_margin"/>
 
     <ListView
         android:id="@+id/leave"
@@ -39,8 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_horizontal_margin"
         android:dividerHeight="3dp"
-        android:background="@drawable/rectangle_border"
-        android:paddingBottom="16dp"/>
+        android:background="@drawable/rectangle_border"/>
 
 
 

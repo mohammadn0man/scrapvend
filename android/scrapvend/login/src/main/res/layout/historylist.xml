@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    >
+    android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="180dp"
@@ -17,7 +16,9 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:text="Booking_id"
-            />
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="20dp"/>
 
 
         <TextView
@@ -27,7 +28,9 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:text="Address"
-            />
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/textView3"
@@ -36,7 +39,9 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:text="Pickup_date"
-            />
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="20dp"/>
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
@@ -44,7 +49,9 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:text="Pickup time"
-            />
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="20dp"/>
 
     </LinearLayout>
 
@@ -59,8 +66,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
-            android:text="Belal Khan"
-            />
+            android:text="Bilal Khan"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="20dp"/>
 
 
         <TextView
@@ -70,7 +79,9 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:text="Technical"
-            />
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/textViewDate"
@@ -79,7 +90,9 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:text="INR 40000"
-            />
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="20dp"/>
         <TextView
             android:id="@+id/textViewTime"
             android:layout_width="match_parent"
@@ -87,7 +100,9 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:text="INR 40000"
-            />
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="20dp"/>
 
     </LinearLayout>
 

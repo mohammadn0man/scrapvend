@@ -15,7 +15,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:divider="#000"
-        android:background="@drawable/rectangle_border"
         android:dividerHeight="3dp"
         />
 
