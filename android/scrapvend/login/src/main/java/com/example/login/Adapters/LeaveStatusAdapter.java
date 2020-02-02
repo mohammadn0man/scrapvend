@@ -28,13 +28,14 @@ import androidx.annotation.NonNull;
 
 public class LeaveStatusAdapter extends ArrayAdapter<LeaveStatusModel> {
     Context context;
+    int t1,t2,t3,t4;
     int resourse;
     ArrayList<LeaveStatusModel> historylist;
-   LeaveStatusAdapter adapter;
-   LeaveStatusModel model;
+    LeaveStatusAdapter adapter;
+    LeaveStatusModel model;
+    LeaveStatusModel employee;
     private final String TAG = "MyDBhome";
 
-    public int getCount(){return super.getCount();}
     public LeaveStatusAdapter(@NonNull Context context, int resource, ArrayList<LeaveStatusModel> historylist) {
 
         super(context,resource,historylist);
@@ -43,6 +44,8 @@ public class LeaveStatusAdapter extends ArrayAdapter<LeaveStatusModel> {
         this.historylist= historylist;
     }
 
+    public int getCount(){return super.getCount();}
+
     public View getView(int position, View convertView, ViewGroup parent){
         final View v;
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -50,7 +53,6 @@ public class LeaveStatusAdapter extends ArrayAdapter<LeaveStatusModel> {
 
         final TextView time1,time2,time3,time4,date,status;
         final Button cancel;
-        final int t1,t2,t3,t4;
         final int s;
 
         time1=v.findViewById(R.id.timeSlot1);
@@ -60,7 +62,9 @@ public class LeaveStatusAdapter extends ArrayAdapter<LeaveStatusModel> {
         date= v.findViewById(R.id.textViewDate);
         status=v.findViewById(R.id.textViewStatus);
         cancel=v.findViewById(R.id.Cancelbutton);
-        final LeaveStatusModel employee=getItem(position);
+        employee=getItem(position);
+
+        Log.e(TAG, "----> " + employee.getDate());
 
         t1=employee.getT1();
         t2=employee.getT2();
@@ -69,13 +73,15 @@ public class LeaveStatusAdapter extends ArrayAdapter<LeaveStatusModel> {
         s=employee.getStatus();
         if(t1==1) {
             time1.setVisibility(View.VISIBLE);
+            Log.e(TAG, "----> " + employee.getDate());
         }
         if(t2==1) {
             time2.setVisibility(View.VISIBLE);
         }
         if(t3==1) {
             time3.setVisibility(View.VISIBLE);
-        }if(t4==1) {
+        }
+        if(t4==1) {
             time4.setVisibility(View.VISIBLE);
         }
         if(s==0) {
@@ -86,13 +92,20 @@ public class LeaveStatusAdapter extends ArrayAdapter<LeaveStatusModel> {
             status.setText("Accepted");
             cancel.setBackgroundColor(Color.GRAY);
         }
-        else {
+        else if (s==2)
+        {
             status.setText("Canceled");
+            cancel.setBackgroundColor(Color.GRAY);
+        }
+        else {
+            status.setText("Rejected");
             cancel.setBackgroundColor(Color.GRAY);
         }
 
 
         date.setText(employee.getDate());
+
+
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,11 +124,8 @@ public class LeaveStatusAdapter extends ArrayAdapter<LeaveStatusModel> {
 
             }
         });
-
         return v;
     }
-
-
     private class task extends AsyncTask<Void, Void, Void> {
 
         @SuppressLint("WrongThread")

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,9 +36,7 @@ public class ItemQuantityAdapter extends BaseAdapter
 
         this.itemlist =itemlist;
         this.context=context;
-
     }
-
     @Override
     public int getCount() {
          return itemlist.size();
@@ -62,13 +61,19 @@ public class ItemQuantityAdapter extends BaseAdapter
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 //            notifyDataSetChanged();
             convertView = inflater.inflate(R.layout.itemquantitylist, null, true);
-             employee=(ItemQuantityModel) getItem(position);
+
+            employee=(ItemQuantityModel) getItem(position);
+
             TextView textViewName = convertView.findViewById(R.id.textViewItemName);
-             editTextqty = convertView.findViewById(R.id.editItemQuantity);
+            editTextqty = convertView.findViewById(R.id.editItemQuantity);
             TextView textViewRate = convertView.findViewById(R.id.textViewItemRate);
+            ImageView img = convertView.findViewById(R.id.imageView3);
+
             convertView.setTag(editTextqty);
             textViewRate.setText(employee.getItemRate());
             textViewName.setText(employee.getitemName());
+            img.setImageBitmap(employee.getItemImage());
+
 
         } else {
             editTextqty = (EditText) convertView.getTag();
@@ -83,7 +88,7 @@ public class ItemQuantityAdapter extends BaseAdapter
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 itemlist.get(position).setItemqty(s.toString());
-                Log.d("MyItemAdapter", s +"s, p"+position + " -- "+count+"c, m"+itemlist.get(position).getItemqty() + ", qty " + employee.getItemqty());
+//                Log.d("MyItemAdapter", s +"s, p"+position + " -- "+count+"c, m"+itemlist.get(position).getItemqty() + ", qty " + employee.getItemqty());
 
                 employee.setItemqty(s.toString());
             }
