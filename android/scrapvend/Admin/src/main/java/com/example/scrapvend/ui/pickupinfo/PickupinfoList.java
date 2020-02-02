@@ -40,7 +40,6 @@ public class PickupinfoList extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         GET_PICKUPLIST_FLAG = bundle.getString("GET_PICKUPINFO_FLAG");
-        Log.e(TAG, "Booking id to transfer " + GET_PICKUPLIST_FLAG);
 
         new PickupinfoTask().execute();
 
@@ -50,23 +49,19 @@ public class PickupinfoList extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 PickupinfoModel pickupinfoModel = pickupinfoModelArrayList.get(i);
                 Log.e(TAG, "Booking id to transfer " + pickupinfoModel.getBookingId());
-                if(GET_PICKUPLIST_FLAG.equals("Pickup Completed")) {
+                if (GET_PICKUPLIST_FLAG.equals("Pickup Completed")) {
                     Intent intent = new Intent(getApplicationContext(), PickupInfoCompletedPickupView.class);
                     intent.putExtra("GET_PICKUPLIST_FLAG", GET_PICKUPLIST_FLAG);
                     intent.putExtra("ADDRESS", pickupinfoModel.getLocation());
                     intent.putExtra("BOOKING_ID", pickupinfoModel.getBookingId());
                     startActivity(intent);
-                }
-                else if(GET_PICKUPLIST_FLAG.equals("Pickup Person Assigned")) {
+                } else if (GET_PICKUPLIST_FLAG.equals("Pickup Person Assigned")) {
                     Intent intent = new Intent(getApplicationContext(), PickupInfoPickupPersonAssigned.class);
-                    Log.e(TAG, "->>>" + GET_PICKUPLIST_FLAG);
                     intent.putExtra("GET_PICKUPLIST_FLAG", GET_PICKUPLIST_FLAG);
                     intent.putExtra("ADDRESS", pickupinfoModel.getLocation());
                     intent.putExtra("BOOKING_ID", pickupinfoModel.getBookingId());
                     startActivity(intent);
-                }
-                else if(GET_PICKUPLIST_FLAG.equals("Pending Pickup")) {
-                    Log.e(TAG, "->>>" + GET_PICKUPLIST_FLAG);
+                } else if (GET_PICKUPLIST_FLAG.equals("Pending Pickup")) {
                     Intent intent = new Intent(getApplicationContext(), PickupInfoPendingPickup.class);
                     intent.putExtra("GET_PICKUPLIST_FLAG", GET_PICKUPLIST_FLAG);
                     intent.putExtra("ADDRESS", pickupinfoModel.getLocation());
@@ -81,7 +76,7 @@ public class PickupinfoList extends AppCompatActivity {
 
     }
 
-    private class PickupinfoTask extends AsyncTask<Void, Void, Void>{
+    private class PickupinfoTask extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... voids) {
@@ -90,14 +85,11 @@ public class PickupinfoList extends AppCompatActivity {
             Connection conn = connection.getMySqlConnection();
             try {
                 Statement statement = conn.createStatement();
-
-                String queey = "SELECT booking_details.Booking_date_time, booking_details.Scheduled_pickup_date, user_details.Username, address.House_no , address.Line_1, address.City, booking_details.Booking_id FROM booking_details INNER JOIN user_details ON user_details.User_id = booking_details.User_id INNER JOIN address ON booking_details.Address_id = address.Address_id where Pickup_status = \""+ GET_PICKUPLIST_FLAG + "\";";
-
-                ResultSet results = statement.executeQuery(queey);
+                ResultSet results = statement.executeQuery("SELECT booking_details.Booking_date_time, booking_details.Scheduled_pickup_date, user_details.Username, address.House_no , address.Line_1, address.City, booking_details.Booking_id FROM booking_details INNER JOIN user_details ON user_details.User_id = booking_details.User_id INNER JOIN address ON booking_details.Address_id = address.Address_id where Pickup_status = \"" + GET_PICKUPLIST_FLAG + "\";");
 
                 while (results.next()) {
                     Log.d(TAG, results.getString(1) + results.getString(2));
-                    pickupinfoModel = new PickupinfoModel(results.getString(3), results.getString(1),results.getString(2),results.getString(4)+" "+results.getString(5)+ " " +results.getString(6));
+                    pickupinfoModel = new PickupinfoModel(results.getString(3), results.getString(1), results.getString(2), results.getString(4) + " " + results.getString(5) + " " + results.getString(6));
                     pickupinfoModel.setBookingId(results.getString(7));
                     pickupinfoModelArrayList.add(pickupinfoModel);
                 }
@@ -116,7 +108,7 @@ public class PickupinfoList extends AppCompatActivity {
             return null;
         }
 
-        protected void onPostExecute(Void aVoid){
+        protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             pickupinfoAdapter = new PickupinfoAdapter(getBaseContext(), R.layout.pickupinfo_list, pickupinfoModelArrayList);
             listView.setAdapter(pickupinfoAdapter);
