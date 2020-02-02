@@ -40,6 +40,7 @@ public class PickupinfoList extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         GET_PICKUPLIST_FLAG = bundle.getString("GET_PICKUPINFO_FLAG");
+        Log.e(TAG, "Booking id to transfer " + GET_PICKUPLIST_FLAG);
 
         new PickupinfoTask().execute();
 
@@ -58,12 +59,14 @@ public class PickupinfoList extends AppCompatActivity {
                 }
                 else if(GET_PICKUPLIST_FLAG.equals("Pickup Person Assigned")) {
                     Intent intent = new Intent(getApplicationContext(), PickupInfoPickupPersonAssigned.class);
+                    Log.e(TAG, "->>>" + GET_PICKUPLIST_FLAG);
                     intent.putExtra("GET_PICKUPLIST_FLAG", GET_PICKUPLIST_FLAG);
                     intent.putExtra("ADDRESS", pickupinfoModel.getLocation());
                     intent.putExtra("BOOKING_ID", pickupinfoModel.getBookingId());
                     startActivity(intent);
                 }
                 else if(GET_PICKUPLIST_FLAG.equals("Pending Pickup")) {
+                    Log.e(TAG, "->>>" + GET_PICKUPLIST_FLAG);
                     Intent intent = new Intent(getApplicationContext(), PickupInfoPendingPickup.class);
                     intent.putExtra("GET_PICKUPLIST_FLAG", GET_PICKUPLIST_FLAG);
                     intent.putExtra("ADDRESS", pickupinfoModel.getLocation());
@@ -87,7 +90,10 @@ public class PickupinfoList extends AppCompatActivity {
             Connection conn = connection.getMySqlConnection();
             try {
                 Statement statement = conn.createStatement();
-                ResultSet results = statement.executeQuery("SELECT booking_details.Booking_date_time, booking_details.Scheduled_pickup_date, user_details.Username, address.House_no , address.Line_1, address.City, booking_details.Booking_id FROM booking_details INNER JOIN user_details ON user_details.User_id = booking_details.User_id INNER JOIN address ON booking_details.Address_id = address.Address_id where Pickup_status = \""+ GET_PICKUPLIST_FLAG + "\";");
+
+                String queey = "SELECT booking_details.Booking_date_time, booking_details.Scheduled_pickup_date, user_details.Username, address.House_no , address.Line_1, address.City, booking_details.Booking_id FROM booking_details INNER JOIN user_details ON user_details.User_id = booking_details.User_id INNER JOIN address ON booking_details.Address_id = address.Address_id where Pickup_status = \""+ GET_PICKUPLIST_FLAG + "\";";
+
+                ResultSet results = statement.executeQuery(queey);
 
                 while (results.next()) {
                     Log.d(TAG, results.getString(1) + results.getString(2));

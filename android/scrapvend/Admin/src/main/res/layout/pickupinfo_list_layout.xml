@@ -23,7 +23,7 @@
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/username"
+            android:id="@+id/address"
             android:textSize="20dp"
             android:layout_width="190dp"
             android:layout_height="wrap_content"

@@ -51,7 +51,7 @@
         android:inputType="textPersonName"/>
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/address"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:ems="10"
@@ -65,7 +65,7 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/address"
+        android:id="@+id/username"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:ems="10"
