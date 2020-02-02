@@ -48,7 +48,7 @@ public class AmountVerification extends AppCompatActivity {
     ProgressBar pBar;
     String bookingId,contact_num;
     Context context;
-    float total_quantity=0;
+    float total_quantity=0,total_amount=0;
     int randomNumber;
     private final String TAG = "MyDBpage2";
 
@@ -93,13 +93,12 @@ public class AmountVerification extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Please enter otp", Toast.LENGTH_SHORT).show();
                 }
                 else if(randomNumber == Integer.valueOf(user_otp))
-                {
+                {    pBar.setVisibility(v.VISIBLE);
+                    new UpdateTask().execute();
                     Toast.makeText(getApplicationContext(), "Successfully updated!", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    pBar.setVisibility(v.VISIBLE);
-
-                    new UpdateTask().execute();
+                    Toast.makeText(getApplicationContext(), "otp not matched..Please try again!", Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -123,7 +122,7 @@ public class AmountVerification extends AppCompatActivity {
                 randomNumber = random.nextInt(9999);
                 String message = "&message=" + "Hey " +" Your OTP is " + randomNumber + ". Thankyou, Team Scrapvend";
                 String sender = "&sender=" + "TXTLCL";
-                String numbers = "&numbers=91" + "9760215764";
+                String numbers = "&numbers=91" + contact_num;
 
                 // Send data
                 HttpURLConnection conn = (HttpURLConnection) new URL("https://api.textlocal.in/send/?").openConnection();
@@ -182,9 +181,10 @@ public class AmountVerification extends AppCompatActivity {
                 for(int i=0; i< ItemQuantityAdapter.itemlist.size(); i++)
                 {
                    float itemQty=Float.parseFloat(ItemQuantityAdapter.itemlist.get(i).getItemqty());
-                   float itemAmt=Float.parseFloat(ItemQuantityAdapter.itemlist.get(i).getItemqty());
+                   float itemAmt=Float.parseFloat(ItemQuantityAdapter.itemlist.get(i).getItemRate());
                    int itemId=Integer.parseInt(ItemQuantityAdapter.itemlist.get(i).getItemId());
                     total_quantity+=itemQty;
+                    total_amount+=(itemAmt*itemQty);
                     if(itemQty==0.0)
                    {
                        continue;
@@ -217,6 +217,16 @@ public class AmountVerification extends AppCompatActivity {
                 preparedStatement.execute();
                 Log.d(TAG, "update query executed");
 
+                String query3 = "INSERT INTO `payment_details` (Payment_amount , Booking_id) VALUES (?,?)";
+                PreparedStatement pStatement = conn.prepareStatement(query3);
+                pStatement.setFloat(1,total_amount);
+                pStatement.setInt(2, b_id);
+
+                Log.d(TAG, "query = " + query3);
+
+                pStatement.execute();
+                Log.d(TAG, "update query executed");
+
 
 
             } catch (SQLException e) {
@@ -234,11 +244,9 @@ public class AmountVerification extends AppCompatActivity {
         protected void onPostExecute(Void aVoid)
         {
             pBar.setVisibility(View.GONE);
-            Toast.makeText(getApplicationContext(), "otp not matched..Please try again!", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(AmountVerification.this, MainActivity.class);
             startActivity(i);
             super.onPostExecute(aVoid);
-
 
         }
     }

@@ -43,7 +43,8 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
     TextView textbookingid;
     TextView textDate,textTime,textPrice;
     EditText editDate,editTime;
-    String bookingId;
+
+    String contact, bookingId;
     Spinner spinner;
     Button editbutton,updateButton;
     Details details;
@@ -116,7 +117,9 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
 
         String TempHolder = getIntent().getStringExtra("ListViewClickedValue");
         bookingId = getIntent().getStringExtra("id");
+        contact=getIntent().getStringExtra("contact");
         textName.setText(TempHolder);
+        textContact.setText(contact);
         // Setting up received value into EditText.
         new task().execute();
         //context = this.getContext();

@@ -36,13 +36,13 @@ public class HomeFragment extends Fragment {
     DetailsAdapter padapter;
 
     Context context;
-    TextView textViewName, textViewAddress, textViewDate, textViewContact;
+    TextView textViewName, textViewAddress, textViewDate, textViewContact,textEmpty;
     String slot[];
     private final String TAG = "MyDBhome";
     DetailsAdapter adapter;
     Details details;
     ArrayList<Details> arrayOfEmp = new ArrayList<>();
-
+    int flag=0;
     private HomeViewModel homeViewModel;
   //  private  AdapterView<>;
 
@@ -60,7 +60,12 @@ public class HomeFragment extends Fragment {
         textViewAddress = (TextView) root.findViewById(R.id.textViewAddress);
         textViewDate = (TextView) root.findViewById(R.id.textViewDate);
         slot = getResources().getStringArray(R.array.slots);
+        textEmpty=root.findViewById(R.id.textMsg);
         new task().execute();
+        if(flag==1)
+        {
+            textEmpty.setVisibility(View.VISIBLE);
+        }
         context = this.getContext();
         Log.d(TAG, "before intent in home");
 
@@ -81,7 +86,7 @@ public class HomeFragment extends Fragment {
                 // Sending value to another activity using intent.
 //                intent.putExtra("ListViewClickedValue", details.getName());
                 intent.putExtra("id", details.getBookingId());
-
+                intent.putExtra("contact", details.getContact());
                 startActivity(intent);
 
             }
@@ -118,11 +123,14 @@ public class HomeFragment extends Fragment {
 
                 Log.d(TAG, query);
                 ResultSet results = statement.executeQuery(query);
-
+                if (results.isBeforeFirst() ) {
+                    flag=1;
+                }
                 while (results.next()) {
                     Log.d(TAG, results.getString("Username") + results.getString("contact_no"));
-                    pmodel = new Details(results.getString("Username"), results.getString("contact_no"), results.getString("House_no") +", "+
-                            results.getString("Line_1") + "\n " + results.getString("City") + ", " + results.getString("State"),
+                    pmodel = new Details(results.getString("Username"),
+                            results.getString("House_no") +", "+
+                            results.getString("Line_1") + "\n " + results.getString("City") + ", " + results.getString("State"), results.getString("contact_no"),
                             results.getString("Scheduled_pickup_date") + "\n" + results.getString("Scheduled_time_slot"));
                     pmodel.setBookingId(results.getString("Booking_id"));
                     arrayOfEmp.add(pmodel);
