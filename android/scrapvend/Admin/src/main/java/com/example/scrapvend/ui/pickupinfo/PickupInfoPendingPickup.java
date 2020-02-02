@@ -49,7 +49,7 @@ public class PickupInfoPendingPickup extends AppCompatActivity implements Adapte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pickupinfo_pending_pickup);
         myDialog = new Dialog(this);
-
+` `
         Log.d(TAG, "From PickupinfoView");
         viewHolder.setCustomerNameTextView((TextView) findViewById(R.id.customer_name));
         viewHolder.setScheduledDateTextView((TextView) findViewById(R.id.scheduled_date_time));
