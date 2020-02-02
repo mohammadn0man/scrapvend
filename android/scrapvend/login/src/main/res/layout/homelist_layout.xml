@@ -17,7 +17,9 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:text="Username"
-            />
+            android:padding="10dp"
+            android:textSize="18dp"
+            android:textColor="@color/Black"/>
 
 
         <TextView
@@ -27,7 +29,9 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:text="Address"
-            />
+            android:padding="10dp"
+            android:textSize="18dp"
+            android:textColor="@color/Black"/>
 
         <TextView
             android:id="@+id/textView3"
@@ -36,7 +40,9 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:text="Contact_no"
-            />
+            android:padding="10dp"
+            android:textSize="18dp"
+            android:textColor="@color/Black"/>
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
@@ -44,7 +50,9 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:text="Scheduled Pickup datetime"
-            />
+            android:padding="10dp"
+            android:textSize="18dp"
+            android:textColor="@color/Black"/>
 
     </LinearLayout>
 
@@ -60,7 +68,9 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:text="Belal Khan"
-            />
+            android:padding="10dp"
+            android:textSize="18dp"
+            android:textColor="@color/Black"/>
 
 
         <TextView
@@ -70,7 +80,9 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:text="Technical"
-            />
+            android:padding="10dp"
+            android:textSize="18dp"
+            android:textColor="@color/Black"/>
 
         <TextView
             android:id="@+id/textViewAddress"
@@ -79,7 +91,9 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:text="INR 40000"
-            />
+            android:padding="10dp"
+            android:textSize="18dp"
+            android:textColor="@color/Black"/>
         <TextView
             android:id="@+id/textViewDate"
             android:layout_width="wrap_content"
@@ -87,7 +101,9 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:text="INR 40000"
-            />
+            android:padding="10dp"
+            android:textSize="18dp"
+            android:textColor="@color/Black"/>
 
     </LinearLayout>
 

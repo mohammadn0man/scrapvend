@@ -17,14 +17,20 @@
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Booking ID" />
+            android:text="Booking ID"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/booking_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -38,14 +44,20 @@
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Username" />
+            android:text="Username"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -59,14 +71,20 @@
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Assigned Date Time" />
+            android:text="Assigned Date Time"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/booking_assign_date_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -80,14 +98,20 @@
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Address" />
+            android:text="Address"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/Address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
     </LinearLayout>
 
 
@@ -103,14 +127,20 @@
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Customer Name" />
+            android:text="Customer Name"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/customer_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -124,14 +154,20 @@
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Booking Date Time" />
+            android:text="Booking Date Time"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/booked_date_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -145,14 +181,20 @@
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Scheduled Date Time" />
+            android:text="Scheduled Date Time"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/scheduled_date_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -166,14 +208,20 @@
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Pickup Status" />
+            android:text="Pickup Status"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/pickup_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -187,14 +235,20 @@
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Pickup Person Name" />
+            android:text="Pickup Person Name"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/pickup_person_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -208,14 +262,20 @@
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Pickup Person ID" />
+            android:text="Pickup Person ID"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/pickup_person_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:padding="10dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
     </LinearLayout>
 
 
@@ -223,7 +283,6 @@
         android:id="@+id/done"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:layout_marginTop="50dp"
         android:text="Done"
         android:textColor="@color/WhiteSmoke"
         android:background="@drawable/admin_item"

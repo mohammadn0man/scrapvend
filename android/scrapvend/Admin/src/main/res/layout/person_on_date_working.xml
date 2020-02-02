@@ -16,14 +16,18 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Pickup Person Id" />
+            android:text="Pickup Person Id"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/pickup_person_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
     </LinearLayout>
 
@@ -38,14 +42,18 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Pickup Person Name" />
+            android:text="Pickup Person Name"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/pickup_person_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
     </LinearLayout>
 
@@ -60,14 +68,18 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Pickup Person Location" />
+            android:text="Pickup Person Location"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/pickup_person_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
     </LinearLayout>
 
@@ -77,8 +89,7 @@
         android:layout_height="wrap_content"
         android:text="Availability for date "
         android:textAlignment="center"
-        android:textSize="20dp"
-        ></TextView>
+        android:textSize="20dp"/>
 
     <LinearLayout
         android:padding="15dp"
@@ -91,14 +102,18 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="10:00AM - 12:00PM" />
+            android:text="10:00AM - 12:00PM"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/slot_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
     </LinearLayout>
 
@@ -113,14 +128,18 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="12:00PM - 02:00PM" />
+            android:text="12:00PM - 02:00PM"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/slot_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
     </LinearLayout>
 
@@ -135,14 +154,18 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="02:00PM - 04:00PM" />
+            android:text="02:00PM - 04:00PM"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/slot_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
     </LinearLayout>
 
@@ -157,14 +180,18 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="04:00PM - 06:00PM" />
+            android:text="04:00PM - 06:00PM"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
         <TextView
             android:id="@+id/slot_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="@color/Black"
+            android:textSize="15dp"/>
 
     </LinearLayout>
 

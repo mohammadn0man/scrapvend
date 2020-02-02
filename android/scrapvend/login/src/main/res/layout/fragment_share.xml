@@ -9,85 +9,95 @@
         android:id="@+id/textViewName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:text="Aishwaryauser"
-
-        />
+        android:padding="10dp"
+        android:textColor="@color/Black"
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/textViewContact"
         android:layout_width="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:text="Noida"
-        />
+        android:padding="10dp"
+        android:textColor="@color/Black"
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/textViewAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="2019-08-14 21:00:25.0"
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="15dp"
-        />
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:textColor="@color/Black"
+        android:textSize="20sp"/>
     <TextView
         android:id="@+id/textViewA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="9760215764"
-        />
+        android:padding="10dp"
+        android:textColor="@color/Black"
+        android:textSize="20sp"/>
     <TextView
         android:id="@+id/textViewB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="pending"
-        />
+        android:padding="10dp"
+        android:textColor="@color/Black"
+        android:textSize="20sp"/>
     <TextView
         android:id="@+id/textViewC"
         android:layout_width="match_parent"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:text="NULL"
-        />
+        android:padding="10dp"
+        android:textColor="@color/Black"
+        android:textSize="20sp"/>
     <EditText
         android:id="@+id/textViewD"
         android:layout_width="match_parent"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:text="NULL"
-        />
+        android:padding="10dp"
+        android:textColor="@color/Black"
+        android:textSize="20sp"/>
     <EditText
         android:id="@+id/textViewE"
         android:layout_width="match_parent"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:background="@color/cardview_shadow_end_color"
         android:layout_height="wrap_content"
         android:text="0"
-        />
+        android:padding="10dp"
+        android:textColor="@color/Black"
+        android:textSize="20sp"/>
     <EditText
         android:id="@+id/textViewF"
         android:layout_width="match_parent"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:text="100"
-        />
+        android:padding="10dp"
+        android:textColor="@color/Black"
+        android:textSize="20sp"/>
     <Button
         android:id="@+id/buttonDeleteEmployee"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginLeft="150dp"
+        android:layout_marginTop="35dp"
         android:background="@drawable/admin_addimage"
-        android:text="EDIT" />
+        android:text="EDIT"
+        android:textColor="@color/WhiteSmoke"/>
 </LinearLayout>
 
 

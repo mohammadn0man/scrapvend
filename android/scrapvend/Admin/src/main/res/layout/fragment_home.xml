@@ -6,20 +6,29 @@
     android:layout_height="match_parent"
     android:background="@drawable/admin_background">
 
-    <TextView
-        android:layout_width="180dp"
+    <View
+        android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginLeft="50dp"
+        android:background="@drawable/header_backgrnd"
         android:layout_marginTop="45dp"
-        android:text="ADMIN"
-        android:textColor="@color/green"
-        android:textSize="28sp"/>
+        android:outlineAmbientShadowColor="@color/black"
+        android:outlineSpotShadowColor="@color/black"/>
 
     <TextView
         android:layout_width="180dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="49dp"
+        android:text="ADMIN"
+        android:textColor="@color/green"
+        android:textSize="28sp"/>
+
+
+    <TextView
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="165dp"
+        android:layout_marginTop="49dp"
         android:text="DASHBOARD"
         android:textColor="@color/WhiteSmoke"
         android:textSize="28sp"/>

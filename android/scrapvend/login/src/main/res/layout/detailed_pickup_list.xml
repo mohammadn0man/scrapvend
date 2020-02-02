@@ -21,17 +21,21 @@
             android:accessibilityHeading="true"
             android:text="Name"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/Black"
+            android:layout_marginLeft="10dp"/>
 
         <TextView
             android:id="@+id/textViewB"
             android:layout_width="match_parent"
-            android:layout_height="123dp"
+            android:layout_height="120dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
             android:text="Address"
             android:textSize="20dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="@color/Black"
+            android:layout_marginLeft="10dp"/>
 
         <TextView
             android:id="@+id/textViewC"
@@ -41,7 +45,9 @@
             android:layout_marginBottom="10dp"
             android:text="Contact_no"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/Black"
+            android:layout_marginLeft="10dp"/>
 
         <TextView
             android:id="@+id/textViewD"
@@ -51,7 +57,9 @@
             android:layout_marginBottom="10dp"
             android:text="Booking_id"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/Black"
+            android:layout_marginLeft="10dp"/>
 
         <TextView
             android:id="@+id/textViewE"
@@ -61,7 +69,9 @@
             android:layout_marginBottom="10dp"
             android:text="Scheduled Pickup date"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/Black"
+            android:layout_marginLeft="10dp"/>
 
         <TextView
             android:id="@+id/textViewF"
@@ -71,7 +81,9 @@
             android:layout_marginBottom="10dp"
             android:text="Scheduled Pickup time"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/Black"
+            android:layout_marginLeft="10dp"/>
 
 
         <TextView
@@ -82,7 +94,9 @@
             android:layout_marginBottom="10dp"
             android:text="Pickup date"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/Black"
+            android:layout_marginLeft="10dp"/>
 
         <TextView
             android:id="@+id/textViewH"
@@ -92,7 +106,9 @@
             android:layout_marginBottom="10dp"
             android:text="Pickup time"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/Black"
+            android:layout_marginLeft="10dp"/>
 
         <TextView
             android:id="@+id/textViewI"
@@ -102,7 +118,9 @@
             android:layout_marginBottom="10dp"
             android:text="Pickup Status"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/Black"
+            android:layout_marginLeft="10dp"/>
 
         <TextView
             android:id="@+id/textViewJ"
@@ -112,7 +130,9 @@
             android:layout_marginBottom="10dp"
             android:text="Total amount"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/Black"
+            android:layout_marginLeft="10dp"/>
 
     </LinearLayout>
 
@@ -129,17 +149,21 @@
         android:layout_marginTop="5dp"
         android:text="abc"
         android:textSize="20dp"
-        android:textStyle="italic"/>
+        android:textStyle="italic"
+        android:textColor="@color/Black"
+        android:layout_marginLeft="10dp"/>
 
         <TextView
             android:id="@+id/textAddress"
             android:layout_width="match_parent"
-            android:layout_height="125dp"
+            android:layout_height="120dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
             android:text="agra"
             android:textSize="20dp"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            android:textColor="@color/Black"
+            android:layout_marginLeft="10dp"/>
     <TextView
         android:id="@+id/textContact"
         android:layout_width="match_parent"
@@ -148,7 +172,9 @@
         android:layout_marginTop="5dp"
         android:text="46165"
         android:textSize="20dp"
-        android:textStyle="italic"/>
+        android:textStyle="italic"
+        android:textColor="@color/Black"
+        android:layout_marginLeft="10dp"/>
     <TextView
         android:id="@+id/textbookingid"
         android:layout_width="match_parent"
@@ -157,7 +183,9 @@
         android:layout_marginTop="5dp"
         android:text="123"
         android:textSize="20dp"
-        android:textStyle="italic"/>
+        android:textStyle="italic"
+        android:textColor="@color/Black"
+        android:layout_marginLeft="10dp"/>
 
     <TextView
         android:id="@+id/textDate"
@@ -165,22 +193,28 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:textSize="20dp"
-        android:textStyle="italic"/>
+        android:textStyle="italic"
+        android:textColor="@color/Black"
+        android:layout_marginLeft="10dp"/>
         <TextView
             android:id="@+id/textTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="40dp"
             android:textSize="20dp"
-            android:textStyle="italic"/>
+            android:textStyle="italic"
+            android:textColor="@color/Black"
+            android:layout_marginLeft="10dp"/>
 
     <EditText
         android:id="@+id/editPickupDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="15dp"
         android:textSize="20dp"
-        android:textStyle="italic"/>
+        android:textStyle="italic"
+        android:textColor="@color/Black"
+        android:layout_marginLeft="10dp"/>
 
         <EditText
             android:id="@+id/editPickupTime"
@@ -188,7 +222,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:textSize="20dp"
-            android:textStyle="italic"/>
+            android:textStyle="italic"
+            android:textColor="@color/Black"
+            android:layout_marginLeft="10dp"/>
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="match_parent"
@@ -196,16 +232,17 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="16dp"
             android:text="20"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:layout_marginLeft="10dp"/>
 
 
             <TextView
                 android:id="@+id/textPrice"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:text="00"
                 android:textSize="20dp"
+                android:layout_marginTop="-5dp"
                 android:textStyle="italic" />
 
             <Button

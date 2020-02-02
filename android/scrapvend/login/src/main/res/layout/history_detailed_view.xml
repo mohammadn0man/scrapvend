@@ -19,7 +19,8 @@
             android:text="Booking Details"
             android:textSize="25dp"
             android:textAlignment="center"
-            android:textAllCaps="true"/>
+            android:textAllCaps="true"
+            android:textColor="@color/Black"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -39,7 +40,8 @@
                     android:paddingTop="5dp"
                     android:textSize="25dp"
                     android:paddingBottom="5dp"
-                    android:text="Booking Id"/>
+                    android:text="Booking Id"
+                    android:textColor="@color/Black"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -47,7 +49,8 @@
                     android:textSize="25dp"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:text="Booking Date"/>
+                    android:text="Booking Date"
+                    android:textColor="@color/Black"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -55,7 +58,8 @@
                     android:textSize="25dp"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:text="Booking Time"/>
+                    android:text="Booking Time"
+                    android:textColor="@color/Black"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -63,7 +67,8 @@
                     android:textSize="25dp"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:text="Amount"/>
+                    android:text="Amount"
+                    android:textColor="@color/Black"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -71,7 +76,8 @@
                     android:textSize="25dp"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:text="Booking Status"/>
+                    android:text="Booking Status"
+                    android:textColor="@color/Black"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -79,7 +85,8 @@
                     android:textSize="25dp"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:text="Pickup Date"/>
+                    android:text="Pickup Date"
+                    android:textColor="@color/Black"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -87,7 +94,8 @@
                     android:textSize="25dp"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:text="Pickup Time"/>
+                    android:text="Pickup Time"
+                    android:textColor="@color/Black"/>
 
 
             </LinearLayout>
@@ -106,7 +114,8 @@
                     android:paddingTop="5dp"
                     android:textSize="25dp"
                     android:paddingBottom="5dp"
-                    android:id="@+id/booking_id_history"/>
+                    android:id="@+id/booking_id_history"
+                    android:textColor="@color/Black"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -114,7 +123,8 @@
                     android:paddingTop="5dp"
                     android:textSize="25dp"
                     android:paddingBottom="5dp"
-                    android:id="@+id/booking_date"/>
+                    android:id="@+id/booking_date"
+                    android:textColor="@color/Black"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -122,7 +132,8 @@
                     android:textSize="25dp"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:id="@+id/booking_time"/>
+                    android:id="@+id/booking_time"
+                    android:textColor="@color/Black"/>
 
                 <TextView
                     android:id="@+id/amount"
@@ -130,7 +141,8 @@
                     android:layout_height="wrap_content"
                     android:textSize="25dp"
                     android:paddingTop="5dp"
-                    android:paddingBottom="5dp"/>
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/Black"/>
 
                 <TextView
                     android:id="@+id/booking_status"
@@ -138,7 +150,8 @@
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:paddingTop="5dp"
-                    android:paddingBottom="5dp"/>
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/Black"/>
 
                 <TextView
                     android:id="@+id/pickup_date"
@@ -146,7 +159,8 @@
                     android:layout_height="wrap_content"
                     android:textSize="25dp"
                     android:paddingTop="5dp"
-                    android:paddingBottom="5dp"/>
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/Black"/>
 
                 <TextView
                     android:id="@+id/pickup_time"
@@ -154,7 +168,8 @@
                     android:layout_height="wrap_content"
                     android:textSize="25dp"
                     android:paddingTop="5dp"
-                    android:paddingBottom="5dp"/>
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/Black"/>
 
 
             </LinearLayout>
@@ -174,8 +189,10 @@
             android:layout_height="wrap_content"
             android:text="Pickup Person Details"
             android:textSize="25dp"
+            android:layout_marginTop="10dp"
             android:textAlignment="center"
-            android:textAllCaps="true"/>
+            android:textAllCaps="true"
+            android:textColor="@color/Black"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -195,7 +212,8 @@
                     android:paddingTop="5dp"
                     android:textSize="25dp"
                     android:paddingBottom="5dp"
-                    android:text="Name"/>
+                    android:text="Name"
+                    android:textColor="@color/Black"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -203,7 +221,8 @@
                     android:textSize="25dp"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:text="Contact No"/>
+                    android:text="Contact No"
+                    android:textColor="@color/Black"/>
 
             </LinearLayout>
 
@@ -221,7 +240,8 @@
                     android:paddingTop="5dp"
                     android:textSize="25dp"
                     android:paddingBottom="5dp"
-                    android:id="@+id/pickup_person_name"/>
+                    android:id="@+id/pickup_person_name"
+                    android:textColor="@color/Black"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -229,7 +249,8 @@
                     android:paddingTop="5dp"
                     android:textSize="25dp"
                     android:paddingBottom="5dp"
-                    android:id="@+id/pickup_person_contact_no"/>
+                    android:id="@+id/pickup_person_contact_no"
+                    android:textColor="@color/Black"/>
 
             </LinearLayout>
 
