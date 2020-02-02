@@ -140,9 +140,10 @@ public class PickupInfoPendingPickup extends AppCompatActivity implements Adapte
         @Override
         protected Void doInBackground(Void... voids) {
 
-
             MySqlConnector connection = new MySqlConnector();
+
             Connection conn = connection.getMySqlConnection();
+            
             try {
                 Statement statement = conn.createStatement();
 
