@@ -69,7 +69,7 @@ public class PickupInfoPendingPickup extends AppCompatActivity implements Adapte
         pickupinfoModel.setBookingId(bundle.getString("BOOKING_ID"));
         pickupinfoModel.setUsername(bundle.getString("USERNAME"));
         pickupinfoModel.setSchuduleDate(bundle.getString("SCHEDULEDDATE"));
-        selectedDate = pickupinfoModel.getSchuduleDate().substring(0,10);
+        selectedDate = pickupinfoModel.getSchuduleDate();
         pickupinfoModel.setAddress(bundle.getString("ADDRESS"));
 
         viewHolder.getCustomerNameTextView().setText(pickupinfoModel.getUsername());

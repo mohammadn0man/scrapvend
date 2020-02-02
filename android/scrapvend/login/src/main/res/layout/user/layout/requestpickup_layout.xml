@@ -85,16 +85,29 @@
                 android:inputType="number|textEmailAddress"
                 android:padding="5dp" />
 
-            <EditText
-                android:id="@+id/pickupdate"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="3dp"
-                android:background="@drawable/rectangle_border"
-                android:ems="10"
-                android:hint="yyyy-mm-dd"
-                android:inputType="date"
-                android:padding="5dp" />
+                android:layout_height="51dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/pickupdate"
+                    android:layout_width="140dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/rectangle_border"
+                    android:ems="10"
+                    android:hint="yyyy-mm-dd"
+                    android:inputType="date"
+                    android:padding="5dp" />
+
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:srcCompat="@drawable/calender_favicon"
+                    android:background="#000"/>
+            </LinearLayout>
 
 
             <Spinner

@@ -1,6 +1,7 @@
 package com.example.login.userUi.home;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -9,7 +10,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -28,6 +31,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import static com.example.login.MainActivity.user;
 import static com.example.login.userUi.home.RequestPickup.multiSelectionAdapter;
@@ -39,6 +43,9 @@ public class RequestPickupForm extends AppCompatActivity implements AdapterView.
     EditText quantityEditText, dateEditText;
     Spinner timeSpinner;
     Button bookedpickup;
+    ImageButton imageButton;
+    Calendar c;
+    DatePickerDialog datePickerDialog;
     String quantity, date, time;
     String  contact_no,userid,addressid,address;
     public static String[] list;
@@ -61,6 +68,34 @@ public class RequestPickupForm extends AppCompatActivity implements AdapterView.
         bookedpickup=findViewById(R.id.bookpickup);
         addressv=(TextView)findViewById(R.id.address);
         contactno=(TextView) findViewById(R.id.contactno);
+        imageButton=(ImageButton) findViewById(R.id.imageButton);
+
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                c = Calendar.getInstance();
+                int cyear=c.get(Calendar.YEAR);
+                int cmonth=c.get(Calendar.MONTH);
+                int cday=c.get(Calendar.DAY_OF_MONTH);
+
+                datePickerDialog = new DatePickerDialog(RequestPickupForm.this,
+                        new DatePickerDialog.OnDateSetListener() {
+
+                            @Override
+                            public void onDateSet(DatePicker view, int year,
+                                                  int month, int day) {
+
+                                dateEditText.setText(year + "-" + (month + 1) + "-" + day);
+
+                            }
+                        }, cyear, cmonth, cday);
+                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
+
+
+                datePickerDialog.show();
+
+            }
+        });
 
 //      RETRIEVING PICKUP TIME FROM SELECTED SPINNER
         ArrayAdapter<CharSequence> adapter;
