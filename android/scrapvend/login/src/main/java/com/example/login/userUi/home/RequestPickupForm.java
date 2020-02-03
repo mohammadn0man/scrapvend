@@ -172,13 +172,13 @@ public class RequestPickupForm extends AppCompatActivity implements AdapterView.
                 Log.d(TAG, "user name = " + user);
                 address=results.getString(4)+","+results.getString(3)+","+results.getString(2)+","+results.getString(5)+","+results.getString(6);
                 addressv.setText(address);
-                contactno.setText(results.getString(3));
+                contactno.setText(results.getString(1));
 //
-                addressid = results.getString(7);
-                userid = results.getString(8);
-                contact_no = results.getString(3);
+//                addressid = results.getString(7);
+//                userid = results.getString(8);
+//                contact_no = results.getString(3);
 
-                Log.d(TAG, "query Execute "+address);
+                Log.d(TAG, "query Execute "+address+" contact"+results.getString(1));
             } catch (SQLException e) {
                 e.printStackTrace();
             } finally {
