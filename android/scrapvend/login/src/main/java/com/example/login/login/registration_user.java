@@ -27,7 +27,7 @@ public class registration_user extends AppCompatActivity {
     protected void onCreate(Bundle SavedInstanceState) {
         super.onCreate(SavedInstanceState);
         setContentView(R.layout.registration_user);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
 
         _name = (EditText) findViewById(R.id.name);
         username = (EditText) findViewById(R.id.username);

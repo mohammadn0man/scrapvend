@@ -22,7 +22,8 @@
                 android:paddingTop="5dp"
                 android:textSize="25dp"
                 android:paddingBottom="5dp"
-                android:text="Booking Date"/>
+                android:text="Booking Date"
+                android:textColor="@color/Black"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -30,7 +31,8 @@
                 android:textSize="25dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:text="Booking Time"/>
+                android:text="Booking Time"
+                android:textColor="@color/Black"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -38,7 +40,8 @@
                 android:textSize="25dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:text="Amount"/>
+                android:text="Amount"
+                android:textColor="@color/Black"/>
 
         </LinearLayout>
 
@@ -56,7 +59,8 @@
                 android:paddingTop="5dp"
                 android:textSize="25dp"
                 android:paddingBottom="5dp"
-                android:id="@+id/date"/>
+                android:id="@+id/date"
+                android:textColor="@color/Black"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -64,7 +68,8 @@
                 android:textSize="25dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:id="@+id/time"/>
+                android:id="@+id/time"
+                android:textColor="@color/Black"/>
 
             <TextView
                 android:id="@+id/amount"
@@ -72,11 +77,16 @@
                 android:layout_height="wrap_content"
                 android:textSize="25dp"
                 android:paddingTop="5dp"
-                android:paddingBottom="5dp"/>
+                android:paddingBottom="5dp"
+                android:textColor="@color/Black"/>
 
         </LinearLayout>
 
 
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorPrimary"/>
 
 </LinearLayout>

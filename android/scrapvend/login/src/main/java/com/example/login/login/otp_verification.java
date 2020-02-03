@@ -45,7 +45,7 @@ public class otp_verification extends AppCompatActivity {
     protected void onCreate(final Bundle SavedInstanceState) {
         super.onCreate(SavedInstanceState);
         setContentView(R.layout.otp_verification);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
         //number = findViewById(R.id.number);
 
         editText=findViewById(R.id.editText);

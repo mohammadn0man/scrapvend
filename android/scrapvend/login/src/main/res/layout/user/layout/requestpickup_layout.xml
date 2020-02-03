@@ -127,21 +127,32 @@
 
 
         </LinearLayout>
-
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorPrimary"/>
 
     <TextView
         android:id="@+id/contactno"
         android:layout_width="match_parent"
         android:layout_height="46dp"
         android:textColor="#000"
+        android:textColorHint="@color/Black"
         android:textSize="20dp"
         app:fontFamily="serif"
         android:gravity="center"
-        android:background="@drawable/rectangle_border"/>
+        android:hint="Contact "/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorPrimary"/>
 
     <TextView
         android:id="@+id/address"
+        android:hint="Address"
+        android:textAlignment="viewStart"
+        android:textColorHint="@color/Black"
         android:layout_width="match_parent"
         android:layout_height="122dp"
         android:ems="10"
@@ -149,8 +160,7 @@
         android:inputType="textMultiLine"
         android:textColor="#000"
         android:textSize="20dp"
-        app:fontFamily="serif"
-        android:background="@drawable/rectangle_border"/>
+        app:fontFamily="serif"/>
 
     <Button
         android:id="@+id/bookpickup"
