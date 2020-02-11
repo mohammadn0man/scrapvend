@@ -20,12 +20,13 @@
             android:layout_marginEnd="8dp"
             android:textAlignment="center"
             android:textSize="20sp"
-            android:text="USERNAME"/>
+            android:text="USERNAME"
+            android:textColor="@color/Black"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="#c0c0c0"/>
+            android:background="@color/colorPrimary"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,7 +38,8 @@
                 android:text="Name"
                 android:padding="10dp"
                 android:textSize="20dp"
-                android:paddingLeft="10dp"/>
+                android:paddingLeft="10dp"
+                android:textColor="@color/Black"/>
 
             <TextView
                 android:id="@+id/name"
@@ -46,7 +48,8 @@
                 android:text="Name"
                 android:padding="10dp"
                 android:textSize="20dp"
-                android:paddingLeft="10dp"/>
+                android:paddingLeft="10dp"
+                android:textColor="@color/Black"/>
 
         </LinearLayout>
 
@@ -60,7 +63,8 @@
                 android:text="Contact No"
                 android:padding="10dp"
                 android:textSize="20dp"
-                android:paddingLeft="10dp"/>
+                android:paddingLeft="10dp"
+                android:textColor="@color/Black"/>
 
             <TextView
                 android:id="@+id/contact_no"
@@ -69,7 +73,8 @@
                 android:text="Name"
                 android:padding="10dp"
                 android:textSize="20dp"
-                android:paddingLeft="10dp"/>
+                android:paddingLeft="10dp"
+                android:textColor="@color/Black"/>
 
         </LinearLayout>
 
@@ -83,7 +88,8 @@
                 android:text="Email"
                 android:padding="10dp"
                 android:textSize="20dp"
-                android:paddingLeft="10dp"/>
+                android:paddingLeft="10dp"
+                android:textColor="@color/Black"/>
 
             <TextView
                 android:id="@+id/email"
@@ -92,14 +98,15 @@
                 android:text="Name"
                 android:padding="10dp"
                 android:textSize="20dp"
-                android:paddingLeft="10dp"/>
+                android:paddingLeft="10dp"
+                android:textColor="@color/Black"/>
 
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="#c0c0c0"/>
+            android:background="@color/colorPrimary"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -109,12 +116,13 @@
             android:layout_marginEnd="8dp"
             android:textAlignment="center"
             android:textSize="20sp"
-            android:text="Addresses"/>
+            android:text="Addresses"
+            android:textColor="@color/Black"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="#c0c0c0"/>
+            android:background="@color/colorPrimary"/>
 
         <ListView
             android:id="@+id/address_list"
@@ -124,15 +132,14 @@
 
         <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
         <Button
             android:id="@+id/delete"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="Delete"
-            android:layout_weight="@android:integer/config_longAnimTime"
             android:padding="10dp"
+            android:layout_marginLeft="50dp"
             android:textSize="20dp"
             android:paddingLeft="10dp"
             android:textColor="@color/WhiteSmoke"
@@ -140,11 +147,11 @@
 
         <Button
             android:id="@+id/add_new"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_weight="@android:integer/config_longAnimTime"
             android:textAlignment="center"
             android:text="Add New"
+            android:layout_marginLeft="35dp"
             android:padding="10dp"
             android:textSize="20dp"
             android:paddingLeft="10dp"
@@ -161,7 +168,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:textSize="20sp"
-            android:text="Change Password"/>
+            android:text="Change Password"
+            android:textColor="@color/Black"/>
 
     </LinearLayout>
 

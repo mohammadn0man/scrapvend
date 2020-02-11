@@ -15,21 +15,22 @@ import com.example.login.login.otp_verification;
 
 public class registration_user extends AppCompatActivity {
     private Button register;
-    public EditText _name, _email, _password, _re_password, _number;
+    public EditText _name, _email, _password, _re_password, _number,username;
     public String name;
     public String email;
     public String password;
-    public String re_password;
-    public static String number;
+    public String re_password,Username;
+    public String number;
     ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle SavedInstanceState) {
         super.onCreate(SavedInstanceState);
         setContentView(R.layout.registration_user);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
 
         _name = (EditText) findViewById(R.id.name);
+        username = (EditText) findViewById(R.id.username);
         _email = (EditText) findViewById(R.id.email);
         _number = (EditText) findViewById(R.id.number);
         _password = (EditText) findViewById(R.id.password);
@@ -44,8 +45,10 @@ public class registration_user extends AppCompatActivity {
                 number = _number.getText().toString();
 
                 name = _name.getText().toString();
+                Username=username.getText().toString();
                 email = _email.getText().toString();
                 password = _password.getText().toString();
+                number=_number.getText().toString();
                 re_password = _re_password.getText().toString();
                 if (name.trim().equals("") || email.trim().equals("") || number.trim().equals("") || password.trim().equals("")) {
                     Toast toast = Toast.makeText(getApplicationContext(),
@@ -62,6 +65,12 @@ public class registration_user extends AppCompatActivity {
                 } else {
 //                    new Openlogin().execute();
                     Intent intent = new Intent(getBaseContext(), otp_verification.class);
+                    intent.putExtra("name",name);
+                    intent.putExtra("username",Username);
+                    intent.putExtra("email",email);
+                    intent.putExtra("number",number);
+                    intent.putExtra("password",password);
+
                     startActivity(intent);
                 }
 

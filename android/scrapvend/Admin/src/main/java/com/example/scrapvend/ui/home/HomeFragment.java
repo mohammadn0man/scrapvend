@@ -2,6 +2,7 @@ package com.example.scrapvend.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,6 +56,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), PickupinfoList.class);
                 intent.putExtra("GET_PICKUPINFO_FLAG", "Pending Pickup");
+                Log.e("GET_PICKUPINFO_FLAG", "Pending Pickup");
                 startActivity(intent);
             }
         });

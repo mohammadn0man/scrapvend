@@ -10,7 +10,7 @@ android:layout_height="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
     android:text="ITEM LIST"
-    android:textColor="@color/Red"
+    android:textColor="@color/Black"
     android:textSize="23dp" />
 <ListView
     android:id="@+id/pickuprequest"

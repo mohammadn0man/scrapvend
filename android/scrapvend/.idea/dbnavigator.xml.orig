@@ -25,33 +25,19 @@
     <show-object-properties value="false" />
     <loaded-nodes>
       <connection connection-id="380ebe5a-dedd-4840-bb10-753bf9548e87">
-        <schema name="bvYGbRyIOE" object-types="table, view, function, column" />
+        <schema name="bvYGbRyIOE" object-types="table, dataset trigger, function, index, view, column, procedure, constraint" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="686906f4-dc0f-4ffc-9cdc-1aed1aebd34f">
-      <console name="mohammadnoman" type="STANDARD" schema="" session="Main" />
-    </connection>
     <connection id="380ebe5a-dedd-4840-bb10-753bf9548e87">
-      <console name="scrap vend" type="STANDARD" schema="bvYGbRyIOE" session="Main"><![CDATA[SELECT user_details.Username, address.House_no, address.Line_1, 
-address.City, address.State, login_info.contact_no, 
-booking_details.Scheduled_time_slot 
-from booking_details 
-INNER JOIN booking_assigned ON booking_details.Booking_id = booking_assigned.Booking_id 
-inner join pickup_person_details on pickup_person_details.Pickup_person_id = booking_assigned.Pickup_person_id 
-inner join address ON address.Address_id = booking_details.Booking_id 
-inner join user_details ON booking_details.User_id = user_details.User_id 
-inner join login_info ON user_details.Username = login_info.Username 
-where pickup_person_details.Username = 'aishwaryapickup' 
-and booking_details.Pickup_status = 'Pickup Person Assigned']]></console>
+      <console name="scrap vend" type="STANDARD" schema="bvYGbRyIOE" session="Main"><![CDATA[UPDATE `booking_details` SET `Pickup_status`= Pickup Completed ,`Pickup_date_time`= "2020/02/01 21:14:44", `Total_quantity`=123.0 where Booking_id=40]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="686906f4-dc0f-4ffc-9cdc-1aed1aebd34f" />
     <connection id="380ebe5a-dedd-4840-bb10-753bf9548e87" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
@@ -63,10 +49,26 @@ and booking_details.Pickup_status = 'Pickup Person Assigned']]></console>
         <condition column="Booking_id" operator="=" value="" active="true" />
       </filter>
     </filter-actions>
+    <filter-actions connection-id="380ebe5a-dedd-4840-bb10-753bf9548e87" dataset="bvYGbRyIOE.pickup_person_details" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="380ebe5a-dedd-4840-bb10-753bf9548e87" dataset="bvYGbRyIOE.contact_us" active-filter-id="">
+      <filter id="36e821b1-5ac4-4b6c-a3ea-7e05d34b61fe" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="Contact_id" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
+    <filter-actions connection-id="380ebe5a-dedd-4840-bb10-753bf9548e87" dataset="bvYGbRyIOE.pickup_person_record" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="380ebe5a-dedd-4840-bb10-753bf9548e87" dataset="bvYGbRyIOE.booked_item_list" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="380ebe5a-dedd-4840-bb10-753bf9548e87" dataset="bvYGbRyIOE.booking_details" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="380ebe5a-dedd-4840-bb10-753bf9548e87" dataset="bvYGbRyIOE.item_details" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="380ebe5a-dedd-4840-bb10-753bf9548e87" dataset="bvYGbRyIOE.login_info" active-filter-id="EMPTY_FILTER">
+      <filter id="aab5ba61-7372-4e99-836a-3290daacf8a1" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="Username" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
-    <last-used-providers />
+    <last-used-providers>
+      <object-type object-type="TABLE" editor-provider="DATA" />
+    </last-used-providers>
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
@@ -88,6 +90,8 @@ and booking_details.Pickup_status = 'Pickup Person Assigned']]></console>
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
+<<<<<<< HEAD
+=======
       <connection id="686906f4-dc0f-4ffc-9cdc-1aed1aebd34f" active="true">
         <database>
           <name value="mohammadnoman" />
@@ -130,7 +134,7 @@ and booking_details.Pickup_status = 'Pickup Person Assigned']]></console>
           <session-management value="true" />
           <ddl-file-binding value="true" />
           <database-logging value="false" />
-          <connect-automatically value="true" />
+          <connect-automatically value="false" />
           <restore-workspace value="true" />
           <restore-workspace-deep value="true" />
           <environment-type value="default" />
@@ -171,6 +175,7 @@ and booking_details.Pickup_status = 'Pickup Person Assigned']]></console>
           <object-name-filters />
         </object-filters>
       </connection>
+>>>>>>> BOB-PRO-master
       <connection id="380ebe5a-dedd-4840-bb10-753bf9548e87" active="true">
         <database>
           <name value="scrap vend remoteMySql" />
@@ -384,8 +389,6 @@ and booking_details.Pickup_status = 'Pickup Person Assigned']]></console>
           <content-type name="HTML" enabled="true" />
           <content-type name="XHTML" enabled="true" />
           <content-type name="Java" enabled="true" />
-          <content-type name="SQL" enabled="true" />
-          <content-type name="PL/SQL" enabled="true" />
           <content-type name="Groovy" enabled="true" />
           <content-type name="AIDL" enabled="true" />
           <content-type name="YAML" enabled="true" />

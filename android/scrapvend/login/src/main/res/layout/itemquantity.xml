@@ -27,5 +27,3 @@
         android:textSize="20dp"
         android:background="@color/DarkSeaGreen"/>
 </RelativeLayout>
-
-

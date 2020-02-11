@@ -22,16 +22,22 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Random;
 
 
 public class otp_verification extends AppCompatActivity {
-    private EditText name, number;
-    private EditText email,password;
+    private static String TAG ="REG";
+    private String name, username;
+    private String number;
     private EditText editText;
+    private String email,password;
     private Button submit;
+    MySqlConnector connection;
+    Connection con;
     private TextView textView;
     int randomNumber;
 
@@ -39,12 +45,16 @@ public class otp_verification extends AppCompatActivity {
     protected void onCreate(final Bundle SavedInstanceState) {
         super.onCreate(SavedInstanceState);
         setContentView(R.layout.otp_verification);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
         //number = findViewById(R.id.number);
-        name = findViewById(R.id.name);
-        editText = findViewById(R.id.editText);
-        email =findViewById(R.id.email);
-        password = findViewById(R.id.password);
+
+        editText=findViewById(R.id.editText);
+
+        name = getIntent().getStringExtra("name");
+        number =getIntent().getStringExtra("number");
+        email =getIntent().getStringExtra("email");
+        password =getIntent().getStringExtra("password");
+        username=getIntent().getStringExtra("username");
         submit = findViewById(R.id.submit);
         textView = findViewById(R.id.mnv);
 
@@ -64,41 +74,8 @@ public class otp_verification extends AppCompatActivity {
                 if (OTP.equals("")) {
                     Toast.makeText(otp_verification.this, "Please enter the OTP", Toast.LENGTH_SHORT).show();
 
-                } else if (randomNumber == Integer.valueOf(OTP)) {
-
-                    try {
-
-                        MySqlConnector connection = new MySqlConnector();
-
-                        Connection con = connection.getMySqlConnection();
-
-
-                        if (con == null) {
-                            Toast toast = Toast.makeText(getApplicationContext(),
-                                    "Please check your INTERNET connection",
-                                    Toast.LENGTH_SHORT);
-
-                            toast.show();
-                        } else {
-                            String query1 = "INSERT INTO `login_info`(`Username`, `Role`, `password`, `email`, `contact_no`) VALUES (\"" + name + number + "\", '2',\"" + password + "\",\"" + email + "\",\"" + number + "\")";
-                            String query2 = "INSERT INTO `user_details`(`Name`, `Username`) VALUES (\"" + name + "\",\"" + name + number + "\")";
-                            Log.d("Reg", "query = " + query1);
-                            Statement statement = con.createStatement();
-//                    statement.executeUpdate(query1);
-//                    statement.executeUpdate(query2);
-//
-//                    Toast toast = Toast.makeText(getApplicationContext(),
-//                            "Register successful",
-//                            Toast.LENGTH_SHORT);
-//                    toast.show();
-
-                            isSuccess = true;
-
-                        }
-
-                    } catch (SQLException e) {
-                        isSuccess = false;
-                    }
+                } else if (randomNumber== Integer.valueOf(OTP)) {
+                    new InsertIntoDatabaseTask().execute();
                     textView.setText("OTP Verified");
                     textView.setTextColor(Color.GREEN);
                     editText.setTextColor(Color.GREEN);
@@ -122,18 +99,19 @@ public class otp_verification extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
 
             try {
-                // Construct data
-                Log.d("url area conn", "before");
-                String apiKey = "apikey=" + "18sUVSjxhSo-cPH0wdHNHsF3Li6ctemNOmPrCktsNX";
+
+
+                Log.d("mysql", "before" + number);
+                String apiKey = "apikey=" + "Nt7ekXfjdK8-fwssKs7i70lNTqJePUcXcn8mEeCJTp";
                 Random random = new Random();
                 randomNumber = random.nextInt(9999);
-                String message = "&message=" + "Hey " + name + " Your OTP is " + randomNumber + ". Thankyou, Team Scrapvend";
+                String message = "&message=" + "Hey  Your OTP is " + randomNumber + ". Thankyou, Team Scrapvend";
                 String sender = "&sender=" + "TXTLCL";
-                String numbers = "&numbers=91" + registration_user.number;
+                String numbers = "&numbers=91" + number;
 
                 // Send data
                 HttpURLConnection conn = (HttpURLConnection) new URL("https://api.textlocal.in/send/?").openConnection();
-                Log.d("url area", "null");
+                Log.d("mysql", "null");
                 String data = apiKey + numbers + message + sender;
                 conn.setDoOutput(true);
                 conn.setRequestMethod("POST");
@@ -147,7 +125,7 @@ public class otp_verification extends AppCompatActivity {
                 }
                 rd.close();
 
-//                    return stringBuffer.toString();
+                    //return stringBuffer.toString();
             } catch (Exception e) {
                 System.out.println("url Error SMS "+e);
 //                    return "Error "+e;
@@ -159,6 +137,61 @@ public class otp_verification extends AppCompatActivity {
 
             return null;
         }
+    }
+
+    private class InsertIntoDatabaseTask extends AsyncTask<Void, Void, Void> {
+
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            Log.d(TAG, "inside doInBackground");
+
+            MySqlConnector connection = new MySqlConnector();
+
+            Connection conn = connection.getMySqlConnection();
+
+            try {
+
+                Log.d(TAG, "Connection established");
+
+                Log.d("Reg", " name = " + name+ " username "+ username+" password"+password);
+                String query1;
+                query1 = "INSERT INTO `login_info`(`Username`, `Role`, `password`, `email`, `contact_no`) VALUES (\"" + username+ "\", '2',\"" + password + "\",\"" + email + "\",\"" + number + "\")";
+                Log.d(TAG, "query = " + query1);
+                String query2 = "INSERT INTO `user_details`(`Name`, `Username`) VALUES (\"" + name + "\",\"" + username + "\")";
+                Log.d(TAG, "query2 = " + query2);
+                Statement statement = conn.createStatement();
+                statement.executeUpdate(query1);
+                Log.d(TAG, "query1 EXECUTED");
+                statement.executeUpdate(query2);
+                Log.d(TAG, "query2 executed " );
+                Log.d("Reg", "query executed ");
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            catch(Exception e){
+                //Handle errors for Class.forName
+                e.printStackTrace();
+            }finally{
+                //finally block used to close resources
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                Log.d(TAG,"inside finally");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid){
+
+
+        }
+
     }
 }
 

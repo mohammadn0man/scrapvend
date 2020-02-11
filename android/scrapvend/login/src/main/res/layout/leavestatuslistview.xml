@@ -5,7 +5,6 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-
     <LinearLayout android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -20,7 +19,8 @@
             android:text="Date"
             android:textSize="25dp"
             android:textStyle="bold"
-            />
+            android:textColor="@color/Black"
+            android:padding="10dp"/>
 
 
         <TextView
@@ -44,8 +44,8 @@
         android:text="Time Slots"
         android:textStyle="bold"
         android:textSize="30dp"
-
-        />
+            android:textColor="@color/Black"
+            android:padding="10dp"/>
 
     <TextView
         android:id="@+id/timeSlot1"
@@ -99,7 +99,8 @@
             android:textStyle="bold"
             android:textSize="25dp"
             android:text="Status"
-            />
+            android:textColor="@color/Black"
+            android:padding="10dp"/>
         <TextView
             android:id="@+id/textViewStatus"
             android:layout_width="wrap_content"
@@ -116,11 +117,11 @@
             android:id="@+id/Cancelbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_marginLeft="70dp"
             android:layout_marginBottom="10dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/delete_button"
             android:text="CANCEL"
+            android:textColor="#fff"
             android:textSize="15dp" />
     </LinearLayout>
 

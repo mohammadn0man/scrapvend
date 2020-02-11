@@ -5,7 +5,7 @@
     android:background="@drawable/admin_background">
 
     <TextView
-        android:id="@+id/username"
+        android:id="@+id/address"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:text="UserName"

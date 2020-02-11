@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="300dp"
+    android:layout_height="400dp"
     android:layout_gravity="center"
-    android:background="@drawable/admin_background"
+    android:background="@drawable/rectangle_border"
     android:orientation="vertical"
     android:padding="5dp">
     <LinearLayout
         android:layout_width="300dp"
         android:layout_height="400dp"
-        android:layout_marginTop="120dp"
         android:layout_gravity="center"
-        android:background="@drawable/rectangle_border"
+        android:background="@drawable/admin_background"
         android:orientation="vertical">
     <TextView
         android:id="@+id/txtclose"
@@ -21,6 +20,7 @@
         android:gravity="center"
         android:textAllCaps="true"
         android:text="X"
+        android:layout_marginTop="10dp"
         android:textColor="@color/red"
         android:textStyle="bold" />
 
@@ -65,6 +65,7 @@
         <RadioButton
             android:id="@+id/slot_1"
             android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
             android:text="10:00AM-12:00PM" />
 
@@ -72,18 +73,21 @@
             android:id="@+id/slot_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:text="12:00PM-02:00PM" />
 
         <RadioButton
             android:id="@+id/slot_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:text="02:00PM-04:00PM" />
 
         <RadioButton
             android:id="@+id/slot_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:text="04:00PM-06:00PM" />
     </RadioGroup>
 

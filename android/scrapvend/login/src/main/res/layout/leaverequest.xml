@@ -22,7 +22,7 @@
         android:textStyle="bold"
         android:layout_marginTop="10dp"
         android:textSize="25dp"
-        />
+        android:layout_marginLeft="20dp"/>
     <CheckBox
         android:id="@+id/checkBox1"
         android:layout_width="wrap_content"

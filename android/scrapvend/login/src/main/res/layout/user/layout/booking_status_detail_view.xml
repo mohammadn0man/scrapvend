@@ -3,14 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5dp"
-    android:background="@drawable/rectangle_border"
-    android:orientation="vertical"
-    android:padding="5dp">
+    android:background="@drawable/admin_background"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="218dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/rectangle_border"
         android:orientation="horizontal">
 
@@ -24,31 +23,42 @@
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="Booking Id" />
+                android:text="Booking Id"
+                android:padding="5dp"
+                android:textColor="@color/Black"/>
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="Booking Date And Time" />
+                android:text="Booking Date And Time"
+                android:padding="5dp"
+                android:textColor="@color/Black"/>
 
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="Booking Status" />
+                android:layout_marginTop="10dp"
+                android:text="Booking Status"
+                android:padding="5dp"
+                android:textColor="@color/Black"/>
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="Schedule Date" />
+                android:text="Schedule Date"
+                android:padding="5dp"
+                android:textColor="@color/Black"/>
 
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="Schedule Time" />
+                android:text="Schedule Time"
+                android:padding="5dp"
+                android:textColor="@color/Black"/>
         </LinearLayout>
 
         <LinearLayout
@@ -61,31 +71,41 @@
                 android:id="@+id/bid2"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="TextView" />
+                android:text="TextView"
+                android:padding="5dp"
+                android:textColor="@color/Black"/>
 
             <TextView
                 android:id="@+id/bdt"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="TextView" />
+                android:layout_height="50dp"
+                android:text="TextView"
+                android:padding="5dp"
+                android:textColor="@color/Black"/>
 
             <TextView
                 android:id="@+id/bs"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="TextView" />
+                android:text="TextView"
+                android:padding="5dp"
+                android:textColor="@color/Black"/>
 
             <TextView
                 android:id="@+id/sd"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="TextView" />
+                android:text="TextView"
+                android:padding="5dp"
+                android:textColor="@color/Black"/>
 
             <TextView
                 android:id="@+id/st"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="TextView" />
+                android:text="TextView"
+                android:padding="5dp"
+                android:textColor="@color/Black"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -155,7 +175,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/rectangle_border">
 
         <ListView
             android:id="@+id/ilist"
@@ -173,13 +194,15 @@
             android:id="@+id/okbutton"
             android:layout_width="116dp"
             android:layout_height="54dp"
-
             android:layout_marginBottom="4dp"
             android:text="OK"
+            android:textColor="#fff"
+            android:textSize="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/admin_item"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
