@@ -149,7 +149,7 @@ public class PickupInfoPendingPickup extends AppCompatActivity implements Adapte
                 String query = "select pickup_person_details.Name, pickup_person_details.Address, pickup_person_details.Pickup_person_id " +
                         " from pickup_person_details where Pickup_person_id not in " +
                         "(select pickup_person_record.Pickup_person_id from pickup_person_record" +
-                        " where pickup_person_record.Approval_status = 3" +
+                        " where pickup_person_record.Approval_status = 1" +
                         " and pickup_person_record.`10:00AM-12:00PM` = 1" +
                         " and pickup_person_record.`02:00PM-04:00PM` = 1" +
                         " and pickup_person_record.`12:00PM-02:00PM` = 1" +
