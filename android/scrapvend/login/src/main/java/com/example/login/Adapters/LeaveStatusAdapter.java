@@ -19,11 +19,14 @@ import com.example.login.R;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
+
+import static com.example.login.MainActivity.user;
 
 
 public class LeaveStatusAdapter extends ArrayAdapter<LeaveStatusModel> {
@@ -112,9 +115,9 @@ public class LeaveStatusAdapter extends ArrayAdapter<LeaveStatusModel> {
                 if(s==0)
                 {
 
-                    Toast.makeText(context, "Request Cancelled", Toast.LENGTH_SHORT).show();
                      new task(employee.getDate()).execute();
 
+                    Toast.makeText(context, "Request Cancelled", Toast.LENGTH_SHORT).show();
                     // new LeaveStatus().change();
 //
 //                    if(context instanceof LeaveStatus){
@@ -145,19 +148,15 @@ public class LeaveStatusAdapter extends ArrayAdapter<LeaveStatusModel> {
 
                 Connection conn = connection.getMySqlConnection();
                 Statement statement = conn.createStatement();
+                String q="SELECT  Pickup_person_id FROM pickup_person_details where Username= \""+user+"\"";
+                ResultSet results = statement.executeQuery(q);
+
+                results.next();
+                int pickup_id=results.getInt(1);
 
                 Log.d(TAG, "emploee date :"+date);
-                String query ="UPDATE `pickup_person_record` SET `Approval_status`=? WHERE Pickup_person_id=? and Date=\""+date+"\"";
+                String query ="UPDATE `pickup_person_record` SET `Approval_status`=2 WHERE Pickup_person_id="+pickup_id+" and Date=\""+date+"\"";
                 PreparedStatement preparedStatement1 = conn.prepareStatement(query);
-
-                preparedStatement1.setInt(1, 2);
-//                preparedStatement1.setString(2, Date);
-                preparedStatement1.setInt(2, 1);
-//                preparedStatement1.setInt(4, t2);
-//                preparedStatement1.setInt(5, t3);
-//                preparedStatement1.setInt(6, t4);
-//                preparedStatement1.setInt(7, 0);
-
 
                 preparedStatement1.execute();
 

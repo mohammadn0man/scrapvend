@@ -104,7 +104,7 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
                 Intent i=new Intent(DetailedPickupInfo.this,AmountVerification.class);
                 i.putExtra("id", bookingId);
                 i.putExtra("contact_num", textContact.getText());
-
+                i.putExtra("amount",textPrice.getText());
                 startActivity(i);
 
             }
