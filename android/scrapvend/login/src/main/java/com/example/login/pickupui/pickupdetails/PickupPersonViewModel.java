@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.login.DatabaseConnection.MySqlConnector;
 import com.example.login.Models.PickupPersonProfileModel;
-import com.example.login.Models.UserAddressModel;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

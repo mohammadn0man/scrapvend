@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,7 +23,6 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.login.DatabaseConnection.MySqlConnector;
 import com.example.login.Models.PickupPersonProfileModel;
 import com.example.login.R;
-import com.example.login.userUi.profile.ProfileFragment;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

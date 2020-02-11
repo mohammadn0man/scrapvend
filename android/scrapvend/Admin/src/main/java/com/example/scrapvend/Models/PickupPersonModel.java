@@ -5,9 +5,17 @@ import android.graphics.Bitmap;
 import java.sql.Blob;
 
 public class PickupPersonModel {
-    String name, aadhar_no, status, Username, Address;
+    String name, aadhar_no, status, Username, Address,Date;
     String id, rating,salary;
     int t1,t2,t3,t4;
+
+    public String getDate() {
+        return Date;
+    }
+
+    public void setDate(String date) {
+        Date = date;
+    }
 
     public String getAddress() {
         return Address;
@@ -146,6 +154,16 @@ public class PickupPersonModel {
     public PickupPersonModel()
     {
 
+    }
+    public PickupPersonModel(String name,String id,int t1,int t2,int t3,int t4,String Date)
+    {
+        this.name=name;
+        this.id=id;
+        this.t1=t1;
+        this.t2=t2;
+        this.t3=t3;
+        this.t4=t4;
+        this.Date=Date;
     }
     public PickupPersonModel(String name,String id,int t1,int t2,int t3,int t4)
     {
