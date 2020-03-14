@@ -13,6 +13,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import androidx.appcompat.widget.Toolbar;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.login.Adapters.ItemQuantityAdapter;
 import com.example.login.DatabaseConnection.MySqlConnector;
@@ -25,8 +28,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 
 public class ItemQuantity extends AppCompatActivity implements View.OnClickListener {
@@ -49,6 +50,11 @@ public class ItemQuantity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.itemquantity);
+
+        Toolbar toolbar=findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Item List");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //final View root;
         Log.d(TAG, "Hello from Home");

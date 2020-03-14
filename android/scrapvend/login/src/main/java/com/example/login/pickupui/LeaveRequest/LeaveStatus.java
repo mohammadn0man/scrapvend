@@ -21,6 +21,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import static com.example.login.MainActivity.user;
@@ -41,6 +42,13 @@ public class LeaveStatus extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.leavestatuslayout);
+
+
+        Toolbar toolbar=findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Leave Status");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         timeSlot1 = findViewById(R.id.timeSlot1);
         timeSlot2 = findViewById(R.id.timeSlot2);
         timeSlot3 = findViewById(R.id.timeSlot3);

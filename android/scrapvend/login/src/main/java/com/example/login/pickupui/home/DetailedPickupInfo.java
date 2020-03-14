@@ -21,6 +21,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.example.login.Adapters.ItemQuantityAdapter;
 import com.example.login.Models.Details;
 import com.example.login.R;
@@ -35,7 +38,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSelectedListener
+public class DetailedPickupInfo extends AppCompatActivity implements AdapterView.OnItemSelectedListener
 {   TextView textName;
     TextView textAddress,textQty;
     String ad;
@@ -54,6 +57,13 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detailed_pickup_list);
+
+
+        Toolbar toolbar=findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Detailed View");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         textName =findViewById(R.id.textName);
         textAddress=findViewById(R.id.textAddress);
         textContact=findViewById(R.id.textContact);
@@ -191,8 +201,6 @@ public class DetailedPickupInfo extends Activity implements AdapterView.OnItemSe
                 Log.d(TAG, results.getString(1));
                 String scheduledDate=results.getString("Scheduled_pickup_date");
                 String scheduledTime= results.getString("Scheduled_time_slot") ;
-               // String pickupDate=results.getString("Pickup_date_time");
-               // String pickupTime=results.getString("Pickup_date_time");
                 textName.setText(results.getString("Name"));
                 ad = results.getString("House_no") + ", " + results.getString("Line_1") + "\n " + results.getString("City") + ", " + results.getString("State");
                 textbookingid.setText(results.getString("Booking_id"));
