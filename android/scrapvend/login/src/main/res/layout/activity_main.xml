@@ -7,6 +7,9 @@
     android:orientation="vertical"
     android:background="@drawable/download">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
 
     <EditText
         android:layout_width="300dp"

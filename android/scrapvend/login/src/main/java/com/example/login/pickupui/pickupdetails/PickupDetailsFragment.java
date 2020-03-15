@@ -39,8 +39,6 @@ public class PickupDetailsFragment extends Fragment {
     public PickupPersonProfileModel pickupPersonProfileModel=new PickupPersonProfileModel();
     public ViewHolder viewHolder = new ViewHolder();
 
-
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         pickupPersonViewModel =
@@ -54,9 +52,6 @@ public class PickupDetailsFragment extends Fragment {
         viewHolder.email=root.findViewById(R.id.email);
         viewHolder.changePassword=root.findViewById(R.id.change_password);
         viewHolder.address=root.findViewById(R.id.address);
-
-
-
 
         pickupPersonViewModel.getText().observe(this, new Observer<PickupPersonProfileModel>() {
             @Override

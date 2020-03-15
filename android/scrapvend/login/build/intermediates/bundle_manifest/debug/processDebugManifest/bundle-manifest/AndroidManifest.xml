@@ -56,10 +56,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.login.pickupui.home.DetailedPickupInfo" />
-        <activity android:name="com.example.login.pickupui.home.ItemQuantity" />
-        <activity android:name="com.example.login.pickupui.LeaveRequest.LeaveStatus" />
-        <activity android:name="com.example.login.pickupui.home.AmountVerification" />
+        <activity
+            android:name="com.example.login.pickupui.home.DetailedPickupInfo"
+            android:parentActivityName="com.example.login.MainActivity" />
+        <activity
+            android:name="com.example.login.pickupui.home.ItemQuantity"
+            android:parentActivityName="com.example.login.pickupui.home.DetailedPickupInfo" />
+        <activity
+            android:name="com.example.login.pickupui.LeaveRequest.LeaveStatus"
+            android:parentActivityName="com.example.login.MainActivity" />
+        <activity
+            android:name="com.example.login.pickupui.home.AmountVerification"
+            android:parentActivityName="com.example.login.pickupui.home.DetailedPickupInfo" />
 
         <provider
             android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"

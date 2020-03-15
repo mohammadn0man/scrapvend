@@ -1,7 +1,6 @@
 package com.example.login.pickupui.home;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -15,30 +14,22 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.appcompat.widget.Toolbar;
 import com.example.login.Adapters.ItemQuantityAdapter;
 import com.example.login.DatabaseConnection.MySqlConnector;
 import com.example.login.MainActivity;
 import com.example.login.R;
-import com.example.login.login.registration_user;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Random;
 
 public class AmountVerification extends AppCompatActivity {
@@ -46,6 +37,7 @@ public class AmountVerification extends AppCompatActivity {
     Button sendOtpButton, updateButton;
     EditText editOtp;
     ProgressBar pBar;
+    Toolbar toolbar;
     String amount;
     String bookingId,contact_num;
     Context context;
@@ -57,13 +49,20 @@ public class AmountVerification extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.amount_verification_layout);
 
+        Toolbar toolbar=findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("AMOUNT VERIFICATION");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         textView=findViewById(R.id.textViewI);
         updateButton=findViewById(R.id.updateButton);
         sendOtpButton=findViewById(R.id.sendOtpButton);
         editOtp=findViewById(R.id.editOtp);
         pBar=findViewById(R.id.progressBar);
-
+     //   toolbar=findViewById(R.id.my_toolbar);
         context = this.getApplicationContext();
+
+     //   setSupportActionBar(toolbar);
 
         bookingId = getIntent().getStringExtra("id");
         contact_num=getIntent().getStringExtra("contact_num");

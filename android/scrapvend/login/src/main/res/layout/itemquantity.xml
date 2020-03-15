@@ -6,10 +6,26 @@
     android:minWidth="25px"
     android:minHeight="25px">
 
+<!--    <android.support.v7.widget.Toolbar-->
+<!--        android:id="@+id/toolbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/colorPrimary" />-->
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:background="@color/Green"-->
+<!--        />-->
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
     <ListView
         android:id="@+id/itemListView"
         android:layout_width="match_parent"
-        android:layout_height="1000dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:background="@color/Azure"
         android:descendantFocusability="afterDescendants"
         android:focusable="auto"
