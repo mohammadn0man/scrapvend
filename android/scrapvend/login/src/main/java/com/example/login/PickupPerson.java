@@ -5,8 +5,10 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -20,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.Toast;
 
 public class PickupPerson extends AppCompatActivity {
 
@@ -51,6 +54,18 @@ public class PickupPerson extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.pickup_person, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id=item.getItemId();
+        if(id==R.id.action_settings) {
+            Toast.makeText(getApplicationContext(), "Quiting app", Toast.LENGTH_SHORT).show();
+            finish();
+            System.exit(0);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

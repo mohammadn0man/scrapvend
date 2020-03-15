@@ -23,11 +23,15 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="false" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="380ebe5a-dedd-4840-bb10-753bf9548e87">
+        <schema name="bvYGbRyIOE" object-types="table, view" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="380ebe5a-dedd-4840-bb10-753bf9548e87">
-      <console name="scrap vend" type="STANDARD" schema="bvYGbRyIOE" session="Main"><![CDATA[UPDATE `booking_details` SET `Pickup_status`= Pickup Completed ,`Pickup_date_time`= "2020/02/01 21:14:44", `Total_quantity`=123.0 where Booking_id=40]]></console>
+      <console name="scrap vend" type="STANDARD" schema="bvYGbRyIOE" session="Main">UPDATE `booking_details` SET `Pickup_status`= Pickup Completed ,`Pickup_date_time`= &quot;2020/02/01 21:14:44&quot;, `Total_quantity`=123.0 where Booking_id=40</console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

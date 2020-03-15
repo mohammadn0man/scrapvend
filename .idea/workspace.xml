@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c33317c-3a41-4e30-8e8f-e20f72743b04" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/scrapvend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/scrapvend/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/scrapvend/.idea/dbnavigator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/scrapvend/Admin/src/main/java/com/example/scrapvend/ui/pickupinfo/PickupInfoPendingPickup.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/scrapvend/Admin/src/main/java/com/example/scrapvend/ui/pickupinfo/PickupInfoPendingPickup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/scrapvend/login/build/intermediates/bundle_manifest/debug/processDebugManifest/bundle-manifest/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/scrapvend/login/build/intermediates/bundle_manifest/debug/processDebugManifest/bundle-manifest/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/scrapvend/login/src/main/java/com/example/login/Adapters/LeaveStatusAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/scrapvend/login/src/main/java/com/example/login/Adapters/LeaveStatusAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/scrapvend/login/src/main/java/com/example/login/pickupui/home/AmountVerification.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/scrapvend/login/src/main/java/com/example/login/pickupui/home/AmountVerification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/scrapvend/login/src/main/java/com/example/login/pickupui/home/DetailedPickupInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/scrapvend/login/src/main/java/com/example/login/pickupui/home/DetailedPickupInfo.java" afterDir="false" />
-    </list>
+    <list default="true" id="3c33317c-3a41-4e30-8e8f-e20f72743b04" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +11,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="683" />
     <option name="width" value="683" />
     <option name="height" value="738" />
@@ -77,8 +69,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1384" height="738" extended-state="7" />
-    <editor active="true" />
+    <frame x="-9" y="-9" width="1384" height="738" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" weight="0.1529052" />
       <window_info id="Structure" side_tool="true" />

@@ -48,10 +48,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".pickupui.home.DetailedPickupInfo"/>
-        <activity android:name=".pickupui.home.ItemQuantity"/>
-        <activity android:name=".pickupui.LeaveRequest.LeaveStatus"/>
-        <activity android:name=".pickupui.home.AmountVerification"/>
+        <activity android:name=".pickupui.home.DetailedPickupInfo"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".pickupui.home.ItemQuantity"
+            android:parentActivityName=".pickupui.home.DetailedPickupInfo"/>
+        <activity android:name=".pickupui.LeaveRequest.LeaveStatus"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".pickupui.home.AmountVerification"
+            android:parentActivityName=".pickupui.home.DetailedPickupInfo"/>
     </application>
 
 </manifest>

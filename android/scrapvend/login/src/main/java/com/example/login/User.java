@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -17,6 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 public class User extends AppCompatActivity {
 
@@ -58,6 +61,17 @@ public class User extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.user, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id=item.getItemId();
+        if(id==R.id.action_settings) {
+            Toast.makeText(getApplicationContext(), "Quiting app", Toast.LENGTH_SHORT).show();
+            finish();
+            System.exit(0);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
