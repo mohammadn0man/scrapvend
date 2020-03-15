@@ -46,6 +46,7 @@ public class AmountVerification extends AppCompatActivity {
     Button sendOtpButton, updateButton;
     EditText editOtp;
     ProgressBar pBar;
+    String amount;
     String bookingId,contact_num;
     Context context;
     float total_quantity=0,total_amount=0;
@@ -66,6 +67,7 @@ public class AmountVerification extends AppCompatActivity {
 
         bookingId = getIntent().getStringExtra("id");
         contact_num=getIntent().getStringExtra("contact_num");
+        amount=getIntent().getStringExtra("amount");
 
         sendOtpButton.setOnClickListener(new View.OnClickListener() {
 
@@ -120,7 +122,7 @@ public class AmountVerification extends AppCompatActivity {
                 String apiKey = "apikey=" + "Zc0isGFes+4-emDqtMH1gjl4hqZXiiU0FdcB5nx2vb";
                 Random random = new Random();
                 randomNumber = random.nextInt(9999);
-                String message = "&message=" + "Hey " +" Your OTP is " + randomNumber + ". Thankyou, Team Scrapvend";
+                String message = "&message=" + "Hey " +"Your total amount is -"+amount+" and  OTP is " + randomNumber + ". Thankyou, Team Scrapvend";
                 String sender = "&sender=" + "TXTLCL";
                 String numbers = "&numbers=91" + contact_num;
 
