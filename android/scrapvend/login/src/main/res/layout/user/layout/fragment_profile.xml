@@ -117,7 +117,8 @@
             android:textAlignment="center"
             android:textSize="20sp"
             android:text="Addresses"
-            android:textColor="@color/Black"/>
+            android:textColor="@color/Black"
+            android:gravity="center_horizontal" />
 
         <View
             android:layout_width="match_parent"
