@@ -27,7 +27,7 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class ItemQuantityAdapter extends ArrayAdapter<ItemQuantityModel> {
 
-    ArrayList<ItemQuantityModel> itemlist;
+    public static ArrayList<ItemQuantityModel> itemlist;
     //  private LayoutInflater inflater;
     //  public  ArrayList myItems=new ArrayList();
     Context context;
